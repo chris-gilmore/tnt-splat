@@ -571,7 +571,7 @@ void Game_Init(u8 numPlayers, u8 *handicap_arr) {
   gameVars.unk8 = game_ptr->unkE4F8;
   gameVars.gameType = game_ptr->gameType;
   for (k = 0; k < numPlayers; k++) {
-    game_ptr->tetris_ptr_arr[k] = (Tetris *)n64HeapAlloc(0x6848);
+    game_ptr->tetris_ptr_arr[k] = (Tetris *)n64HeapAlloc(sizeof(Tetris));
     Game_SetGlobalPointers(k);
     PlayerVars_SetGlobalPointers(k);
     temp_s5 = &g_PV_ptr->unk28;  // UnkStruct_1
