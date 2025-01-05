@@ -2,38 +2,31 @@
 
 LineScan *g_lineScan_ptr;
 
-// static
-extern void   LineScan_80069830_elevenliner_loops_20_times(LineScan *);
+static void   LineScan_80069830_elevenliner_loops_20_times(LineScan *);
 // static
 extern void   LineScan_800698e0_largeliner_loops_20_times_plays_sfx(LineScan *);
 static s32    LineScan_80069cf0_eighliner_loops_10_times_retbool(LineScan *, s32);
 static void   LineScan_80069d60_fifteenliner_loops_20_times(LineScan *);
 static void   LineScan_80069e2c_fiveliner(LineScan *);
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/linescan/LineScan_80069830_elevenliner_loops_20_times.s")
-/*
-// static
-void LineScan_80069830_elevenliner_loops_20_times(LineScan *arg0) {
-  s32 var_s1;
-  u32 var_s0;
 
-  var_s0 = 0;
-  var_s1 = 1;
-  if (0U < 0x14U) {
-    do {
-      if (LineEffect_Update(arg0 + (var_s0 * 0x30) + 0x2C, 1) != 1) {
-        var_s1 = 0;
-      }
-      var_s0 += 1;
-    } while (var_s0 < 0x14U);
+static void LineScan_80069830_elevenliner_loops_20_times(LineScan *lineScan_ptr) {
+  register u32 i;
+  register u32 var_s1 = TRUE;
+  register u32 var_s2;
+
+  for (i = 0; i < 20; i++) {
+    var_s2 = LineEffect_Update(&lineScan_ptr->unk2C[i], 1);
+    if (var_s2 != 1) {
+      var_s1 = FALSE;
+    }
   }
-  if (var_s1 != 0) {
-    arg0->unk0 = 0;
-    arg0->unk1 = 2;
-    arg0->unk2 = 1;
+  if (var_s1) {
+    lineScan_ptr->unk0 = 0;
+    lineScan_ptr->unk1 = 2;
+    lineScan_ptr->unk2 = 1;
   }
 }
-*/
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/linescan/LineScan_800698e0_largeliner_loops_20_times_plays_sfx.s")
 /*

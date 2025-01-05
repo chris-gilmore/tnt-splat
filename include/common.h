@@ -41,6 +41,7 @@
 #include "newtetris/04BFD0.h"
 #include "newtetris/cubetiles.h"
 #include "newtetris/board.h"
+#include "newtetris/lineeffect.h"
 #include "newtetris/linescan.h"
 #include "newtetris/keyspin.h"
 #include "newtetris/pfgfx.h"

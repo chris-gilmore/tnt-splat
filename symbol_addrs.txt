@@ -536,7 +536,7 @@ NextPieces_80068b7c_largeliner_sets_lots_of_struct_elems   = 0x80068B7C; // type
 NextPieces_Init                                            = 0x80068F10; // type:func
 NextPieces_Deinit                                          = 0x80068FDC; // type:func
 
-//      - {start: 0x02F270, type: asm, vram: 0x80068FF0, name: newtetris/lineeffect}
+//      - {start: 0x02F270, type:   c, vram: 0x80068FF0, name: newtetris/lineeffect}
 LineEffect_80068ff0_elevenliner                            = 0x80068FF0; // type:func
 LineEffect_800690e4_eightliner_loops_10_times              = 0x800690E4; // type:func
 LineEffect_80069160_seventeen_liner                        = 0x80069160; // type:func
