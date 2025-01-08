@@ -131,20 +131,20 @@ static s32 LineScan_80069cf0_eighliner_loops_10_times_retbool(LineScan *lineScan
 
 static void LineScan_80069d60_fifteenliner_loops_20_times(LineScan *lineScan_ptr) {
   register s32 var_s0;
-  register UnkStruct_5 *var_s1; // u8 to Position
+  register UnkStruct_5 *var_s1;
   register s32 i;
 
   var_s0 = 0;
-  var_s1 = lineScan_ptr->pad3;
-  for (i = 0; i < 20; i++, var_s1++) { // += from 2 to ++
-    var_s1->y = 0;
-    if ((var_s1->x != 0) && (lineScan_ptr->unk3F4 >= i)) {
+  var_s1 = lineScan_ptr->unk3;
+  for (i = 0; i < 20; i++, var_s1++) {
+    var_s1->unk1 = 0;
+    if ((var_s1->unk0 != 0) && (lineScan_ptr->unk3F4 >= i)) {
       if (FALSE);
       if (LineScan_80069cf0_eighliner_loops_10_times_retbool(lineScan_ptr, i)) {
-        var_s1->y = 1;
+        var_s1->unk1 = 1;
         var_s0++;
       }
-      var_s1->x = 0;
+      var_s1->unk0 = 0;
     }
   }
   lineScan_ptr->unk3F0 = var_s0;
@@ -165,7 +165,7 @@ void LineScan_80069e84_sevenliner_loops_20_times(void) {
   register s32 i;
 
   for (i = 0; i < 20; i++) {
-    lineScan_ptr->pad3[i].x = 1; //
+    lineScan_ptr->unk3[i].unk0 = 1;
   }
 }
 
@@ -176,7 +176,7 @@ void LineScan_80069ec0_sevenliner_loops_4_times(void) {
 
   var_a1 = g_currentPiece_ptr->minoLockedPos_arr;
   for (i = 4; i > 0; i--, var_a1++) {
-    g_lineScan_ptr->pad3[var_a1->y].x = 1;  // remove *2 and added .x
+    g_lineScan_ptr->unk3[var_a1->y].unk0 = 1;
   }
 }
 
@@ -197,7 +197,7 @@ void LineScan_Init(void) {
   lineScan_ptr->unk0 = 0;
   lineScan_ptr->unk1 = 0;
   for (i = 0; i < 20; i++) {
-    lineScan_ptr->pad3[i].x = 0;  // remove *2 and added .x
+    lineScan_ptr->unk3[i].unk0 = 0;
   }
 }
 

@@ -2,15 +2,15 @@
 #define _LINESCAN_H_
 
 typedef struct {
-  /* 0x0 */ u8   x; // todo: change x,y to unk0,unk1 or something else
-  /* 0x1 */ u8   y;
+  /* 0x0 */ u8   unk0;
+  /* 0x1 */ u8   unk1;
 } UnkStruct_5; // 0x2 bytes
 
 typedef struct {
   /* 0x0   */ u8           unk0;
   /* 0x1   */ u8           unk1;
   /* 0x2   */ u8           unk2;
-  /* 0x3   */ UnkStruct_5  pad3[20]; // todo change pad3 to unk3 here and where referenced
+  /* 0x3   */ UnkStruct_5  unk3[20];
   /* 0x2C  */ LineEffect   unk2C[20];
   /* 0x3EC */ s32          unk3EC;
   /* 0x3F0 */ s32          unk3F0;
