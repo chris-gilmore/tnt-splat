@@ -2,7 +2,7 @@
 #define _NEXTPIECES_H_
 
 typedef struct {
-  /* 0x0  */ Point   unk0[4];
+  /* 0x0  */ Point   unk0[4];  // physical pos
   /* 0x10 */ u8      unk10;
   /* 0x11 */ u8      unk11;
   /* 0x12 */ u16     unk12;

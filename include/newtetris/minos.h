@@ -95,6 +95,7 @@ typedef struct {
   /* 0x1E */ u8      unk1E;  // see Minos_SetVtxTransform()
   /* 0x20 */ Vtx     unk20[4];
 } UnkStruct_0; // 0x60 bytes
+// TODO: Rename this to Minos
 
 extern UnkStruct_0 *D_8011FC10;
 

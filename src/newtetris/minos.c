@@ -19,7 +19,7 @@ static s32 D_8011FC14;  // unused
 static UnkStruct_22 D_8011FC18;
 static u8 D_8011FC54;
 
-extern void   Minos_8006f260_eightliner_calls_8007641c_4_times(Mino *);
+static void   Minos_8006f260_eightliner_calls_8007641c_4_times(Mino *);
 static void   Minos_8006f300_eightliner_calls_80076458_4_times(Mino *);
 static void   func_8006F39C(UnkStruct_8 *);
 static void   Minos_8006f4b4_thirtyliner_interesting(UnkStruct_8 *);
@@ -29,7 +29,7 @@ static void   Minos_8006f994_sets_struct_0_to_0x23(s8 *, s8 *);
 static void   Minos_8006fc8c_twentyfive_liner(u8, u8);
 static void   Minos_800704e0_threeliner_sets_0x130(Mino *);
 
-void Minos_8006f260_eightliner_calls_8007641c_4_times(Mino *arg0) {
+static void Minos_8006f260_eightliner_calls_8007641c_4_times(Mino *arg0) {
   register UnkStruct_22 *var_s0 = &D_8011FC18;
   register UnkStruct_24 *var_s1 = &D_8011FC18.unk28->unk14;
 

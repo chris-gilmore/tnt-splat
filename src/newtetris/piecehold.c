@@ -150,6 +150,7 @@ static void PieceHoldPiece_Render(PieceHoldPiece *pieceHoldPiece_ptr) {
   piece->physicalRotOrigin   = pieceHoldPiece_ptr->physicalRotOrigin;
   piece->physicalPos         = pieceHoldPiece_ptr->physicalPos;
   piece->physicalCkwRotValue = pieceHoldPiece_ptr->physicalCkwRotValue;
+  //  rmonPrintf("--> Hold piece render (%d, %d)\n", piece->physicalPos.x, piece->physicalPos.y);
   MobilePiece_Render(piece);
 }
 
