@@ -16,6 +16,8 @@ typedef struct {
 
 extern Landfill *g_landfill_ptr;
 
+extern void      func_80072300(s32);
+extern void      func_8007232C(void);
 extern void      Landfill_800723a0_calls_garbage_fun(u8, u8, u8);
 extern void      Landfill_8007240c_fiveliner(u8, u8);
 extern void      func_80072508(u8);

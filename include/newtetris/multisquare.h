@@ -19,8 +19,13 @@ typedef struct {
 
 extern UnkStruct_12 *D_8011FBA0;
 
-extern void    Multisquare_8006a3ec_twoliner(UnkStruct_11 *);
-extern void    Multisquare_8006a410_fourliner(UnkStruct_11 *, u8 *);
-extern Color  *Multisquare_pGetColor(UnkStruct_11 *);
+extern UnkStruct_11  *Multisquare_8006a050_extralarge_manyloops_interesting(s32, s32, u8);
+extern void           Multisquare_8006a3ec_twoliner(UnkStruct_11 *);
+extern void           Multisquare_8006a410_fourliner(UnkStruct_11 *, u8 *);
+extern Color         *Multisquare_pGetColor(UnkStruct_11 *);
+extern s32            Multisquares_Test4x4byType(s32, s32, u8);
+extern s32            Multisquare_8006a6bc_oneliner_calls_fun(void *);
+extern void           Multisquare_8006a6f0_threeliner_sets_arg0_stuff(UnkStruct_12 *);
+extern void           Multisquare_8006a708_fiveliner_sets_arg0_stuff(UnkStruct_12 *);
 
 #endif /* !_MULTISQUARE_H_ */

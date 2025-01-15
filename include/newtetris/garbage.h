@@ -12,5 +12,6 @@ extern void   Garbage_Deinit(Garbage *);
 extern void   Garbage_80072e2c_set_arg0p_to_arg1(Garbage *, s8);
 extern u8     func_80072F1C(s32);
 extern void   func_80072FC4(void);
+extern void   func_80073030(u32);
 
 #endif /* !_GARBAGE_H_ */

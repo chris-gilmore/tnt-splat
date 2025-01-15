@@ -217,7 +217,6 @@ void gamefinish_something2(UnkStruct_20 *arg0, s32 gf_type, u8 arg2) {
   arg0->unkC.alpha = 255.0f;
   arg0->unkC.unk8 = 0.0f;
   arg0->unkC.unk4 = (0.0f - arg0->unkC.alpha) / 32.0f;
-  // TODO
   arg0->gf_type = gf_type;
   arg0->unk18 = TRUE;
   arg0->unk38 = arg2;

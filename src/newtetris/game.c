@@ -207,7 +207,7 @@ static s32 Game_80051104_sevenliner_num_players(Game *game_ptr) {
 }
 
 static void Game_game_over_related(Game *game_ptr, u32 playerNum, s32 gf_type) {
-  FrameAct_calls_gamefinish_something2(&game_ptr->tetris_ptr_arr[playerNum]->unk8, gf_type);
+  FrameAct_calls_gamefinish_something2(&game_ptr->tetris_ptr_arr[playerNum]->frameAct, gf_type);
   game_ptr->tetris_ptr_arr[playerNum]->unk2 = FALSE;
   func_800726A4(&game_ptr->landfill, playerNum);
   game_ptr->unkE50A = playerNum;
@@ -242,7 +242,7 @@ static u8 isGoalCompleted(Game *game_ptr) {
 static void Game_80051320_fiveliner(Game *game_ptr, u8 playerNum) {
   register Tetris *tetris_ptr = game_ptr->tetris_ptr_arr[playerNum];
 
-  if (tetris_ptr->unk8.unk3) {
+  if (tetris_ptr->frameAct.unk3) {
     if (g_playercount == 1) {
       Game_game_over_related(game_ptr, playerNum, GAMEFINISHTYPE_GAMEOVER);
     } else {
@@ -349,7 +349,7 @@ static void Game_80051880_sixliner(Game *game_ptr) {
   register s32 i;
 
   for (i = 0; i < game_ptr->numPlayers; i++) {
-    gamefinish_80052D48_twoliner(&game_ptr->tetris_ptr_arr[i]->unk8.unk10);
+    gamefinish_80052D48_twoliner(&game_ptr->tetris_ptr_arr[i]->frameAct.unk10);
   }
 }
 

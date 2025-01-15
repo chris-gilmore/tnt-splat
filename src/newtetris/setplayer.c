@@ -10,7 +10,7 @@ void Game_SetGlobalPointers(u8 playerNum) {
   g_landfill_ptr     = &game_ptr->landfill;
 
   g_garbage_ptr      =  g_tetris_ptr->garbage_ptr;
-  D_8011F220         = &g_tetris_ptr->unk8;
+  g_frameAct_ptr     = &g_tetris_ptr->frameAct;
   D_8011FC10         = &g_tetris_ptr->unk7D0;
   g_lineScan_ptr     = &g_tetris_ptr->lineScan;
   D_8011FBA0         = &g_tetris_ptr->unk44C;

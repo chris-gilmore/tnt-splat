@@ -35,6 +35,19 @@ Color *Multisquare_pGetColor(UnkStruct_11 *arg0) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/multisquare/Multisquare_8006a6bc_oneliner_calls_fun.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/multisquare/Multisquare_8006a6f0_threeliner_sets_arg0_stuff.s")
+void Multisquare_8006a6f0_threeliner_sets_arg0_stuff(UnkStruct_12 *arg0) {
+  arg0->unk2 = 45;  // square formation delay
+  arg0->unk0 = 2;
+  arg0->unk1 = 0;
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/multisquare/Multisquare_8006a708_fiveliner_sets_arg0_stuff.s")
+void Multisquare_8006a708_fiveliner_sets_arg0_stuff(UnkStruct_12 *arg0) {
+  if (arg0->unk2 == 0) {
+    arg0->unk0 = 0;
+    arg0->unk1 = 2;
+    return;
+  }
+
+  arg0->unk1 = 0;
+  arg0->unk2--;
+}

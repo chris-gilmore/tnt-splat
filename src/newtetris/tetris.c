@@ -94,9 +94,9 @@ u8 Tetris_Update(Tetris *tetris_ptr) {
   if (tetris_ptr->unk2 && (D_800CFEE8 != 0xC)) {
     Tetris_CheckButtons();
   }
-  FrameAct_ScheduleEvents(&tetris_ptr->unk8, D_801109F4);
+  FrameAct_ScheduleEvents(&tetris_ptr->frameAct, D_801109F4);
   debug_print2("Tetris_Update", "FrameAct_ScheduleEvents");
-  if (D_8011F220->unk1 == 1) {
+  if (g_frameAct_ptr->unk1 == 1) {
     tetris_ptr->unk0 = 0;
   }
   if (tetris_ptr->unk2 && !tetris_ptr->unk3) {
@@ -118,7 +118,7 @@ u8 Tetris_Update(Tetris *tetris_ptr) {
   if (tetris_ptr->unk3) {
     tetris_ptr->unk1 = 2;
   }
-  if (tetris_ptr->unk8.unk3) {
+  if (tetris_ptr->frameAct.unk3) {
     tetris_ptr->unk1 = 1;
   }
   return tetris_ptr->unk1;
@@ -139,7 +139,7 @@ void Tetris_Render(Tetris *tetris_ptr) {
   debug_print2("AFTER", "GameStats_Render");
   Multisquares_RenderGlows(&tetris_ptr->unk44C);
   debug_print2("AFTER", "Multisquares_RenderGlows");
-  FrameAct_Render(&tetris_ptr->unk8);
+  FrameAct_Render(&tetris_ptr->frameAct);
   debug_print2("AFTER", "FrameAct_Render");
 }
 
@@ -217,7 +217,7 @@ void Tetris_Init(Tetris *tetris_ptr, GameVars *gameVars_ptr) {
   GameStats_Init(&tetris_ptr->gameStats);
   PFGFX_Init(&boardlocation, &tetris_ptr->pfGfx);
   BoardInfo_Init(&tetris_ptr->boardInfo, boardlocation, D_8011FC10->unk2 >> 8);
-  FrameAct_Init(&tetris_ptr->unk8, &tetris_ptr->pieceHold, &tetris_ptr->unk6840, &tetris_ptr->boardInfo);
+  FrameAct_Init(&tetris_ptr->frameAct, &tetris_ptr->pieceHold, &tetris_ptr->unk6840, &tetris_ptr->boardInfo);
   tetris_ptr->garbage_ptr = Landfill_Garbage();
   g_garbage_ptr = tetris_ptr->garbage_ptr;
   Garbage_Init(tetris_ptr->garbage_ptr, &seed);
@@ -248,12 +248,13 @@ void Tetris_Init(Tetris *tetris_ptr, GameVars *gameVars_ptr) {
     break;
   }
   tetris_ptr->gameStats.elapsedTime = 0;
-  FrameAct_set_DAT_8011f220(1);
+  // sets initial state (to 1) for FrameAct_ScheduleEvents
+  FrameAct_set_state(1);
 }
 
 void Tetris_Deinit(Tetris *tetris_ptr) {
   FrameAct_Deinit_doesnothing(&tetris_ptr->unk6840);
-  FrameAct_Deinit(&tetris_ptr->unk8);
+  FrameAct_Deinit(&tetris_ptr->frameAct);
   PieceHold_Deinit(&tetris_ptr->pieceHold);
   Board_Deinit(&tetris_ptr->board);
   Minos_Deinit_doesnothing(&tetris_ptr->unk7D0);

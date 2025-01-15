@@ -270,7 +270,7 @@ GameStats_Init                         = 0x80052A28; // type:func
 GameStats_Deinit                       = 0x80052A90; // type:func note does nothing
 
 
-//      - {start: 0x018D20, type: asm, vram: 0x80052AA0, name: newtetris/gamefinish}
+//      - {start: 0x018D20, type:   c, vram: 0x80052AA0, name: newtetris/gamefinish}
 gamefinish_80052AA0_tenliner                  = 0x80052AA0; // type:func static
 gamefinish_80052B30_tenliner                  = 0x80052B30; // type:func static
 gamefinish_c_line_127                         = 0x80052BE4; // type:func static
@@ -294,7 +294,7 @@ gamefinish_8005344C_fiveliner                 = 0x8005344C; // type:func        
 gamefinish_800534A4_fiveliner                 = 0x800534A4; // type:func         note called from Game_Deinit
 
 
-//      - {start: 0x019780, type: asm, vram: 0x80053500, name: newtetris/playervars}
+//      - {start: 0x019780, type:   c, vram: 0x80053500, name: newtetris/playervars}
 FUN_80053500_fiveliner                 = 0x80053500; // type:func note sets D_800CFED4 (numplayers?) = 1
 FUN_80053538_fiveliner                 = 0x80053538; // type:func
 PV_set_controller_no                   = 0x800535A0; // type:func
@@ -302,8 +302,8 @@ FUN_800535B8_fiveliner                 = 0x800535B8; // type:func
 func_8005360C                          = 0x8005360C; // type:func unused  note never called
 
 
-//      - {start: 0x0198F0, type: asm, vram: 0x80053670, name: newtetris/frameact}
-FrameAct_set_DAT_8011f220                     = 0x80053670; // type:func  note only called by Tetris_Init with arg0 = 1, function sets DAT_8011f220->unk0 = arg0
+//      - {start: 0x0198F0, type:   c, vram: 0x80053670, name: newtetris/frameact}
+FrameAct_set_state                            = 0x80053670; // type:func  note only called by Tetris_Init with state = 1, function sets g_frameAct_ptr->state = state
 FrameAct_80053684_threeliner                  = 0x80053684; // type:func static
 FrameAct_calls_increment_game_time_seconds2   = 0x800536BC; // type:func static
 FrameAct_80053760_mediumliner                 = 0x80053760; // type:func static
@@ -1113,7 +1113,10 @@ D_800D0524                = 0x800D0524; // type:u8    size:0x1    unused
 D_800D0530                = 0x800D0530; //            size:0x4    static  Point
 D_800D0534                = 0x800D0534; //            size:0x4    static  Point
 
+//      - {start: 0x0967C0, type: .data, vram: 0x800D0540, name: newtetris/linescan}
+D_800D0540                = 0x800D0540; // type:u8    size:0x1
 
+//      - {start: 0x0967D0, type: data, vram: 0x800D0550, name: newtetris/0967D0}
 D_800D0550                = 0x800D0550; // type:s32   size:0x4
 
 // - {start: 0x0967E0, type: .data, vram: 0x800D0560, name: newtetris/minos}
@@ -1302,7 +1305,7 @@ g_PV_arr                  = 0x8011EF30; //            size:0x2E0          Player
 g_PV_ptr                  = 0x8011F210; //            size:0x4            PlayerVars*
 
 // - {type: .bss, vram: 0x8011F220, name: newtetris/frameact}
-D_8011F220                = 0x8011F220; //            size:0x4            UnkStruct_6*
+g_frameAct_ptr            = 0x8011F220; //            size:0x4            FrameAct*
 
 // - {type: .bss, vram: 0x8011F230, name: newtetris/tetris}
 g_tetris_ptr              = 0x8011F230; //            size:0x4            Tetris*

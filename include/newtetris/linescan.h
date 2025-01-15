@@ -13,7 +13,7 @@ typedef struct {
   /* 0x3   */ UnkStruct_5  unk3[20];
   /* 0x2C  */ LineEffect   unk2C[20];
   /* 0x3EC */ s32          unk3EC;
-  /* 0x3F0 */ s32          unk3F0;
+  /* 0x3F0 */ u32          unk3F0;
   /* 0x3F4 */ u8           unk3F4;  // lowest scanable line
 } LineScan; // 0x3F8 bytes
 

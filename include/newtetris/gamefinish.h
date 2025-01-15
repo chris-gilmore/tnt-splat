@@ -21,7 +21,7 @@ typedef struct {
   /* 0x2 */ u16   height;
   //  /* 0x4 */ u8   *data;
 } UnkStruct_21; // 0x4 bytes
-// ImageAsset maybe?
+// TODO: rename to ImageAsset maybe?
 
 typedef struct {
   /* 0x0  */ UnkStruct_21  *image;

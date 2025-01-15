@@ -387,7 +387,8 @@ segments:
       - {start: 0x096740, type: .data, vram: 0x800D04C0, name: newtetris/piecehold}
       - {start: 0x0967A0, type: .data, vram: 0x800D0520, name: newtetris/currentpiece}
       - {start: 0x0967B0, type: .data, vram: 0x800D0530, name: newtetris/nextpieces}
-      - {start: 0x0967C0, type: data, vram: 0x800D0540, name: newtetris/0967C0}
+      - {start: 0x0967C0, type: .data, vram: 0x800D0540, name: newtetris/linescan}
+      - {start: 0x0967D0, type: data, vram: 0x800D0550, name: newtetris/0967D0}
       - {start: 0x0967E0, type: .data, vram: 0x800D0560, name: newtetris/minos}
       #- {start: 0x0967E8, type: gfx, vram: 0x800D0568, name: newtetris/minos_dl}
       - {start: 0x096840, type: data, vram: 0x800D05C0, name: newtetris/096840}
