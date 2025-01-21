@@ -1,6 +1,6 @@
 #include "common.h"
 
-static void   GhostPiece_8006677c_fourliner_loops(GhostPiece *);
+static void GhostPiece_8006677c_fourliner_loops(GhostPiece *);
 
 void GhostPiece_800666d0_sixliner_loops_arg1_times(GhostPiece *ghostPiece_ptr, s32 arg1) {
   register s32 i;
@@ -15,7 +15,7 @@ void GhostPiece_Render(GhostPiece *ghostPiece_ptr) {
   register Piece *piece_ptr;
 
   piece_ptr = &ghostPiece_ptr->piece;
-  if ((ghostPiece_ptr->unk0) && (MobilePiece_800651c8_sevenliner_loops_4_times_v2_retbool(piece_ptr))) {
+  if (ghostPiece_ptr->unk0 && MobilePiece_800651c8_sevenliner_loops_4_times_v2_retbool(piece_ptr)) {
     MobilePiece_Render(piece_ptr);
   }
 }
@@ -50,7 +50,7 @@ void GhostPiece_800667dc_twelveliner_sets_struct(GhostPiece *ghostPiece_ptr, Poi
 // GhostPiece_800668ec_sixliner_inits_struct(&currentPiece_ptr->ghostPiece, g_pieceDef_ptr_arr[currentPiece_ptr->pieceType], currentPiece_ptr->unk538);
 void GhostPiece_800668ec_sixliner_inits_struct(GhostPiece *ghostPiece_ptr, PieceDefinition *pieceDef_ptr, u8 arg2) {
   ghostPiece_ptr->pieceDef_ptr = pieceDef_ptr;
-  ghostPiece_ptr->unk528 = 0XFFFF;
+  ghostPiece_ptr->unk528 = 0xFFFF;
   ghostPiece_ptr->unk524 = 0xFFFF;
   ghostPiece_ptr->unk526 = 0xFFFF;
   ghostPiece_ptr->unk0 = arg2;

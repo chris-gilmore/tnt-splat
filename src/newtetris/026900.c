@@ -26,7 +26,15 @@ void FUN_026900_sets_arg0_struct_to_arg1_arg2(BoundingBox *arg0, s32 arg1, s32 a
   arg0->y_min = var_a3;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/026900/FUN_026900_80060770_sevenliner.s")
+u8 FUN_026900_80060770_sevenliner(UnkStruct_2 *arg0, f32 arg1) {
+    arg0->alpha += arg0->unk4 * arg1;
+    if (((arg0->unk4 < 0.0f) && (arg0->alpha < arg0->unk8)) || ((arg0->unk4 > 0.0f) && (arg0->alpha > arg0->unk8))) {
+        arg0->alpha = arg0->unk8;
+        arg0->unk4 = 0.0f;
+        return FALSE;
+    }
+    return TRUE;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/026900/FUN_026900_PRNG_1.s")
 

@@ -92,11 +92,12 @@ segments:
       - {start: 0x005580, type: asm, vram: 0x8003F300, name: newtetris/005580}
       - {start: 0x006780, type: asm, vram: 0x80040500, name: newtetris/006780}
       - {start: 0x006930, type: asm, vram: 0x800406B0, name: newtetris/006930}
-      - {start: 0x006B30, type: asm, vram: 0x800408B0, name: newtetris/006B30}
+      - {start: 0x006B30, type:   c, vram: 0x800408B0, name: newtetris/006B30}
       - {start: 0x006BB0, type: asm, vram: 0x80040930, name: newtetris/006BB0}
-      - {start: 0x0073F0, type: asm, vram: 0x80041170, name: newtetris/0073F0}
-      - {start: 0x0074E0, type: asm, vram: 0x80041260, name: newtetris/0074E0}
-      - {start: 0x008050, type: asm, vram: 0x80041DD0, name: newtetris/aiplayer}
+      - {start: 0x0073F0, type:   c, vram: 0x80041170, name: newtetris/0073F0}
+      - {start: 0x0074E0, type:   c, vram: 0x80041260, name: newtetris/0074E0}
+      - {start: 0x008050, type: asm, vram: 0x80041DD0, name: newtetris/008050}
+      - {start: 0x008A80, type: asm, vram: 0x80042800, name: newtetris/aiplayer}
       - {start: 0x009A90, type: asm, vram: 0x80043810, name: newtetris/009A90}  
       - {start: 0x00C0D0, type: asm, vram: 0x80045E50, name: newtetris/00C0D0}
       - {start: 0x00C680, type: asm, vram: 0x80046400, name: newtetris/00C680}
@@ -153,7 +154,7 @@ segments:
       - {start: 0x0393B0, type: asm, vram: 0x80073130, name: newtetris/aimedat}
       - {start: 0x039E50, type: asm, vram: 0x80073BD0, name: newtetris/hotpotato}
       - {start: 0x03A750, type:   c, vram: 0x800744D0, name: newtetris/03A750}
-      - {start: 0x03AC20, type: asm, vram: 0x800749A0, name: newtetris/03AC20}
+      - {start: 0x03AC20, type:   c, vram: 0x800749A0, name: newtetris/03AC20}
       - {start: 0x03B700, type: asm, vram: 0x80075480, name: newtetris/03B700}
       - {start: 0x03BB30, type: asm, vram: 0x800758B0, name: newtetris/cubetiles}
       - {start: 0x03C130, type: asm, vram: 0x80075EB0, name: newtetris/03C130}
@@ -368,6 +369,8 @@ segments:
 
       - {start: 0x08B810, type: .data, vram: 0x800C5590, name: newtetris/001050}
       - {start: 0x08B820, type: data, vram: 0x800C55A0, name: newtetris/aisquarelist}
+      - {start: 0x08BF70, type: .data, vram: 0x800C5CF0, name: newtetris/006B30}
+      - {start: 0x08C050, type: data, vram: 0x800C5DD0, name: newtetris/006BB0}
       - {start: 0x095FD0, type: .data, vram: 0x800CFD50, name: newtetris/00E440}
       - {start: 0x0960B0, type: .data, vram: 0x800CFE30, name: newtetris/main}
       - {start: 0x0960D0, type: data, vram: 0x800CFE50, name: newtetris/010870}
@@ -530,6 +533,9 @@ segments:
 
       - {type: .bss, vram: 0x800E1F10, name: newtetris/001050}
       - {type: bss, vram: 0x800E1F20, name: newtetris/800E1F20}
+      - {type: .bss, vram: 0x800E1F30, name: newtetris/0074E0}
+      - {type: bss, vram: 0x800E1F40, name: newtetris/008050}
+      - {type: bss, vram: 0x800E1F50, name: newtetris/aiplayer}
       - {type: bss, vram: 0x800E1F60, name: newtetris/009A90}
       - {type: bss, vram: 0x800E1F80, name: newtetris/00C680}
       - {type: bss, vram: 0x800E1FA0, name: newtetris/00E440}

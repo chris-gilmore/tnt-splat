@@ -6,23 +6,6 @@
 #define GAMEFINISHTYPE_GAMEOVER   2
 #define GAMEFINISHTYPE_NULL       3
 
-/*
-  In 0449D0.c
-
-  void func_8007FBB0(u8 **arg0, s32 arg1) {
-    main_8004A34C_threeliner();
-    *arg0 = n64HeapAlloc(FUN_03A750_80074888_twelveliner(&D_273A00, arg1));
-    FUN_03A750_800746c0_twentyliner(&D_273A00, *arg0, arg1);
-  }
-*/
-
-typedef struct {
-  /* 0x0 */ u16   width;
-  /* 0x2 */ u16   height;
-  //  /* 0x4 */ u8   *data;
-} UnkStruct_21; // 0x4 bytes
-// TODO: rename to ImageAsset maybe?
-
 typedef struct {
   /* 0x0  */ UnkStruct_21  *image;
   /* 0x4  */ Point          image_loc;  // win/lose/game_over image location (top-left point)
