@@ -2,11 +2,15 @@
 #define _NEXTPIECES_H_
 
 typedef struct {
-  /* 0x0  */ Point   unk0[4];  // physical pos
-  /* 0x10 */ u8      unk10;
-  /* 0x11 */ u8      unk11;
-  /* 0x12 */ u16     unk12;
-  /* 0x14 */ u16     unk14;
+  /* 0x0  */ Point   unk0[4];  // nextpieces locations
+  /* 0x10 */ u8      unk10;    // alpha of bottom nextpiece
+  /* 0x11 */ u8      unk11;    // alpha of top nextpiece
+                               // Note: the alpha of the middle nextpiece
+                               // is the average of the top and bottom
+  /* 0x12 */ u16     unk12;    // scale of bottom nextpiece
+  /* 0x14 */ u16     unk14;    // scale of top nextpiece
+                               // Note: the scale of the middle nextpiece
+                               // is the average of the top and bottom
 } UnkStruct_17; // 0x16 bytes
 
 typedef struct {

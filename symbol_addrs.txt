@@ -379,17 +379,17 @@ func_8005BE40                                    = 0x8005BE40; // type:func
 
 //      - {start: 0x025D00, type: asm, vram: 0x8005FA80, name: newtetris/pfgfx}
 PFGFX_8005fa80_twoliner_calls_fun                = 0x8005FA80; // type:func
-PFGFX_8005fab8_oneliner_calls_fun                = 0x8005FAB8; // type:func  note passes DAT_8011f260 + 8
-PFGFX_Sets_x58_x59_Checks_NumPlayers_CurrPlayer  = 0x8005FAE0; // type:func  note sets x58 and x59 pos? might be offsets on where to start drawing each player's playfield
-PFGFX_8005fc70_doesnothing                       = 0x8005FC70; // type:func
+PFGFX_8005fab8_oneliner_calls_fun                = 0x8005FAB8; // type:func         note passes DAT_8011f260 + 8
+PFGFX_Sets_x58_x59_Checks_NumPlayers_CurrPlayer  = 0x8005FAE0; // type:func         note sets x58 and x59 pos? might be offsets on where to start drawing each player's playfield
+PFGFX_8005fc70_doesnothing                       = 0x8005FC70; // type:func static
 GameCamera_Render                                = 0x8005FC78; // type:func
-PFGFX_Init                                       = 0x8005FE68; // type:func  note called by Tetris_Init
-PFGFX_SetTextDisplayPos_1p                       = 0x8005FEA0; // type:func  note name, linecount, whatelse
-PFGFX_SetTextDisplayPos_2p                       = 0x8006005C; // type:func  note name, linecount, whatelse
-PFGFX_SetTextDisplayPos_3p                       = 0x80060284; // type:func  note name, linecount, whatelse
-PFGFX_SetTextDisplayPos_4p                       = 0x800603F8; // type:func  note name, linecount, whatelse
+PFGFX_Init                                       = 0x8005FE68; // type:func         note called by Tetris_Init
+PFGFX_SetTextDisplayPos_1p                       = 0x8005FEA0; // type:func static  note name, linecount, whatelse
+PFGFX_SetTextDisplayPos_2p                       = 0x8006005C; // type:func static  note name, linecount, whatelse
+PFGFX_SetTextDisplayPos_3p                       = 0x80060284; // type:func static  note name, linecount, whatelse
+PFGFX_SetTextDisplayPos_4p                       = 0x800603F8; // type:func static  note name, linecount, whatelse
 PFGFX_Playfield_Init                             = 0x80060598; // type:func
-PFGFX_80060654_doesnothing                       = 0x80060654; // type:func  note calls 8005fc70 which does nothing
+PFGFX_80060654_doesnothing                       = 0x80060654; // type:func unused  note calls 8005fc70 which does nothing
 
 //      - {start: 0x026900, type:   c, vram: 0x80060680, name: newtetris/026900}
 func_80060680                                    = 0x80060680; // type:func unused  note never called
@@ -539,19 +539,19 @@ NextPieces_Init                                            = 0x80068F10; // type
 NextPieces_Deinit                                          = 0x80068FDC; // type:func
 
 //      - {start: 0x02F270, type:   c, vram: 0x80068FF0, name: newtetris/lineeffect}
-LineEffect_80068ff0_elevenliner                            = 0x80068FF0; // type:func
-LineEffect_800690e4_eightliner_loops_10_times              = 0x800690E4; // type:func
-LineEffect_80069160_seventeen_liner                        = 0x80069160; // type:func
-LineEffect_800692fc_sixteenliner_loops_10_times            = 0x800692FC; // type:func
-LineEffect_8006942c_sixliner                               = 0x8006942C; // type:func
-LineEffect_800694b0_sevenliner_loops_10_times              = 0x800694B0; // type:func
-LineEffect_Update                                          = 0x8006952C; // type:func  note nice case statement for state note invalid state error in default 
+LineEffect_80068ff0_elevenliner                            = 0x80068FF0; // type:func static
+LineEffect_800690e4_eightliner_loops_10_times              = 0x800690E4; // type:func static
+LineEffect_80069160_seventeen_liner                        = 0x80069160; // type:func static
+LineEffect_800692fc_sixteenliner_loops_10_times            = 0x800692FC; // type:func static
+LineEffect_8006942c_sixliner                               = 0x8006942C; // type:func static
+LineEffect_800694b0_sevenliner_loops_10_times              = 0x800694B0; // type:func static
+LineEffect_Update                                          = 0x8006952C; // type:func         note nice case statement for state note invalid state error in default 
 LineEffect_80069668_fourliner_sets_arg0_struct_v1          = 0x80069668; // type:func
-LineEffect_80069684_threeliner_sets_arg0_struct_v2         = 0x80069684; // type:func
-LineEffect_8006969c_fourliner_sets_arg0_struct_v3          = 0x8006969C; // type:func
-LineEffect_800696b8_fiveliner_sets_arg0_struct_v4          = 0x800696B8; // type:func
-LineEffect_800696d8_fourliner_sets_arg0_struct_v5          = 0x800696D8; // type:func
-LineEffect_Init                                            = 0x800696F4; // type:func  note uses logic cell ptr, loops 10 times then case statement
+LineEffect_80069684_threeliner_sets_arg0_struct_v2         = 0x80069684; // type:func static
+LineEffect_8006969c_fourliner_sets_arg0_struct_v3          = 0x8006969C; // type:func static
+LineEffect_800696b8_fiveliner_sets_arg0_struct_v4          = 0x800696B8; // type:func static
+LineEffect_800696d8_fourliner_sets_arg0_struct_v5          = 0x800696D8; // type:func static
+LineEffect_Init                                            = 0x800696F4; // type:func         note uses logic cell ptr, loops 10 times then case statement
 
 //      - {start: 0x02FAB0, type: asm, vram: 0x80069830, name: newtetris/linescan}
 LineScan_80069830_elevenliner_loops_20_times               = 0x80069830; // type:func  note calls LineEffect_Update
@@ -779,7 +779,9 @@ func_800745DC                     = 0x800745DC; // type:func unused  note never 
 FUN_03A750_800746c0_twentyliner   = 0x800746C0; // type:func         note gets called from all kinds of places
 FUN_03A750_80074888_twelveliner   = 0x80074888; // type:func         note gets called from all kinds of places
 
-//      - {start: 0x03AC20, type: asm, vram: 0x800749A0, name: newtetris/03AC20}
+//      - {start: 0x03AC20, type:   c, vram: 0x800749A0, name: newtetris/03AC20}
+func_8007523C                     = 0x8007523C; // type:func
+
 //      - {start: 0x03B700, type: asm, vram: 0x80075480, name: newtetris/03B700}
 
 //      - {start: 0x03BB30, type: asm, vram: 0x800758B0, name: newtetris/cubetiles}

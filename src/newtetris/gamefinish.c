@@ -112,7 +112,7 @@ void gamefinish_80052DAC_read_playfield_logic_cell(UnkStruct_20 *arg0) {
     var_s0 = &g_boardPieces_ptr->cell_ptr_arr[sp3C * 10];
     for (var_s1 = 10; var_s1 > 0; var_s1--) {
       if ((*var_s0)->piece_type != EMPTY_CELL) {
-        Minos_80070860_fortyliner(&(*var_s0)->cubeInfo.cube_ptr->unk28, &color_gray, 16);
+        Minos_80070860_fortyliner(&(*var_s0)->cubeInfo.cube_ptr->mino, &color_gray, 16);
       }
       var_s0++;
     }
@@ -123,7 +123,7 @@ void gamefinish_80052DAC_read_playfield_logic_cell(UnkStruct_20 *arg0) {
     var_s2 = &g_boardPieces_ptr->cell_ptr_arr[sp3C * 10];
     for (var_s3 = 10; var_s3 > 0; var_s3--) {
       if ((*var_s2)->piece_type != EMPTY_CELL) {
-        Minos_800709EC(&(*var_s2)->cubeInfo.cube_ptr->unk28, 0, 16);
+        Minos_800709EC(&(*var_s2)->cubeInfo.cube_ptr->mino, 0, 16);
         BoardP_8006d5bc_sixliner_calls_UpdateQueue_AddEntry(*var_s2);
       }
       var_s2++;

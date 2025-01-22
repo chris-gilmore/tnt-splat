@@ -33,10 +33,10 @@ void Cube_8006e8f8_sets_struct_0x14_to_0x24_to_mostly_zeros(CubeInfo *cubeInfo_p
 
 void Cube_Alloc(CubeInfo *cubeInfo_ptr, s32 x, s32 y, Color *color_ptr) {
   cubeInfo_ptr->cube_ptr = MobileCubes_Alloc();
-  Minos_80070820_fiveliner_sets_arg0_2_4_8_12_to_arg1(&cubeInfo_ptr->cube_ptr->unk28, color_ptr);
+  Minos_80070820_fiveliner_sets_arg0_2_4_8_12_to_arg1(&cubeInfo_ptr->cube_ptr->mino, color_ptr);
   Cube_8006e8b0_sets_struct_0x02_to_0x12_to_mostly_zeros(cubeInfo_ptr, x, y);
   Cube_8006e8f8_sets_struct_0x14_to_0x24_to_mostly_zeros(cubeInfo_ptr, x, y);
-  Minos_800702e4_nineliner(&cubeInfo_ptr->cube_ptr->unk28);
+  Minos_800702e4_nineliner(&cubeInfo_ptr->cube_ptr->mino);
 }
 
 void Cube_NewCellInfo(CubeInfo *cubeInfo_ptr) {

@@ -92,10 +92,10 @@ void MobileCubes_Render(void) {
       cube_ptr++;
     } else {
       if (cube_ptr->unk26) {
-        cube_ptr->unk28.unk1 |= 1;
+        cube_ptr->mino.unk1 |= 1;
       }
-      Minos_80070528_Morph(&cube_ptr->unk28);
-      Minos_Mino_Render(&cube_ptr->unk28, &cube_ptr->unk2);
+      Minos_80070528_Morph(&cube_ptr->mino);
+      Minos_Mino_Render(&cube_ptr->mino, &cube_ptr->unk2);
       cube_ptr++;
       i--;
     }

@@ -4,7 +4,7 @@
 typedef struct {
   /* 0x0    */ u8            unk0;
   /* 0x1    */ u8            unk1;
-  /* 0x2    */ u8            active;  // active (boolean)
+  /* 0x2    */ u8            is_active;
   /* 0x3    */ u8            unk3;
   /* 0x4    */ u8            unk4;
   /* 0x5    */ u8            numPlayers;

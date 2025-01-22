@@ -429,7 +429,7 @@ static void Game_Update(Game *game_ptr) {
 }
 
 void Game_line_782_game_c(Game *game_ptr) {
-  if (!game_ptr->active) {
+  if (!game_ptr->is_active) {
     debug_print_reason_routine_linenum("oops", "game.c", 782);
   }
   if (game_ptr->unk0 != 1) {
@@ -469,7 +469,7 @@ void Game_line_782_game_c(Game *game_ptr) {
 void Game_render_stuff_line_850(Game *game_ptr) {
   register u32 i;
 
-  if (!game_ptr->active) {
+  if (!game_ptr->is_active) {
     debug_print_reason_routine_linenum("oops", "game.c", 850);
   }
   if (game_ptr->unk0 != 1) {
@@ -516,7 +516,7 @@ void Game_Init(u8 numPlayers, u8 *handicap_arr) {
   register s32 k;
   register UnkStruct_1 *temp_s5;
 
-  game_ptr->active = TRUE;
+  game_ptr->is_active = TRUE;
   D_800CFF50 = 1;
   rmonPrintf("Game_Init() : entry, numPlayers %d", numPlayers);
   for (i = 0; i < numPlayers; i++) {
@@ -593,10 +593,10 @@ void Game_Deinit(void) {
   register s32 j;
   register s32 k;
 
-  if (!game_ptr->active) {
+  if (!game_ptr->is_active) {
     debug_print_reason_routine_linenum("oops", "game.c", 1165);
   }
-  game_ptr->active = FALSE;
+  game_ptr->is_active = FALSE;
   rmonPrintf("\n\n\n*** Deinitializing the game ***\n");
   for (i = 0; i < game_ptr->numPlayers; i++) {
     if (Game_isGameWinner(game_ptr, i)) {

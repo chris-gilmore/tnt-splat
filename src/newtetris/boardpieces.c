@@ -138,7 +138,7 @@ static void BoardP_8006d728_checkAndSetSurroundingCells(Cell *cell_ptr) {
   if (BoardP_playfield_xy_to_logic_cell_struct_8006e5e0(x + 1, y + 1)->piece_id == piece_id) {
     surround_bitfield |= 0x20;  // SE
   }
-  Minos_80070818_oneliner_sets_arg0_0x130_to_arg1(&cell_ptr->cubeInfo.cube_ptr->unk28, g_cubeTiles_ptr->unkDC00[surround_bitfield]);
+  Minos_80070818_oneliner_sets_arg0_0x130_to_arg1(&cell_ptr->cubeInfo.cube_ptr->mino, g_cubeTiles_ptr->unkDC00[surround_bitfield]);
 }
 
 static void BoardP_8006d910_sevenliner_loopThroughConnectedMinos(Cell *first_cell_ptr) {

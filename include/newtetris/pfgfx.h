@@ -8,20 +8,16 @@ typedef struct {
 } PfGfx; // 0xB8 bytes
 
 typedef struct {
-  /* 0x0 */ Point   unk0;  // top lookahead
-  /* 0x4 */ Point   unk4;  // bottom lookahead
+  /* 0x0 */ Point   unk0;  // top nextpiece
+  /* 0x4 */ Point   unk4;  // bottom nextpiece
 } UnkStruct_26; // 0x8 bytes
-
-typedef struct {
-  /* 0x0 */ Point   unk0;  // top lookahead
-  /* 0x4 */ Point   unk4;  // middle lookahead
-  /* 0x8 */ Point   unk8;  // bottom lookahead
-} UnkStruct_10; // 0xC bytes
 
 extern PfGfx *g_pfGfx_ptr;
 
+extern void    PFGFX_Sets_x58_x59_Checks_NumPlayers_CurrPlayer(void);
 extern void    GameCamera_Render(void);
 extern Point  *PFGFX_Init(Point *, PfGfx *);
 extern void    PFGFX_Playfield_Init(u8);
+extern void    PFGFX_80060654_doesnothing(void);
 
 #endif /* !_PFGFX_H_ */

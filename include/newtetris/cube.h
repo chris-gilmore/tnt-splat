@@ -6,7 +6,7 @@ typedef struct {
   /* 0x2  */ UnkStruct_8   unk2;
   /* 0x14 */ UnkStruct_8   unk14;
   /* 0x26 */ u8            unk26;
-  /* 0x28 */ Mino          unk28;
+  /* 0x28 */ Mino          mino;
 } Cube; // 0x160 bytes
 
 typedef struct {

@@ -25,7 +25,7 @@ void FallingCubes_Update(void) {
 
   for (i = fallingCubes_ptr->num_active, cube_ptr_ptr = fallingCubes_ptr->cube_ptr_list; i != 0; cube_ptr_ptr++) {
     if (*cube_ptr_ptr != NULL) {
-      Minos_800709d8_threeliner_sets_arg0_1c_1e_1d(&(*cube_ptr_ptr)->unk28, fallingCubes_ptr->alpha);
+      Minos_800709d8_threeliner_sets_arg0_1c_1e_1d(&(*cube_ptr_ptr)->mino, fallingCubes_ptr->alpha);
       FallingCubes_Drop(cube_ptr_ptr);
       i--;
     }
@@ -39,7 +39,7 @@ void FallingCubes_SetAlpha(FallingCubes *fallingCubes_ptr, u8 alpha) {
   fallingCubes_ptr->alpha = alpha;
   for (i = fallingCubes_ptr->num_active, cube_ptr_ptr = fallingCubes_ptr->cube_ptr_list; i > 0; cube_ptr_ptr++) {
     if (*cube_ptr_ptr != NULL) {
-      Minos_800709d8_threeliner_sets_arg0_1c_1e_1d(&(*cube_ptr_ptr)->unk28, alpha);
+      Minos_800709d8_threeliner_sets_arg0_1c_1e_1d(&(*cube_ptr_ptr)->mino, alpha);
       i--;
     }
   }

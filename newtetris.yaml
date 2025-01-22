@@ -120,7 +120,7 @@ segments:
       - {start: 0x01D300, type: asm, vram: 0x80057080, name: newtetris/01D300}
       - {start: 0x01D6E0, type: asm, vram: 0x80057460, name: newtetris/01D6E0}
       - {start: 0x024E90, type: asm, vram: 0x8005EC10, name: ultralib/sched/sched}
-      - {start: 0x025D00, type: asm, vram: 0x8005FA80, name: newtetris/pfgfx}
+      - {start: 0x025D00, type:   c, vram: 0x8005FA80, name: newtetris/pfgfx}
       - {start: 0x026900, type:   c, vram: 0x80060680, name: newtetris/026900}
       - {start: 0x026C80, type:   c, vram: 0x80060A00, name: newtetris/026C80}
       - {start: 0x026F90, type: asm, vram: 0x80060D10, name: newtetris/026F90}
@@ -382,7 +382,7 @@ segments:
       - {start: 0x0963C0, type: data, vram: 0x800D0140, name: newtetris/01B280}
       - {start: 0x0963E0, type: data, vram: 0x800D0160, name: newtetris/01D300}
       - {start: 0x096400, type: data, vram: 0x800D0180, name: newtetris/01D6E0}
-      - {start: 0x096420, type: data, vram: 0x800D01A0, name: newtetris/pfgfx}
+      - {start: 0x096420, type: .data, vram: 0x800D01A0, name: newtetris/pfgfx}
       - {start: 0x0964E0, type: .data, vram: 0x800D0260, name: newtetris/026900}
       - {start: 0x096500, type: data, vram: 0x800D0280, name: newtetris/026F90}
       - {start: 0x096520, type: data, vram: 0x800D02A0, name: newtetris/0279C0}
@@ -455,7 +455,7 @@ segments:
       - {start: 0x0A3120, type: .rodata, vram: 0x800DCEA0, name: newtetris/tetris}
       - {start: 0x0A3320, type: rodata, vram: 0x800DD0A0, name: newtetris/01B280}
       - {start: 0x0A34F0, type: rodata, vram: 0x800DD270, name: ultralib/sched/sched}
-      - {start: 0x0A3510, type: rodata, vram: 0x800DD290, name: newtetris/pfgfx}
+      - {start: 0x0A3510, type: .rodata, vram: 0x800DD290, name: newtetris/pfgfx}
       - {start: 0x0A3540, type: .rodata, vram: 0x800DD2C0, name: newtetris/026900}
       - {start: 0x0A3550, type: rodata, vram: 0x800DD2D0, name: newtetris/0279C0}
       - {start: 0x0A3580, type: rodata, vram: 0x800DD300, name: newtetris/027BF0}
@@ -549,7 +549,7 @@ segments:
       - {type: .bss, vram: 0x8011F220, name: newtetris/frameact}
       - {type: .bss, vram: 0x8011F230, name: newtetris/tetris}
       - {type: bss, vram: 0x8011F240, name: newtetris/01B280}
-      - {type: bss, vram: 0x8011F260, name: newtetris/pfgfx}
+      - {type: .bss, vram: 0x8011F260, name: newtetris/pfgfx}
       - {type: .bss, vram: 0x8011F270, name: newtetris/026900}
       - {type: bss, vram: 0x8011FA80, name: newtetris/026F90}
       - {type: bss, vram: 0x8011FAD0, name: newtetris/0279C0}
