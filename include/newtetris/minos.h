@@ -83,7 +83,7 @@ typedef struct {
 
 typedef struct {
   /* 0x0  */ u8      pattern;  // bit1 is "scale set"
-  /* 0x2  */ u16     unk2;
+  /* 0x2  */ u16     unk2;     // (unk2 >> 8) is unitSize (11, 10, or 8)
   /* 0x4  */ u16     unk4;
   /* 0x6  */ u16     scale;
   /* 0x8  */ u16     unk8;
@@ -120,7 +120,7 @@ extern void   Minos_BeginRender(UnkStruct_0 *);
 extern void   Minos_EndRender(UnkStruct_0 *);
 extern void   Minos_80070fd8_notcalled_q(PointAngle *, Point *, u16);
 extern void   Minos_8007104c_fiveliner_nuts(Point *, s16, s16);
-extern void   Minos_80071100_fiveliner_nuts2(Point *, Point *);
+extern void   Minos_80071100_fiveliner_nuts2(Point *, PointAngle *);
 extern void   Minos_SetVtxTransform(u8);
 
 #endif /* !_MINOS_H_ */

@@ -576,10 +576,10 @@ void Minos_8007104c_fiveliner_nuts(Point *arg0, s16 x, s16 y) {
   arg0->y = y + var_a3->unkE.y;
 }
 
-void Minos_80071100_fiveliner_nuts2(Point *arg0, Point *arg1) {
+void Minos_80071100_fiveliner_nuts2(Point *arg0, PointAngle *arg1) {
   register UnkStruct_0 *var_a2 = D_8011FC10;
-  register s32 tmp_x = arg1->x - var_a2->unkE.x;
-  register s32 tmp_y = arg1->y - var_a2->unkE.y;
+  register s32 tmp_x = arg1->p.x - var_a2->unkE.x;
+  register s32 tmp_y = arg1->p.y - var_a2->unkE.y;
 
   tmp_x = (tmp_x * var_a2->unk2) >> 14;
   tmp_y = (tmp_y * var_a2->unk2) >> 14;

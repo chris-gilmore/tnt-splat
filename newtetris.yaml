@@ -134,7 +134,7 @@ segments:
       - {start: 0x02F270, type:   c, vram: 0x80068FF0, name: newtetris/lineeffect}
       - {start: 0x02FAB0, type:   c, vram: 0x80069830, name: newtetris/linescan}
       - {start: 0x0302D0, type:   c, vram: 0x8006A050, name: newtetris/multisquare}
-      - {start: 0x0309C0, type: asm, vram: 0x8006A740, name: newtetris/multisquareglow}
+      - {start: 0x031180, type:   c, vram: 0x8006AF00, name: newtetris/multisquareglow}
       - {start: 0x031630, type:   c, vram: 0x8006B3B0, name: newtetris/keyspin}
       - {start: 0x032F00, type: asm, vram: 0x8006CC80, name: newtetris/032F00}
       - {start: 0x033310, type:   c, vram: 0x8006D090, name: newtetris/033310}
@@ -465,7 +465,7 @@ segments:
       - {start: 0x0A3820, type: .rodata, vram: 0x800DD5A0, name: newtetris/lineeffect}
       - {start: 0x0A38C0, type: .rodata, vram: 0x800DD640, name: newtetris/linescan}
       - {start: 0x0A38F0, type: .rodata, vram: 0x800DD670, name: newtetris/multisquare}
-      - {start: 0x0A3970, type: rodata, vram: 0x800DD6F0, name: newtetris/multisquareglow}
+      - {start: 0x0A3970, type: .rodata, vram: 0x800DD6F0, name: newtetris/multisquareglow}
       - {start: 0x0A3A00, type: .rodata, vram: 0x800DD780, name: newtetris/keyspin}
       - {start: 0x0A3A40, type: rodata, vram: 0x800DD7C0, name: newtetris/032F00}
       - {start: 0x0A3A90, type: .rodata, vram: 0x800DD810, name: newtetris/boardpieces}
@@ -558,7 +558,7 @@ segments:
       - {type: .bss, vram: 0x8011FB80, name: newtetris/nextpieces}
       - {type: .bss, vram: 0x8011FB90, name: newtetris/linescan}
       - {type: .bss, vram: 0x8011FBA0, name: newtetris/multisquare}
-      - {type: bss, vram: 0x8011FBB0, name: newtetris/multisquareglow}
+      - {type: .bss, vram: 0x8011FBB0, name: newtetris/multisquareglow}
       - {type: .bss, vram: 0x8011FBC0, name: newtetris/keyspin}
       - {type: .bss, vram: 0x8011FBD0, name: newtetris/boardpieces}
       - {type: .bss, vram: 0x8011FBE0, name: newtetris/cube}

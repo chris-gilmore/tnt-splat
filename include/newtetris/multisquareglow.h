@@ -1,15 +1,17 @@
 #ifndef _MULTISQUAREGLOW_H_
 #define _MULTISQUAREGLOW_H_
 
-extern u8     MultisquareGlow_isArg0_lessthan_44(u8);
-extern s32    MultisquareGlow_8006ac2c_loops_10_times(s32, s32);
-extern u8     MultisquareGlow_8006ad0c_checks_1_2_3_4(void);
-extern void   MultisquareGlow_8006ada4_Init2(void);
-extern void   MultisquareGlow_Deinit_doesnothing(void);
-extern void   Multisquares_UpdateGlows(UnkStruct_12 *, u32);
-extern void   Multisquares_RenderGlows(UnkStruct_12 *);
-extern void   MultisquareGlow_8006aebc_loops_44_times_4(void *, u8);
-extern void   MultisquareGlow_Init(void *, s16, u8);
+typedef struct {
+  /* 0x0 */ u8      is_active;
+  /* 0x1 */ u8      size;       // 0:large, 1:medium, 2:small
+  /* 0x2 */ s16     val;        // current glow value
+  /* 0x4 */ s16     rate;       // glowing rate
+  /* 0x6 */ s16     num_steps;  // set to 0x40 (64 jiffies), about a second of glowing
+  /* 0x8 */ Point   location;   // upper left corner of glow image
+  /* 0xC */ u8      alpha;
+} SquareGlow; // 0xE bytes
+
+extern void   MultisquareGlow_Init(SquareGlow *, Point, u8);
 extern void   MultisquareGlow_InitStaticMembers(u8);
 extern void   MultisquareGlow_8006b384_oneliner_calls_fun(void);
 

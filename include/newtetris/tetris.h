@@ -9,7 +9,7 @@ typedef struct {
   /* 0x4    */ u8             unk4;
   /* 0x8    */ FrameAct       frameAct;
   /* 0x54   */ LineScan       lineScan;
-  /* 0x44C  */ UnkStruct_12   unk44C;        // multisquare related
+  /* 0x44C  */ Squares        squares;
   /* 0x768  */ UnkStruct_9    unk768;        // keyspin related
   /* 0x7D0  */ UnkStruct_0    unk7D0;        // minos related
   /* 0x830  */ Board          board;

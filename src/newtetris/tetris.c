@@ -112,7 +112,7 @@ u8 Tetris_Update(Tetris *tetris_ptr) {
       MobileCubes_Update();
       debug_print2("Tetris_Update", "MobileCubes_Update");
     }
-    Multisquares_UpdateGlows(&tetris_ptr->unk44C, D_801109F4);
+    Multisquares_UpdateGlows(&tetris_ptr->squares, D_801109F4);
     debug_print2("Tetris_Update", "Multisquares_UpdateGlows");
   }
   if (tetris_ptr->unk3) {
@@ -137,7 +137,7 @@ void Tetris_Render(Tetris *tetris_ptr) {
   debug_print2("AFTER", "NextPieces_Render");
   GameStats_Render(&tetris_ptr->gameStats);
   debug_print2("AFTER", "GameStats_Render");
-  Multisquares_RenderGlows(&tetris_ptr->unk44C);
+  Multisquares_RenderGlows(&tetris_ptr->squares);
   debug_print2("AFTER", "Multisquares_RenderGlows");
   FrameAct_Render(&tetris_ptr->frameAct);
   debug_print2("AFTER", "FrameAct_Render");

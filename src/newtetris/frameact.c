@@ -34,7 +34,7 @@ static void FrameAct_calls_increment_game_time_seconds2(FrameAct *frameAct_ptr) 
     frameAct_ptr->state = 3;
     frameAct_ptr->unk2 = FALSE;
     GameStats_saveCurrentPieceFallVelocity(g_gameStats_ptr);
-    D_8011FBA0->unk0 = 1;
+    g_squares_ptr->unk0 = 1;
     break;
   case 2:
     frameAct_ptr->unk3 = TRUE;
@@ -107,7 +107,7 @@ static void FrameAct_80053934_tenliner(FrameAct *frameAct_ptr) {
     break;
   case 2:
     frameAct_ptr->state = 3;
-    D_8011FBA0->unk0 = 3;
+    g_squares_ptr->unk0 = 3;
     break;
   }
 }

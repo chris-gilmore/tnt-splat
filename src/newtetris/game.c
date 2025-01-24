@@ -86,7 +86,7 @@ static void Game_SetAlpha(Game *game_ptr, u8 alpha) {
     game_ptr->tetris_ptr_arr[i]->pieceHold.buf[0].shadow.alpha = alpha;
     game_ptr->tetris_ptr_arr[i]->pieceHold.buf[1].piece.alpha = alpha;
     game_ptr->tetris_ptr_arr[i]->pieceHold.buf[1].shadow.alpha = alpha;
-    MultisquareGlow_8006aebc_loops_44_times_4(&game_ptr->tetris_ptr_arr[i]->unk44C, alpha);
+    MultisquareGlow_8006aebc_loops_44_times_4(&game_ptr->tetris_ptr_arr[i]->squares, alpha);
   }
 }
 

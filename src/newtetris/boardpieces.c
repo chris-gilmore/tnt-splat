@@ -14,14 +14,14 @@ static void   BoardP_UpdateQueue_AddEntry(TypedQueue *, Entry, u8);
 static void   BoardP_8006dcc0_twoliner_sets_to_600_0(TypedQueue *);
 
 Color *BoardP_8006d3c0_fourliner(Cell *cell_ptr) {
-  register UnkStruct_11 *temp_s0;
+  register Square *square_ptr;
 
   if (!MultisquareGlow_isArg0_lessthan_44(cell_ptr->square_id)) {
     return g_pieceDef_ptr_arr[cell_ptr->piece_type]->color_ptr;
   }
 
-  temp_s0 = &D_8011FBA0->unk4[cell_ptr->square_id];
-  return Multisquare_pGetColor(temp_s0);
+  square_ptr = &g_squares_ptr->arr[cell_ptr->square_id];
+  return Multisquare_pGetColor(square_ptr);
 }
 
 void BoardP_8006d450_fourteenliner_pf_logic_cell_loops(Cell *arg0, Cell *arg1) {
@@ -68,13 +68,13 @@ static void BoardP_8006d500_tenliner_pf_logic_cells_loops(Cell *arg0) {
 }
 
 void BoardP_8006d5bc_sixliner_calls_UpdateQueue_AddEntry(Cell *arg0) {
-  register UnkStruct_11 *temp_s0;
+  register Square *square_ptr;
   register s32 x;
   register s32 y;
 
   if (MultisquareGlow_isArg0_lessthan_44(arg0->square_id)) {
-    temp_s0 = &D_8011FBA0->unk4[arg0->square_id];
-    Multisquare_8006a410_fourliner(temp_s0, &arg0->cubeInfo.cell_id);
+    square_ptr = &g_squares_ptr->arr[arg0->square_id];
+    Multisquare_8006a410_fourliner(square_ptr, &arg0->cubeInfo.cell_id);
     arg0->square_id = 0xFF;
   }
   BoardP_8006d998_sixliner_loops(arg0);

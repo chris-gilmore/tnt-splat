@@ -104,7 +104,7 @@ $(shell mkdir -p $(ALL_DIRS))
 # Generated Source Code Files                                                  #
 #==============================================================================#
 
-# Run asm_processor
+# Run asm-processor
 $(GLOBAL_ASM_O_FILES): CC := python3 /opt/asm-processor/build.py $(CC) -- $(AS) $(ASFLAGS) --
 
 

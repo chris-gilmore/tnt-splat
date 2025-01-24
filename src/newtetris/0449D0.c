@@ -1,6 +1,6 @@
 #include "common.h"
 
-extern u32 D_273A00;
+extern u32 D_273A00;  // image_lut
 
 ////////////////////////////////////////
 

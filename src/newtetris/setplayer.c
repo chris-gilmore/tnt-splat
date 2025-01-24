@@ -13,7 +13,7 @@ void Game_SetGlobalPointers(u8 playerNum) {
   g_frameAct_ptr     = &g_tetris_ptr->frameAct;
   D_8011FC10         = &g_tetris_ptr->unk7D0;
   g_lineScan_ptr     = &g_tetris_ptr->lineScan;
-  D_8011FBA0         = &g_tetris_ptr->unk44C;
+  g_squares_ptr      = &g_tetris_ptr->squares;
   D_8011FBC0         = &g_tetris_ptr->unk768;
   g_pfGfx_ptr        = &g_tetris_ptr->pfGfx;
   g_gameStats_ptr    = &g_tetris_ptr->gameStats;
