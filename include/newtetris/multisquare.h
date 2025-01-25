@@ -25,7 +25,7 @@ extern Squares *g_squares_ptr;
 
 extern void     Multisquare_8006a410_fourliner(Square *, u8 *);
 extern Color   *Multisquare_pGetColor(Square *);
-extern u8       MultisquareGlow_isArg0_lessthan_44(u8);
+extern u8       MultisquareGlow_isArg0_lessthan_44(u32);
 extern s32      MultisquareGlow_8006ac2c_loops_10_times(s32, s32);
 extern u8       MultisquareGlow_8006ad0c_checks_1_2_3_4(void);
 extern void     MultisquareGlow_8006ada4_Init2(void);

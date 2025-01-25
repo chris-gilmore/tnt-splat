@@ -8,24 +8,29 @@ static s32      Multisquares_Test4x4byType(s32, s32, u8);
 static s32      Multisquare_8006a6bc_oneliner_calls_fun(Cell *);
 static void     Multisquare_8006a6f0_threeliner_sets_arg0_stuff(Squares *);
 static void     Multisquare_8006a708_fiveliner_sets_arg0_stuff(Squares *);
-
+static void     MultisquareGlow_8006a740_thirtyfiveliner(Squares *);
+static void     func_8006A9A4(Squares *);  // unused
+static void     MultisquareGlow_8006a9bc_fiveliner_sets_arg0_struct(Squares *);
+static void     MultisquareGlow_8006a9f4_twentyliner_loops_t7_t17(Squares *);
+static s32      MultisquareGlow_8006aba4_loops_44_times_1(void);
+static void     MultisquareGlow_8006abf4_loops_44_times_2(void);
 
 static Square *Multisquare_8006a050_extralarge_manyloops_interesting(s32 x, s32 y, u8 square_type) {
   register Square *square_ptr;
-  register Color color;
+  Color color;
   register s32 i;
-  register Point sp70;
-  register PointAngle sp68;
+  Point sp70;
+  PointAngle sp68;
   register s32 col;
   register s32 row;
   register u8 square_id;
   register Cell *temp_s5;
   register Cell *temp_s6;
   register Cell **var_s7;
-  register s32 sp4C;
-  register s32 sp48;
-  register s32 sp44;
-  register s32 sp40;
+  s32 sp4C;
+  s32 sp48;
+  s32 sp44;
+  s32 sp40;
 
   for (i = 0, square_ptr = g_squares_ptr->arr; square_ptr->type != SQUARETYPE_NONE && i < 44; square_ptr++, i++);
   if (i == 44) {
@@ -115,7 +120,7 @@ static s32 Multisquares_Test4x4byType(s32 x, s32 y, u8 piece_type) {
   register Cell **cell_ptr_ptr;
   register Cell *cell_ptr;
   register u8 is_monosquare;
-  register u8 piece_ids[4];
+  u8 piece_ids[4];
   register u8 *piece_id_ptr;
   register u8 piece_id;
 
@@ -183,25 +188,198 @@ static void Multisquare_8006a708_fiveliner_sets_arg0_stuff(Squares *squares_ptr)
   squares_ptr->delay--;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/multisquare/MultisquareGlow_8006a740_thirtyfiveliner.s")
+static void MultisquareGlow_8006a740_thirtyfiveliner(Squares *arg0) {
+  BoundingBox unused;
+  BoundingBox sp30;
+  s16 sp2E;
+  s16 sp2C;
+  s16 sp2A;
+  s16 sp28;
+  s32 x;
+  s32 y;
+  u8 square_type;
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/multisquare/func_8006A9A4.s")
+  CurrentPiece_80067c1c_fifteenliner_loops3times(g_currentPiece_ptr, &sp30);
+  sp28 = sp30.x_max - 3;
+  sp2A = sp30.y_max - 3;
+  sp2C = sp30.x_min;
+  sp2E = sp30.y_min;
+  if (sp28 < 0) sp28 = 0;
+  if (sp2C > 6) sp2C = 6;
+  if (sp2A < 0) sp2A = 0;
+  if (sp2E > 16) sp2E = 16;
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/multisquare/MultisquareGlow_8006a9bc_fiveliner_sets_arg0_struct.s")
+  for (y = sp2A; y <= sp2E; y++) {
+    for (x = sp28; x <= sp2C; x++) {
+      square_type = Multisquares_Test4x4byType(x, y, g_currentPiece_ptr->pieceType);
+      if (square_type == SQUARETYPE_MONO) break;
+    }
+    if (square_type == SQUARETYPE_MONO) break;
+  }
+  if (square_type == SQUARETYPE_MONO) {
+    Multisquare_8006a050_extralarge_manyloops_interesting(x, y, SQUARETYPE_MONO);
+    Multisquare_8006a6f0_threeliner_sets_arg0_stuff(arg0);
+    return;
+  }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/multisquare/MultisquareGlow_8006a9f4_twentyliner_loops_t7_t17.s")
+  for (y = sp2A; y <= sp2E; y++) {
+    for (x = sp28; x <= sp2C; x++) {
+      square_type = Multisquares_Test4x4byType(x, y, g_currentPiece_ptr->pieceType);
+      if (square_type == SQUARETYPE_MULTI) break;
+    }
+    if (square_type == SQUARETYPE_MULTI) break;
+  }
+  if (square_type == SQUARETYPE_MULTI) {
+    Multisquare_8006a050_extralarge_manyloops_interesting(x, y, SQUARETYPE_MULTI);
+    Multisquare_8006a6f0_threeliner_sets_arg0_stuff(arg0);
+    return;
+  }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/multisquare/MultisquareGlow_isArg0_lessthan_44.s")
+  arg0->unk1 = 1;
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/multisquare/MultisquareGlow_8006aba4_loops_44_times_1.s")
+// unused
+static void func_8006A9A4(Squares *squares_ptr) {
+  squares_ptr->delay = 45;
+  squares_ptr->unk0 = 4;
+  squares_ptr->unk1 = 0;
+}
+  
+static void MultisquareGlow_8006a9bc_fiveliner_sets_arg0_struct(Squares *arg0) {
+  if (arg0->delay == 0) {
+    arg0->unk0 = 0;
+    arg0->unk1 = 3;
+    return;
+  }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/multisquare/MultisquareGlow_8006abf4_loops_44_times_2.s")
+  arg0->unk1 = 0;
+  arg0->delay--;
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/multisquare/MultisquareGlow_8006ac2c_loops_10_times.s")
+static void MultisquareGlow_8006a9f4_twentyliner_loops_t7_t17(Squares *arg0) {
+  register Cell *cell_ptr;
+  register s32 col;
+  register s32 row;
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/multisquare/MultisquareGlow_8006ad0c_checks_1_2_3_4.s")
+  for (row = 0; row < 17; row++) {
+    for (col = 0; col < 7; col++) {
+      cell_ptr = g_boardPieces_ptr->cell_ptr_arr[col + (row * 10)];
+      if (cell_ptr->piece_type != EMPTY_CELL &&
+          cell_ptr->square_id == 0xFF &&
+          Multisquare_8006a6bc_oneliner_calls_fun(cell_ptr) == SQUARETYPE_MONO) {
+        Multisquare_8006a050_extralarge_manyloops_interesting(col, row, SQUARETYPE_MONO);
+      }
+    }
+  }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/multisquare/MultisquareGlow_8006ada4_Init2.s")
+  for (row = 0; row < 17; row++) {
+    for (col = 0; col < 7; col++) {
+      cell_ptr = g_boardPieces_ptr->cell_ptr_arr[col + (row * 10)];
+      if (cell_ptr->piece_type != EMPTY_CELL &&
+          cell_ptr->square_id == 0xFF &&
+          Multisquare_8006a6bc_oneliner_calls_fun(cell_ptr) == SQUARETYPE_MULTI) {
+        Multisquare_8006a050_extralarge_manyloops_interesting(col, row, SQUARETYPE_MULTI);
+      }
+    }
+  }
+
+  arg0->unk1 = 3;
+}
+
+u8 MultisquareGlow_isArg0_lessthan_44(u32 arg0) {
+  if (arg0 < 44) {
+    return TRUE;
+  }
+
+  return FALSE;
+}
+
+static s32 MultisquareGlow_8006aba4_loops_44_times_1(void) {
+  register Squares *squares_ptr = g_squares_ptr;
+  register Square *square_ptr;
+  register u32 i;
+  register s32 var_a3;
+
+  var_a3 = 0;
+  square_ptr = squares_ptr->arr;
+  for (i = 0; i < 44; i++, square_ptr++) {
+    if (square_ptr->unk3) {
+      var_a3++;
+    }
+  }
+  return var_a3;
+}
+
+static void MultisquareGlow_8006abf4_loops_44_times_2(void) {
+  register Squares *squares_ptr = g_squares_ptr;
+  register Square *square_ptr;
+  register u32 i;
+
+  square_ptr = squares_ptr->arr;
+  for (i = 0; i < 44; i++, square_ptr++) {
+    square_ptr->unk3 = FALSE;
+  }
+}
+
+s32 MultisquareGlow_8006ac2c_loops_10_times(s32 row, s32 type) {
+  register Cell **cell_ptr_ptr;
+  register Cell *cell_ptr;
+  register Square *square_ptr;
+  register s32 col;
+  register u8 square_id;
+
+  MultisquareGlow_8006abf4_loops_44_times_2();
+  cell_ptr_ptr = &g_boardPieces_ptr->cell_ptr_arr[row * 10];
+  for (col = 0; col < 10; col++) {
+    cell_ptr = *cell_ptr_ptr;
+    square_id = cell_ptr->square_id;
+    if (MultisquareGlow_isArg0_lessthan_44(square_id)) {
+      square_ptr = &g_squares_ptr->arr[square_id];
+      if (square_ptr->type == type) {
+        square_ptr->unk3 = TRUE;
+      }
+    }
+    cell_ptr_ptr++;
+  }
+  return MultisquareGlow_8006aba4_loops_44_times_1();
+}
+
+u8 MultisquareGlow_8006ad0c_checks_1_2_3_4(void) {
+  register Squares *squares_ptr = g_squares_ptr;
+
+  switch (squares_ptr->unk0) {
+  case 1:
+    // either sets unk1 to 1 or 0
+    MultisquareGlow_8006a740_thirtyfiveliner(squares_ptr);
+    break;
+  case 2:
+    // sets unk1 to either 2 or 0
+    Multisquare_8006a708_fiveliner_sets_arg0_stuff(squares_ptr);
+    break;
+  case 3:
+    // sets unk1 to 3
+    MultisquareGlow_8006a9f4_twentyliner_loops_t7_t17(squares_ptr);
+    break;
+  case 4:
+    // sets unk1 to either 3 or 0
+    MultisquareGlow_8006a9bc_fiveliner_sets_arg0_struct(squares_ptr);
+    break;
+  }
+  return squares_ptr->unk1;
+}
+
+void MultisquareGlow_8006ada4_Init2(void) {
+  register Squares *squares_ptr = g_squares_ptr;
+  register Square *square_ptr;
+  register u32 i;
+
+  squares_ptr->cnt = 0;
+  square_ptr = squares_ptr->arr;
+  for (i = 0; i < 44; i++, square_ptr++) {
+    square_ptr->id = i;
+    square_ptr->type = SQUARETYPE_NONE;
+  }
+}
 
 void MultisquareGlow_Deinit_doesnothing(void) {
 }
