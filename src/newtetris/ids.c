@@ -91,7 +91,7 @@ void FUN_800508ec_fifteen_liner_allocs_heap(Ids *dest_ids, Ids *src_ids) {
     n64HeapUnalloc((void *)dest_ids->list);
     dest_ids->max_ids = src_ids->max_ids;
     dest_ids->next_id = 0;
-    dest_ids->list = (Id *)n64HeapAlloc(dest_ids->max_ids);
+    dest_ids->list = (Id *)n64HeapAlloc(dest_ids->max_ids * sizeof(Id));
   }
   dest_id_ptr = dest_ids->list;
   src_id_ptr = src_ids->list;

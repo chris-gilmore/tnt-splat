@@ -18,7 +18,7 @@ typedef struct {
   /* 0xE  */ Position   rot_origin_pos_arr[4];      // origin of rotation position per rotation state
   /* 0x18 */ Color     *color_ptr;                  // color address
   /* 0x1C */ Position   curpiece_spawn_offset_pos;  // x,y offset position for currentpiece spawn
-  /* 0x1E */ u8         starting_rot_state;          // starting clockwise rotation state; [0]=0deg, [1]=90deg, [2]=180deg, [3]=270deg
+  /* 0x1E */ u8         starting_rot_state;         // starting clockwise rotation state; [0]=0deg, [1]=90deg, [2]=180deg, [3]=270deg
 } PieceDefinition; // 0x20 bytes
 
 extern PieceDefinition *g_pieceDef_ptr_arr[7];

@@ -18,7 +18,7 @@ static void Bag63_FillBag(Bag63 *bag63_ptr) {
 
 void Bag63_RefillQueue(Bag63 *bag63_ptr) {
   register s32 unused;
-  register u8 *bag;
+  register u8 *bag_ptr;
   register u32 i;
   register u32 bag_idx;
   register u8 piece_type;
@@ -28,10 +28,11 @@ void Bag63_RefillQueue(Bag63 *bag63_ptr) {
     bag_idx = bag63_ptr->seed % bag63_ptr->bag_len;
     // Randomly pluck a piece from the bag.
     piece_type = bag63_ptr->bag[bag_idx];
-    bag = &bag63_ptr->bag[bag_idx];
+    bag_ptr = bag63_ptr->bag + bag_idx;
     // Fill the hole left by the plucked piece by shifting left every piece after it.
     for (i = bag_idx; i < 62; i++) {
-      *bag++ = bag[1];
+      bag_ptr[0] = bag_ptr[1];
+      bag_ptr++;
     }
     if (--bag63_ptr->bag_len == 0) {
       Bag63_FillBag(bag63_ptr);
