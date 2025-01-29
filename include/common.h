@@ -90,7 +90,7 @@ typedef union {
   f32 f;
 } fu;
 
-extern u64   __ull_div(u64, u64);
-extern u64   __ll_mul(u64, u64);
+extern u64 __ull_div(u64, u64);
+extern u64 __ll_mul(u64, u64);
 
 #endif /* !_COMMON_H_ */

@@ -35,7 +35,7 @@ static void setLineCount(LinesInfo *linesInfo_ptr, u32 lines) {
 }
 
 static void displayLineCount(LinesInfo *linesInfo_ptr) {
-  u8 strLineCount[8];
+  char strLineCount[8];
 
   sprintf(strLineCount, "%d", getLineCount(linesInfo_ptr));
   func_8005BBFC(&g_gdl);

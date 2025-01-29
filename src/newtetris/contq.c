@@ -12,6 +12,7 @@ void FUN_069580_800A3300_nineliner_mod300(ControllerQueue *contQ_ptr, OSContPad 
       return;
     }
   }
+
   continfo_ptr = contQ_ptr->_ControllerQueue;
   continfo_ptr += contQ_ptr->tail;
   contQ_ptr->enqueue_cnt++;

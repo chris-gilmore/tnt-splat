@@ -358,7 +358,7 @@ static void Minos_800704e0_threeliner_sets_0x130(Mino *arg0) {
 
 void Minos_80070528_Morph(Mino *arg0) {
   if (arg0->unk130 != NULL) {
-    if (((u32)arg0->unk130 > 0x80000000) && ((u32)arg0->unk130 < 0x80400000)) {
+    if ((arg0->unk130 > (s8 *)0x80000000) && (arg0->unk130 < (s8 *)0x80400000)) {
       Minos_800704e0_threeliner_sets_0x130(arg0);
       arg0->unk1 |= 1;
     } else {
