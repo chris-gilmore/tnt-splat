@@ -8,6 +8,7 @@ typedef struct {
 } UnkStruct_21; // 0x4 bytes
 // TODO: rename to ImageAsset maybe?
 
+extern void   func_8007F344(void);
 extern void   func_8007FBB0(UnkStruct_21 **, u32);
 
 #endif /* !_0449D0_H_ */

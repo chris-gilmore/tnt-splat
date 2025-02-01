@@ -44,7 +44,7 @@ u8 *n64HeapAlloc(s32 size) {
       unused_bytes = handle->size - bytes;
       if (unused_bytes > sizeof(N64Heap)) {
         unused_bytes -= sizeof(N64Heap);
-        if (FALSE);
+        if (FALSE) {}
         new_handle = (N64Heap *)((s32)handle + sizeof(N64Heap) + bytes);
         new_handle->size = unused_bytes;
         new_handle->pBlock = NULL;

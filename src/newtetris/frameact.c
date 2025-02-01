@@ -1,9 +1,5 @@
 #include "common.h"
 
-extern u32 D_801109F4;
-
-////////////////////////////////////////
-
 FrameAct *g_frameAct_ptr;
 
 static void   FrameAct_80053684_threeliner(FrameAct *);

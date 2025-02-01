@@ -1,10 +1,5 @@
 #include "common.h"
 
-extern u32 D_801109F4;
-extern s32 D_800D0550;
-
-////////////////////////////////////////
-
 // handicap values
 u8 D_800CFF00[] = {
   0,  1,  2,  3,  4,  5,  6,  7,  8,  9,  0,  0,
@@ -259,7 +254,7 @@ static void Game_800513bc_tenliner_num_players(Game *game_ptr) {
   if (playercount != 1 && Game_80051104_sevenliner_num_players(game_ptr) == 1) {
     for (i = 0; i < playercount; i++) {
       if (game_ptr->tetris_ptr_arr[i]->unk2) {
-        if (FALSE);
+        if (FALSE) {}
         Game_game_over_related(game_ptr, i, GAMEFINISHTYPE_WIN);
       }
     }
@@ -268,24 +263,24 @@ static void Game_800513bc_tenliner_num_players(Game *game_ptr) {
 
 static void Game_QueryGameOver(Game *game_ptr) {
   register u32 i;
-  register u8 numPlayers = game_ptr->numPlayers;
+  register u32 numPlayers = game_ptr->numPlayers;
   register Tetris *tetris_ptr;
   register s32 j;
 
   for (i = 0; i < numPlayers; i++) {
     tetris_ptr = game_ptr->tetris_ptr_arr[i];
     if (tetris_ptr->unk2) {
-      if (FALSE);
+      if (FALSE) {}
       Game_80051320_fiveliner(game_ptr, i);
     }
   }
-  if (numPlayers > 1U) {
+  if (numPlayers > 1) {
     Game_800513bc_tenliner_num_players(game_ptr);
   }
   if (isGoalCompleted(game_ptr)) {
     for (j = 0; j < game_ptr->numPlayers; j++) {
       if (game_ptr->tetris_ptr_arr[j]->unk2) {
-        if (FALSE);
+        if (FALSE) {}
         if (Game_isGameWinner(game_ptr, j)) {
           Game_game_over_related(game_ptr, j, GAMEFINISHTYPE_WIN);
         } else {
@@ -433,7 +428,7 @@ void Game_line_782_game_c(Game *game_ptr) {
     debug_print_reason_routine_linenum("oops", "game.c", 782);
   }
   if (game_ptr->unk0 != 1) {
-    if (FALSE);
+    if (FALSE) {}
     game_ptr->unk1 = 0;
     if (game_ptr->unkE508) {
       FUN_026900_80060770_sevenliner(&game_ptr->unkE4FC, D_801109F4);
@@ -456,7 +451,7 @@ void Game_line_782_game_c(Game *game_ptr) {
       }
       Game_800515f8_twoliner(game_ptr);
       if (game_ptr->unk1 != 1) {
-        if (FALSE);
+        if (FALSE) {}
         if (game_ptr->unk0 == 0) {
           Game_Update(game_ptr);
         }
@@ -511,7 +506,7 @@ void Game_Init(u8 numPlayers, u8 *handicap_arr) {
   register Game *game_ptr = &g_game;
   register s32 i;
   register s32 j;
-  register u8 temp_s3;
+  register s32 temp_s3;
   GameVars gameVars;
   register s32 k;
   register UnkStruct_1 *temp_s5;
@@ -618,7 +613,7 @@ void Game_Deinit(void) {
   for (k = 0; k < game_ptr->numPlayers; k++) {
     Game_SetGlobalPointers(k);
     Tetris_Deinit(game_ptr->tetris_ptr_arr[k]);
-    n64HeapUnalloc((u8 *)game_ptr->tetris_ptr_arr[k]);
+    n64HeapUnalloc((void *)game_ptr->tetris_ptr_arr[k]);
     game_ptr->tetris_ptr_arr[k] = NULL;
   }
   gamefinish_800534A4_fiveliner();

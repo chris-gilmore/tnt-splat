@@ -18,7 +18,7 @@ static void initLinesInfo(LinesInfo *linesInfo_ptr) {
 
 static void updateLineCount(LinesInfo *linesInfo_ptr) {
   if (linesInfo_ptr->linesToBeAdded != 0) {
-    if (FALSE);
+    if (FALSE) {}
     setLineCount(linesInfo_ptr, getLineCount(linesInfo_ptr) + (linesInfo_ptr->linesToBeAdded * linesInfo_ptr->linesMultiplier));
     linesInfo_ptr->linesMultiplier = 1;
     linesInfo_ptr->linesToBeAdded = 0;

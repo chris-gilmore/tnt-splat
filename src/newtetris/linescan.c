@@ -128,7 +128,7 @@ static void LineScan_80069d60_fifteenliner_loops_20_times(LineScan *lineScan_ptr
   for (i = 0; i < 20; i++, var_s1++) {
     var_s1->unk1 = 0;
     if ((var_s1->unk0 != 0) && (lineScan_ptr->unk3F4 >= i)) {
-      if (FALSE);
+      if (FALSE) {}
       if (LineScan_80069cf0_eighliner_loops_10_times_retbool(lineScan_ptr, i)) {
         var_s1->unk1 = 1;
         var_s0++;

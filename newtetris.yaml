@@ -103,7 +103,7 @@ segments:
       - {start: 0x00C680, type: asm, vram: 0x80046400, name: newtetris/00C680}
       - {start: 0x00E2A0, type: asm, vram: 0x80048020, name: newtetris/00E2A0}
       - {start: 0x00E440, type:   c, vram: 0x800481C0, name: newtetris/00E440}
-      - {start: 0x00FEF0, type:   c, vram: 0x80049C70, name: newtetris/main}
+      - {start: 0x00FEF0, type:   c, vram: 0x80049C70, name: newtetris/bootmain}
       - {start: 0x010820, type:   c, vram: 0x8004A5A0, name: newtetris/dbgprntrrl}
       - {start: 0x010870, type: asm, vram: 0x8004A5F0, name: newtetris/010870}
       - {start: 0x0167A0, type:   c, vram: 0x80050520, name: newtetris/setplayer}
@@ -136,7 +136,7 @@ segments:
       - {start: 0x0302D0, type:   c, vram: 0x8006A050, name: newtetris/multisquare}
       - {start: 0x031180, type:   c, vram: 0x8006AF00, name: newtetris/multisquareglow}
       - {start: 0x031630, type:   c, vram: 0x8006B3B0, name: newtetris/keyspin}
-      - {start: 0x032F00, type: asm, vram: 0x8006CC80, name: newtetris/032F00}
+      - {start: 0x032F00, type:   c, vram: 0x8006CC80, name: newtetris/032F00}
       - {start: 0x033310, type:   c, vram: 0x8006D090, name: newtetris/033310}
       - {start: 0x033430, type:   c, vram: 0x8006D1B0, name: newtetris/board}
       - {start: 0x033540, type:   c, vram: 0x8006D2C0, name: newtetris/boardinfo}
@@ -188,7 +188,7 @@ segments:
       - {start: 0x069530, type: asm, vram: 0x800A32B0, name: newtetris/069530}
       - {start: 0x069580, type:   c, vram: 0x800A3300, name: newtetris/contq}
       - {start: 0x0697D0, type: asm, vram: 0x800A3550, name: newtetris/0697D0}
-      - {start: 0x069C30, type: asm, vram: 0x800A39B0, name: newtetris/069C30}
+      - {start: 0x069C30, type:   c, vram: 0x800A39B0, name: newtetris/frametime}
       - {start: 0x069D80, type: asm, vram: 0x800A3B00, name: newtetris/069D80}
       - {start: 0x06AE00, type: asm, vram: 0x800A4B80, name: newtetris/06AE00}
       - {start: 0x06F290, type: asm, vram: 0x800A9010, name: newtetris/06F290}
@@ -372,7 +372,7 @@ segments:
       - {start: 0x08BF70, type: .data, vram: 0x800C5CF0, name: newtetris/006B30}
       - {start: 0x08C050, type: data, vram: 0x800C5DD0, name: newtetris/006BB0}
       - {start: 0x095FD0, type: .data, vram: 0x800CFD50, name: newtetris/00E440}
-      - {start: 0x0960B0, type: .data, vram: 0x800CFE30, name: newtetris/main}
+      - {start: 0x0960B0, type: .data, vram: 0x800CFE30, name: newtetris/bootmain}
       - {start: 0x0960D0, type: data, vram: 0x800CFE50, name: newtetris/010870}
       - {start: 0x096180, type: .data, vram: 0x800CFF00, name: newtetris/game}
       - {start: 0x0961E0, type: .data, vram: 0x800CFF60, name: newtetris/gamestats}
@@ -391,10 +391,10 @@ segments:
       - {start: 0x0967A0, type: .data, vram: 0x800D0520, name: newtetris/currentpiece}
       - {start: 0x0967B0, type: .data, vram: 0x800D0530, name: newtetris/nextpieces}
       - {start: 0x0967C0, type: .data, vram: 0x800D0540, name: newtetris/linescan}
-      - {start: 0x0967D0, type: data, vram: 0x800D0550, name: newtetris/0967D0}
+      - {start: 0x0967D0, type: .data, vram: 0x800D0550, name: newtetris/032F00}
       - {start: 0x0967E0, type: .data, vram: 0x800D0560, name: newtetris/minos}
       #- {start: 0x0967E8, type: gfx, vram: 0x800D0568, name: newtetris/minos_dl}
-      - {start: 0x096840, type: data, vram: 0x800D05C0, name: newtetris/096840}
+      - {start: 0x096840, type: data, vram: 0x800D05C0, name: newtetris/0379B0}
       - {start: 0x096880, type: .data, vram: 0x800D0600, name: newtetris/03A750}
       - {start: 0x096890, type: data, vram: 0x800D0610, name: newtetris/03AC20}
       - {start: 0x099410, type: .data, vram: 0x800D3190, name: newtetris/n64heap}
@@ -467,7 +467,7 @@ segments:
       - {start: 0x0A38F0, type: .rodata, vram: 0x800DD670, name: newtetris/multisquare}
       - {start: 0x0A3970, type: .rodata, vram: 0x800DD6F0, name: newtetris/multisquareglow}
       - {start: 0x0A3A00, type: .rodata, vram: 0x800DD780, name: newtetris/keyspin}
-      - {start: 0x0A3A40, type: rodata, vram: 0x800DD7C0, name: newtetris/032F00}
+      - {start: 0x0A3A40, type: .rodata, vram: 0x800DD7C0, name: newtetris/032F00}
       - {start: 0x0A3A90, type: .rodata, vram: 0x800DD810, name: newtetris/boardpieces}
       - {start: 0x0A3B80, type: .rodata, vram: 0x800DD900, name: newtetris/fallingcubes}
       - {start: 0x0A3BA0, type: .rodata, vram: 0x800DD920, name: newtetris/minos}
@@ -539,9 +539,9 @@ segments:
       - {type: bss, vram: 0x800E1F60, name: newtetris/009A90}
       - {type: bss, vram: 0x800E1F80, name: newtetris/00C680}
       - {type: bss, vram: 0x800E1FA0, name: newtetris/00E440}
-      - {type: .bss, vram: 0x801031C0, name: newtetris/main}
+      - {type: .bss, vram: 0x801031C0, name: newtetris/bootmain}
       - {type: .bss, vram: 0x80110570, name: newtetris/dbgprntrrl}
-      - {type: bss, vram: 0x80110580, name: newtetris/80110580}
+      - {type: bss, vram: 0x80110580, name: newtetris/010870}
       - {type: .bss, vram: 0x80110A00, name: newtetris/game}
       - {type: .bss, vram: 0x8011EF10, name: newtetris/gamestats}
       - {type: .bss, vram: 0x8011EF20, name: newtetris/gamevars}
@@ -579,6 +579,8 @@ segments:
       - {type: bss, vram: 0x801203D0, name: newtetris/0497E0}
       - {type: bss, vram: 0x80120A70, name: newtetris/audio}
       - {type: bss, vram: 0x80128AB0, name: newtetris/04BFD0}
+      - {type: .bss, vram: 0x80129370, name: newtetris/frametime}
+      - {type: bss, vram: 0x80129390, name: newtetris/80129390}
       - {type: bss, vram: 0x8012CC80, name: ultralib/os/seteventmesg}
       - {type: bss, vram: 0x8012CD00, name: ultralib/io/controller}
       - {type: bss, vram: 0x8012CD90, name: ultralib/io/motor}

@@ -1,9 +1,5 @@
 #include "common.h"
 
-extern u32 D_801109F4;
-
-////////////////////////////////////////
-
 Tetris *g_tetris_ptr;
 
 static void Tetris_CheckButtons(void);

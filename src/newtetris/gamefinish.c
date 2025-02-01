@@ -150,7 +150,15 @@ static void gamefinish_80052FC8_eightliner(UnkStruct_20 *arg0, u32 arg1) {
     return;
   }
 
-  if (arg0->unk8 < arg1) {
+  if (arg0->unk8 < arg1) {  // (potential bug), -Wsign-compare issue,
+                            // since arg0->unk8 is signed and arg1 is unsigned.
+                            // Equivalent to:
+                            //   if ((u32)arg0->unk8 < arg1) {
+                            // but should probably have been:
+                            //   if (arg0->unk8 < (s32)arg1) {
+                            // The danger comes if/when arg0->unk8 is negative.
+                            // For example, a small negative value will
+                            // become a large positive value after casting.
     gamefinish_80052D48_twoliner(arg0);
   } else {
     arg0->unk8 -= arg1;
@@ -256,10 +264,10 @@ void gamefinish_8005344C_fiveliner(u8 numPlayers) {
 // called from Game_Deinit
 // GameFinish_Images_Deinit
 void gamefinish_800534A4_fiveliner(void) {
-  n64HeapUnalloc((u8 *) D_800CFF88);
+  n64HeapUnalloc((void *)D_800CFF88);
   D_800CFF88 = NULL;
-  n64HeapUnalloc((u8 *) D_800CFF80);
+  n64HeapUnalloc((void *)D_800CFF80);
   D_800CFF80 = NULL;
-  n64HeapUnalloc((u8 *) D_800CFF84);
+  n64HeapUnalloc((void *)D_800CFF84);
   D_800CFF84 = NULL;
 }

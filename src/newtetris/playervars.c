@@ -1,6 +1,5 @@
 #include "common.h"
 
-extern u16 D_800CFED4;
 PlayerVars g_PV_arr[4];
 PlayerVars *g_PV_ptr;
 

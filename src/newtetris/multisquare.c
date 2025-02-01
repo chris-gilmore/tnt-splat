@@ -388,4 +388,14 @@ void MultisquareGlow_Deinit_doesnothing(void) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/multisquare/Multisquares_RenderGlows.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/multisquare/MultisquareGlow_8006aebc_loops_44_times_4.s")
+void MultisquareGlow_8006aebc_loops_44_times_4(Squares *squares_ptr, u8 alpha) {
+  register Square *square_ptr;
+  register u32 i;
+
+  square_ptr = squares_ptr->arr;
+  for (i = 0; i < 44; i++, square_ptr++) {
+    if (square_ptr->type != 0) {
+      square_ptr->glow.alpha = alpha;
+    }
+  }
+}
