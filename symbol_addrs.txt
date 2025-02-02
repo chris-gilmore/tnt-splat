@@ -1036,6 +1036,14 @@ PWM_Pulse                 = 0x800C5598; // type:u8    size:0x1    static
 // - {start: 0x08B820, type: data, vram: 0x800C55A0, name: newtetris/aisquarelist}
 
 
+//
+D_800CF838                = 0x800CF838; // type:s8    size:0x1
+
+
+//
+D_800CFD48                = 0x800CFD48; // type:u8    size:0x1
+
+
 // - {start: 0x095FD0, type: .data, vram: 0x800CFD50, name: newtetris/00E440}
 screen_1_width            = 0x800CFD50; // type:u32   size:0x4
 screen_1_height           = 0x800CFD54; // type:u32   size:0x4
@@ -1191,7 +1199,7 @@ D_800D3330                = 0x800D3330; // type:u32   size:0x4    static
 
 
 // handicap_arr[4]
-D_800D3D98                = 0x800D3D98; // type:u8    size:0x4            [4]
+D_800D3D98                = 0x800D3D98; // type:u8    size:0x4    static  [4]
 
 
 // ===========================================================================
