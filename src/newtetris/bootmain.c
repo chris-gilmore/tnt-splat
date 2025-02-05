@@ -175,7 +175,7 @@ static void main_another_but_diff_400x300(void) {
   inits_bunch_of_stuff_q_allocs_heap();
   for (i = 0; i < 4; i++) {
     g_PV_ptr = &g_PV_arr[i];
-    FUN_069580_800A34A8_tenliner_allocs_heap(&g_PV_ptr->contQ);  // init contpad buttons and something else (8 * 300)
+    FUN_069580_800A34A8_tenliner_allocs_heap(&g_PV_ptr->contQ);  // init contpad buttons and controller queue
     PV_set_controller_no(i);
   }
   for (i = 0; i < 4; i++) {
