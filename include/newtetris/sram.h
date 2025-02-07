@@ -17,6 +17,6 @@ extern void   FUN_SRAM_80077408_twentyliner_loops_46t(void *, s32);  // init fon
 extern void   displayText_XY_RGBA_2(Gfx **, void *, s16, s16, char *, s32, s32, s32, s32);
 extern u32    get_total_wonder_lines(Sram *);
 extern void   load_from_sram(u8);
-extern void   func_8007C5CC(void *);  // save_to_sram?
+extern void   func_8007C5CC(Sram *);  // save_to_sram?
 
 #endif /* !_SRAM_H_ */

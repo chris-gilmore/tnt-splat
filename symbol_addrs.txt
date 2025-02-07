@@ -1015,9 +1015,11 @@ func_800A3AF0                          = 0x800A3AF0; // type:func
 // newtetris/06FFD0, vram: 0x800A9D50
 func_800A9E44                          = 0x800A9E44; // type:func
 
-// newtetris/072080, vram: 0x800ABE00
+//     - {start: 0x072080, type: asm, vram: 0x800ABE00, name: newtetris/072080}
+func_800ABFF0                          = 0x800ABFF0; // type:func
 func_800AC06C                          = 0x800AC06C; // type:func
 func_800AC0F8                          = 0x800AC0F8; // type:func
+func_800AC1A8                          = 0x800AC1A8; // type:func
 
 //     - {start: 0x0779F0, type:   c, vram: 0x800B1770, name: newtetris/sprite}
 func_800B1770                          = 0x800B1770; // type:func

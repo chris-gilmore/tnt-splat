@@ -14,7 +14,7 @@ u8 D_800CFF50 = 1;
 Game g_game;
 
 static void   setPlayerTopOutOrder(Game *, u8);
-static u8     hasPlayerToppedOut(Game *, u8);
+static u8     hasPlayerToppedOut(Game *, u8);  // unused
 static void   Game_SetAlpha(Game *, u8);
 static u8     getPlayerTopOutOrder(Game *, u8);
 static u32    getMaxPlayerLines(Game *);
@@ -32,8 +32,8 @@ static void   Game_80051880_sixliner(Game *);
 static void   Game_ControllerRepeat_Update(Game *);
 static void   Game_800519b4_thirtyliner(Game *);
 static void   Game_Update(Game *);
-static void   Game_80052090_calls_3_functions(void);
-static void   Game_800520d0_calls_cubetiles_init(void);
+static void   Game_80052090_calls_3_functions(void);  // unused
+static void   Game_800520d0_calls_cubetiles_init(void);  // unused
 
 static void setPlayerTopOutOrder(Game *game_ptr, u8 playerNum) {
   if (game_ptr->topOutCount < 0 || game_ptr->topOutCount >= g_playercount) {
@@ -42,6 +42,7 @@ static void setPlayerTopOutOrder(Game *game_ptr, u8 playerNum) {
   game_ptr->topOutOrder[game_ptr->topOutCount++] = playerNum;
 }
 
+// unused
 static u8 hasPlayerToppedOut(Game *game_ptr, u8 playerNum) {
   register s32 i;
 
@@ -485,7 +486,7 @@ void Game_render_stuff_line_850(Game *game_ptr) {
   }
 }
 
-// deinit cubetiles?
+// unused
 static void Game_80052090_calls_3_functions(void) {
   register Game *game_ptr = &g_game;
 
@@ -494,6 +495,7 @@ static void Game_80052090_calls_3_functions(void) {
   MultisquareGlow_8006b384_oneliner_calls_fun();
 }
 
+// unused
 static void Game_800520d0_calls_cubetiles_init(void) {
   register Game *game_ptr = &g_game;
 
