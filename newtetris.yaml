@@ -296,7 +296,7 @@ segments:
       - {start: 0x0813E0, type: asm, vram: 0x800BB160, name: ultralib/os/writebackdcache}
       - {start: 0x081460, type: asm, vram: 0x800BB1E0, name: ultralib/io/epidma}
       - {start: 0x081540, type: asm, vram: 0x800BB2C0, name: ultralib/io/epilinkhandle}
-      - {start: 0x081590, type: asm, vram: 0x800BB310, name: ultralib/gu/frustum}
+      - {start: 0x081590, type: asm, vram: 0x800BB310, name: ultralib/gu/ortho}
       - {start: 0x081750, type: asm, vram: 0x800BB4D0, name: ultralib/gu/random}
       - {start: 0x081780, type: asm, vram: 0x800BB500, name: ultralib/os/thread}
       - {start: 0x0817C0, type: asm, vram: 0x800BB540, name: ultralib/os/interrupt}

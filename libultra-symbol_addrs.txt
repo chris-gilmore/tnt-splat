@@ -396,9 +396,9 @@ osEPiStartDma             = 0x800BB1E0; // type:func
 // ultralib/io/epilinkhandle
 osEPiLinkHandle           = 0x800BB2C0; // type:func
 
-// ultralib/gu/frustum
-guFrustumF                = 0x800BB310; // type:func
-guFrustum                 = 0x800BB464; // type:func
+// ultralib/gu/ortho
+guOrthoF                  = 0x800BB310; // type:func
+guOrtho                   = 0x800BB464; // type:func
 
 // ultralib/os/thread
 __osDequeueThread         = 0x800BB500; // type:func
