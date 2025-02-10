@@ -16,7 +16,7 @@ static UnkStruct_26 D_800D01A0[8] = {
 static UnkStruct_26 D_800D01E0[8][2] = {
   {
     { {0x00B8, 0x0031},  {0x00B8, 0x0081} },
-    { {0x00DE, 0x0031},  {0x00DE, 0x0081} }
+    { {0x00DE, 0x0031},  {0x00DE, 0x0081} }  //{ {0x0179, 0x0031},  {0x0179, 0x0081} }
   },
   {
     { {0x00B5, 0x0048},  {0x00B5, 0x00A0} },
@@ -51,7 +51,7 @@ static UnkStruct_26 D_800D01E0[8][2] = {
 
 static void PFGFX_8005fc70_doesnothing(void);
 static void PFGFX_SetTextDisplayPos_1p(u8);
-/* static */ void PFGFX_SetTextDisplayPos_2p(u8);
+static void PFGFX_SetTextDisplayPos_2p(u8);
 /* static */ void PFGFX_SetTextDisplayPos_3p(u8);
 /* static */ void PFGFX_SetTextDisplayPos_4p(u8);
 
@@ -148,7 +148,40 @@ static void PFGFX_SetTextDisplayPos_1p(u8 screen) {
   g_gameStats_ptr->linesInfo.y = 183;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/pfgfx/PFGFX_SetTextDisplayPos_2p.s")
+static void PFGFX_SetTextDisplayPos_2p(u8 screen) {
+  UnkStruct_17 sp38;
+  Point sp2C[3];
+  u8 currentplayer;
+
+  Minos_80070c40_twoliner_set_OR_1(0xA00U);
+  Minos_80070c70_threeliner_set_OR_8(0x500, 0xA00);
+  Minos_80070cb8_threeliner_set_OR_4(g_pfGfx_ptr->unkB0.x, g_pfGfx_ptr->unkB0.y);
+  Minos_80070a34_twentyliner();
+  currentplayer = g_currentplayer;
+  sp2C[0] = D_800D01E0[screen][currentplayer].unk0;
+  sp2C[2] = D_800D01E0[screen][currentplayer].unk4;
+  sp2C[1].x = (sp2C[0].x + sp2C[2].x) >> 1;
+  sp2C[1].y = (sp2C[0].y + sp2C[2].y) >> 1;
+  Minos_8007104c_fiveliner_nuts(&sp38.unk0[0], sp2C[0].x << 2, sp2C[0].y << 2);
+  Minos_8007104c_fiveliner_nuts(&sp38.unk0[1], sp2C[1].x << 2, sp2C[1].y << 2);
+  Minos_8007104c_fiveliner_nuts(&sp38.unk0[2], sp2C[2].x << 2, sp2C[2].y << 2);
+  Minos_8007104c_fiveliner_nuts(&sp38.unk0[3], sp2C[2].x << 2, sp2C[2].y << 2);
+  sp38.unk10 = 0xFF;
+  sp38.unk11 = 0xFF;
+  sp38.unk12 = 0xC0;
+  sp38.unk14 = 0xC0;
+  NextPieces_80068b7c_largeliner_sets_lots_of_struct_elems(&sp38);
+  switch (g_currentplayer) {
+  case 0:
+    g_gameStats_ptr->linesInfo.x = 169;
+    g_gameStats_ptr->linesInfo.y = 186;
+    break;
+  case 1:
+    g_gameStats_ptr->linesInfo.x = 169;
+    g_gameStats_ptr->linesInfo.y = 217;
+    break;
+  }
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/pfgfx/PFGFX_SetTextDisplayPos_3p.s")
 

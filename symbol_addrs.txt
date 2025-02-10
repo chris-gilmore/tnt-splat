@@ -1131,7 +1131,10 @@ D_800D0140                = 0x800D0140;
 
 // - {start: 0x096400, type: data, vram: 0x800D0180, name: newtetris/01D6E0}
 
-// - {start: 0x096420, type: data, vram: 0x800D01A0, name: newtetris/pfgfx}
+// - {start: 0x096420, type: .data, vram: 0x800D01A0, name: newtetris/pfgfx}
+// nextpieces 1p and 2p location tables
+D_800D01A0                = 0x800D01A0; //            size:0x40   static  UnkStruct_26 [8]
+D_800D01E0                = 0x800D01E0; //            size:0x80   static  UnkStruct_26 [8][2]
 
 // - {start: 0x0964E0, type: .data, vram: 0x800D0260, name: newtetris/026900}
 // (sin, cos) pairs for rotations 0, 90, 180, 270
@@ -1143,9 +1146,9 @@ g_trig_tbl                = 0x800D0260; //            size:0x20           Trig [
 D_800D02B0                = 0x800D02B0; // type:u8    size:0x1
 
 // - {start: 0x096740, type: .data, vram: 0x800D04C0, name: newtetris/piecehold}
-// piecehold 1p and 2p point tables
-D_800D04C0                = 0x800D04C0; //            size:0x20           Point [8]
-D_800D04E0                = 0x800D04E0; //            size:0x40           Point [8][2]
+// piecehold 1p and 2p location tables
+D_800D04C0                = 0x800D04C0; //            size:0x20   static  Point [8]
+D_800D04E0                = 0x800D04E0; //            size:0x40   static  Point [8][2]
 
 //- {start: 0x0967A0, type: .data, vram: 0x800D0520, name: newtetris/currentpiece}
 curPieceSpawnBasePoint    = 0x800D0520; //            size:0x4    static  Point
