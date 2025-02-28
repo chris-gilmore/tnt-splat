@@ -6,7 +6,7 @@ default: all
 # Build Options                                                                #
 #==============================================================================#
 
-TARGET := tnt64
+TARGET := tnt
 
 OPT_FLAGS := -mips1 -O1
 

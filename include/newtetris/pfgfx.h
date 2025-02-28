@@ -2,7 +2,7 @@
 #define _PFGFX_H_
 
 typedef struct {
-  /* 0x0  */ u8      pad0[0xB0];
+  /* 0x0  */ s16     pad0[0x58];
   /* 0xB0 */ Point   unkB0;  // player-specific playfield location
   /* 0xB4 */ u8      padB4[0x4];
 } PfGfx; // 0xB8 bytes

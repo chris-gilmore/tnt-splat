@@ -378,8 +378,8 @@ func_8005BE40                                    = 0x8005BE40; // type:func
 
 
 //      - {start: 0x025D00, type: asm, vram: 0x8005FA80, name: newtetris/pfgfx}
-PFGFX_8005fa80_twoliner_calls_fun                = 0x8005FA80; // type:func
-PFGFX_8005fab8_oneliner_calls_fun                = 0x8005FAB8; // type:func         note passes DAT_8011f260 + 8
+PFGFX_8005fa80_twoliner_calls_fun                = 0x8005FA80; // type:func unused
+PFGFX_8005fab8_oneliner_calls_fun                = 0x8005FAB8; // type:func unused
 PFGFX_Sets_x58_x59_Checks_NumPlayers_CurrPlayer  = 0x8005FAE0; // type:func         note sets x58 and x59 pos? might be offsets on where to start drawing each player's playfield
 PFGFX_8005fc70_doesnothing                       = 0x8005FC70; // type:func static
 GameCamera_Render                                = 0x8005FC78; // type:func
@@ -1139,6 +1139,8 @@ D_800D01E0                = 0x800D01E0; //            size:0x80   static  UnkStr
 // - {start: 0x0964E0, type: .data, vram: 0x800D0260, name: newtetris/026900}
 // (sin, cos) pairs for rotations 0, 90, 180, 270
 g_trig_tbl                = 0x800D0260; //            size:0x20           Trig [4]
+
+// - {start: 0x096500, type: data, vram: 0x800D0280, name: newtetris/026F90}
 
 // - {start: 0x096520, type: data, vram: 0x800D02A0, name: newtetris/0279C0}
 

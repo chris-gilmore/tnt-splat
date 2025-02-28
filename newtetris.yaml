@@ -2,7 +2,7 @@ name: Newtetris (North America)
 sha1: 83fff25e82181a6993f28c91b9eeb8430396838b
 options:
   basename: newtetris
-  target_path: tnt.z64
+  target_path: baserom.z64
   elf_path: build/newtetris.elf
   base_path: .
   platform: n64
