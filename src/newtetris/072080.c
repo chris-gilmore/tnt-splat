@@ -58,14 +58,14 @@ static void func_800ABE00() {
   }
 }
 
-void func_800ABFF0(u32 devAddr, void *dramAddr, u32 len) {
+void func_800ABFF0(void *devAddr, void *dramAddr, u32 len) {
   OSMesgQueue retQ;
   OSMesg msgBuf[1];
   s32 unused;
   IoMsg ioMsg;
 
   osCreateMesgQueue(&retQ, msgBuf, 1);
-  ioMsg.addr[0] = (void *) devAddr;
+  ioMsg.addr[0] = devAddr;
   ioMsg.addr[1] = dramAddr;
   ioMsg.len = len;
   ioMsg.retQueue = &retQ;
@@ -83,14 +83,14 @@ void func_800AC06C(OSId id, OSPri pri) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/072080/func_800AC0F8.s")
 
-u32 func_800AC1A8(void *dramAddr, u32 devAddr, u32 len) {
+u32 func_800AC1A8(void *dramAddr, void *devAddr, u32 len) {
   OSMesgQueue retQ;
   OSMesg msgBuf[1];
   IoMsg ioMsg;
 
   osCreateMesgQueue(&retQ, msgBuf, 1);
   ioMsg.addr[0] = dramAddr;
-  ioMsg.addr[1] = (void *) devAddr;
+  ioMsg.addr[1] = devAddr;
   ioMsg.len = len;
   ioMsg.type = 1;
   ioMsg.retQueue = &retQ;
@@ -99,14 +99,14 @@ u32 func_800AC1A8(void *dramAddr, u32 devAddr, u32 len) {
   return ioMsg.len;
 }
 
-u32 func_800AC22C(void *dramAddr, u32 devAddr, u32 len) {
+u32 func_800AC22C(void *dramAddr, void *devAddr, u32 len) {
   OSMesgQueue retQ;
   OSMesg msgBuf[1];
   IoMsg ioMsg;
 
   osCreateMesgQueue(&retQ, msgBuf, 1);
   ioMsg.addr[0] = dramAddr;
-  ioMsg.addr[1] = (void *) devAddr;
+  ioMsg.addr[1] = devAddr;
   ioMsg.len = len;
   ioMsg.type = 2;
   ioMsg.retQueue = &retQ;
