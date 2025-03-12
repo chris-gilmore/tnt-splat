@@ -12,8 +12,8 @@ typedef struct {
 
 extern Sram *g_sram_ptr;
 
-extern void   FUN_SRAM_n64HeapUnalloc_and_set_to_NULL(void *);       // deinit font?
-extern void   FUN_SRAM_80077408_twentyliner_loops_46t(void *, s32);  // init font?
+extern void   FUN_SRAM_n64HeapUnalloc_and_set_to_NULL(void **);       // deinit font?
+extern void   FUN_SRAM_80077408_twentyliner_loops_46t(void **, s32);  // init font?
 extern void   displayText_XY_RGBA_2(Gfx **, void *, s16, s16, char *, s32, s32, s32, s32);
 extern u32    get_total_wonder_lines(Sram *);
 extern void   load_from_sram(u8);

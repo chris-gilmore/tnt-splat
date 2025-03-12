@@ -1294,6 +1294,8 @@ minilzo_rodata_002C       = 0x800DEA5C; // type:s32   size:0xC    literal [3]
 // - {start: 0x0A6CF0, type: rodata, vram: 0x800E0A70, name: newtetris/06FFD0}
 coders                    = 0x800E0A70; // type:char  size:0x6B8
 
+// - {start: 0x0A73D0, type: rodata, vram: 0x800E1150, name: newtetris/072080}
+
 
 // ===========================================================================
 // .bss
@@ -1464,6 +1466,10 @@ D_801235B0                = 0x801235B0; //            size:0x4            OSMesg
 
 // - {type: bss, vram: 0x80129370, name: newtetris/frametime}
 g_frameTime               = 0x80129370; //            size:0x18           FrameTime
+
+
+// - {type: bss, vram: 0x8012A860, name: newtetris/072080}
+D_8012AA10                = 0x8012AA10; // type:u64   size:0x2000 static  [1024]
 
 
 // ===========================================================================

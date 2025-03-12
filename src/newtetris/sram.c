@@ -4,7 +4,10 @@
 
 static void   set_total_wonder_lines(Sram *, u32);
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sram/FUN_SRAM_n64HeapUnalloc_and_set_to_NULL.s")
+void FUN_SRAM_n64HeapUnalloc_and_set_to_NULL(void **arg0) {
+  n64HeapUnalloc(*arg0);
+  *arg0 = NULL;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sram/FUN_SRAM_80077408_twentyliner_loops_46t.s")
 
