@@ -556,7 +556,7 @@ void Game_Init(u8 numPlayers, u8 *handicap_arr) {
   func_8007635C();
   MultisquareGlow_InitStaticMembers(numPlayers);
   gamefinish_8005344C_fiveliner(numPlayers);
-  FUN_SRAM_80077408_twentyliner_loops_46t(&game_ptr->unk8, 9);  // init font
+  FUN_SRAM_80077408_twentyliner_loops_46t(&game_ptr->unk8, IMG_FONT_C);  // init font
   game_ptr->unkE4FC.alpha = 0.0f;
   game_ptr->unkE4FC.unk8 = 255.0f;
   game_ptr->unkE4FC.unk4 = (255.0f - game_ptr->unkE4FC.alpha) / 16.0f;

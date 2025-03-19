@@ -256,9 +256,9 @@ void gamefinish_80053400_fiveliner(UnkStruct_20 *arg0) {
 // GameFinish_Images_Init
 void gamefinish_8005344C_fiveliner(u8 numPlayers) {
   playercount = numPlayers;
-  func_8007FBB0(&D_800CFF88, 0x98);  // GAME OVER
-  func_8007FBB0(&D_800CFF80, 0x96);  // WIN
-  func_8007FBB0(&D_800CFF84, 0x97);  // LOSE
+  func_8007FBB0(&D_800CFF88, IMG_GAME_OVER);
+  func_8007FBB0(&D_800CFF80, IMG_WIN);
+  func_8007FBB0(&D_800CFF84, IMG_LOSE);
 }
 
 // called from Game_Deinit

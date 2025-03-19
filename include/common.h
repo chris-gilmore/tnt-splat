@@ -4,6 +4,7 @@
 #include "ultra64.h"
 #include "PR/sched.h"
 
+#include "newtetris/img_defs.h"
 #include "newtetris/003E40.h"
 #include "newtetris/006B30.h"
 #include "newtetris/0428D0.h"
