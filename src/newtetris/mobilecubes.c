@@ -146,7 +146,7 @@ void MobileCubes_Deinit(void) {
   // does nothing
   for (i = mobileCubes_ptr->max_allowed, cube_ptr = mobileCubes_ptr->cube_list; i > 0; cube_ptr++, i--);
 
-  n64HeapUnalloc((void *)mobileCubes_ptr->cube_list);
+  n64HeapUnalloc(mobileCubes_ptr->cube_list);
   mobileCubes_ptr->cube_list = NULL;
   mobileCubes_ptr->max_allowed = 0;
   mobileCubes_ptr->num_active = 0;

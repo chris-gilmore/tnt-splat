@@ -78,7 +78,7 @@ void FallingCubes_Init(s32 num_cubes) {
 void FallingCubes_Deinit(void) {
   register FallingCubes *fallingCubes_ptr = g_fallingCubes_ptr;
 
-  n64HeapUnalloc((void *)fallingCubes_ptr->cube_ptr_list);
+  n64HeapUnalloc(fallingCubes_ptr->cube_ptr_list);
   fallingCubes_ptr->cube_ptr_list = NULL;
   fallingCubes_ptr->max_allowed = 0;
   fallingCubes_ptr->num_active = 0;

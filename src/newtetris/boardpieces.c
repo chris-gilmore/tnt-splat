@@ -511,7 +511,7 @@ void BoardPieces_Init(BoardPieces *boardPieces_ptr) {
 }
 
 void BoardPieces_Deinit(BoardPieces *boardPieces_ptr) {
-  n64HeapUnalloc((u8 *)boardPieces_ptr->cell_list);
+  n64HeapUnalloc(boardPieces_ptr->cell_list);
   boardPieces_ptr->cell_list = NULL;
   Ids_Deinit(&boardPieces_ptr->pieceIds);
 }

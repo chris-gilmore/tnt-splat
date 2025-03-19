@@ -1183,8 +1183,8 @@ D_800D0600                = 0x800D0600; // type:s32   size:0x4    static
 
 // - {start: 0x099410, type: .data, vram: 0x800D3190, name: newtetris/n64heap}
 n64Heap                   = 0x800D3190; //            size:0x4    static  N64Heap*
-D_800D3194                = 0x800D3194; // type:u32   size:0x4    unused
-n64HeapAllocCumulative    = 0x800D3198; // type:u32   size:0x4    static
+D_800D3194                = 0x800D3194; // type:s32   size:0x4    unused
+n64HeapAllocCumulative    = 0x800D3198; // type:s32   size:0x4    static
 
 // - {start: 0x099470, type: .data, vram: 0x800D31F0, name: newtetris/creditstext}
 ptr_s_credits             = 0x800D31F0; // type:char* size:0x4
@@ -1440,8 +1440,8 @@ g_cubeTiles_ptr           = 0x8011FCB0; //            size:0x4            CubeTi
 g_sram_ptr                = 0x8011FCF0; //            size:0x4            Sram*
 
 // - {type: .bss, vram: 0x801201D0, name: newtetris/n64heap}
-n64HeapStart              = 0x801201D0; //            size:0x4    static  u8*
-n64HeapEnd                = 0x801201D4; //            size:0x4    static  u8*
+n64HeapStart              = 0x801201D0; //            size:0x4    static  void*
+n64HeapEnd                = 0x801201D4; //            size:0x4    static  void*
 
 
 // - {type: .bss, vram: 0x80120230, name: newtetris/minilzo}

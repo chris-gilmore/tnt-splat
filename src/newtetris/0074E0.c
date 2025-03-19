@@ -10,7 +10,7 @@ void FUN_80041260_twoliner(void) {
 void FUN_8004129c_fourliner(void) {
   if (D_800E1F30 != NULL) {
     Ids_Deinit(&D_800E1F30->unk258);
-    n64HeapUnalloc((void *)D_800E1F30);
+    n64HeapUnalloc(D_800E1F30);
     D_800E1F30 = NULL;
   }
 }

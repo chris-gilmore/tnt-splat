@@ -615,7 +615,7 @@ void Game_Deinit(void) {
   for (k = 0; k < game_ptr->numPlayers; k++) {
     Game_SetGlobalPointers(k);
     Tetris_Deinit(game_ptr->tetris_ptr_arr[k]);
-    n64HeapUnalloc((void *)game_ptr->tetris_ptr_arr[k]);
+    n64HeapUnalloc(game_ptr->tetris_ptr_arr[k]);
     game_ptr->tetris_ptr_arr[k] = NULL;
   }
   gamefinish_800534A4_fiveliner();

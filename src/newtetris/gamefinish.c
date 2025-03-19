@@ -264,10 +264,10 @@ void gamefinish_8005344C_fiveliner(u8 numPlayers) {
 // called from Game_Deinit
 // GameFinish_Images_Deinit
 void gamefinish_800534A4_fiveliner(void) {
-  n64HeapUnalloc((void *)D_800CFF88);
+  n64HeapUnalloc(D_800CFF88);
   D_800CFF88 = NULL;
-  n64HeapUnalloc((void *)D_800CFF80);
+  n64HeapUnalloc(D_800CFF80);
   D_800CFF80 = NULL;
-  n64HeapUnalloc((void *)D_800CFF84);
+  n64HeapUnalloc(D_800CFF84);
   D_800CFF84 = NULL;
 }

@@ -4,17 +4,17 @@ static N64Heap *n64Heap = NULL;
 static s32 D_800D3194 = 0; // unused
 static s32 n64HeapAllocCumulative = 0;
 
-static u8 *n64HeapStart;
-static u8 *n64HeapEnd;
+static void *n64HeapStart;
+static void *n64HeapEnd;
 
-static u8    *n64HeapAllocAppend(s32); // unused
+static void  *n64HeapAllocAppend(s32); // unused
 static s32    n64HeapGetTotalMemUsed(void); // unused
 static s32    n64HeapGetNumFragments(void); // unused
 static s32    n64HeapGetTotalHandles(void); // unused
 static void   n64HeapResetAllocCumulative(void); // unused
 static s32    n64HeapGetAllocCumulative(void); // unused
 
-void n64HeapInit(u8 *base, s32 len) {
+void n64HeapInit(void *base, s32 len) {
   register s32 baseAligned = (s32)base;
 
   baseAligned = (baseAligned + 0xF) & ~0xF;
@@ -27,10 +27,10 @@ void n64HeapInit(u8 *base, s32 len) {
   n64Heap->prev = NULL;
 
   n64HeapStart = base;
-  n64HeapEnd = base + len;
+  n64HeapEnd = (void *)((s32)base + len);
 }
 
-u8 *n64HeapAlloc(s32 size) {
+void *n64HeapAlloc(s32 size) {
   s32 bytes;
   s32 unused_bytes;
   N64Heap *handle = n64Heap;
@@ -40,7 +40,7 @@ u8 *n64HeapAlloc(s32 size) {
   n64HeapAllocCumulative += bytes;
   while (handle) {
     if ((handle->pBlock == NULL) && (handle->size >= bytes)) {
-      handle->pBlock = (u8 *)((s32)handle + sizeof(N64Heap));
+      handle->pBlock = (void *)((s32)handle + sizeof(N64Heap));
       unused_bytes = handle->size - bytes;
       if (unused_bytes > sizeof(N64Heap)) {
         unused_bytes -= sizeof(N64Heap);
@@ -66,7 +66,7 @@ u8 *n64HeapAlloc(s32 size) {
   return NULL;
 }
 
-static u8 *n64HeapAllocAppend(s32 size) {
+static void *n64HeapAllocAppend(s32 size) {
   s32 bytes;
   s32 bytes_plus_header;
   N64Heap *handleA = n64Heap;
@@ -96,7 +96,7 @@ static u8 *n64HeapAllocAppend(s32 size) {
   /* check if size of that last block is exactly equal to requested data bytes */
   /* if so then allocate the block and return its address */
   if (handleB->size == bytes) {
-    handleB->pBlock = (u8 *)((s32)handleB + sizeof(N64Heap));
+    handleB->pBlock = (void *)((s32)handleB + sizeof(N64Heap));
     handleB->next = NULL; /* is this necessary?  wasn't this already NULL if we got this far? */
     return handleB->pBlock;
   }
@@ -104,7 +104,7 @@ static u8 *n64HeapAllocAppend(s32 size) {
   /* if we got this far, then size of that last block is strictly greater than the requested data bytes */
   /* and we have enough room to create a new handle, which becomes the new last handle on the heap */
   handleA = (N64Heap *)((s32)n64HeapEnd - bytes_plus_header);
-  handleA->pBlock = (u8 *)((s32)handleA + sizeof(N64Heap));
+  handleA->pBlock = (void *)((s32)handleA + sizeof(N64Heap));
   handleA->size = bytes;
   handleA->prev = handleB;
   handleA->next = NULL;
@@ -112,7 +112,7 @@ static u8 *n64HeapAllocAppend(s32 size) {
   return handleA->pBlock;
 }
 
-void n64HeapUnalloc(u8 *pBlock) {
+void n64HeapUnalloc(void *pBlock) {
   register N64Heap *handle = n64Heap;
   register N64Heap *tmpHandle;
 

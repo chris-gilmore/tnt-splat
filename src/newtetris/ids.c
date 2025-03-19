@@ -18,7 +18,7 @@ void Ids_Init(Ids *ids, u32 max_ids) {
 void Ids_Deinit(Ids *ids) {
   ids->max_ids = 0;
   ids->next_id = 0;
-  n64HeapUnalloc((void *)ids->list);
+  n64HeapUnalloc(ids->list);
 }
 
 u32 can_run_out_of_ids(Ids *ids) {
@@ -88,7 +88,7 @@ void FUN_800508ec_fifteen_liner_allocs_heap(Ids *dest_ids, Ids *src_ids) {
   register s32 max_ids;
 
   if (dest_ids->max_ids != src_ids->max_ids) {
-    n64HeapUnalloc((void *)dest_ids->list);
+    n64HeapUnalloc(dest_ids->list);
     dest_ids->max_ids = src_ids->max_ids;
     dest_ids->next_id = 0;
     dest_ids->list = (Id *)n64HeapAlloc(dest_ids->max_ids * sizeof(Id));

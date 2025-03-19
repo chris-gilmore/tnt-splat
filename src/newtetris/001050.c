@@ -44,8 +44,8 @@ s32 FUN_001050_checkEepromSize_and_AllocHeap(SuperThread *superThd) {
       g_eepromSize = 0x800;
       break;
     }
-    superThd->eepCache = n64HeapAlloc(g_eepromSize);
-    superThd->eepDirtyBlks = n64HeapAlloc(g_eepromSize / EEPROM_BLOCK_SIZE);
+    superThd->eepCache = (u8 *) n64HeapAlloc(g_eepromSize);
+    superThd->eepDirtyBlks = (u8 *) n64HeapAlloc(g_eepromSize / EEPROM_BLOCK_SIZE);
     superThd->unk25AE |= 0x10;
     for (sp24 = 0; sp24 < g_eepromSize; sp24++) {
       superThd->eepCache[sp24] = 0;

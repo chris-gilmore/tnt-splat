@@ -32,7 +32,7 @@ static void   Credits_80083450_oneliner_calls_80090a44(void);
 
 static void Credits_Init(void) {
   main_8004A34C_threeliner();
-  D_80120240 = n64HeapAlloc(240008);
+  D_80120240 = (u8 *) n64HeapAlloc(240008);
   D_80120240[0] = 1;
   D_80120240[1] = 0x90;
   D_80120240[2] = 1;
