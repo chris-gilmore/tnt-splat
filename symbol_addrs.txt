@@ -1395,7 +1395,7 @@ g_lineScan_ptr            = 0x8011FB90; //            size:0x4            LineSc
 g_squares_ptr             = 0x8011FBA0; //            size:0x4            Squares*
 
 // - {type: bss, vram: 0x8011FBB0, name: newtetris/multisquareglow}
-D_8011FBB0                = 0x8011FBB0; //            size:0x4            struct?*
+D_8011FBB0                = 0x8011FBB0; //            size:0x4    static  UnkStruct_21*
 
 // - {type: bss, vram: 0x8011FBC0, name: newtetris/keyspin}
 D_8011FBC0                = 0x8011FBC0; //            size:0x4            UnkStruct_9*

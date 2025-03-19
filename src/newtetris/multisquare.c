@@ -384,9 +384,29 @@ void MultisquareGlow_8006ada4_Init2(void) {
 void MultisquareGlow_Deinit_doesnothing(void) {
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/multisquare/Multisquares_UpdateGlows.s")
+void Multisquares_UpdateGlows(Squares *squares_ptr, u32 arg1) {
+  register Square *square_ptr;
+  register u32 i;
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/multisquare/Multisquares_RenderGlows.s")
+  square_ptr = squares_ptr->arr;
+  for (i = 0; i < 44; i++, square_ptr++) {
+    if (square_ptr->type != 0) {
+      MultisquareGlow_8006af00_eightliner(&square_ptr->glow, arg1);
+    }
+  }
+}
+
+void Multisquares_RenderGlows(Squares *squares_ptr) {
+  register Square *square_ptr;
+  register u32 i;
+
+  square_ptr = squares_ptr->arr;
+  for (i = 0; i < 44; i++, square_ptr++) {
+    if (square_ptr->type != 0) {
+      MultisquareGlow_8006af70_nineliner(&square_ptr->glow);
+    }
+  }
+}
 
 void MultisquareGlow_8006aebc_loops_44_times_4(Squares *squares_ptr, u8 alpha) {
   register Square *square_ptr;
