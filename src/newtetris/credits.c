@@ -48,7 +48,7 @@ static void Credits_Init(void) {
   D_800D3CF8 = 0;
   D_800D3CFC = 0;
   D_801291E4 = 0;
-  EndScroller_Init(D_80120248, ptr_s_credits);
+  EndScroller_Init(D_80120248, g_credits_str);
 }
 
 static void Credits_80083450_oneliner_calls_80090a44(void) {

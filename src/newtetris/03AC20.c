@@ -1,5 +1,24 @@
 #include "common.h"
 
+static Gfx D_800D0610[] = {
+  gsSPClearGeometryMode(G_ZBUFFER | G_SHADE | G_CULL_BOTH | G_FOG | G_LIGHTING | G_TEXTURE_GEN | G_TEXTURE_GEN_LINEAR | G_SHADING_SMOOTH),
+  gsDPPipeSync(),
+  gsDPSetCycleType(G_CYC_1CYCLE),
+  gsDPSetTextureLUT(G_TT_NONE),
+  gsDPSetAlphaCompare(G_AC_NONE),
+  gsDPSetTexturePersp(G_TP_NONE),
+  gsDPSetTextureFilter(G_TF_AVERAGE),
+  gsDPSetTextureConvert(G_TC_FILT),
+  gsDPSetTextureDetail(G_TD_CLAMP),
+  gsDPSetTextureLOD(G_TL_TILE),
+  gsDPSetCombineMode(_G_CC_BLENDPEDECALA, _G_CC_BLENDPEDECALA),
+  gsDPSetRenderMode(G_RM_XLU_SURF, G_RM_XLU_SURF2),
+  gsDPSetPrimColor(0, 0, 0xFF, 0x00, 0x00, 0xFF),
+  gsDPSetEnvColor(0xFF, 0xFF, 0x00, 0xFF),
+  gsSPTexture(0x8000, 0x8000, 0, G_TX_RENDERTILE, G_ON),
+  gsSPEndDisplayList(),
+};
+
 /* static */ void func_800749A0(UnkStruct_33 *, u8, u8);
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/03AC20/func_800749A0.s")

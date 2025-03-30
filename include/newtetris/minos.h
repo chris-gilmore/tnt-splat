@@ -23,26 +23,8 @@ typedef struct {
 } UnkStruct_14; // 0xA bytes
 
 typedef struct {
-  /* 0x0 */ s32   unk0;
-  /* 0x4 */ s32   unk4;
-} UnkStruct_23; // 0x8 bytes
-
-typedef struct {
-  /* 0x0  */ s8            *unk0;        // &(Mino *)->unk24
-  /* 0x4  */ s8            *unk4;        // &(Mino *)->unk{B0,F0}
-  /* 0x8  */ u8             pad8[0x1C];
-  /* 0x24 */ UnkStruct_23   unk24[4];
-} UnkStruct_24; // 0x44 bytes
-
-typedef struct UnkStruct_15_s {
-  /* 0x0  */ u8             pad0[0x14];
-  /* 0x14 */ UnkStruct_24   unk14;
-  /* 0x58 */ void         (*unk58)(struct UnkStruct_15_s *);
-} UnkStruct_15; // 0x5C bytes
-
-typedef struct {
   /* 0x0  */ UnkStruct_14   unk0[4];
-  /* 0x28 */ UnkStruct_15  *unk28;
+  /* 0x28 */ UnkStruct_0   *unk28;
   /* 0x2C */ u8             unk2C;
   /* 0x2E */ s16            unk2E;  // dsdx
   /* 0x30 */ s16            unk30;  // dtdy
@@ -94,10 +76,9 @@ typedef struct {
   /* 0x1A */ Point   unk1A;
   /* 0x1E */ u8      unk1E;  // see Minos_SetVtxTransform()
   /* 0x20 */ Vtx     unk20[4];
-} UnkStruct_0; // 0x60 bytes
-// TODO: Rename this to Minos
+} Minos; // 0x60 bytes
 
-extern UnkStruct_0 *D_8011FC10;
+extern Minos *g_minos_ptr;
 
 extern void   Minos_Mino_Render(Mino *, UnkStruct_8 *);
 extern void   Minos_800702e4_nineliner(Mino *);
@@ -114,10 +95,10 @@ extern void   Minos_80070c70_threeliner_set_OR_8(s16, s16);
 extern void   Minos_80070cb8_threeliner_set_OR_4(s16, s16);
 extern void   Minos_SetScale(u16);
 extern void   Minos_SetAlpha(u8);
-extern void   Minos_Init(UnkStruct_0 *, void *);
-extern void   Minos_Deinit_doesnothing(UnkStruct_0 *);
-extern void   Minos_BeginRender(UnkStruct_0 *);
-extern void   Minos_EndRender(UnkStruct_0 *);
+extern void   Minos_Init(Minos *, UnkStruct_0 *);
+extern void   Minos_Deinit_doesnothing(Minos *);
+extern void   Minos_BeginRender(Minos *);
+extern void   Minos_EndRender(Minos *);
 extern void   Minos_80070fd8_notcalled_q(PointAngle *, Point *, u16);
 extern void   Minos_8007104c_fiveliner_nuts(Point *, s16, s16);
 extern void   Minos_80071100_fiveliner_nuts2(Point *, PointAngle *);

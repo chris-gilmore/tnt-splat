@@ -21,8 +21,8 @@ static void MobilePiece_Minos_setUpdateFlag(Piece *piece_ptr, u8 mino_idx, Point
   delta_x = ((local_mino_pos->x << 8) - piece_ptr->physicalRotOrigin.x) + 0x80;
   delta_y = ((local_mino_pos->y << 8) - piece_ptr->physicalRotOrigin.y) + 0x80;
 
-  delta_x = (delta_x * D_8011FC10->scale) >> 8;
-  delta_y = (delta_y * D_8011FC10->scale) >> 8;
+  delta_x = (delta_x * g_minos_ptr->scale) >> 8;
+  delta_y = (delta_y * g_minos_ptr->scale) >> 8;
 
   pnt_ptr->x = ((delta_x * cos_val) - (delta_y * sin_val)) >> 14;
   pnt_ptr->y = ((delta_x * sin_val) + (delta_y * cos_val)) >> 14;
@@ -43,8 +43,8 @@ static void MobilePiece_80064e10_similar_to_Minos_setUpdFlag(Piece *piece_ptr, u
   delta_x = ((local_mino_pos->x << 8) - piece_ptr->physicalRotOrigin.x) + 0x80;
   delta_y = ((local_mino_pos->y << 8) - piece_ptr->physicalRotOrigin.y) + 0x80;
 
-  delta_x = (delta_x * D_8011FC10->scale) >> 8;
-  delta_y = (delta_y * D_8011FC10->scale) >> 8;
+  delta_x = (delta_x * g_minos_ptr->scale) >> 8;
+  delta_y = (delta_y * g_minos_ptr->scale) >> 8;
 
   pnt_ptr->x = (((delta_x * cos_val) - (delta_y * sin_val)) >> 14) + piece_ptr->physicalPos.x;
   pnt_ptr->y = (((delta_x * sin_val) + (delta_y * cos_val)) >> 14) + piece_ptr->physicalPos.y;
@@ -68,7 +68,7 @@ void MobilePiece_Render(Piece *piece_ptr) {
 
   Minos_SetAlpha(piece_ptr->alpha);
   debug_print2("AFTER", "Minos_SetAlpha");
-  Minos_BeginRender(D_8011FC10);
+  Minos_BeginRender(g_minos_ptr);
   debug_print2("AFTER", "Minos_BeginRender");
   Minos_SetVtxTransform(1);
   debug_print2("AFTER", "Minos_SetVtxTransform");
@@ -86,7 +86,7 @@ void MobilePiece_Render(Piece *piece_ptr) {
     debug_print2("AFTER", "Mino_Render");
   }
   piece_ptr->physicalCkwRotValue = savedPhysicalCkwRotValue;
-  Minos_EndRender(D_8011FC10);
+  Minos_EndRender(g_minos_ptr);
   debug_print2("AFTER", "Minos_EndRender");
 }
 

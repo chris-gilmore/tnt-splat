@@ -4,7 +4,7 @@ extern u8 D_273A00;  // image_lut
 
 ////////////////////////////////////////
 
-static UnkStruct_21 *D_8011FBB0;
+static u8 *D_8011FBB0;
 
 void MultisquareGlow_8006af00_eightliner(SquareGlow *squareGlow_ptr, s32 arg1) {
   if (!squareGlow_ptr->is_active) {
@@ -33,7 +33,7 @@ void MultisquareGlow_8006af70_nineliner(SquareGlow *squareGlow_ptr) {
     var_s0 = (squareGlow_ptr->alpha * var_s0) >> 8;
   }
   func_8005BBFC(&g_gdl);
-  weird_lots_of_magic_number_setting_66xrefs(&g_gdl, D_8011FBB0, 0, squareGlow_ptr->location.x, squareGlow_ptr->location.y, 0xFF, 0xFF, 0xFF, var_s0);
+  weird_lots_of_magic_number_setting_66xrefs(&g_gdl, D_8011FBB0, NULL, squareGlow_ptr->location.x, squareGlow_ptr->location.y, 0xFF, 0xFF, 0xFF, var_s0);
   func_8005BE40(&g_gdl);
 }
 
@@ -50,22 +50,22 @@ void MultisquareGlow_Init(SquareGlow *squareGlow_ptr, Point arg1, u8 unitSize) {
   switch (unitSize) {
   case 11:
     squareGlow_ptr->size = 0;  // large
-    width = D_8011FBB0->width;
-    height = D_8011FBB0->height;
+    width = ((u16 *) D_8011FBB0)[0];
+    height = ((u16 *) D_8011FBB0)[1];
     squareGlow_ptr->location.x = (arg1.x >> 2) - ((width - 44) >> 1);
     squareGlow_ptr->location.y = (arg1.y >> 2) - ((width - 44) >> 1);
     break;
   case 10:
     squareGlow_ptr->size = 1;  // medium
-    width = D_8011FBB0->width;
-    height = D_8011FBB0->height;
+    width = ((u16 *) D_8011FBB0)[0];
+    height = ((u16 *) D_8011FBB0)[1];
     squareGlow_ptr->location.x = (arg1.x >> 2) - ((width - 40) >> 1);
     squareGlow_ptr->location.y = (arg1.y >> 2) - ((width - 40) >> 1);
     break;
   case 8:
     squareGlow_ptr->size = 2;  // small
-    width = D_8011FBB0->width;
-    height = D_8011FBB0->height;
+    width = ((u16 *) D_8011FBB0)[0];
+    height = ((u16 *) D_8011FBB0)[1];
     squareGlow_ptr->location.x = (arg1.x >> 2) - ((width - 32) >> 1);
     squareGlow_ptr->location.y = (arg1.y >> 2) - ((width - 32) >> 1);
     break;
@@ -80,17 +80,17 @@ void MultisquareGlow_InitStaticMembers(u8 arg0) {
 
   switch (arg0) {
   case 1:
-    D_8011FBB0 = (UnkStruct_21 *) n64HeapAlloc(FUN_03A750_80074888_twelveliner(&D_273A00, IMG_SQUARE_GLOW));
-    FUN_03A750_800746c0_twentyliner(&D_273A00, (u8 *) D_8011FBB0, IMG_SQUARE_GLOW);
+    D_8011FBB0 = (u8 *) n64HeapAlloc(FUN_03A750_80074888_twelveliner(&D_273A00, IMG_SQUARE_GLOW));
+    FUN_03A750_800746c0_twentyliner(&D_273A00, D_8011FBB0, IMG_SQUARE_GLOW);
     break;
   case 2:
-    D_8011FBB0 = (UnkStruct_21 *) n64HeapAlloc(FUN_03A750_80074888_twelveliner(&D_273A00, IMG_SQUARE_2P_GLOW));
-    FUN_03A750_800746c0_twentyliner(&D_273A00, (u8 *) D_8011FBB0, IMG_SQUARE_2P_GLOW);
+    D_8011FBB0 = (u8 *) n64HeapAlloc(FUN_03A750_80074888_twelveliner(&D_273A00, IMG_SQUARE_2P_GLOW));
+    FUN_03A750_800746c0_twentyliner(&D_273A00, D_8011FBB0, IMG_SQUARE_2P_GLOW);
     break;
   case 3:
   case 4:
-    D_8011FBB0 = (UnkStruct_21 *) n64HeapAlloc(FUN_03A750_80074888_twelveliner(&D_273A00, IMG_SQUARE_4P_GLOW));
-    FUN_03A750_800746c0_twentyliner(&D_273A00, (u8 *) D_8011FBB0, IMG_SQUARE_4P_GLOW);
+    D_8011FBB0 = (u8 *) n64HeapAlloc(FUN_03A750_80074888_twelveliner(&D_273A00, IMG_SQUARE_4P_GLOW));
+    FUN_03A750_800746c0_twentyliner(&D_273A00, D_8011FBB0, IMG_SQUARE_4P_GLOW);
     break;
   default:
     debug_print_reason_routine("Invalid numPlayers, multisquareglow.c", "MultisquareGlow_InitStaticMembers");

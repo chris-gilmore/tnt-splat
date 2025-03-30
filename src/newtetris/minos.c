@@ -14,7 +14,7 @@ static Gfx D_800D0568[] = {
   gsSPEndDisplayList(),
 };
 
-UnkStruct_0 *D_8011FC10;
+Minos *g_minos_ptr;
 static s32 D_8011FC14;  // unused
 static UnkStruct_22 D_8011FC18;
 static u8 D_8011FC54;
@@ -72,23 +72,23 @@ static void func_8006F39C(UnkStruct_8 *arg0) {
   register s32 unused;
 
   temp_t0->unk2C = 1;
-  temp_t0->unk2E = D_8011FC10->unkA.x;
-  temp_t0->unk30 = D_8011FC10->unkA.y;
+  temp_t0->unk2E = g_minos_ptr->unkA.x;
+  temp_t0->unk30 = g_minos_ptr->unkA.y;
 
-  temp_t1 = D_8011FC10->unk8;
+  temp_t1 = g_minos_ptr->unk8;
 
-  temp_a2 = arg0->unk6.p.x + arg0->unk0.p.x - D_8011FC10->unkE.x;
-  temp_a3 = arg0->unk6.p.y + arg0->unk0.p.y - D_8011FC10->unkE.y;
+  temp_a2 = arg0->unk6.p.x + arg0->unk0.p.x - g_minos_ptr->unkE.x;
+  temp_a3 = arg0->unk6.p.y + arg0->unk0.p.y - g_minos_ptr->unkE.y;
 
   var_a1[0].unk0.p.x = (u32)temp_a2 - temp_t1; var_a1[0].unk0.p.y = (u32)temp_a3 - temp_t1;
   var_a1[1].unk0.p.x = (u32)temp_a2 + temp_t1; var_a1[1].unk0.p.y = (u32)temp_a3 - temp_t1;
   var_a1[2].unk0.p.x = (u32)temp_a2 - temp_t1; var_a1[2].unk0.p.y = (u32)temp_a3 + temp_t1;
   var_a1[3].unk0.p.x = (u32)temp_a2 + temp_t1; var_a1[3].unk0.p.y = (u32)temp_a3 + temp_t1;
 
-  temp_t2 = D_8011FC10->unk2;
+  temp_t2 = g_minos_ptr->unk2;
 
-  temp_t4 = (((u32)temp_a2 * temp_t2) >> 14) + D_8011FC10->unk12.x;
-  temp_t5 = (((u32)temp_a3 * temp_t2) >> 14) + D_8011FC10->unk12.y;
+  temp_t4 = (((u32)temp_a2 * temp_t2) >> 14) + g_minos_ptr->unk12.x;
+  temp_t5 = (((u32)temp_a3 * temp_t2) >> 14) + g_minos_ptr->unk12.y;
 
   temp_t3 = (u32)temp_t2 >> 7;
   var_a1[0].p.x = temp_t4 - temp_t3;
@@ -115,11 +115,11 @@ static void Minos_8006f4b4_thirtyliner_interesting(UnkStruct_8 *arg0) {
   D_8011FC18.unk2C = 2;
   temp_s1 = sins(arg0->unkC.angle);
   temp_s2 = coss(arg0->unkC.angle);
-  temp_s5 = D_8011FC10->scale;
-  sp40 = arg0->unk6.p.x - D_8011FC10->unkE.x;
-  sp42 = arg0->unk6.p.y - D_8011FC10->unkE.y;
-  temp_s3 = arg0->unk0.p.x - D_8011FC10->unk8;
-  temp_s4 = arg0->unk0.p.y - D_8011FC10->unk8;
+  temp_s5 = g_minos_ptr->scale;
+  sp40 = arg0->unk6.p.x - g_minos_ptr->unkE.x;
+  sp42 = arg0->unk6.p.y - g_minos_ptr->unkE.y;
+  temp_s3 = arg0->unk0.p.x - g_minos_ptr->unk8;
+  temp_s4 = arg0->unk0.p.y - g_minos_ptr->unk8;
   var_s0[0].unk0.p.x = (((temp_s3 * temp_s2) - (temp_s4 * temp_s1)) >> 15) + sp40;
   var_s0[0].unk0.p.y = (((temp_s3 * temp_s1) + (temp_s4 * temp_s2)) >> 15) + sp42;
   temp_s3 += temp_s5;
@@ -131,9 +131,9 @@ static void Minos_8006f4b4_thirtyliner_interesting(UnkStruct_8 *arg0) {
   temp_s3 -= temp_s5;
   var_s0[2].unk0.p.x = (((temp_s3 * temp_s2) - (temp_s4 * temp_s1)) >> 15) + sp40;;
   var_s0[2].unk0.p.y = (((temp_s3 * temp_s1) + (temp_s4 * temp_s2)) >> 15) + sp42;
-  temp_s6 = D_8011FC10->unk2;
-  temp_s7 = D_8011FC10->unk12.x;
-  sp38 = D_8011FC10->unk12.y;
+  temp_s6 = g_minos_ptr->unk2;
+  temp_s7 = g_minos_ptr->unk12.x;
+  sp38 = g_minos_ptr->unk12.y;
   var_s0[0].p.x = ((u32)(var_s0[0].unk0.p.x * temp_s6) >> 14) + temp_s7;
   var_s0[0].p.y = ((u32)(var_s0[0].unk0.p.y * temp_s6) >> 14) + sp38;
   var_s0[1].p.x = ((u32)(var_s0[1].unk0.p.x * temp_s6) >> 14) + temp_s7;
@@ -445,85 +445,85 @@ void Minos_800709EC(Mino *arg0, u8 arg1, s32 arg2) {
 }
 
 void Minos_80070a34_twentyliner(void) {
-  register UnkStruct_0 *var_a0 = D_8011FC10;
+  register Minos *minos_ptr = g_minos_ptr;
   register u32 var_a1;
 
-  if (var_a0->pattern & 0x8) {
-    var_a0->unkE = var_a0->unk16;
+  if (minos_ptr->pattern & 0x8) {
+    minos_ptr->unkE = minos_ptr->unk16;
   }
 
-  if (var_a0->pattern & 0xD) {
-    var_a0->unk12.x = var_a0->unk1A.x + ((var_a0->unkE.x * var_a0->unk2) >> 14) + (var_a0->unk2 >> 7);
-    var_a0->unk12.y = var_a0->unk1A.y + ((var_a0->unkE.y * var_a0->unk2) >> 14) + (var_a0->unk2 >> 7);
+  if (minos_ptr->pattern & 0xD) {
+    minos_ptr->unk12.x = minos_ptr->unk1A.x + ((minos_ptr->unkE.x * minos_ptr->unk2) >> 14) + (minos_ptr->unk2 >> 7);
+    minos_ptr->unk12.y = minos_ptr->unk1A.y + ((minos_ptr->unkE.y * minos_ptr->unk2) >> 14) + (minos_ptr->unk2 >> 7);
   }
 
-  if (var_a0->pattern & 0x1) {
-    var_a0->unk4 = (float)0x1000000 / var_a0->unk2 + 0.5f;
+  if (minos_ptr->pattern & 0x1) {
+    minos_ptr->unk4 = (float)0x1000000 / minos_ptr->unk2 + 0.5f;
   }
 
-  if (var_a0->pattern & 0x3) {
-    var_a1 = var_a0->unk2 * var_a0->scale;
+  if (minos_ptr->pattern & 0x3) {
+    var_a1 = minos_ptr->unk2 * minos_ptr->scale;
     var_a1 >>= 8;
-    var_a0->unk8 = var_a0->scale >> 1;
-    var_a0->unkA.x = 0x200000 / var_a1;
-    var_a0->unkA.y = 0x200000 / var_a1;
+    minos_ptr->unk8 = minos_ptr->scale >> 1;
+    minos_ptr->unkA.x = 0x200000 / var_a1;
+    minos_ptr->unkA.y = 0x200000 / var_a1;
   }
 
-  var_a0->pattern = 0x0;
+  minos_ptr->pattern = 0x0;
 }
 
 void Minos_80070c40_twoliner_set_OR_1(u16 arg0) {
-  D_8011FC10->unk2 = arg0;
-  D_8011FC10->pattern |= 0x1;
+  g_minos_ptr->unk2 = arg0;
+  g_minos_ptr->pattern |= 0x1;
 }
 
 void Minos_80070c70_threeliner_set_OR_8(s16 x, s16 y) {
-  D_8011FC10->unk16.x = x;
-  D_8011FC10->unk16.y = y;
-  D_8011FC10->pattern |= 0x8;
+  g_minos_ptr->unk16.x = x;
+  g_minos_ptr->unk16.y = y;
+  g_minos_ptr->pattern |= 0x8;
 }
 
 void Minos_80070cb8_threeliner_set_OR_4(s16 x, s16 y) {
-  D_8011FC10->unk1A.x = x;
-  D_8011FC10->unk1A.y = y;
-  D_8011FC10->pattern |= 0x4;
+  g_minos_ptr->unk1A.x = x;
+  g_minos_ptr->unk1A.y = y;
+  g_minos_ptr->pattern |= 0x4;
 }
 
 void Minos_SetScale(u16 scale) {
-  D_8011FC10->scale = scale;
-  D_8011FC10->pattern |= 0x2;
+  g_minos_ptr->scale = scale;
+  g_minos_ptr->pattern |= 0x2;
 }
 
 void Minos_SetAlpha(u8 alpha) {
   D_8011FC18.alpha = alpha;
 }
 
-void Minos_Init(UnkStruct_0 *arg0, void *arg1) {
+void Minos_Init(Minos *minos_ptr, UnkStruct_0 *arg1) {
   D_8011FC18.unk28 = arg1;
-  arg0->unk20[0].v.ob[0] = 0;
-  arg0->unk20[0].v.ob[1] = 0;
-  arg0->unk20[0].v.ob[2] = 0;
-  arg0->unk20[1].v.ob[0] = 0;
-  arg0->unk20[1].v.ob[1] = 0;
-  arg0->unk20[1].v.ob[2] = 0;
-  arg0->unk20[2].v.ob[0] = 0;
-  arg0->unk20[2].v.ob[1] = 0;
-  arg0->unk20[2].v.ob[2] = 0;
-  arg0->unk20[3].v.ob[0] = 0;
-  arg0->unk20[3].v.ob[1] = 0;
-  arg0->unk20[3].v.ob[2] = 0;
-  arg0->unk20[0].v.flag = 0;
-  arg0->unk20[0].v.tc[0] = 0;
-  arg0->unk20[0].v.tc[1] = 0;
-  arg0->unk20[1].v.flag = 0;
-  arg0->unk20[1].v.tc[0] = 0x380;
-  arg0->unk20[1].v.tc[1] = 0;
-  arg0->unk20[2].v.flag = 0;
-  arg0->unk20[2].v.tc[0] = 0;
-  arg0->unk20[2].v.tc[1] = 0x380;
-  arg0->unk20[3].v.flag = 0;
-  arg0->unk20[3].v.tc[0] = 0x380;
-  arg0->unk20[3].v.tc[1] = 0x380;
+  minos_ptr->unk20[0].v.ob[0] = 0;
+  minos_ptr->unk20[0].v.ob[1] = 0;
+  minos_ptr->unk20[0].v.ob[2] = 0;
+  minos_ptr->unk20[1].v.ob[0] = 0;
+  minos_ptr->unk20[1].v.ob[1] = 0;
+  minos_ptr->unk20[1].v.ob[2] = 0;
+  minos_ptr->unk20[2].v.ob[0] = 0;
+  minos_ptr->unk20[2].v.ob[1] = 0;
+  minos_ptr->unk20[2].v.ob[2] = 0;
+  minos_ptr->unk20[3].v.ob[0] = 0;
+  minos_ptr->unk20[3].v.ob[1] = 0;
+  minos_ptr->unk20[3].v.ob[2] = 0;
+  minos_ptr->unk20[0].v.flag = 0;
+  minos_ptr->unk20[0].v.tc[0] = 0;
+  minos_ptr->unk20[0].v.tc[1] = 0;
+  minos_ptr->unk20[1].v.flag = 0;
+  minos_ptr->unk20[1].v.tc[0] = 0x380;
+  minos_ptr->unk20[1].v.tc[1] = 0;
+  minos_ptr->unk20[2].v.flag = 0;
+  minos_ptr->unk20[2].v.tc[0] = 0;
+  minos_ptr->unk20[2].v.tc[1] = 0x380;
+  minos_ptr->unk20[3].v.flag = 0;
+  minos_ptr->unk20[3].v.tc[0] = 0x380;
+  minos_ptr->unk20[3].v.tc[1] = 0x380;
   Minos_80070c40_twoliner_set_OR_1(0x100);
   Minos_80070c70_threeliner_set_OR_8(0x500, 0xA00);
   Minos_80070cb8_threeliner_set_OR_4(0, 0);
@@ -533,63 +533,63 @@ void Minos_Init(UnkStruct_0 *arg0, void *arg1) {
   Minos_80070a34_twentyliner();
 }
 
-void Minos_Deinit_doesnothing(UnkStruct_0 *arg0) {
+void Minos_Deinit_doesnothing(Minos *minos_ptr) {
 }
 
-void Minos_BeginRender(UnkStruct_0 *arg0) {
+void Minos_BeginRender(Minos *minos_ptr) {
   gSPDisplayList(g_gdl++, &D_800D0568);
-  gSPVertex(g_gdl++, &arg0->unk20, 4, 0);
+  gSPVertex(g_gdl++, &minos_ptr->unk20, 4, 0);
   D_8011FC18.unk38 = 2;
   D_8011FC18.is_transparent = TRUE;
   Minos_8006fc8c_twentyfive_liner(1, FALSE);
   D_800D0560 = 0;
 }
 
-void Minos_EndRender(UnkStruct_0 *arg0) {
+void Minos_EndRender(Minos *minos_ptr) {
   gDPPipeSync(g_gdl++);
   gDPSetCycleType(g_gdl++, G_CYC_1CYCLE);
 }
 
 void Minos_80070fd8_notcalled_q(PointAngle *arg0, Point *arg1, u16 arg2) {
-  register UnkStruct_0 *var_a3 = D_8011FC10;
-  register s32 tmp_x = arg1->x - var_a3->unk12.x;
-  register s32 tmp_y = arg1->y - var_a3->unk12.y;
+  register Minos *minos_ptr = g_minos_ptr;
+  register s32 tmp_x = arg1->x - minos_ptr->unk12.x;
+  register s32 tmp_y = arg1->y - minos_ptr->unk12.y;
 
-  tmp_x = (tmp_x * var_a3->unk4) >> 10;
-  tmp_y = (tmp_y * var_a3->unk4) >> 10;
+  tmp_x = (tmp_x * minos_ptr->unk4) >> 10;
+  tmp_y = (tmp_y * minos_ptr->unk4) >> 10;
 
-  arg0->p.x = tmp_x + var_a3->unkE.x;
-  arg0->p.y = tmp_y + var_a3->unkE.y;
+  arg0->p.x = tmp_x + minos_ptr->unkE.x;
+  arg0->p.y = tmp_y + minos_ptr->unkE.y;
   arg0->angle = 0;
 }
 
 void Minos_8007104c_fiveliner_nuts(Point *arg0, s16 x, s16 y) {
-  register UnkStruct_0 *var_a3 = D_8011FC10;
+  register Minos *minos_ptr = g_minos_ptr;
 
-  x -= var_a3->unk12.x;
-  y -= var_a3->unk12.y;
+  x -= minos_ptr->unk12.x;
+  y -= minos_ptr->unk12.y;
 
-  x = (x * var_a3->unk4) >> 10;
-  y = (y * var_a3->unk4) >> 10;
+  x = (x * minos_ptr->unk4) >> 10;
+  y = (y * minos_ptr->unk4) >> 10;
 
-  arg0->x = x + var_a3->unkE.x;
-  arg0->y = y + var_a3->unkE.y;
+  arg0->x = x + minos_ptr->unkE.x;
+  arg0->y = y + minos_ptr->unkE.y;
 }
 
 void Minos_80071100_fiveliner_nuts2(Point *arg0, PointAngle *arg1) {
-  register UnkStruct_0 *var_a2 = D_8011FC10;
-  register s32 tmp_x = arg1->p.x - var_a2->unkE.x;
-  register s32 tmp_y = arg1->p.y - var_a2->unkE.y;
+  register Minos *minos_ptr = g_minos_ptr;
+  register s32 tmp_x = arg1->p.x - minos_ptr->unkE.x;
+  register s32 tmp_y = arg1->p.y - minos_ptr->unkE.y;
 
-  tmp_x = (tmp_x * var_a2->unk2) >> 14;
-  tmp_y = (tmp_y * var_a2->unk2) >> 14;
+  tmp_x = (tmp_x * minos_ptr->unk2) >> 14;
+  tmp_y = (tmp_y * minos_ptr->unk2) >> 14;
 
-  arg0->x = tmp_x + var_a2->unk12.x;
-  arg0->y = tmp_y + var_a2->unk12.y;
+  arg0->x = tmp_x + minos_ptr->unk12.x;
+  arg0->y = tmp_y + minos_ptr->unk12.y;
 }
 
 void Minos_SetVtxTransform(u8 arg0) {
-  D_8011FC10->unk1E = arg0;
+  g_minos_ptr->unk1E = arg0;
   switch (arg0) {
   case 0:
     D_8011FC18.unk34 = func_8006F39C;

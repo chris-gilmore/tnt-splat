@@ -360,22 +360,22 @@ game_over_display_stuff_huge_function_q          = 0x80055744; // type:func note
 
 
 //      - {start: 0x01D300, type: asm, vram: 0x80057080, name: newtetris/01D300}
-FUN_01D300_80057080_nevercalled              = 0x80057080; // type:func
-FUN_01D300_800570b0_fiveliner                = 0x800570B0; // type:func
-FUN_01D300_n64HeapUnalloc                    = 0x80057114; // type:func  note one liner just calls n64heapUnalloc
-FUN_01D300_80057140_sixliner                 = 0x80057140; // type:func
-FUN_01D300_800571d4_twentyliner              = 0x800571D4; // type:func  note interesting arg1,arg2 x84,x85 to x92,x93
+FUN_01D300_80057080_nevercalled              = 0x80057080; // type:func unused
+FUN_01D300_800570b0_fiveliner                = 0x800570B0; // type:func unused
+FUN_01D300_n64HeapUnalloc                    = 0x80057114; // type:func unused  note one liner just calls n64heapUnalloc
+FUN_01D300_80057140_sixliner                 = 0x80057140; // type:func unused
+FUN_01D300_800571d4_twentyliner              = 0x800571D4; // type:func  note interesting arg1,arg2 x84,x85 to x92,x93 (00C680.c calls this to load wonder screen images)
 FUN_01D300_800572f8_twoliner                 = 0x800572F8; // type:func
 FUN_01D300_80057338_fifteenliner             = 0x80057338; // type:func
 
-
 //      - {start: 0x01D6E0, type: asm, vram: 0x80057460, name: newtetris/01D6E0}
-weird_lots_of_magic_number_setting_66xrefs       = 0x80057460; // type:func note huge super-long function maybe display single character without passing rgb?
+weird_lots_of_magic_number_setting_66xrefs       = 0x80057460; // type:func note huge super-long function, display image
 display_one_text_character_rgb                   = 0x80059048; // type:func note huge super-long function
 FUN_8005aa9c_prob_display_text_rgb_as_well       = 0x8005AA9C; // type:func note huge super-long function with more parameters than the one above
 func_8005BBFC                                    = 0x8005BBFC; // type:func
 func_8005BE40                                    = 0x8005BE40; // type:func
-
+func_8005BEE0                                    = 0x8005BEE0; // type:func unused
+func_8005DB90                                    = 0x8005DB90; // type:func
 
 //      - {start: 0x025D00, type: asm, vram: 0x8005FA80, name: newtetris/pfgfx}
 PFGFX_8005fa80_twoliner_calls_fun                = 0x8005FA80; // type:func unused
@@ -424,18 +424,20 @@ func_800611E0                                    = 0x800611E0; // type:func
 func_800614A8                                    = 0x800614A8; // type:func
 
 //      - {start: 0x0279C0, type: asm, vram: 0x80061740, name: newtetris/0279C0}
-FUN_0279C0_80061740_switch_0to8_1to6_same        = 0x80061740; // type:func  note looks interesting allocs heap
+FUN_0279C0_80061740_switch_0to8_1to6_same        = 0x80061740; // type:func  note warning_no_controller
 
-//      - {start: 0x027BF0, type: asm, vram: 0x80061970, name: newtetris/027BF0}
-FUN_027BF0_convert_decimal_q                     = 0x80061970; // type:func  note interesting checks arg0 < 10,100,1000,10000
-FUN_027BF0_80061a3c_tenliner_allocs_heap         = 0x80061A3C; // type:func
+//      - {start: 0x027BF0, type:   c, vram: 0x80061970, name: newtetris/027BF0}
+FUN_027BF0_convert_decimal_q                     = 0x80061970; // type:func unused  note right-justify a number?
+FUN_027BF0_80061A34_does_nothing                 = 0x80061A34; // type:func unused
+FUN_027BF0_80061a3c_tenliner_allocs_heap         = 0x80061A3C; // type:func static
 FUN_027BF0_check_music_settings_and_play         = 0x80061B18; // type:func  note checks MUSIC MODE 0 AUTO, 1 CHOSE, else RANDOM, is arg0 the background screen? long function with switch cases that perhaps pair the screens with music tracks
 FUN_027BF0_Init                                  = 0x80062788; // type:func  note interesting also checks numplayers 1, 2, >2, case statements, called by Game_Init
-FUN_027BF0_8006307c_sixliner                     = 0x8006307C; // type:func
+FUN_027BF0_8006307c_sixliner                     = 0x8006307C; // type:func static
 FUN_027BF0_Deinit                                = 0x800630EC; // type:func  note called by Game_Deinit
-FUN_027BF0_8006332c_thirtyfiveliner              = 0x8006332C; // type:func
+FUN_027BF0_8006332c_thirtyfiveliner              = 0x8006332C; // type:func unused
+func_80063618                                    = 0x80063618; // type:func unused
+func_8006364C                                    = 0x8006364C; // type:func unused
 FUN_027BF0_800636C0_display_game_stats_screen_q  = 0x800636C0; // type:func  note interesting huge function important looking case statement, elapsed time stuff
-
 
 //      - {start: 0x02AF60, type: asm, vram: 0x80064CE0, name: newtetris/mobilepiece}
 MobilePiece_Minos_setUpdateFlag                           = 0x80064CE0; // type:func
@@ -782,6 +784,11 @@ FUN_03A750_80074888_twelveliner   = 0x80074888; // type:func         note gets c
 func_8007523C                     = 0x8007523C; // type:func
 
 //      - {start: 0x03B700, type: asm, vram: 0x80075480, name: newtetris/03B700}
+func_80075700                     = 0x80075700; // type:func
+func_80075760                     = 0x80075760; // type:func
+func_800757BC                     = 0x800757BC; // type:func
+func_80075830                     = 0x80075830; // type:func
+func_80075870                     = 0x80075870; // type:func
 
 //      - {start: 0x03BB30, type: asm, vram: 0x800758B0, name: newtetris/cubetiles}
 CubeTiles_CopyPartialTile              = 0x800758B0; // type:func
@@ -790,12 +797,25 @@ CubeTiles_Init                         = 0x80075C98; // type:func  note has bump
 CubeTiles_Deinit                       = 0x80075DB4; // type:func
 // todo donext nextdo todonext cubetiles
 
-//      - {start: 0x03C130, type: asm, vram: 0x80075EB0, name: newtetris/03C130}
+//      - {start: 0x03C130, type:   c, vram: 0x80075EB0, name: newtetris/03C130}
 FUN_03C130_80075EB0_nineliner_allocs_heap    = 0x80075EB0; // type:func
+func_80075F5C                                = 0x80075F5C; // type:func
 
-//      - {start: 0x03C220, type: asm, vram: 0x80075FA0, name: newtetris/03C220}
-//      - {start: 0x03D120, type: asm, vram: 0x80076EA0, name: newtetris/03D120}
-//      - {start: 0x03D140, type: asm, vram: 0x80076EC0, name: newtetris/03D140}
+//      - {start: 0x03C220, type:   c, vram: 0x80075FA0, name: newtetris/animparams}
+func_8007635C                          = 0x8007635C; // type:func
+func_800763B4                          = 0x800763B4; // type:func
+func_800763EC                          = 0x800763EC; // type:func
+func_8007641C                          = 0x8007641C; // type:func
+func_80076458                          = 0x80076458; // type:func
+func_800764A0                          = 0x800764A0; // type:func
+func_800764B8                          = 0x800764B8; // type:func
+
+//      - {start: 0x03D120, type:   c, vram: 0x80076EA0, name: newtetris/03D120}
+func_80076EA0                          = 0x80076EA0; // type:func
+func_80076EA8                          = 0x80076EA8; // type:func unused
+
+//      - {start: 0x03D140, type:   c, vram: 0x80076EC0, name: newtetris/03D140}
+func_80076EC0                          = 0x80076EC0; // type:func
 
 //      - {start: 0x03D650, type:   c, vram: 0x800773D0, name: newtetris/sram}
 FUN_SRAM_n64HeapUnalloc_and_set_to_NULL     = 0x800773D0; // type:func  note call n64HeapUnalloc, set arg0 ptr to NULL
@@ -804,7 +824,7 @@ FUN_SRAM_80077610_twentyliner_loops_51t     = 0x80077610; // type:func  note cal
 displayText_XY_RGBA_1                       = 0x80077818; // type:func
 displayText_XY_RGBA_2                       = 0x80077960; // type:func
 displayText_XY_RGBA_3                       = 0x80077AA8; // type:func  note returns an int
-displayText_XY_RGBA_4                       = 0x80077BA8; // type:func  note usual div 0 trap and that other one
+displayText_XY_RGBA_4                       = 0x80077BA8; // type:func unused  note usual div 0 trap and that other one
 FUN_SRAM_80077d38_fourliner                 = 0x80077D38; // type:func
 string_do_something_weird                   = 0x80077D88; // type:func
 FUN_SRAM_80077e18_fifteenliner_has_traps    = 0x80077E18; // type:func  note usual div 0 trap and that other one
@@ -1016,10 +1036,13 @@ func_800A3AF0                          = 0x800A3AF0; // type:func
 func_800A9E44                          = 0x800A9E44; // type:func
 
 //     - {start: 0x072080, type: asm, vram: 0x800ABE00, name: newtetris/072080}
+func_800ABE00                          = 0x800ABE00; // type:func static
 func_800ABFF0                          = 0x800ABFF0; // type:func
 func_800AC06C                          = 0x800AC06C; // type:func
 func_800AC0F8                          = 0x800AC0F8; // type:func
 func_800AC1A8                          = 0x800AC1A8; // type:func
+func_800AC22C                          = 0x800AC22C; // type:func
+func_800AC308                          = 0x800AC308; // type:func
 
 //     - {start: 0x0779F0, type:   c, vram: 0x800B1770, name: newtetris/sprite}
 func_800B1770                          = 0x800B1770; // type:func
@@ -1069,7 +1092,7 @@ D_800CFE40                = 0x800CFE40; // type:u32   size:0x4    static
 
 // - {start: 0x0960D0, type: data, vram: 0x800CFE50, name: newtetris/010870}
 
-D_800CFED4                = 0x800CFED4; // type:u16   size:0x2
+D_800CFED4                = 0x800CFED4; // type:s16   size:0x2
 
 D_800CFEE8                = 0x800CFEE8; // type:u8    size:0x1
 D_800CFEEC                = 0x800CFEEC; // type:u32   size:0x4
@@ -1084,7 +1107,7 @@ g_pieceFallAcceleration   = 0x800CFF60; // type:f32   size:0x4
 
 // - {start: 0x0961F0, type: .data, vram: 0x800CFF70, name: newtetris/gamefinish}
 color_gray                = 0x800CFF70; //            size:0xC    static  Color
-playercount               = 0x800CFF7C; // type:u8    size:0x1
+playercount               = 0x800CFF7C; // type:u8    size:0x1    static
 D_800CFF80                = 0x800CFF80; //            size:0x4    static  UnkStruct_21*
 D_800CFF84                = 0x800CFF84; //            size:0x4    static  UnkStruct_21*
 D_800CFF88                = 0x800CFF88; //            size:0x4    static  UnkStruct_21*
@@ -1127,9 +1150,9 @@ piece_names               = 0x800D012C; // type:char  size:0x14   static  [8]
 // - {start: 0x0963C0, type: data, vram: 0x800D0140, name: newtetris/01B280}
 D_800D0140                = 0x800D0140;
 
-// - {start: 0x0963E0, type: data, vram: 0x800D0160, name: newtetris/01D300}
+// - {start: 0x0963E0, type: data, vram: 0x800D0160, name: newtetris/01D6E0}
 
-// - {start: 0x096400, type: data, vram: 0x800D0180, name: newtetris/01D6E0}
+// - {start: 0x096400, type: data, vram: 0x800D0180, name: ultralib/sched/sched}
 
 // - {start: 0x096420, type: .data, vram: 0x800D01A0, name: newtetris/pfgfx}
 // nextpieces 1p and 2p location tables
@@ -1143,9 +1166,6 @@ g_trig_tbl                = 0x800D0260; //            size:0x20           Trig [
 // - {start: 0x096500, type: data, vram: 0x800D0280, name: newtetris/026F90}
 
 // - {start: 0x096520, type: data, vram: 0x800D02A0, name: newtetris/0279C0}
-
-// - {start: 0x096530, type: data, vram: 0x800D02B0, name: newtetris/027BF0}
-D_800D02B0                = 0x800D02B0; // type:u8    size:0x1
 
 // - {start: 0x096740, type: .data, vram: 0x800D04C0, name: newtetris/piecehold}
 // piecehold 1p and 2p location tables
@@ -1180,6 +1200,65 @@ D_800D0600                = 0x800D0600; // type:s32   size:0x4    static
 
 // - {start: 0x096890, type: data, vram: 0x800D0610, name: newtetris/03AC20}
 
+// - {start: 0x096BB0, type: .data, vram: 0x800D0930, name: newtetris/imageparams}
+D_800D0930                = 0x800D0930; //            size:0x300          ImageParams[24]
+D_800D0C30                = 0x800D0C30; //            size:0x200          ImageParams[16]
+D_800D0E30                = 0x800D0E30; //            size:0x200          ImageParams[16]
+
+// - {start: 0x0972B0, type: .data, vram: 0x800D1030, name: newtetris/animparams}
+D_800D1030                = 0x800D1030; //            size:0x9C           AnimParams
+D_800D10CC                = 0x800D10CC; //            size:0x9C           AnimParams
+D_800D1168                = 0x800D1168; //            size:0x9C           AnimParams
+D_800D1204                = 0x800D1204; //            size:0x9C           AnimParams
+D_800D12A0                = 0x800D12A0; //            size:0x9C           AnimParams
+D_800D133C                = 0x800D133C; //            size:0x9C           AnimParams
+D_800D13D8                = 0x800D13D8; //            size:0x9C           AnimParams
+D_800D1474                = 0x800D1474; //            size:0x9C           AnimParams
+D_800D1510                = 0x800D1510; //            size:0x9C           AnimParams
+D_800D15AC                = 0x800D15AC; //            size:0x9C           AnimParams
+D_800D1648                = 0x800D1648; //            size:0x9C           AnimParams
+D_800D16E4                = 0x800D16E4; //            size:0x9C           AnimParams
+D_800D1780                = 0x800D1780; //            size:0x9C           AnimParams
+D_800D181C                = 0x800D181C; //            size:0x9C           AnimParams
+D_800D18B8                = 0x800D18B8; //            size:0x9C           AnimParams
+D_800D1954                = 0x800D1954; //            size:0x9C           AnimParams
+D_800D19F0                = 0x800D19F0; //            size:0x9C           AnimParams
+D_800D1A8C                = 0x800D1A8C; //            size:0x9C           AnimParams
+D_800D1B28                = 0x800D1B28; //            size:0x9C           AnimParams
+D_800D1BC4                = 0x800D1BC4; //            size:0x9C           AnimParams
+D_800D1C60                = 0x800D1C60; //            size:0x9C           AnimParams
+D_800D1CFC                = 0x800D1CFC; //            size:0x9C           AnimParams
+D_800D1D98                = 0x800D1D98; //            size:0x9C           AnimParams
+D_800D1E34                = 0x800D1E34; //            size:0x9C           AnimParams
+D_800D1ED0                = 0x800D1ED0; //            size:0x9C           AnimParams
+D_800D1F6C                = 0x800D1F6C; //            size:0x9C           AnimParams
+D_800D2008                = 0x800D2008; //            size:0x9C           AnimParams
+D_800D20A4                = 0x800D20A4; //            size:0x9C           AnimParams
+D_800D2140                = 0x800D2140; //            size:0x9C           AnimParams
+D_800D21DC                = 0x800D21DC; //            size:0x9C           AnimParams
+D_800D2278                = 0x800D2278; //            size:0x9C           AnimParams
+D_800D2314                = 0x800D2314; //            size:0x9C           AnimParams
+D_800D23B0                = 0x800D23B0; //            size:0x9C           AnimParams
+D_800D244C                = 0x800D244C; //            size:0x9C           AnimParams
+D_800D24E8                = 0x800D24E8; //            size:0x9C           AnimParams
+D_800D2584                = 0x800D2584; //            size:0x9C           AnimParams
+D_800D2620                = 0x800D2620; //            size:0x9C           AnimParams
+D_800D26BC                = 0x800D26BC; //            size:0x9C           AnimParams
+D_800D2758                = 0x800D2758; //            size:0x9C           AnimParams
+D_800D27F4                = 0x800D27F4; //            size:0x9C           AnimParams
+D_800D2890                = 0x800D2890; //            size:0x9C           AnimParams
+D_800D292C                = 0x800D292C; //            size:0x9C           AnimParams
+D_800D29C8                = 0x800D29C8; //            size:0x9C           AnimParams
+D_800D2A64                = 0x800D2A64; //            size:0x9C           AnimParams
+D_800D2B00                = 0x800D2B00; //            size:0x9C   unused  AnimParams
+D_800D2B9C                = 0x800D2B9C; //            size:0x9C   unused  AnimParams
+D_800D2C38                = 0x800D2C38; //            size:0x9C           AnimParams
+
+// - {start: 0x098F70, type: data, vram: 0x800D2CF0, name: newtetris/sram}
+D_800D2CF0                = 0x800D2CF0; // type:u8    size:0x10           [16]
+D_800D2D00                = 0x800D2D00; // type:u8    size:0x40           [64]
+D_800D2D40                = 0x800D2D40; // type:u8    size:0x30           [48]
+D_800D2D70                = 0x800D2D70; // type:u16   size:0x2
 
 // - {start: 0x099410, type: .data, vram: 0x800D3190, name: newtetris/n64heap}
 n64Heap                   = 0x800D3190; //            size:0x4    static  N64Heap*
@@ -1187,7 +1266,7 @@ D_800D3194                = 0x800D3194; // type:s32   size:0x4    unused
 n64HeapAllocCumulative    = 0x800D3198; // type:s32   size:0x4    static
 
 // - {start: 0x099470, type: .data, vram: 0x800D31F0, name: newtetris/creditstext}
-ptr_s_credits             = 0x800D31F0; // type:char* size:0x4
+g_credits_str             = 0x800D31F0; // type:char* size:0x4
 
 // - {start: 0x099550, type: .data, vram: 0x800D32D0, name: newtetris/minilzo}
 xn                        = 0x800D32D0; // type:u32   size:0x4    static
@@ -1379,8 +1458,8 @@ g_pfGfx_ptr               = 0x8011F260; //            size:0x4            PfGfx*
 
 // - {type: .bss, vram: 0x8011F270, name: newtetris/026900}
 // sin lut with 1024 entries
-D_8011F270                = 0x8011F270; // type:s16     size:0x800  static  [1024]
-D_8011FA70                = 0x8011FA70; // type:u32     size:0x4    static
+D_8011F270                = 0x8011F270; // type:s16   size:0x800  static  [1024]
+D_8011FA70                = 0x8011FA70; // type:u32   size:0x4    static
 
 // - {type: .bss, vram: 0x8011FB70, name: newtetris/currentpiece}
 g_currentPiece_ptr        = 0x8011FB70; //            size:0x4            CurrentPiece*
@@ -1413,7 +1492,7 @@ g_mobileCubes_ptr         = 0x8011FBF0; //            size:0x4            Mobile
 g_fallingCubes_ptr        = 0x8011FC00; //            size:0x4            FallingCubes*
 
 // - {type: bss, vram: 0x8011FC10, name: newtetris/minos}
-D_8011FC10                = 0x8011FC10; //            size:0x4            UnkStruct_0*
+g_minos_ptr               = 0x8011FC10; //            size:0x4            Minos*
 D_8011FC14                = 0x8011FC14; // type:s32   size:0x4    unused
 D_8011FC18                = 0x8011FC18; //            size:0x3B   static  UnkStruct_22
 D_8011FC54                = 0x8011FC54; // type:u8    size:0x1    static
@@ -1454,11 +1533,6 @@ x                         = 0x80120230; // type:s32   size:0xC    static  [3]
 
 
 // - {type: bss, vram: 0x80120A70, name: newtetris/audio}
-D_80120A70                = 0x80120A70; //            size:0x4            OSMesg
-
-D_80122010                = 0x80122010; //            size:0x4            OSMesg
-
-D_801235B0                = 0x801235B0; //            size:0x4            OSMesg
 
 
 // - {type: bss, vram: 0x80128AB0, name: newtetris/04BFD0}

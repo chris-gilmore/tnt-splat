@@ -54,16 +54,16 @@ static u8 hasPlayerToppedOut(Game *game_ptr, u8 playerNum) {
   return FALSE;
 }
 
-s32 Game_calls_SETGP_magic_7(Game *game_ptr) {
-  register s32 var_s0;
+u8 Game_calls_SETGP_magic_7(Game *game_ptr) {
+  register u8 var_s0;
   register u32 var_s1;
 
-  var_s0 = 0;
-  for (var_s1 = 0; (var_s1 < g_playercount) && (var_s0 == 0); var_s1++) {
+  var_s0 = FALSE;
+  for (var_s1 = 0; (var_s1 < g_playercount) && !var_s0; var_s1++) {
     Game_SetGlobalPointers(var_s1);
     PlayerVars_SetGlobalPointers(var_s1);
     if (BoardP_8006ddd0_check_for_nonempty_cell_upwards(7) != 0) {
-      var_s0 = 1;
+      var_s0 = TRUE;
     }
   }
   return var_s0;
@@ -556,7 +556,7 @@ void Game_Init(u8 numPlayers, u8 *handicap_arr) {
   func_8007635C();
   MultisquareGlow_InitStaticMembers(numPlayers);
   gamefinish_8005344C_fiveliner(numPlayers);
-  FUN_SRAM_80077408_twentyliner_loops_46t(&game_ptr->unk8, IMG_FONT_C);  // init font
+  FUN_SRAM_80077408_twentyliner_loops_46t(&game_ptr->font, IMG_FONT_C);  // init font
   game_ptr->unkE4FC.alpha = 0.0f;
   game_ptr->unkE4FC.unk8 = 255.0f;
   game_ptr->unkE4FC.unk4 = (255.0f - game_ptr->unkE4FC.alpha) / 16.0f;
@@ -564,8 +564,8 @@ void Game_Init(u8 numPlayers, u8 *handicap_arr) {
   gameVars.seed = __ull_div(__ll_mul(g_sram_ptr->unk18F4, 64), 3);
   g_sram_ptr->unk18F4 = __ull_div(__ll_mul(osGetTime(), 64), 3);
   func_8007C5CC(g_sram_ptr);
-  gameVars.unk4 = &game_ptr->unkE080;
-  gameVars.unk8 = game_ptr->unkE4F8;
+  gameVars.unk4 = &game_ptr->unkE080.unk0;
+  gameVars.screen = game_ptr->unkE4F8;
   gameVars.gameType = game_ptr->gameType;
   for (k = 0; k < numPlayers; k++) {
     game_ptr->tetris_ptr_arr[k] = (Tetris *)n64HeapAlloc(sizeof(Tetris));
@@ -621,7 +621,7 @@ void Game_Deinit(void) {
   gamefinish_800534A4_fiveliner();
   MultisquareGlow_8006b384_oneliner_calls_fun();
   func_800763B4();
-  FUN_SRAM_n64HeapUnalloc_and_set_to_NULL(&game_ptr->unk8);  // deinit font
+  FUN_SRAM_n64HeapUnalloc_and_set_to_NULL(&game_ptr->font);  // deinit font
   Landfill_Deinit(&game_ptr->landfill);
   CubeTiles_Deinit(&game_ptr->cubeTiles);
   func_80075F5C(&game_ptr->unkE080);

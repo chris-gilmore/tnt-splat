@@ -7,15 +7,15 @@
 #define GAMEFINISHTYPE_NULL       3
 
 typedef struct {
-  /* 0x0  */ UnkStruct_21  *image;
-  /* 0x4  */ Point          image_loc;  // win/lose/game_over image location (top-left point)
-  /* 0x8  */ Point          center_of_board;
-  /* 0xC  */ u16            unkC;
-  /* 0xE  */ s16            unkE;
-  /* 0x10 */ s16            unk10;
-  /* 0x12 */ s16            unk12;
-  /* 0x14 */ s16            unk14;  // alpha
-  /* 0x16 */ s16            unk16;
+  /* 0x0  */ u8     *image;
+  /* 0x4  */ Point   image_loc;  // win/lose/game_over image location (top-left point)
+  /* 0x8  */ Point   center_of_board;
+  /* 0xC  */ u16     unkC;
+  /* 0xE  */ s16     unkE;
+  /* 0x10 */ s16     unk10;
+  /* 0x12 */ s16     unk12;
+  /* 0x14 */ s16     unk14;  // alpha
+  /* 0x16 */ s16     unk16;
 } UnkStruct_7; // 0x18 bytes
 
 typedef struct {

@@ -2,9 +2,9 @@
 
 static Color color_gray = { 0x800, 0x800, 0x800, 0xFF0, 0xFF0, 0xFF0 };
 static u8 playercount = 0;
-static UnkStruct_21 *D_800CFF80 = NULL;  // WIN
-static UnkStruct_21 *D_800CFF84 = NULL;  // LOSE
-static UnkStruct_21 *D_800CFF88 = NULL;  // GAME OVER
+static u8 *D_800CFF80 = NULL;  // WIN
+static u8 *D_800CFF84 = NULL;  // LOSE
+static u8 *D_800CFF88 = NULL;  // GAME OVER
 
 static void   gamefinish_80052AA0_tenliner(UnkStruct_7 *, u32);
 static void   gamefinish_80052B30_tenliner(UnkStruct_7 *, Gfx **);
@@ -57,8 +57,8 @@ static void gamefinish_c_line_127(UnkStruct_7 *arg0, s32 gf_type) {
   default:
     debug_print_reason_routine_linenum("invalid type", "gamefinish.c", 127);
   }
-  arg0->image_loc.x = arg0->center_of_board.x - (arg0->image->width >> 1);
-  arg0->image_loc.y = arg0->center_of_board.y - (arg0->image->height >> 1);
+  arg0->image_loc.x = arg0->center_of_board.x - (((u16 *) arg0->image)[0] >> 1);
+  arg0->image_loc.y = arg0->center_of_board.y - (((u16 *) arg0->image)[1] >> 1);
   arg0->unk10 = 0x3C00;  // is this (s16)(60 * 256) ?
   arg0->unk12 = -arg0->unk10 / 150;
   arg0->unkC = 0;

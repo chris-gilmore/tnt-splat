@@ -39,7 +39,7 @@ static void displayLineCount(LinesInfo *linesInfo_ptr) {
 
   sprintf(strLineCount, "%d", getLineCount(linesInfo_ptr));
   func_8005BBFC(&g_gdl);
-  displayText_XY_RGBA_2(&g_gdl, &g_game.unk8, linesInfo_ptr->x, linesInfo_ptr->y, strLineCount, 0xFF, 0xFF, 0xFF, 0xFF);
+  displayText_XY_RGBA_2(&g_gdl, &g_game.font, linesInfo_ptr->x, linesInfo_ptr->y, strLineCount, 0xFF, 0xFF, 0xFF, 0xFF);
   func_8005BE40(&g_gdl);
 }
 

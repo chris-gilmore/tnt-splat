@@ -1,21 +1,68 @@
 #include "common.h"
 
+extern u8 D_273A00;  // image_lut
+
+////////////////////////////////////////
+
 // Sram *g_sram_ptr;
+
+/* static */ extern u8 D_800D2D00[64];  // font lut
 
 static void   set_total_wonder_lines(Sram *, u32);
 
-void FUN_SRAM_n64HeapUnalloc_and_set_to_NULL(void **arg0) {
-  n64HeapUnalloc(*arg0);
-  *arg0 = NULL;
+void FUN_SRAM_n64HeapUnalloc_and_set_to_NULL(Font *p_font) {
+  n64HeapUnalloc(p_font->image);
+  p_font->image = NULL;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sram/FUN_SRAM_80077408_twentyliner_loops_46t.s")
+void FUN_SRAM_80077408_twentyliner_loops_46t(Font *p_font, s32 img_id) {
+  s32 i;
+
+  if (img_id != 0) {
+    main_8004A34C_threeliner();
+    p_font->image = (u8 *) n64HeapAlloc(FUN_03A750_80074888_twelveliner(&D_273A00, img_id));
+    FUN_03A750_800746c0_twentyliner(&D_273A00, p_font->image, img_id);
+    p_font->width = ((u16 *) p_font->image)[0];
+    p_font->height = ((u16 *) p_font->image)[1] / 46;
+    for (i = 0; i < 46; i++) {
+      for (p_font->char_widths[i] = p_font->width - 1; (p_font->image[p_font->char_widths[i] + (i * p_font->width * p_font->height) + 8] & 0xF0) == 0xF0; p_font->char_widths[i]--);
+      p_font->char_widths[i]++;
+      if (p_font->char_widths[i] < 2) {
+        p_font->char_widths[i] = p_font->width - 1;
+      }
+    }
+  }
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sram/FUN_SRAM_80077610_twentyliner_loops_51t.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sram/displayText_XY_RGBA_1.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sram/displayText_XY_RGBA_2.s")
+void displayText_XY_RGBA_2(Gfx **p_gdl, Font *p_font, s32 x, s32 y, char *str, s32 red, s32 green, s32 blue, s32 alpha) {
+  s32 i;
+  s32 sp38;
+
+  if (p_font->image != NULL) {
+    i = 0;
+    sp38 = x;
+    while (str[i] != 0) {
+      display_one_text_character_rgb(p_gdl,
+                                     p_font->image,
+                                     0,  // sl
+                                     D_800D2D00[str[i] - 48] * p_font->height,  // tl
+                                     p_font->char_widths[D_800D2D00[str[i] - 48]] - 1,  // sh
+                                     D_800D2D00[str[i] - 48] * p_font->height + p_font->height - 1,  // th
+                                     x,
+                                     y,
+                                     red,
+                                     green,
+                                     blue,
+                                     alpha);
+      x += p_font->char_widths[D_800D2D00[str[i] - 48]];
+      i++;
+    }
+  }
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sram/displayText_XY_RGBA_3.s")
 

@@ -49,7 +49,7 @@ static Square *Multisquare_8006a050_extralarge_manyloops_interesting(s32 x, s32 
 
   setPointAngle(sp68, (x << 8) - 0x80, (y << 8) - 0x80, 0);
   Minos_80071100_fiveliner_nuts2(&sp70, &sp68);
-  MultisquareGlow_Init(&square_ptr->glow, sp70, D_8011FC10->unk2 >> 8);
+  MultisquareGlow_Init(&square_ptr->glow, sp70, g_minos_ptr->unk2 >> 8);
   square_id = square_ptr->id;
   for (row = y; row < y + 4; row++) {
     for (col = x; col < x + 4; col++) {

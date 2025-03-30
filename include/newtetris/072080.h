@@ -13,5 +13,6 @@ extern void   func_800AC06C(OSId, OSPri);
 extern void   func_800AC0F8(void);
 extern u32    func_800AC1A8(void *, void *, u32);
 extern u32    func_800AC22C(void *, void *, u32);
+extern void   func_800AC308(s32, s32);
 
 #endif /* !_072080_H_ */

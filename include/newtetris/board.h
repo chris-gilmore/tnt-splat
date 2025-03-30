@@ -12,7 +12,7 @@ typedef struct {
 } Board; // 0x6018 bytes
 
 extern void   Board_Update(Board *, s32);
-extern void   Board_Init(Board *, Bag63 *, UnkStruct_0 *);
+extern void   Board_Init(Board *, Bag63 *, Minos *);
 extern void   Board_Deinit(Board *);
 
 #endif /* !_BOARD_H_ */

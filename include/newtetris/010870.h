@@ -1,8 +1,10 @@
 #ifndef _010870_H_
 #define _010870_H_
 
-//u16 D_800CFED4 = 1;
-extern u16 D_800CFED4;
+//s16 D_800CFED4 = 1;
+extern s16 D_800CFED4;
+//s32 D_800CFED8 = 0;
+extern s32 D_800CFED8;
 
 //u8 D_800CFEE8 = 15;
 extern u8 D_800CFEE8;

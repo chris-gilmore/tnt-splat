@@ -1,7 +1,6 @@
 // -*- coding: latin-1; -*-
-static const char coders[] =
-  {
-    "\n\n\n\n\
+static const char coders[] = "\
+\n\n\n\n\
 ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©\n\
 ©                                                          ©\n\
 © This code is © Copyright H2O Entertainment Corp.,1999    ©\n\
@@ -30,5 +29,5 @@ static const char coders[] =
 © FUCKING TRAPS                                            ©\n\
 ©                                                          ©\n\
 ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©\n\
-\n\n\n\n"
-  };
+\n\n\n\n\
+";

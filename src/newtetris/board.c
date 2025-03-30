@@ -17,8 +17,8 @@ static void Board_8006D1EC_doesnothing2(Board *board_ptr, s32 arg1) {
 static void Board_8006D1F8_doesnothing3(Board *board_ptr) {
 }
 
-void Board_Init(Board *board_ptr, Bag63 *bag63_ptr, UnkStruct_0 *arg2) {
-  MobileCubes_Init(220, arg2);
+void Board_Init(Board *board_ptr, Bag63 *bag63_ptr, Minos *minos_ptr) {
+  MobileCubes_Init(220, minos_ptr);
   FallingCubes_Init(200);
   *g_next_cell_id_ptr = 0;
   BoardPieces_Init(&board_ptr->boardPieces);

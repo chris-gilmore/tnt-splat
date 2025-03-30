@@ -85,7 +85,7 @@ void MobileCubes_Render(void) {
 
   Minos_SetScale(0x100);
   Minos_SetAlpha(mobileCubes_ptr->alpha);
-  Minos_BeginRender(mobileCubes_ptr->unk8);
+  Minos_BeginRender(mobileCubes_ptr->minos_ptr);
   Minos_SetVtxTransform(0);
   for (i = mobileCubes_ptr->num_active, cube_ptr = mobileCubes_ptr->cube_list; i != 0;) {
     if (!cube_ptr->is_active) {
@@ -100,7 +100,7 @@ void MobileCubes_Render(void) {
       i--;
     }
   }
-  Minos_EndRender(mobileCubes_ptr->unk8);
+  Minos_EndRender(mobileCubes_ptr->minos_ptr);
 }
 
 Cube *MobileCubes_Alloc(void) {
@@ -123,12 +123,12 @@ void MobileCubes_Unalloc(Cube *cube_ptr) {
   mobileCubes_ptr->num_active--;
 }
 
-void MobileCubes_Init(s32 num_cubes, void *arg1) {
+void MobileCubes_Init(s32 num_cubes, Minos *minos_ptr) {
   register MobileCubes *mobileCubes_ptr = g_mobileCubes_ptr;
   register s32 i;
   register Cube *cube_ptr;
 
-  mobileCubes_ptr->unk8 = arg1;
+  mobileCubes_ptr->minos_ptr = minos_ptr;
   mobileCubes_ptr->alpha = 0xFF;
   mobileCubes_ptr->num_active = 0;
   mobileCubes_ptr->max_allowed = num_cubes;

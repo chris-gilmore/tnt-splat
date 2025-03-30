@@ -1,8 +1,6 @@
 #include "common.h"
 
 extern u16 draw_buffer;
-extern OSMesg D_80120A70;
-extern OSMesg D_80122010;
 
 ////////////////////////////////////////
 

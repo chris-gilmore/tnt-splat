@@ -11,7 +11,7 @@ typedef struct {
   /* 0x54   */ LineScan       lineScan;
   /* 0x44C  */ Squares        squares;
   /* 0x768  */ UnkStruct_9    unk768;        // keyspin related
-  /* 0x7D0  */ UnkStruct_0    unk7D0;        // minos related
+  /* 0x7D0  */ Minos          minos;
   /* 0x830  */ Board          board;
   /* 0x51F0 */ PieceHold      pieceHold;
   /* 0x6690 */ Bag63          bag63;
