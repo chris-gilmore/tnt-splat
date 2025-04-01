@@ -36,6 +36,7 @@
 #include "newtetris/playervars.h"
 #include "newtetris/color.h"
 #include "newtetris/piecedefs.h"
+#include "newtetris/03C220.h"
 #include "newtetris/minos.h"
 #include "newtetris/mobilepiece.h"
 #include "newtetris/ghostpiece.h"

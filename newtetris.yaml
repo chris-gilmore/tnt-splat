@@ -155,10 +155,11 @@ segments:
       - {start: 0x039E50, type: asm, vram: 0x80073BD0, name: newtetris/hotpotato}
       - {start: 0x03A750, type:   c, vram: 0x800744D0, name: newtetris/03A750}  # image loading
       - {start: 0x03AC20, type:   c, vram: 0x800749A0, name: newtetris/03AC20}  # special fx - mayan large fire (x2)
-      - {start: 0x03B700, type: asm, vram: 0x80075480, name: newtetris/03B700}
+      - {start: 0x03B700, type: asm, vram: 0x80075480, name: newtetris/03B700}  # minos related
       - {start: 0x03BB30, type: asm, vram: 0x800758B0, name: newtetris/cubetiles}
       - {start: 0x03C130, type:   c, vram: 0x80075EB0, name: newtetris/03C130}  # light source (128x128)
-      - {start: 0x03C220, type:   c, vram: 0x80075FA0, name: newtetris/animparams}
+      - {start: 0x03C220, type: asm, vram: 0x80075FA0, name: newtetris/03C220}  # minos related
+      - {start: 0x03C720, type:   c, vram: 0x800764A0, name: newtetris/animparams}
       - {start: 0x03D120, type:   c, vram: 0x80076EA0, name: newtetris/03D120}
       - {start: 0x03D140, type:   c, vram: 0x80076EC0, name: newtetris/03D140}  # fx - skyboxes, rain, snow, butterflies, leaves
       - {start: 0x03D650, type:   c, vram: 0x800773D0, name: newtetris/sram}
@@ -580,6 +581,8 @@ segments:
       - {type: bss, vram: 0x8011FC90, name: newtetris/aimedat}
       - {type: .bss, vram: 0x8011FCA0, name: newtetris/03A750}
       - {type: bss, vram: 0x8011FCB0, name: newtetris/cubetiles}
+      - {type: bss, vram: 0x8011FCD0, name: newtetris/03C220}
+      - {type: bss, vram: 0x8011FCE0, name: newtetris/8011FCE0}
       - {type: bss, vram: 0x8011FCF0, name: newtetris/sram}
       - {type: .bss, vram: 0x801201D0, name: newtetris/n64heap}
       - {type: bss, vram: 0x801201E0, name: newtetris/801201E0}

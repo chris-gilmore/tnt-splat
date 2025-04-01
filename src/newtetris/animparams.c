@@ -1060,26 +1060,6 @@ AnimParams D_800D2C38 = {
   0xFF, 0xFF, 0xFF, 0xFF  // red, green, blue, alpha
 };
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/animparams/func_80075FA0.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/animparams/func_80075FAC.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/animparams/func_800760F4.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/animparams/func_800761D0.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/animparams/func_800762EC.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/animparams/func_8007635C.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/animparams/func_800763B4.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/animparams/func_800763EC.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/animparams/func_8007641C.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/animparams/func_80076458.s")
-
 void func_800764A0(AnimParams *dest, AnimParams *src) {
   dest->images = src->images;
   dest->palettes = src->palettes;

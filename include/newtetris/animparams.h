@@ -99,11 +99,6 @@ extern AnimParams D_800D2B9C;
 // african volcano smoke
 extern AnimParams D_800D2C38;
 
-extern void   func_8007635C(void);
-extern void   func_800763B4(void);
-extern void   func_800763EC(u32);
-extern void   func_8007641C(UnkStruct_14 *, UnkStruct_23 *);
-extern void   func_80076458(UnkStruct_14 *, UnkStruct_23 *);
 extern void   func_800764A0(AnimParams *, AnimParams *);
 extern void   func_800764B8(AnimParams *);
 extern void   func_800766C8(AnimParams *);
