@@ -54,10 +54,10 @@ static void LineScan_800698e0_largeliner_loops_20_times_plays_sfx(LineScan *line
     LineEffect_80069668_fourliner_sets_arg0_struct_v1(&lineScan_ptr->unk2C[i]);
     if (var_s0->unk1) {
       updateLinesToBeAdded(&g_gameStats_ptr->linesInfo, 1);
-      temp_v0 = MultisquareGlow_8006ac2c_loops_10_times(i, SQUARETYPE_MULTI);  // silver multisquare
+      temp_v0 = Multisquare_8006ac2c_loops_10_times(i, SQUARETYPE_MULTI);  // silver multisquare
       updateLinesToBeAdded(&g_gameStats_ptr->linesInfo, temp_v0 * 5);          // 5 points for silver
       temp_s2 = temp_v0 > 0;
-      temp_v0 = MultisquareGlow_8006ac2c_loops_10_times(i, SQUARETYPE_MONO);   // gold monosquare
+      temp_v0 = Multisquare_8006ac2c_loops_10_times(i, SQUARETYPE_MONO);   // gold monosquare
       updateLinesToBeAdded(&g_gameStats_ptr->linesInfo, temp_v0 * 10);         // 10 points for gold
       temp_s3 = temp_v0 > 0;
       if ((temp_s2 != 0) || (temp_s3 != 0)) {

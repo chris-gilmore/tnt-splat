@@ -16,7 +16,7 @@ static void   BoardP_8006dcc0_twoliner_sets_to_600_0(TypedQueue *);
 Color *BoardP_8006d3c0_fourliner(Cell *cell_ptr) {
   register Square *square_ptr;
 
-  if (!MultisquareGlow_isArg0_lessthan_44(cell_ptr->square_id)) {
+  if (!Multisquare_isArg0_lessthan_44(cell_ptr->square_id)) {
     return g_pieceDef_ptr_arr[cell_ptr->piece_type]->color_ptr;
   }
 
@@ -72,7 +72,7 @@ void BoardP_8006d5bc_sixliner_calls_UpdateQueue_AddEntry(Cell *arg0) {
   register s32 x;
   register s32 y;
 
-  if (MultisquareGlow_isArg0_lessthan_44(arg0->square_id)) {
+  if (Multisquare_isArg0_lessthan_44(arg0->square_id)) {
     square_ptr = &g_squares_ptr->arr[arg0->square_id];
     Multisquare_8006a410_fourliner(square_ptr, &arg0->cubeInfo.cell_id);
     arg0->square_id = 0xFF;

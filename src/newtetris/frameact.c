@@ -39,7 +39,7 @@ static void FrameAct_calls_increment_game_time_seconds2(FrameAct *frameAct_ptr) 
 }
 
 static void FrameAct_80053760_mediumliner(FrameAct *frameAct_ptr) {
-  register s32 c = MultisquareGlow_8006ad0c_checks_1_2_3_4();
+  register s32 c = Multisquare_8006ad0c_checks_1_2_3_4();
 
   switch (c) {
   case 0:

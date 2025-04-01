@@ -75,10 +75,10 @@ void MultisquareGlow_Init(SquareGlow *squareGlow_ptr, Point arg1, u8 unitSize) {
   }
 }
 
-void MultisquareGlow_InitStaticMembers(u8 arg0) {
+void MultisquareGlow_InitStaticMembers(u8 numPlayers) {
   main_8004A34C_threeliner();
 
-  switch (arg0) {
+  switch (numPlayers) {
   case 1:
     D_8011FBB0 = (u8 *) n64HeapAlloc(FUN_03A750_80074888_twelveliner(&D_273A00, IMG_SQUARE_GLOW));
     FUN_03A750_800746c0_twentyliner(&D_273A00, D_8011FBB0, IMG_SQUARE_GLOW);

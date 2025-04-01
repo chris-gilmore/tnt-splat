@@ -207,7 +207,7 @@ void Tetris_Init(Tetris *tetris_ptr, GameVars *gameVars_ptr) {
   PFGFX_Playfield_Init(gameVars_ptr->screen);
   Board_Init(&tetris_ptr->board, &tetris_ptr->bag63, &tetris_ptr->minos);
   PieceHold_Init(&tetris_ptr->pieceHold, &seed, 10, 20, gameVars_ptr->screen);
-  MultisquareGlow_8006ada4_Init2();
+  Multisquare_8006ada4_Init();
   LineScan_Init();
   Tetris_SetGameHandicap(tetris_ptr, gameVars_ptr);
   GameStats_Init(&tetris_ptr->gameStats);
@@ -255,7 +255,7 @@ void Tetris_Deinit(Tetris *tetris_ptr) {
   Board_Deinit(&tetris_ptr->board);
   Minos_Deinit_doesnothing(&tetris_ptr->minos);
   Garbage_Deinit(tetris_ptr->garbage_ptr);
-  MultisquareGlow_Deinit_doesnothing();
+  Multisquare_Deinit_doesnothing();
   Bag63_Deinit(&tetris_ptr->bag63);
   GameStats_Deinit(&tetris_ptr->gameStats);
 }

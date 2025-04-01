@@ -14,7 +14,7 @@ u8 FUN_0073F0_80041170_fifteenliner_pf_logic_cell(UnkStruct_27 *arg0, u8 arg1) {
     arg0->unk1 = EMPTY_CELL;
     ret = FALSE;
   } else {
-    if (MultisquareGlow_isArg0_lessthan_44(cell_ptr->square_id)) {
+    if (Multisquare_isArg0_lessthan_44(cell_ptr->square_id)) {
       arg0->unk0 = 10;
     } else {
       arg0->unk0 = 9;

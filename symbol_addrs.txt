@@ -575,20 +575,20 @@ Multisquares_Test4x4byType                                 = 0x8006A4EC; // type
 Multisquare_8006a6bc_oneliner_calls_fun                    = 0x8006A6BC; // type:func static
 Multisquare_8006a6f0_threeliner_sets_arg0_stuff            = 0x8006A6F0; // type:func static
 Multisquare_8006a708_fiveliner_sets_arg0_stuff             = 0x8006A708; // type:func static
-MultisquareGlow_8006a740_thirtyfiveliner                   = 0x8006A740; // type:func static
+Multisquare_8006a740_thirtyfiveliner                       = 0x8006A740; // type:func static
 func_8006A9A4                                              = 0x8006A9A4; // type:func unused
-MultisquareGlow_8006a9bc_fiveliner_sets_arg0_struct        = 0x8006A9BC; // type:func static
-MultisquareGlow_8006a9f4_twentyliner_loops_t7_t17          = 0x8006A9F4; // type:func static
-MultisquareGlow_isArg0_lessthan_44                         = 0x8006AB84; // type:func
-MultisquareGlow_8006aba4_loops_44_times_1                  = 0x8006ABA4; // type:func static
-MultisquareGlow_8006abf4_loops_44_times_2                  = 0x8006ABF4; // type:func static
-MultisquareGlow_8006ac2c_loops_10_times                    = 0x8006AC2C; // type:func
-MultisquareGlow_8006ad0c_checks_1_2_3_4                    = 0x8006AD0C; // type:func
-MultisquareGlow_8006ada4_Init2                             = 0x8006ADA4; // type:func         note called by Tetris_Init, loops 44 times
-MultisquareGlow_Deinit_doesnothing                         = 0x8006ADE4; // type:func
+Multisquare_8006a9bc_fiveliner_sets_arg0_struct            = 0x8006A9BC; // type:func static
+Multisquare_8006a9f4_twentyliner_loops_t7_t17              = 0x8006A9F4; // type:func static
+Multisquare_isArg0_lessthan_44                             = 0x8006AB84; // type:func
+Multisquare_8006aba4_loops_44_times_1                      = 0x8006ABA4; // type:func static
+Multisquare_8006abf4_loops_44_times_2                      = 0x8006ABF4; // type:func static
+Multisquare_8006ac2c_loops_10_times                        = 0x8006AC2C; // type:func
+Multisquare_8006ad0c_checks_1_2_3_4                        = 0x8006AD0C; // type:func
+Multisquare_8006ada4_Init                                  = 0x8006ADA4; // type:func         note called by Tetris_Init, loops 44 times
+Multisquare_Deinit_doesnothing                             = 0x8006ADE4; // type:func
 Multisquares_UpdateGlows                                   = 0x8006ADEC; // type:func
 Multisquares_RenderGlows                                   = 0x8006AE58; // type:func
-MultisquareGlow_8006aebc_loops_44_times_4                  = 0x8006AEBC; // type:func
+Multisquare_8006aebc_loops_44_times_4                      = 0x8006AEBC; // type:func
 
 //      - {start: 0x0309C0, type:   c, vram: 0x8006AF00, name: newtetris/multisquareglow}
 MultisquareGlow_8006af00_eightliner                        = 0x8006AF00; // type:func
@@ -1105,13 +1105,6 @@ D_800CFF50                = 0x800CFF50; // type:u8    size:0x1
 // - {start: 0x0961E0, type: .data, vram: 0x800CFF60, name: newtetris/gamestats}
 g_pieceFallAcceleration   = 0x800CFF60; // type:f32   size:0x4
 
-// - {start: 0x0961F0, type: .data, vram: 0x800CFF70, name: newtetris/gamefinish}
-color_gray                = 0x800CFF70; //            size:0xC    static  Color
-playercount               = 0x800CFF7C; // type:u8    size:0x1    static
-D_800CFF80                = 0x800CFF80; //            size:0x4    static  UnkStruct_21*
-D_800CFF84                = 0x800CFF84; //            size:0x4    static  UnkStruct_21*
-D_800CFF88                = 0x800CFF88; //            size:0x4    static  UnkStruct_21*
-
 // - {start: 0x096210, type: .data, vram: 0x800CFF90, name: newtetris/color}
 
 // piece colors
@@ -1472,9 +1465,6 @@ g_lineScan_ptr            = 0x8011FB90; //            size:0x4            LineSc
 
 // - {type: bss, vram: 0x8011FBA0, name: newtetris/multisquare}
 g_squares_ptr             = 0x8011FBA0; //            size:0x4            Squares*
-
-// - {type: bss, vram: 0x8011FBB0, name: newtetris/multisquareglow}
-D_8011FBB0                = 0x8011FBB0; //            size:0x4    static  UnkStruct_21*
 
 // - {type: bss, vram: 0x8011FBC0, name: newtetris/keyspin}
 D_8011FBC0                = 0x8011FBC0; //            size:0x4            UnkStruct_9*

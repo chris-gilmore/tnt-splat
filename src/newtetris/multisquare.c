@@ -8,12 +8,12 @@ static s32      Multisquares_Test4x4byType(s32, s32, u8);
 static s32      Multisquare_8006a6bc_oneliner_calls_fun(Cell *);
 static void     Multisquare_8006a6f0_threeliner_sets_arg0_stuff(Squares *);
 static void     Multisquare_8006a708_fiveliner_sets_arg0_stuff(Squares *);
-static void     MultisquareGlow_8006a740_thirtyfiveliner(Squares *);
+static void     Multisquare_8006a740_thirtyfiveliner(Squares *);
 static void     func_8006A9A4(Squares *);  // unused
-static void     MultisquareGlow_8006a9bc_fiveliner_sets_arg0_struct(Squares *);
-static void     MultisquareGlow_8006a9f4_twentyliner_loops_t7_t17(Squares *);
-static s32      MultisquareGlow_8006aba4_loops_44_times_1(void);
-static void     MultisquareGlow_8006abf4_loops_44_times_2(void);
+static void     Multisquare_8006a9bc_fiveliner_sets_arg0_struct(Squares *);
+static void     Multisquare_8006a9f4_twentyliner_loops_t7_t17(Squares *);
+static s32      Multisquare_8006aba4_loops_44_times_1(void);
+static void     Multisquare_8006abf4_loops_44_times_2(void);
 
 static Square *Multisquare_8006a050_extralarge_manyloops_interesting(s32 x, s32 y, u8 square_type) {
   register Square *square_ptr;
@@ -188,7 +188,7 @@ static void Multisquare_8006a708_fiveliner_sets_arg0_stuff(Squares *squares_ptr)
   squares_ptr->delay--;
 }
 
-static void MultisquareGlow_8006a740_thirtyfiveliner(Squares *arg0) {
+static void Multisquare_8006a740_thirtyfiveliner(Squares *arg0) {
   BoundingBox unused;
   BoundingBox sp30;
   s16 sp2E;
@@ -245,7 +245,7 @@ static void func_8006A9A4(Squares *squares_ptr) {
   squares_ptr->unk1 = 0;
 }
   
-static void MultisquareGlow_8006a9bc_fiveliner_sets_arg0_struct(Squares *arg0) {
+static void Multisquare_8006a9bc_fiveliner_sets_arg0_struct(Squares *arg0) {
   if (arg0->delay == 0) {
     arg0->unk0 = 0;
     arg0->unk1 = 3;
@@ -256,7 +256,7 @@ static void MultisquareGlow_8006a9bc_fiveliner_sets_arg0_struct(Squares *arg0) {
   arg0->delay--;
 }
 
-static void MultisquareGlow_8006a9f4_twentyliner_loops_t7_t17(Squares *arg0) {
+static void Multisquare_8006a9f4_twentyliner_loops_t7_t17(Squares *arg0) {
   register Cell *cell_ptr;
   register s32 col;
   register s32 row;
@@ -286,7 +286,7 @@ static void MultisquareGlow_8006a9f4_twentyliner_loops_t7_t17(Squares *arg0) {
   arg0->unk1 = 3;
 }
 
-u8 MultisquareGlow_isArg0_lessthan_44(u32 arg0) {
+u8 Multisquare_isArg0_lessthan_44(u32 arg0) {
   if (arg0 < 44) {
     return TRUE;
   }
@@ -294,7 +294,7 @@ u8 MultisquareGlow_isArg0_lessthan_44(u32 arg0) {
   return FALSE;
 }
 
-static s32 MultisquareGlow_8006aba4_loops_44_times_1(void) {
+static s32 Multisquare_8006aba4_loops_44_times_1(void) {
   register Squares *squares_ptr = g_squares_ptr;
   register Square *square_ptr;
   register u32 i;
@@ -310,7 +310,7 @@ static s32 MultisquareGlow_8006aba4_loops_44_times_1(void) {
   return var_a3;
 }
 
-static void MultisquareGlow_8006abf4_loops_44_times_2(void) {
+static void Multisquare_8006abf4_loops_44_times_2(void) {
   register Squares *squares_ptr = g_squares_ptr;
   register Square *square_ptr;
   register u32 i;
@@ -321,19 +321,19 @@ static void MultisquareGlow_8006abf4_loops_44_times_2(void) {
   }
 }
 
-s32 MultisquareGlow_8006ac2c_loops_10_times(s32 row, s32 type) {
+s32 Multisquare_8006ac2c_loops_10_times(s32 row, s32 type) {
   register Cell **cell_ptr_ptr;
   register Cell *cell_ptr;
   register Square *square_ptr;
   register s32 col;
   register u8 square_id;
 
-  MultisquareGlow_8006abf4_loops_44_times_2();
+  Multisquare_8006abf4_loops_44_times_2();
   cell_ptr_ptr = &g_boardPieces_ptr->cell_ptr_arr[row * 10];
   for (col = 0; col < 10; col++) {
     cell_ptr = *cell_ptr_ptr;
     square_id = cell_ptr->square_id;
-    if (MultisquareGlow_isArg0_lessthan_44(square_id)) {
+    if (Multisquare_isArg0_lessthan_44(square_id)) {
       square_ptr = &g_squares_ptr->arr[square_id];
       if (square_ptr->type == type) {
         square_ptr->unk3 = TRUE;
@@ -341,16 +341,16 @@ s32 MultisquareGlow_8006ac2c_loops_10_times(s32 row, s32 type) {
     }
     cell_ptr_ptr++;
   }
-  return MultisquareGlow_8006aba4_loops_44_times_1();
+  return Multisquare_8006aba4_loops_44_times_1();
 }
 
-u8 MultisquareGlow_8006ad0c_checks_1_2_3_4(void) {
+u8 Multisquare_8006ad0c_checks_1_2_3_4(void) {
   register Squares *squares_ptr = g_squares_ptr;
 
   switch (squares_ptr->unk0) {
   case 1:
     // either sets unk1 to 1 or 0
-    MultisquareGlow_8006a740_thirtyfiveliner(squares_ptr);
+    Multisquare_8006a740_thirtyfiveliner(squares_ptr);
     break;
   case 2:
     // sets unk1 to either 2 or 0
@@ -358,17 +358,17 @@ u8 MultisquareGlow_8006ad0c_checks_1_2_3_4(void) {
     break;
   case 3:
     // sets unk1 to 3
-    MultisquareGlow_8006a9f4_twentyliner_loops_t7_t17(squares_ptr);
+    Multisquare_8006a9f4_twentyliner_loops_t7_t17(squares_ptr);
     break;
   case 4:
     // sets unk1 to either 3 or 0
-    MultisquareGlow_8006a9bc_fiveliner_sets_arg0_struct(squares_ptr);
+    Multisquare_8006a9bc_fiveliner_sets_arg0_struct(squares_ptr);
     break;
   }
   return squares_ptr->unk1;
 }
 
-void MultisquareGlow_8006ada4_Init2(void) {
+void Multisquare_8006ada4_Init(void) {
   register Squares *squares_ptr = g_squares_ptr;
   register Square *square_ptr;
   register u32 i;
@@ -381,7 +381,7 @@ void MultisquareGlow_8006ada4_Init2(void) {
   }
 }
 
-void MultisquareGlow_Deinit_doesnothing(void) {
+void Multisquare_Deinit_doesnothing(void) {
 }
 
 void Multisquares_UpdateGlows(Squares *squares_ptr, u32 arg1) {
@@ -408,7 +408,7 @@ void Multisquares_RenderGlows(Squares *squares_ptr) {
   }
 }
 
-void MultisquareGlow_8006aebc_loops_44_times_4(Squares *squares_ptr, u8 alpha) {
+void Multisquare_8006aebc_loops_44_times_4(Squares *squares_ptr, u8 alpha) {
   register Square *square_ptr;
   register u32 i;
 
