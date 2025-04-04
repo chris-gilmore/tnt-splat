@@ -556,7 +556,7 @@ void Game_Init(u8 numPlayers, u8 *handicap_arr) {
   func_8007635C();
   MultisquareGlow_InitStaticMembers(numPlayers);
   gamefinish_8005344C_fiveliner(numPlayers);
-  FUN_SRAM_80077408_twentyliner_loops_46t(&game_ptr->font, IMG_FONT_C);  // init font
+  Font_Init46Char(&game_ptr->font, IMG_FONT_C);
   game_ptr->unkE4FC.alpha = 0.0f;
   game_ptr->unkE4FC.unk8 = 255.0f;
   game_ptr->unkE4FC.unk4 = (255.0f - game_ptr->unkE4FC.alpha) / 16.0f;
@@ -621,7 +621,7 @@ void Game_Deinit(void) {
   gamefinish_800534A4_fiveliner();
   MultisquareGlow_8006b384_oneliner_calls_fun();
   func_800763B4();
-  FUN_SRAM_n64HeapUnalloc_and_set_to_NULL(&game_ptr->font);  // deinit font
+  Font_Deinit(&game_ptr->font);
   Landfill_Deinit(&game_ptr->landfill);
   CubeTiles_Deinit(&game_ptr->cubeTiles);
   func_80075F5C(&game_ptr->unkE080);

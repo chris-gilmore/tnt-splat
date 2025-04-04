@@ -1,92 +1,52 @@
 #include "common.h"
 
-extern u8 D_273A00;  // image_lut
-
-////////////////////////////////////////
-
 // Sram *g_sram_ptr;
 
-/* static */ extern u8 D_800D2D00[64];  // font lut
+/* static */ extern u8 D_800D2DFC[30];
 
 static void   set_total_wonder_lines(Sram *, u32);
 
-void FUN_SRAM_n64HeapUnalloc_and_set_to_NULL(Font *p_font) {
-  n64HeapUnalloc(p_font->image);
-  p_font->image = NULL;
-}
-
-void FUN_SRAM_80077408_twentyliner_loops_46t(Font *p_font, s32 img_id) {
+// calculating rank
+u8 FUN_SRAM_80078300_twelveliner_div60_loop_30t_a(UnkStruct_34 *arg0) {
   s32 i;
+  s32 lines_per_minute;
 
-  if (img_id != 0) {
-    main_8004A34C_threeliner();
-    p_font->image = (u8 *) n64HeapAlloc(FUN_03A750_80074888_twelveliner(&D_273A00, img_id));
-    FUN_03A750_800746c0_twentyliner(&D_273A00, p_font->image, img_id);
-    p_font->width = ((u16 *) p_font->image)[0];
-    p_font->height = ((u16 *) p_font->image)[1] / 46;
-    for (i = 0; i < 46; i++) {
-      for (p_font->char_widths[i] = p_font->width - 1; (p_font->image[p_font->char_widths[i] + (i * p_font->width * p_font->height) + 8] & 0xF0) == 0xF0; p_font->char_widths[i]--);
-      p_font->char_widths[i]++;
-      if (p_font->char_widths[i] < 2) {
-        p_font->char_widths[i] = p_font->width - 1;
-      }
-    }
-  }
-}
+  if ((arg0->time_in_seconds != 0) && ((arg0->time_in_seconds / 60) != 0)) {
+    lines_per_minute = arg0->lines / (f32) ((f32) arg0->time_in_seconds / 60.0);
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sram/FUN_SRAM_80077610_twentyliner_loops_51t.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sram/displayText_XY_RGBA_1.s")
-
-void displayText_XY_RGBA_2(Gfx **p_gdl, Font *p_font, s32 x, s32 y, char *str, s32 red, s32 green, s32 blue, s32 alpha) {
-  s32 i;
-  s32 sp38;
-
-  if (p_font->image != NULL) {
     i = 0;
-    sp38 = x;
-    while (str[i] != 0) {
-      display_one_text_character_rgb(p_gdl,
-                                     p_font->image,
-                                     0,  // sl
-                                     D_800D2D00[str[i] - 48] * p_font->height,  // tl
-                                     p_font->char_widths[D_800D2D00[str[i] - 48]] - 1,  // sh
-                                     D_800D2D00[str[i] - 48] * p_font->height + p_font->height - 1,  // th
-                                     x,
-                                     y,
-                                     red,
-                                     green,
-                                     blue,
-                                     alpha);
-      x += p_font->char_widths[D_800D2D00[str[i] - 48]];
-      i++;
-    }
+    do {
+      if (lines_per_minute < D_800D2DFC[i]) {
+        return i;
+      }
+    } while (++i < 30);
+
+    return 29;
   }
+
+  return 0;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sram/displayText_XY_RGBA_3.s")
+// calculating rank, too
+u8 FUN_SRAM_80078424_twelveliner_div60_loop_30t_b(u16 time_in_seconds, u16 lines) {
+  s32 i;
+  s32 lines_per_minute;
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sram/displayText_XY_RGBA_4.s")
+  if ((time_in_seconds != 0) && ((time_in_seconds / 60) != 0)) {
+    lines_per_minute = lines / (f32) ((f32) time_in_seconds / 60.0);
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sram/FUN_SRAM_80077d38_fourliner.s")
+    i = 0;
+    do {
+      if (lines_per_minute < D_800D2DFC[i]) {
+        return i;
+      }
+    } while (++i < 30);
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sram/string_do_something_weird.s")
+    return 29;
+  }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sram/FUN_SRAM_80077e18_fifteenliner_has_traps.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sram/displayText_80077ee0_5.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sram/FUN_SRAM_8007802c_fiveliner.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sram/displayText_80078094_6.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sram/FUN_SRAM_800781a8_elevenliner_loops_arg2_t.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sram/displayText_80078244_7.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sram/FUN_SRAM_80078300_twelveliner_div60_loop_30t_a.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sram/FUN_SRAM_80078424_twelveliner_div60_loop_30t_b.s")
+  return 0;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sram/FUN_SRAM_80078534_tenliner_loops.s")
 

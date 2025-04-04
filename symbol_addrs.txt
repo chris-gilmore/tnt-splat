@@ -750,7 +750,7 @@ Bag63_GetNextPiece                      = 0x80071394; // type:func
 Bag63_Init                              = 0x800713F0; // type:func
 Bag63_Deinit                            = 0x80071470; // type:func
 
-//      - {start: 0x037700, type: asm, vram: 0x80071480, name: newtetris/037700}
+//      - {start: 0x037700, type:   c, vram: 0x80071480, name: newtetris/formattime}
 displayTimeFormatted_XY_RGBA            = 0x80071480; // type:func
 
 //      - {start: 0x0379B0, type: asm, vram: 0x80071730, name: newtetris/0379B0}
@@ -826,25 +826,26 @@ func_80076EA8                          = 0x80076EA8; // type:func unused
 //      - {start: 0x03D140, type:   c, vram: 0x80076EC0, name: newtetris/03D140}
 func_80076EC0                          = 0x80076EC0; // type:func
 
-//      - {start: 0x03D650, type:   c, vram: 0x800773D0, name: newtetris/sram}
-FUN_SRAM_n64HeapUnalloc_and_set_to_NULL     = 0x800773D0; // type:func  note call n64HeapUnalloc, set arg0 ptr to NULL
-FUN_SRAM_80077408_twentyliner_loops_46t     = 0x80077408; // type:func  note calls n64HeapAlloc
-FUN_SRAM_80077610_twentyliner_loops_51t     = 0x80077610; // type:func  note calls n64HeapAlloc
+//      - {start: 0x03D650, type:   c, vram: 0x800773D0, name: newtetris/font}
+Font_Deinit                                 = 0x800773D0; // type:func
+Font_Init46Char                             = 0x80077408; // type:func  note init for font_a, font_b, or font_c
+Font_Init51Char                             = 0x80077610; // type:func  note init for font_d
 displayText_XY_RGBA_1                       = 0x80077818; // type:func
 displayText_XY_RGBA_2                       = 0x80077960; // type:func
 displayText_XY_RGBA_3                       = 0x80077AA8; // type:func  note returns an int
 displayText_XY_RGBA_4                       = 0x80077BA8; // type:func unused  note usual div 0 trap and that other one
-FUN_SRAM_80077d38_fourliner                 = 0x80077D38; // type:func
-string_do_something_weird                   = 0x80077D88; // type:func
-FUN_SRAM_80077e18_fifteenliner_has_traps    = 0x80077E18; // type:func  note usual div 0 trap and that other one
+Font_80077d38_fourliner                     = 0x80077D38; // type:func
+get_text_width                              = 0x80077D88; // type:func
+Font_80077e18_fifteenliner_has_traps        = 0x80077E18; // type:func  note usual div 0 trap and that other one
 displayText_80077ee0_5                      = 0x80077EE0; // type:func  note yet another variant
-FUN_SRAM_8007802c_fiveliner                 = 0x8007802C; // type:func
+Font_8007802c_fiveliner                     = 0x8007802C; // type:func
 displayText_80078094_6                      = 0x80078094; // type:func  note yet another variant
-FUN_SRAM_800781a8_elevenliner_loops_arg2_t  = 0x800781A8; // type:func
+Font_800781a8_elevenliner_loops_arg2_t      = 0x800781A8; // type:func
 displayText_80078244_7                      = 0x80078244; // type:func  note yet another variant, used by credits?
 
-FUN_SRAM_80078300_twelveliner_div60_loop_30t_a = 0x80078300; // type:func
-FUN_SRAM_80078424_twelveliner_div60_loop_30t_b = 0x80078424; // type:func
+//      - {start: 0x03E580, type:   c, vram: 0x80078300, name: newtetris/sram}
+FUN_SRAM_80078300_twelveliner_div60_loop_30t_a = 0x80078300; // type:func  note calculating rank
+FUN_SRAM_80078424_twelveliner_div60_loop_30t_b = 0x80078424; // type:func  note calculating rank, too
 FUN_SRAM_80078534_tenliner_loops               = 0x80078534; // type:func
 FUN_SRAM_800785e0_sixliner_loop_arg0_t         = 0x800785E0; // type:func
 FUN_SRAM_8007868c_tenliner_loop_arg0_t         = 0x8007868C; // type:func
