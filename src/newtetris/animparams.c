@@ -23,7 +23,7 @@ AnimParams D_800D1030 = {
   },
   5,                      // num_images
   0,                      // unk79
-  { 297, 89 },            // { p.x, p.y }
+  297, 89,                // x, y
   NULL, NULL,             // **images, **palettes
   2, 0, 0, 0, 0,          // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -39,7 +39,7 @@ AnimParams D_800D10CC = {
   },
   5,                      // num_images
   2,                      // unk79
-  { 301, 115 },           // { p.x, p.y }
+  301, 115,               // x, y
   NULL, NULL,             // **images, **palettes
   2, 0, 0, 0, 0,          // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -55,7 +55,7 @@ AnimParams D_800D1168 = {
   },
   5,                      // num_images
   1,                      // unk79
-  { 306, 141 },           // { p.x, p.y }
+  306, 141,               // x, y
   NULL, NULL,             // **images, **palettes
   2, 0, 0, 0, 0,          // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -71,7 +71,7 @@ AnimParams D_800D1204 = {
   },
   5,                      // num_images
   4,                      // unk79
-  { 328, 89 },            // { p.x, p.y }
+  328, 89,                // x, y
   NULL, NULL,             // **images, **palettes
   2, 0, 0, 0, 0,          // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -87,7 +87,7 @@ AnimParams D_800D12A0 = {
   },
   5,                      // num_images
   3,                      // unk79
-  { 333, 115 },           // { p.x, p.y }
+  333, 115,               // x, y
   NULL, NULL,             // **images, **palettes
   2, 0, 0, 0, 0,          // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -103,7 +103,7 @@ AnimParams D_800D133C = {
   },
   5,                      // num_images
   0,                      // unk79
-  { 338, 141 },           // { p.x, p.y }
+  338, 141,               // x, y
   NULL, NULL,             // **images, **palettes
   2, 0, 0, 0, 0,          // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -119,7 +119,7 @@ AnimParams D_800D13D8 = {
   },
   5,                      // num_images
   0,                      // unk79
-  { 278, 74 },            // { p.x, p.y }
+  278, 74,                // x, y
   NULL, NULL,             // **images, **palettes
   2, 0, 0, 0, 0,          // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -135,7 +135,7 @@ AnimParams D_800D1474 = {
   },
   5,                      // num_images
   2,                      // unk79
-  { 331, 74 },            // { p.x, p.y }
+  331, 74,                // x, y
   NULL, NULL,             // **images, **palettes
   2, 0, 0, 0, 0,          // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -175,7 +175,7 @@ AnimParams D_800D1510 = {
   },
   12,                     // num_images
   0,                      // unk79
-  { 17, 252 },            // { p.x, p.y }
+  17, 252,                // x, y
   NULL, NULL,             // **images, **palettes
   0, 0, 60, 0, 1,         // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -191,7 +191,7 @@ AnimParams D_800D15AC = {
   },
   12,                     // num_images
   0,                      // unk79
-  { 105, 258 },           // { p.x, p.y }
+  105, 258,               // x, y
   NULL, NULL,             // **images, **palettes
   0, 0, 80, 0, 1,         // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -207,7 +207,7 @@ AnimParams D_800D1648 = {
   },
   12,                     // num_images
   0,                      // unk79
-  { 220, 210 },           // { p.x, p.y }
+  220, 210,               // x, y
   NULL, NULL,             // **images, **palettes
   0, 0, 100, 0, 1,        // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -223,7 +223,7 @@ AnimParams D_800D16E4 = {
   },
   12,                     // num_images
   0,                      // unk79
-  { 237, 246 },           // { p.x, p.y }
+  237, 246,               // x, y
   NULL, NULL,             // **images, **palettes
   0, 0, 115, 0, 1,        // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -239,7 +239,7 @@ AnimParams D_800D1780 = {
   },
   12,                     // num_images
   0,                      // unk79
-  { 301, 257 },           // { p.x, p.y }
+  301, 257,               // x, y
   NULL, NULL,             // **images, **palettes
   0, 0, 70, 0, 1,         // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -279,7 +279,7 @@ AnimParams D_800D181C = {
   },
   12,                     // num_images
   0,                      // unk79
-  { 4, 256 },             // { p.x, p.y }
+  4, 256,                 // x, y
   NULL, NULL,             // **images, **palettes
   5, 0, 0, 0, 0,          // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -297,7 +297,7 @@ AnimParams D_800D18B8 = {
   },
   1,                      // num_images
   0,                      // unk79
-  { 262, 67 },            // { p.x, p.y }
+  262, 67,                // x, y
   NULL, NULL,             // **images, **palettes
   11, 0, 30, 0, 0,        // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -313,7 +313,7 @@ AnimParams D_800D1954 = {
   },
   1,                      // num_images
   0,                      // unk79
-  { 262, 67 },            // { p.x, p.y }
+  262, 67,                // x, y
   NULL, NULL,             // **images, **palettes
   2, 0, 53, 0, 0,         // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -329,7 +329,7 @@ AnimParams D_800D19F0 = {
   },
   1,                      // num_images
   0,                      // unk79
-  { 262, 67 },            // { p.x, p.y }
+  262, 67,                // x, y
   NULL, NULL,             // **images, **palettes
   1, 0, 42, 0, 0,         // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -347,7 +347,7 @@ AnimParams D_800D1A8C = {
   },
   1,                      // num_images
   0,                      // unk79
-  { 12, 31 },             // { p.x, p.y }
+  12, 31,                 // x, y
   NULL, NULL,             // **images, **palettes
   20, 0, 20, 0, 0,        // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -363,7 +363,7 @@ AnimParams D_800D1B28 = {
   },
   1,                      // num_images
   0,                      // unk79
-  { 12, 51 },             // { p.x, p.y }
+  12, 51,                 // x, y
   NULL, NULL,             // **images, **palettes
   15, 0, 12, 0, 0,        // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -379,7 +379,7 @@ AnimParams D_800D1BC4 = {
   },
   1,                      // num_images
   0,                      // unk79
-  { 12, 91 },             // { p.x, p.y }
+  12, 91,                 // x, y
   NULL, NULL,             // **images, **palettes
   15, 0, 15, 0, 0,        // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -395,7 +395,7 @@ AnimParams D_800D1C60 = {
   },
   1,                      // num_images
   0,                      // unk79
-  { 12, 111 },            // { p.x, p.y }
+  12, 111,                // x, y
   NULL, NULL,             // **images, **palettes
   10, 0, 23, 0, 0,        // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -411,7 +411,7 @@ AnimParams D_800D1CFC = {
   },
   1,                      // num_images
   0,                      // unk79
-  { 12, 150 },            // { p.x, p.y }
+  12, 150,                // x, y
   NULL, NULL,             // **images, **palettes
   10, 0, 17, 0, 0,        // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -427,7 +427,7 @@ AnimParams D_800D1D98 = {
   },
   1,                      // num_images
   0,                      // unk79
-  { 12, 170 },            // { p.x, p.y }
+  12, 170,                // x, y
   NULL, NULL,             // **images, **palettes
   15, 0, 13, 0, 0,        // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -443,7 +443,7 @@ AnimParams D_800D1E34 = {
   },
   1,                      // num_images
   0,                      // unk79
-  { 12, 210 },            // { p.x, p.y }
+  12, 210,                // x, y
   NULL, NULL,             // **images, **palettes
   15, 0, 27, 0, 0,        // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -459,7 +459,7 @@ AnimParams D_800D1ED0 = {
   },
   1,                      // num_images
   0,                      // unk79
-  { 12, 230 },            // { p.x, p.y }
+  12, 230,                // x, y
   NULL, NULL,             // **images, **palettes
   10, 0, 16, 0, 0,        // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -489,7 +489,7 @@ AnimParams D_800D1F6C = {
   },
   7,                      // num_images
   0,                      // unk79
-  { 38, 101 },            // { p.x, p.y }
+  38, 101,                // x, y
   NULL, NULL,             // **images, **palettes
   2, 0, 0, 0, 0,          // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -513,7 +513,7 @@ AnimParams D_800D2008 = {
   },
   4,                      // num_images
   0,                      // unk79
-  { 212, 176 },           // { p.x, p.y }
+  212, 176,               // x, y
   NULL, NULL,             // **images, **palettes
   2, 0, 0, 0, 1,          // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -545,7 +545,7 @@ AnimParams D_800D20A4 = {
   },
   8,                      // num_images
   0,                      // unk79
-  { 23, 259 },            // { p.x, p.y }
+  23, 259,                // x, y
   NULL, NULL,             // **images, **palettes
   2, 0, 0, 0, 0,          // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -561,7 +561,7 @@ AnimParams D_800D2140 = {
   },
   8,                      // num_images
   2,                      // unk79
-  { 53, 258 },            // { p.x, p.y }
+  53, 258,                // x, y
   NULL, NULL,             // **images, **palettes
   1, 0, 0, 0, 0,          // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -577,7 +577,7 @@ AnimParams D_800D21DC = {
   },
   8,                      // num_images
   6,                      // unk79
-  { 40, 266 },            // { p.x, p.y }
+  40, 266,                // x, y
   NULL, NULL,             // **images, **palettes
   3, 0, 0, 0, 0,          // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -593,7 +593,7 @@ AnimParams D_800D2278 = {
   },
   8,                      // num_images
   1,                      // unk79
-  { 75, 257 },            // { p.x, p.y }
+  75, 257,                // x, y
   NULL, NULL,             // **images, **palettes
   2, 0, 0, 0, 0,          // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -609,7 +609,7 @@ AnimParams D_800D2314 = {
   },
   8,                      // num_images
   3,                      // unk79
-  { 196, 266 },           // { p.x, p.y }
+  196, 266,               // x, y
   NULL, NULL,             // **images, **palettes
   1, 0, 0, 0, 0,          // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -625,7 +625,7 @@ AnimParams D_800D23B0 = {
   },
   8,                      // num_images
   5,                      // unk79
-  { 203, 258 },           // { p.x, p.y }
+  203, 258,               // x, y
   NULL, NULL,             // **images, **palettes
   2, 0, 0, 0, 0,          // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -641,7 +641,7 @@ AnimParams D_800D244C = {
   },
   8,                      // num_images
   2,                      // unk79
-  { 231, 267 },           // { p.x, p.y }
+  231, 267,               // x, y
   NULL, NULL,             // **images, **palettes
   3, 0, 0, 0, 0,          // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -657,7 +657,7 @@ AnimParams D_800D24E8 = {
   },
   8,                      // num_images
   0,                      // unk79
-  { 250, 259 },           // { p.x, p.y }
+  250, 259,               // x, y
   NULL, NULL,             // **images, **palettes
   1, 0, 0, 0, 0,          // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -673,7 +673,7 @@ AnimParams D_800D2584 = {
   },
   8,                      // num_images
   7,                      // unk79
-  { 271, 265 },           // { p.x, p.y }
+  271, 265,               // x, y
   NULL, NULL,             // **images, **palettes
   2, 0, 0, 0, 0,          // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -689,7 +689,7 @@ AnimParams D_800D2620 = {
   },
   8,                      // num_images
   3,                      // unk79
-  { 332, 259 },           // { p.x, p.y }
+  332, 259,               // x, y
   NULL, NULL,             // **images, **palettes
   3, 0, 0, 0, 0,          // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -705,7 +705,7 @@ AnimParams D_800D26BC = {
   },
   8,                      // num_images
   4,                      // unk79
-  { 337, 264 },           // { p.x, p.y }
+  337, 264,               // x, y
   NULL, NULL,             // **images, **palettes
   1, 0, 0, 0, 0,          // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -721,7 +721,7 @@ AnimParams D_800D2758 = {
   },
   8,                      // num_images
   3,                      // unk79
-  { 65, 228 },            // { p.x, p.y }
+  65, 228,                // x, y
   NULL, NULL,             // **images, **palettes
   3, 0, 0, 0, 0,          // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -737,7 +737,7 @@ AnimParams D_800D27F4 = {
   },
   8,                      // num_images
   4,                      // unk79
-  { 211, 229 },           // { p.x, p.y }
+  211, 229,               // x, y
   NULL, NULL,             // **images, **palettes
   1, 0, 0, 0, 0,          // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -781,7 +781,7 @@ AnimParams D_800D2890 = {
   },
   14,                     // num_images
   0,                      // unk79
-  { 271, 15 },            // { p.x, p.y }
+  271, 15,                // x, y
   NULL, NULL,             // **images, **palettes
   1, 0, 0, 0, 0,          // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -821,7 +821,7 @@ AnimParams D_800D292C = {
   },
   12,                     // num_images
   0,                      // unk79
-  { 225, 230 },           // { p.x, p.y }
+  225, 230,               // x, y
   NULL, NULL,             // **images, **palettes
   2, 0, 0, 0, 0,          // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -845,7 +845,7 @@ AnimParams D_800D29C8 = {
   },
   4,                      // num_images
   2,                      // unk79
-  { 51, 252 },            // { p.x, p.y }
+  51, 252,                // x, y
   NULL, NULL,             // **images, **palettes
   3, 0, 0, 0, 0,          // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -869,7 +869,7 @@ AnimParams D_800D2A64 = {
   },
   4,                      // num_images
   0,                      // unk79
-  { 215, 256 },           // { p.x, p.y }
+  215, 256,               // x, y
   NULL, NULL,             // **images, **palettes
   3, 0, 0, 0, 0,          // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -943,7 +943,7 @@ AnimParams D_800D2B00 = {
   },
   21,                     // num_images
   0,                      // unk79
-  { 21, 1 },              // { p.x, p.y }
+  21, 1,                  // x, y
   NULL, NULL,             // **images, **palettes
   2, 0, 3, 0, 0,          // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -1017,7 +1017,7 @@ AnimParams D_800D2B9C = {
   },
   29,                     // num_images
   0,                      // unk79
-  { 248, 6 },             // { p.x, p.y }
+  248, 6,                 // x, y
   NULL, NULL,             // **images, **palettes
   1, 0, 200, 0, 0,        // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -1053,7 +1053,7 @@ AnimParams D_800D2C38 = {
   },
   10,                     // num_images
   0,                      // unk79
-  { 256, 13 },            // { p.x, p.y }
+  256, 13,                // x, y
   NULL, NULL,             // **images, **palettes
   3, 0, 0, 0, 0,          // unk88, unk89, unk8A, unk8B, unk8C
   0.0, 0.0,               // unk90, unk94
@@ -1079,12 +1079,100 @@ void func_800764B8(AnimParams *animParams) {
       FUN_03A750_800746c0_twentyliner(&D_5206B0, animParams->palettes[i], animParams->pal_ids[i]);
     }
   }
-  if (animParams->unk8C != 0) {
+  if (animParams->unk8C) {
     animParams->unk90 = 1.0 / (f32) (animParams->num_images / 2);
     animParams->unk94 = 0.0;
   }
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/animparams/func_800766C8.s")
+void func_800766C8(AnimParams *animParams) {
+  s32 i;
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/animparams/func_800767C0.s")
+  for (i = animParams->num_images - 1; i >= 0; i--) {
+    if (animParams->images[i] != NULL) {
+      n64HeapUnalloc(animParams->images[i]);
+    }
+    if (animParams->pal_ids[i] != 0) {
+      if (animParams->palettes[i] != NULL) {
+        n64HeapUnalloc(animParams->palettes[i]);
+      }
+    }
+  }
+  if (animParams->images != NULL) {
+    n64HeapUnalloc(animParams->images);
+  }
+  if (animParams->palettes != NULL) {
+    n64HeapUnalloc(animParams->palettes);
+  }
+}
+
+void func_800767C0(AnimParams *animParams) {
+  if (animParams->unk8A != 0) {
+    if (animParams->unk8A < animParams->unk8B) {
+      if (animParams->unk8B > (animParams->unk8A + animParams->num_images)) {
+        animParams->unk8B = 0;
+        return;
+      }
+
+      if (animParams->unk88 != 0) {
+        if (animParams->unk89 == 0) {
+          animParams->unk89 = animParams->unk88;
+          animParams->unk79 = (animParams->unk79 + 1) % animParams->num_images;
+          animParams->unk8B++;
+          if (animParams->unk8C) {
+            animParams->unk94 += animParams->unk90;
+            if (animParams->unk94 >= 1.0) {
+              animParams->unk94 = 1.0;
+              animParams->unk90 = (1.0 / (f32) (animParams->num_images / 2)) * -1;
+            }
+            if (animParams->unk94 <= 0.0) {
+              animParams->unk94 = 0.0;
+              animParams->unk90 = 1.0 / (f32) (animParams->num_images / 2);
+            }
+            animParams->alpha = animParams->unk94 * 255;
+          }
+        } else {
+          animParams->unk89--;
+        }
+      } else {
+        if (animParams->unk8C) {
+          animParams->unk94 += animParams->unk90;
+          if (animParams->unk94 >= 1.0) {
+            animParams->unk94 = 1.0;
+            animParams->unk90 = (1.0 / (f32) (animParams->num_images / 2)) * -1;
+          }
+          if (animParams->unk94 <= 0.0) {
+            animParams->unk94 = 0.0;
+            animParams->unk90 = 1.0 / (f32) (animParams->num_images / 2);
+          }
+          animParams->alpha = animParams->unk94 * 255;
+        }
+        animParams->unk79 = (animParams->unk79 + 1) % animParams->num_images;
+        animParams->unk8B++;
+      }
+
+      func_8005BBFC(&g_gdl);
+      weird_lots_of_magic_number_setting_66xrefs(&g_gdl, animParams->images[animParams->unk79], animParams->palettes[animParams->unk79], animParams->x, animParams->y, animParams->red, animParams->green, animParams->blue, animParams->alpha);
+      func_8005BE40(&g_gdl);
+
+    } else {
+      animParams->unk8B++;
+    }
+
+  } else {
+    if (animParams->unk88 != 0) {
+      if (animParams->unk89 == 0) {
+        animParams->unk89 = animParams->unk88;
+        animParams->unk79 = (animParams->unk79 + 1) % animParams->num_images;
+      } else {
+        animParams->unk89--;
+      }
+    } else {
+      animParams->unk79 = (animParams->unk79 + 1) % animParams->num_images;
+    }
+
+    func_8005BBFC(&g_gdl);
+    weird_lots_of_magic_number_setting_66xrefs(&g_gdl, animParams->images[animParams->unk79], animParams->palettes[animParams->unk79], animParams->x, animParams->y, animParams->red, animParams->green, animParams->blue, animParams->alpha);
+    func_8005BE40(&g_gdl);
+  }
+}
