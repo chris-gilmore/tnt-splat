@@ -404,7 +404,7 @@ segments:
       - {start: 0x096BB0, type: .data, vram: 0x800D0930, name: newtetris/imageparams}
       - {start: 0x0972B0, type: .data, vram: 0x800D1030, name: newtetris/animparams}
       - {start: 0x098F60, type: .data, vram: 0x800D2CE0, name: newtetris/03D120}
-      - {start: 0x098F70, type: data, vram: 0x800D2CF0, name: newtetris/font}
+      - {start: 0x098F70, type: .data, vram: 0x800D2CF0, name: newtetris/font}
       - {start: 0x099000, type: data, vram: 0x800D2D80, name: newtetris/sram}
       - {start: 0x099410, type: .data, vram: 0x800D3190, name: newtetris/n64heap}
       - {start: 0x099420, type: data, vram: 0x800D31A0, name: newtetris/099420}
