@@ -1270,10 +1270,6 @@ n64HeapAllocCumulative    = 0x800D3198; // type:s32   size:0x4    static
 // - {start: 0x099470, type: .data, vram: 0x800D31F0, name: newtetris/creditstext}
 g_credits_str             = 0x800D31F0; // type:char* size:0x4
 
-// - {start: 0x099550, type: .data, vram: 0x800D32D0, name: newtetris/minilzo}
-xn                        = 0x800D32D0; // type:u32   size:0x4    static
-__lzo_init_done           = 0x800D32D4; // type:s32   size:0x4
-
 // - {start: 0x0995B0, type: .data, vram: 0x800D3330, name: newtetris/credits}
 D_800D3330                = 0x800D3330; // type:u32   size:0x4    static
 
@@ -1363,14 +1359,6 @@ n64heap_rodata_00A8       = 0x800DE0E8; // type:char  size:0x13   literal [19]
 n64heap_rodata_00BC       = 0x800DE0FC; // type:char  size:0x13   literal [19]
 n64heap_rodata_00D0       = 0x800DE110; // type:char  size:0x17   literal [23]
 n64heap_rodata_00E8       = 0x800DE128; // type:char  size:0x1B   literal [27]
-
-// - {start: 0x0A4CB0, type: .rodata, vram: 0x800DEA30, name: newtetris/minilzo}
-__lzo_copyright           = 0x800DEA30; // type:char  size:0x4    literal [4]
-minilzo_rodata_0004       = 0x800DEA34; // type:char  size:0x5    literal [5]
-minilzo_rodata_000C       = 0x800DEA3C; // type:char  size:0xC    literal [12]
-minilzo_rodata_0018       = 0x800DEA48; // type:char  size:0x5    literal [5]
-minilzo_rodata_0020       = 0x800DEA50; // type:char  size:0xC    literal [12]
-minilzo_rodata_002C       = 0x800DEA5C; // type:s32   size:0xC    literal [3]
 
 // - {start: 0x0A6CF0, type: rodata, vram: 0x800E0A70, name: newtetris/06FFD0}
 coders                    = 0x800E0A70; // type:char  size:0x6B8
@@ -1521,9 +1509,6 @@ g_sram_ptr                = 0x8011FCF0; //            size:0x4            Sram*
 n64HeapStart              = 0x801201D0; //            size:0x4    static  void*
 n64HeapEnd                = 0x801201D4; //            size:0x4    static  void*
 
-
-// - {type: .bss, vram: 0x80120230, name: newtetris/minilzo}
-x                         = 0x80120230; // type:s32   size:0xC    static  [3]
 
 // - {type: .bss, vram: 0x80120240, name: newtetris/credits}
 

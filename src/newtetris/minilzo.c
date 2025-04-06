@@ -9,11 +9,7 @@ static u32 _lzo1x_1_do_compress(u8 *, u32, u8 *, u32 *, void *);
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/minilzo/lzo_assert.s")
 
-const u8 __lzo_copyright[] = " $\n";
-
-const u8 *lzo_copyright(void) {
-  return __lzo_copyright;
-}
+#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/minilzo/lzo_copyright.s")
 
 u32 lzo_version(void) {
   return LZO_VERSION;
@@ -51,18 +47,11 @@ const char *_lzo_version_date(void) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/minilzo/ptr_check.s")
 
-static s32 x[3];
-static u32 xn = 3;
-
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/minilzo/_lzo_config_check.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/minilzo/minilzo_rodata_002C.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/minilzo/schedule_insns_bug.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/minilzo/strength_reduce_bug.s")
-
-s32 __lzo_init_done = 0;
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/minilzo/__lzo_init2.s")
 
@@ -351,3 +340,5 @@ s32 lzo1x_decompress(u8 *in, u32 in_len, u8 *out, u32 *out_len, void *wrkmem) {
 }
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/minilzo/lzo1x_decompress_safe.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/minilzo/D_800DEA5C.s")
