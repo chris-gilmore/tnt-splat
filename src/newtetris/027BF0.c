@@ -1,9 +1,5 @@
 #include "common.h"
 
-extern u8 D_273A00;  // image_lut
-
-////////////////////////////////////////
-
 static u8 D_800D02B0 = 10;
 static u8 D_800D02B4 = 0;
 
@@ -137,11 +133,11 @@ void FUN_027BF0_80061A34_does_nothing(void) {
 static void FUN_027BF0_80061a3c_tenliner_allocs_heap(ImageParams *dest, ImageParams *src) {
   if (src->img.id != 0) {
     // load image
-    dest->img.data = (u8 *) n64HeapAlloc(FUN_03A750_80074888_twelveliner(&D_273A00, src->img.id));
+    dest->img.data = n64HeapAlloc(FUN_03A750_80074888_twelveliner(&D_273A00, src->img.id));
     FUN_03A750_800746c0_twentyliner(&D_273A00, dest->img.data, src->img.id);
-    if (dest->img.data[5] == 3) {  // COLOR_INDEX image type
+    if (((u8 *) dest->img.data)[5] == 3) {  // COLOR_INDEX image type
       // load palette
-      dest->pal.data = (u8 *) n64HeapAlloc(FUN_03A750_80074888_twelveliner(&D_273A00, src->pal.id));
+      dest->pal.data = n64HeapAlloc(FUN_03A750_80074888_twelveliner(&D_273A00, src->pal.id));
       FUN_03A750_800746c0_twentyliner(&D_273A00, dest->pal.data, src->pal.id);
     }
   }
@@ -706,7 +702,7 @@ void FUN_027BF0_800636C0_display_game_stats_screen_q(void) {
       gDPPipeSync(g_gdl++);
 
       // p0 name
-      displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 290, 202, &game_ptr->padE13C[0], 0xFF, 0xFF, 0xFF, 0xFF);
+      displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 290, 202, game_ptr->players[0].name, 0xFF, 0xFF, 0xFF, 0xFF);
 
       // mayan temple fire (x8)
       func_800767C0(&D_800D1030);
@@ -743,7 +739,7 @@ void FUN_027BF0_800636C0_display_game_stats_screen_q(void) {
       weird_lots_of_magic_number_setting_66xrefs(&g_gdl, D_8011FB20.data, D_8011FB3C.data, D_8011FB24, D_8011FB28, D_8011FB2C, D_8011FB30, D_8011FB34, D_8011FB38);
 
       // p0 name
-      displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 293, 201, &game_ptr->padE13C[0], 0xFF, 0xFF, 0xFF, 0xFF);
+      displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 293, 201, game_ptr->players[0].name, 0xFF, 0xFF, 0xFF, 0xFF);
 
       // greek fire pot
       func_800767C0(&D_800D2890);
@@ -761,7 +757,7 @@ void FUN_027BF0_800636C0_display_game_stats_screen_q(void) {
       weird_lots_of_magic_number_setting_66xrefs(&g_gdl, D_8011FB20.data, D_8011FB3C.data, D_8011FB24, D_8011FB28, D_8011FB2C, D_8011FB30, D_8011FB34, D_8011FB38);
 
       // p0 name
-      displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 293, 202, &game_ptr->padE13C[0], 0xFF, 0xFF, 0xFF, 0xFF);
+      displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 293, 202, game_ptr->players[0].name, 0xFF, 0xFF, 0xFF, 0xFF);
 
       // egyptian coal pot
       func_800767C0(&D_800D292C);
@@ -785,7 +781,7 @@ void FUN_027BF0_800636C0_display_game_stats_screen_q(void) {
       weird_lots_of_magic_number_setting_66xrefs(&g_gdl, D_8011FB20.data, D_8011FB3C.data, D_8011FB24, D_8011FB28, D_8011FB2C, D_8011FB30, D_8011FB34, D_8011FB38);
 
       // p0 name
-      displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 293, 202, &game_ptr->padE13C[0], 0xFF, 0xFF, 0xFF, 0xFF);
+      displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 293, 202, game_ptr->players[0].name, 0xFF, 0xFF, 0xFF, 0xFF);
 
       // celtic lamp
       func_800767C0(&D_800D2008);
@@ -807,7 +803,7 @@ void FUN_027BF0_800636C0_display_game_stats_screen_q(void) {
       weird_lots_of_magic_number_setting_66xrefs(&g_gdl, D_8011FB20.data, D_8011FB3C.data, D_8011FB24, D_8011FB28, D_8011FB2C, D_8011FB30, D_8011FB34, D_8011FB38);
 
       // p0 name
-      displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 293, 202, &game_ptr->padE13C[0], 0xFF, 0xFF, 0xFF, 0xFF);
+      displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 293, 202, game_ptr->players[0].name, 0xFF, 0xFF, 0xFF, 0xFF);
 
       // african volcano smoke
       func_800767C0(&D_800D2C38);
@@ -827,7 +823,7 @@ void FUN_027BF0_800636C0_display_game_stats_screen_q(void) {
       weird_lots_of_magic_number_setting_66xrefs(&g_gdl, D_8011FB20.data, D_8011FB3C.data, D_8011FB24, D_8011FB28, D_8011FB2C, D_8011FB30, D_8011FB34, D_8011FB38);
 
       // p0 name
-      displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 293, 202, &game_ptr->padE13C[0], 0xFF, 0xFF, 0xFF, 0xFF);
+      displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 293, 202, game_ptr->players[0].name, 0xFF, 0xFF, 0xFF, 0xFF);
 
       // japanese water
       func_800767C0(&D_800D181C);
@@ -856,7 +852,7 @@ void FUN_027BF0_800636C0_display_game_stats_screen_q(void) {
       weird_lots_of_magic_number_setting_66xrefs(&g_gdl, D_8011FB20.data, D_8011FB3C.data, D_8011FB24, D_8011FB28, D_8011FB2C, D_8011FB30, D_8011FB34, D_8011FB38);
 
       // p0 name
-      displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 293, 202, &game_ptr->padE13C[0], 0xFF, 0xFF, 0xFF, 0xFF);
+      displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 293, 202, game_ptr->players[0].name, 0xFF, 0xFF, 0xFF, 0xFF);
 
       // russian candle (x13)
       func_800767C0(&D_800D20A4);
@@ -886,7 +882,7 @@ void FUN_027BF0_800636C0_display_game_stats_screen_q(void) {
       weird_lots_of_magic_number_setting_66xrefs(&g_gdl, D_8011FB20.data, D_8011FB3C.data, D_8011FB24, D_8011FB28, D_8011FB2C, D_8011FB30, D_8011FB34, D_8011FB38);
 
       // p0 name
-      displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 293, 202, &game_ptr->padE13C[0], 0xFF, 0xFF, 0xFF, 0xFF);
+      displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 293, 202, game_ptr->players[0].name, 0xFF, 0xFF, 0xFF, 0xFF);
 
       // finale boiler (x3)
       func_800767C0(&D_800D18B8);
@@ -942,10 +938,10 @@ void FUN_027BF0_800636C0_display_game_stats_screen_q(void) {
     weird_lots_of_magic_number_setting_66xrefs(&g_gdl, D_8011FAE0.data, D_8011FAFC.data, D_8011FAE4, D_8011FAE8, D_8011FAEC, D_8011FAF0, D_8011FAF4, D_8011FAF8);
 
     // p0 name (red)
-    displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 169, 200, &game_ptr->padE13C[0], 0xFF, 0, 0, 0xFF);
+    displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 169, 200, game_ptr->players[0].name, 0xFF, 0, 0, 0xFF);
 
     // p1 name (green)
-    displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 169, 231, &game_ptr->padE13C[0xD8], 0, 0xFF, 0, 0xFF);
+    displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 169, 231, game_ptr->players[1].name, 0, 0xFF, 0, 0xFF);
 
     if (game_ptr->gameType == GAMETYPE_SPRINT) {
       // time
@@ -977,13 +973,13 @@ void FUN_027BF0_800636C0_display_game_stats_screen_q(void) {
     weird_lots_of_magic_number_setting_66xrefs(&g_gdl, D_8011FAE0.data, D_8011FAFC.data, D_8011FAE4, D_8011FAE8, D_8011FAEC, D_8011FAF0, D_8011FAF4, D_8011FAF8);
 
     // p0 name (red)
-    displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 39, 234, &game_ptr->padE13C[0], 0xFF, 0, 0, 0xFF);
+    displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 39, 234, game_ptr->players[0].name, 0xFF, 0, 0, 0xFF);
 
     // p1 name (green)
-    displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 123, 234, &game_ptr->padE13C[0xD8], 0, 0xFF, 0, 0xFF);
+    displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 123, 234, game_ptr->players[1].name, 0, 0xFF, 0, 0xFF);
 
     // p2 name (blue)
-    displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 207, 234, &game_ptr->padE13C[0x1B0], 0, 0, 0xFF, 0xFF);
+    displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 207, 234, game_ptr->players[2].name, 0, 0, 0xFF, 0xFF);
 
     if (game_ptr->gameType == GAMETYPE_SPRINT) {
       displayTimeFormatted_XY_RGBA(game_ptr->unkE4F0 - game_ptr->unkE4E8, &game_ptr->font, 216, 266, 0xFF, 0xFF, 0xFF, 0xFF);
@@ -1009,16 +1005,16 @@ void FUN_027BF0_800636C0_display_game_stats_screen_q(void) {
     weird_lots_of_magic_number_setting_66xrefs(&g_gdl, D_8011FAE0.data, D_8011FAFC.data, D_8011FAE4, D_8011FAE8, D_8011FAEC, D_8011FAF0, D_8011FAF4, D_8011FAF8);
 
     // p0 name (red)
-    displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 39, 234, &game_ptr->padE13C[0], 0xFF, 0, 0, 0xFF);
+    displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 39, 234, game_ptr->players[0].name, 0xFF, 0, 0, 0xFF);
 
     // p1 name (green)
-    displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 123, 234, &game_ptr->padE13C[0xD8], 0, 0xFF, 0, 0xFF);
+    displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 123, 234, game_ptr->players[1].name, 0, 0xFF, 0, 0xFF);
 
     // p2 name (blue)
-    displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 207, 234, &game_ptr->padE13C[0x1B0], 0, 0, 0xFF, 0xFF);
+    displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 207, 234, game_ptr->players[2].name, 0, 0, 0xFF, 0xFF);
 
     // p3 name (yellow)
-    displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 292, 234, &game_ptr->padE13C[0x288], 0xFF, 0xFF, 0, 0xFF);
+    displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 292, 234, game_ptr->players[3].name, 0xFF, 0xFF, 0, 0xFF);
 
     if (game_ptr->gameType == GAMETYPE_SPRINT) {
       displayTimeFormatted_XY_RGBA(game_ptr->unkE4F0 - game_ptr->unkE4E8, &game_ptr->font, 216, 266, 0xFF, 0xFF, 0xFF, 0xFF);

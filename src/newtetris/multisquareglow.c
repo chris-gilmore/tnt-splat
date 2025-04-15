@@ -1,9 +1,5 @@
 #include "common.h"
 
-extern u8 D_273A00;  // image_lut
-
-////////////////////////////////////////
-
 static u8 *D_8011FBB0;
 
 void MultisquareGlow_8006af00_eightliner(SquareGlow *squareGlow_ptr, s32 arg1) {

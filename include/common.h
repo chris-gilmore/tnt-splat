@@ -84,7 +84,6 @@
 #include "newtetris/0470D0.h"
 #include "newtetris/01D6E0.h"
 #include "newtetris/cfb.h"
-#include "newtetris/lzobuf.h"
 #include "newtetris/06FFD0.h"
 #include "newtetris/creditstext.h"
 #include "newtetris/credits.h"
@@ -112,5 +111,8 @@ typedef union {
 
 extern u64 __ull_div(u64, u64);
 extern u64 __ll_mul(u64, u64);
+
+extern u8 D_273A00;  // image_lut
+extern u8 D_5206B0;  // anim_lut
 
 #endif /* !_COMMON_H_ */

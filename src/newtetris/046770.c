@@ -1,7 +1,5 @@
 #include "common.h"
 
-extern u8 D_273A00;  // image_lut
-
 extern u8 D_F00001;  // what is this?
 
 extern u16 draw_buffer;

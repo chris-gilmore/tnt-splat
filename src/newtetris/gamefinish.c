@@ -2,9 +2,9 @@
 
 static Color color_gray = { 0x800, 0x800, 0x800, 0xFF0, 0xFF0, 0xFF0 };
 static u8 playercount = 0;
-static u8 *D_800CFF80 = NULL;  // WIN
-static u8 *D_800CFF84 = NULL;  // LOSE
-static u8 *D_800CFF88 = NULL;  // GAME OVER
+static void *D_800CFF80 = NULL;  // WIN
+static void *D_800CFF84 = NULL;  // LOSE
+static void *D_800CFF88 = NULL;  // GAME OVER
 
 static void   gamefinish_80052AA0_tenliner(UnkStruct_7 *, u32);
 static void   gamefinish_80052B30_tenliner(UnkStruct_7 *, Gfx **);
@@ -39,7 +39,7 @@ static void gamefinish_80052B30_tenliner(UnkStruct_7 *arg0, Gfx **arg1) {
   pnt.x = arg0->image_loc.x;
   pnt.y = arg0->image_loc.y - ((FUN_026900_80060914_oneliner_shift6_2(arg0->unkC) * arg0->unk10) >> 0x16);
   func_8005BBFC(arg1);
-  weird_lots_of_magic_number_setting_66xrefs(arg1, arg0->image, 0, pnt.x, pnt.y, 0xFF, 0xFF, 0xFF, arg0->unk14 >> 4);
+  weird_lots_of_magic_number_setting_66xrefs(arg1, arg0->image, NULL, pnt.x, pnt.y, 0xFF, 0xFF, 0xFF, arg0->unk14 >> 4);
   func_8005BE40(arg1);
 }
 

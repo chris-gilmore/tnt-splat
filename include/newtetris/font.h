@@ -2,10 +2,10 @@
 #define _FONT_H_
 
 typedef struct {
-  /* 0x0  */ u8   *image;
-  /* 0x4  */ s16   char_widths[56];
-  /* 0x74 */ s16   width;
-  /* 0x76 */ s16   height;
+  /* 0x0  */ void  *image;
+  /* 0x4  */ s16    char_widths[56];
+  /* 0x74 */ s16    width;
+  /* 0x76 */ s16    height;
 } Font; // 0x78 bytes
 
 extern void   Font_Deinit(Font *);

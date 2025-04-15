@@ -619,7 +619,6 @@ segments:
 
   - name: cfb
     type: code
-    start: 0xA8190
     vram: 0x8038AD00
     bss_size: 0x75300
     subsegments:

@@ -7,7 +7,7 @@ static u8 D_800D016C = 0;   // saved_green
 static u8 D_800D0170 = 0;   // saved_blue
 static u8 D_800D0174 = 0;   // saved_alpha
 
-void weird_lots_of_magic_number_setting_66xrefs(Gfx **gdl_ptr, u8 *img, u8 *pal, s32 x, s32 y, s32 red, s32 green, s32 blue, s32 alpha) {
+void weird_lots_of_magic_number_setting_66xrefs(Gfx **gdl_ptr, void *img, void *pal, s32 x, s32 y, s32 red, s32 green, s32 blue, s32 alpha) {
   s32 sp164;
   s32 sp160;
   s32 width;
@@ -87,18 +87,18 @@ void weird_lots_of_magic_number_setting_66xrefs(Gfx **gdl_ptr, u8 *img, u8 *pal,
             // shiftt = G_TX_NOLOD
             // gDPLoadTextureTile(pkt, timg, fmt, siz, width, height, uls, ult, lrs, lrt, pal, cms, cmt, masks, maskt, shifts, shiftt);
 
-            gDPLoadTextureTile((*gdl_ptr)++, img + 8, G_IM_FMT_RGBA, G_IM_SIZ_16b, width, height, 0, height - sp160, width - 1, (height - sp160) + sp164 - 1, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD);
+            gDPLoadTextureTile((*gdl_ptr)++, (u32)img + 8, G_IM_FMT_RGBA, G_IM_SIZ_16b, width, height, 0, height - sp160, width - 1, (height - sp160) + sp164 - 1, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD);
             break;
           case 1:  // G_IM_FMT_I, G_IM_SIZ_4b
             // gDPLoadTextureTile_4b(pkt, timg, fmt, width, height, uls, ult, lrs, lrt, pal, cms, cmt, masks, maskt, shifts, shiftt);
 
-            gDPLoadTextureTile_4b((*gdl_ptr)++, img + 8, G_IM_FMT_I, width, height, 0, height - sp160, width - 1, (height - sp160) + sp164 - 1, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD);
+            gDPLoadTextureTile_4b((*gdl_ptr)++, (u32)img + 8, G_IM_FMT_I, width, height, 0, height - sp160, width - 1, (height - sp160) + sp164 - 1, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD);
             break;
           case 2:  // G_IM_FMT_IA, G_IM_SIZ_8b
-            gDPLoadTextureTile((*gdl_ptr)++, img + 8, G_IM_FMT_IA, G_IM_SIZ_8b, width, height, 0, height - sp160, width - 1, (height - sp160) + sp164 - 1, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD);
+            gDPLoadTextureTile((*gdl_ptr)++, (u32)img + 8, G_IM_FMT_IA, G_IM_SIZ_8b, width, height, 0, height - sp160, width - 1, (height - sp160) + sp164 - 1, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD);
             break;
           case 3:  // G_IM_FMT_CI, G_IM_SIZ_8b
-            gDPLoadTextureTile((*gdl_ptr)++, img + 8, G_IM_FMT_CI, G_IM_SIZ_8b, width, height, 0, height - sp160, width - 1, (height - sp160) + sp164 - 1, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD);
+            gDPLoadTextureTile((*gdl_ptr)++, (u32)img + 8, G_IM_FMT_CI, G_IM_SIZ_8b, width, height, 0, height - sp160, width - 1, (height - sp160) + sp164 - 1, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD);
             break;
           }
 
@@ -109,16 +109,16 @@ void weird_lots_of_magic_number_setting_66xrefs(Gfx **gdl_ptr, u8 *img, u8 *pal,
         } else {
           switch (type) {
           case 0:  // G_IM_FMT_RGBA, G_IM_SIZ_16b
-            gDPLoadTextureTile((*gdl_ptr)++, img + 8, G_IM_FMT_RGBA, G_IM_SIZ_16b, width, height, 0, height - sp160, width - 1, height - 1, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD);
+            gDPLoadTextureTile((*gdl_ptr)++, (u32)img + 8, G_IM_FMT_RGBA, G_IM_SIZ_16b, width, height, 0, height - sp160, width - 1, height - 1, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD);
             break;
           case 1:  // G_IM_FMT_I, G_IM_SIZ_4b
-            gDPLoadTextureTile_4b((*gdl_ptr)++, img + 8, G_IM_FMT_I, width, height, 0, height - sp160, width - 1, height - 1, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD);
+            gDPLoadTextureTile_4b((*gdl_ptr)++, (u32)img + 8, G_IM_FMT_I, width, height, 0, height - sp160, width - 1, height - 1, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD);
             break;
           case 2:  // G_IM_FMT_IA, G_IM_SIZ_8b
-            gDPLoadTextureTile((*gdl_ptr)++, img + 8, G_IM_FMT_IA, G_IM_SIZ_8b, width, height, 0, height - sp160, width - 1, height - 1, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD);
+            gDPLoadTextureTile((*gdl_ptr)++, (u32)img + 8, G_IM_FMT_IA, G_IM_SIZ_8b, width, height, 0, height - sp160, width - 1, height - 1, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD);
             break;
           case 3:  // G_IM_FMT_CI, G_IM_SIZ_8b
-            gDPLoadTextureTile((*gdl_ptr)++, img + 8, G_IM_FMT_CI, G_IM_SIZ_8b, width, height, 0, height - sp160, width - 1, height - 1, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD);
+            gDPLoadTextureTile((*gdl_ptr)++, (u32)img + 8, G_IM_FMT_CI, G_IM_SIZ_8b, width, height, 0, height - sp160, width - 1, height - 1, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD);
             break;
           }
 
@@ -134,7 +134,7 @@ void weird_lots_of_magic_number_setting_66xrefs(Gfx **gdl_ptr, u8 *img, u8 *pal,
   }
 }
 
-void display_one_text_character_rgb(Gfx **gdl_ptr, u8 *img, s32 sl, s32 tl, s32 sh, s32 th, s32 x, s32 y, s32 red, s32 green, s32 blue, s32 alpha) {
+void display_one_text_character_rgb(Gfx **gdl_ptr, void *img, s32 sl, s32 tl, s32 sh, s32 th, s32 x, s32 y, s32 red, s32 green, s32 blue, s32 alpha) {
   s32 sp134;
   s32 sp130;
   s32 width;
@@ -198,16 +198,16 @@ void display_one_text_character_rgb(Gfx **gdl_ptr, u8 *img, s32 sl, s32 tl, s32 
         if (sp130 > sp134) {
           switch (type) {
           case 0:
-            gDPLoadTextureTile((*gdl_ptr)++, img + 8, G_IM_FMT_RGBA, G_IM_SIZ_16b, width, height, sl, th - sp130 + 1, sh, th - sp130 + sp134, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD);
+            gDPLoadTextureTile((*gdl_ptr)++, (u32)img + 8, G_IM_FMT_RGBA, G_IM_SIZ_16b, width, height, sl, th - sp130 + 1, sh, th - sp130 + sp134, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD);
             break;
           case 1:
-            gDPLoadTextureTile_4b((*gdl_ptr)++, img + 8, G_IM_FMT_I, width, height, sl, th - sp130 + 1, sh, th - sp130 + sp134, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD);
+            gDPLoadTextureTile_4b((*gdl_ptr)++, (u32)img + 8, G_IM_FMT_I, width, height, sl, th - sp130 + 1, sh, th - sp130 + sp134, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD);
             break;
           case 2:
-            gDPLoadTextureTile((*gdl_ptr)++, img + 8, G_IM_FMT_IA, G_IM_SIZ_8b, width, height, sl, th - sp130 + 1, sh, th - sp130 + sp134, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD);
+            gDPLoadTextureTile((*gdl_ptr)++, (u32)img + 8, G_IM_FMT_IA, G_IM_SIZ_8b, width, height, sl, th - sp130 + 1, sh, th - sp130 + sp134, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD);
             break;
           case 3:
-            gDPLoadTextureTile((*gdl_ptr)++, img + 8, G_IM_FMT_CI, G_IM_SIZ_8b, width, height, sl, th - sp130 + 1, sh, th - sp130 + sp134, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD);
+            gDPLoadTextureTile((*gdl_ptr)++, (u32)img + 8, G_IM_FMT_CI, G_IM_SIZ_8b, width, height, sl, th - sp130 + 1, sh, th - sp130 + sp134, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD);
             break;
           }
           gDPSetTileSize((*gdl_ptr)++, G_TX_RENDERTILE, 0, 0, ((sh - sl + 1) << 2) - 1, (sp134 << 2) - 1);
@@ -219,16 +219,16 @@ void display_one_text_character_rgb(Gfx **gdl_ptr, u8 *img, s32 sl, s32 tl, s32 
         } else {
           switch (type) {
           case 0:
-            gDPLoadTextureTile((*gdl_ptr)++, img + 8, G_IM_FMT_RGBA, G_IM_SIZ_16b, width, height, sl, th - sp130 + 1, sh, th, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD);
+            gDPLoadTextureTile((*gdl_ptr)++, (u32)img + 8, G_IM_FMT_RGBA, G_IM_SIZ_16b, width, height, sl, th - sp130 + 1, sh, th, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD);
             break;
           case 1:
-            gDPLoadTextureTile_4b((*gdl_ptr)++, img + 8, G_IM_FMT_I, width, height, sl, th - sp130 + 1, sh, th, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD);
+            gDPLoadTextureTile_4b((*gdl_ptr)++, (u32)img + 8, G_IM_FMT_I, width, height, sl, th - sp130 + 1, sh, th, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD);
             break;
           case 2:
-            gDPLoadTextureTile((*gdl_ptr)++, img + 8, G_IM_FMT_IA, G_IM_SIZ_8b, width, height, sl, th - sp130 + 1, sh, th, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD);
+            gDPLoadTextureTile((*gdl_ptr)++, (u32)img + 8, G_IM_FMT_IA, G_IM_SIZ_8b, width, height, sl, th - sp130 + 1, sh, th, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD);
             break;
           case 3:
-            gDPLoadTextureTile((*gdl_ptr)++, img + 8, G_IM_FMT_CI, G_IM_SIZ_8b, width, height, sl, th - sp130 + 1, sh, th, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD);
+            gDPLoadTextureTile((*gdl_ptr)++, (u32)img + 8, G_IM_FMT_CI, G_IM_SIZ_8b, width, height, sl, th - sp130 + 1, sh, th, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD);
             break;
           }
           gDPSetTileSize((*gdl_ptr)++, G_TX_RENDERTILE, 0, 0, ((sh - sl) << 2) + 3, (sp130 << 2) - 1);

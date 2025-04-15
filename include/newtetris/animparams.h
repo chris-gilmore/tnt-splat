@@ -2,25 +2,25 @@
 #define _ANIMPARAMS_H_
 
 typedef struct {
-  /* 0x0  */ u16     img_ids[30];
-  /* 0x3C */ u16     pal_ids[30];
-  /* 0x78 */ u8      num_images;
-  /* 0x79 */ u8      unk79;
-  /* 0x7A */ u16     x;
-  /* 0x7C */ u16     y;
-  /* 0x80 */ u8    **images;
-  /* 0x84 */ u8    **palettes;
-  /* 0x88 */ u8      unk88;
-  /* 0x89 */ u8      unk89;
-  /* 0x8A */ u8      unk8A;
-  /* 0x8B */ u8      unk8B;
-  /* 0x8C */ u8      unk8C;  // boolean
-  /* 0x90 */ f32     unk90;
-  /* 0x94 */ f32     unk94;
-  /* 0x98 */ u8      red;
-  /* 0x99 */ u8      green;
-  /* 0x9A */ u8      blue;
-  /* 0x9B */ u8      alpha;
+  /* 0x0  */ u16    img_ids[30];
+  /* 0x3C */ u16    pal_ids[30];
+  /* 0x78 */ u8     num_images;
+  /* 0x79 */ u8     unk79;
+  /* 0x7A */ u16    x;
+  /* 0x7C */ u16    y;
+  /* 0x80 */ void **images;
+  /* 0x84 */ void **palettes;
+  /* 0x88 */ u8     unk88;
+  /* 0x89 */ u8     unk89;
+  /* 0x8A */ u8     unk8A;
+  /* 0x8B */ u8     unk8B;
+  /* 0x8C */ u8     unk8C;  // boolean
+  /* 0x90 */ f32    unk90;
+  /* 0x94 */ f32    unk94;
+  /* 0x98 */ u8     red;
+  /* 0x99 */ u8     green;
+  /* 0x9A */ u8     blue;
+  /* 0x9B */ u8     alpha;
 } AnimParams; // 0x9C bytes
 
 // mayan temple fire (x8)

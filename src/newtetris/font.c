@@ -1,9 +1,5 @@
 #include "common.h"
 
-extern u8 D_273A00;  // image_lut
-
-////////////////////////////////////////
-
 // lut for font_a, font_b, or font_c
 static u8 D_800D2CF0[64] = {
   16,
@@ -156,12 +152,12 @@ void Font_Init46Char(Font *p_font, u32 img_id) {
 
   if (img_id != 0) {
     main_8004A34C_threeliner();
-    p_font->image = (u8 *) n64HeapAlloc(FUN_03A750_80074888_twelveliner(&D_273A00, img_id));
+    p_font->image = n64HeapAlloc(FUN_03A750_80074888_twelveliner(&D_273A00, img_id));
     FUN_03A750_800746c0_twentyliner(&D_273A00, p_font->image, img_id);
     p_font->width = ((u16 *) p_font->image)[0];
     p_font->height = ((u16 *) p_font->image)[1] / 46;
     for (i = 0; i < 46; i++) {
-      for (p_font->char_widths[i] = p_font->width - 1; (p_font->image[p_font->char_widths[i] + (i * p_font->width * p_font->height) + 8] & 0xF0) == 0xF0; p_font->char_widths[i]--);
+      for (p_font->char_widths[i] = p_font->width - 1; (((u8 *) p_font->image)[p_font->char_widths[i] + (i * p_font->width * p_font->height) + 8] & 0xF0) == 0xF0; p_font->char_widths[i]--);
       p_font->char_widths[i]++;
       if (p_font->char_widths[i] < 2) {
         p_font->char_widths[i] = p_font->width - 1;
@@ -176,12 +172,12 @@ void Font_Init51Char(Font *p_font, u32 img_id) {
 
   if (img_id != 0) {
     main_8004A34C_threeliner();
-    p_font->image = (u8 *) n64HeapAlloc(FUN_03A750_80074888_twelveliner(&D_273A00, img_id));
+    p_font->image = n64HeapAlloc(FUN_03A750_80074888_twelveliner(&D_273A00, img_id));
     FUN_03A750_800746c0_twentyliner(&D_273A00, p_font->image, img_id);
     p_font->width = ((u16 *) p_font->image)[0];
     p_font->height = ((u16 *) p_font->image)[1] / 51;
     for (i = 0; i < 51; i++) {
-      for (p_font->char_widths[i] = p_font->width - 1; (p_font->image[p_font->char_widths[i] + (i * p_font->width * p_font->height) + 8] & 0xF0) == 0xF0; p_font->char_widths[i]--);
+      for (p_font->char_widths[i] = p_font->width - 1; (((u8 *) p_font->image)[p_font->char_widths[i] + (i * p_font->width * p_font->height) + 8] & 0xF0) == 0xF0; p_font->char_widths[i]--);
       p_font->char_widths[i]++;
       if (p_font->char_widths[i] < 2) {
         p_font->char_widths[i] = p_font->width - 1;

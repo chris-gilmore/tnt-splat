@@ -167,7 +167,7 @@ static void main_another_but_diff_400x300(void) {
   screen_4_height = SCREEN_HT;
   func_8006110C(SCREEN_WD, SCREEN_HT);
   n64HeapInit(main_BSS_END, audioheap_BASE - main_BSS_END);
-  func_800A9E44(&D_A8190, &D_ADAE0);
+  func_800A9E44(&D_A8190, &D_ADAE0);  // rom addresses for fx lut and fx assets
   FUN_80053538_fiveliner();
   FUN_80053500_fiveliner();
   inits_bunch_of_stuff_q_allocs_heap();

@@ -562,7 +562,7 @@ void Game_Init(u8 numPlayers, u8 *handicap_arr) {
   game_ptr->unkE4FC.unk4 = (255.0f - game_ptr->unkE4FC.alpha) / 16.0f;
   game_ptr->unkE508 = TRUE;
   gameVars.seed = __ull_div(__ll_mul(g_sram_ptr->unk18F4, 64), 3);
-  g_sram_ptr->unk18F4 = __ull_div(__ll_mul(osGetTime(), 64), 3);
+  g_sram_ptr->unk18F4 = __ull_div(__ll_mul(osGetTime(), 64), 3);  // this line of code should have been deleted
   func_8007C5CC(g_sram_ptr);
   gameVars.unk4 = &game_ptr->unkE080.unk0;
   gameVars.screen = game_ptr->unkE4F8;

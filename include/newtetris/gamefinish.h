@@ -7,7 +7,7 @@
 #define GAMEFINISHTYPE_NULL       3
 
 typedef struct {
-  /* 0x0  */ u8     *image;
+  /* 0x0  */ void   *image;
   /* 0x4  */ Point   image_loc;  // win/lose/game_over image location (top-left point)
   /* 0x8  */ Point   center_of_board;
   /* 0xC  */ u16     unkC;

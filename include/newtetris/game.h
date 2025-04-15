@@ -2,6 +2,11 @@
 #define _GAME_H_
 
 typedef struct {
+  /* 0x0 */ u8   name[0xC];
+  /* 0xC */ u8   padC[0xCC];
+} Player; // 0xD8 bytes
+
+typedef struct {
   /* 0x0    */ u8             unk0;
   /* 0x1    */ u8             unk1;
   /* 0x2    */ u8             is_active;
@@ -15,7 +20,8 @@ typedef struct {
   /* 0xE080 */ UnkStruct_21   unkE080;  // light source (128x128)
   /* 0xE0E8 */ Landfill       landfill;
   /* 0xE12C */ Tetris        *tetris_ptr_arr[4];
-  /* 0xE13C */ u8             padE13C[0x3AC];
+  /* 0xE13C */ Player         players[4];
+  /* 0xE49C */ u8             padE49C[0x4C];
   /* 0xE4E8 */ u32            unkE4E8;  // gameElapsedTime (in jiffies)
   /* 0xE4EC */ u8             gameType;
   /* 0xE4F0 */ u32            unkE4F0;  // 10800 jiffies (3 minutes sprint goal)

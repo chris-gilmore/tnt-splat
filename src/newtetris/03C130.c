@@ -1,9 +1,5 @@
 #include "common.h"
 
-extern u8 D_273A00;  // image_lut
-
-////////////////////////////////////////
-
 void FUN_03C130_80075EB0_nineliner_allocs_heap(UnkStruct_21 *arg0) {
   func_80075700(&arg0->unk0.unk14, 8, 8, 1);
   main_8004A34C_threeliner();

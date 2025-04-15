@@ -1,9 +1,5 @@
 #include "common.h"
 
-extern u8 D_5206B0;  // anim_lut
-
-////////////////////////////////////////
-
 AnimParams D_800D1030 = {
   { // img_ids[30]
     ANIM_MAYAN_TEMPLE_FIRE_01,
@@ -1069,13 +1065,13 @@ void func_800764B8(AnimParams *animParams) {
   s32 i;
 
   main_8004A34C_threeliner();
-  animParams->images = (u8 **) n64HeapAlloc(animParams->num_images * sizeof(u8 *));
-  animParams->palettes = (u8 **) n64HeapAlloc(animParams->num_images * sizeof(u8 *));
+  animParams->images = (void **) n64HeapAlloc(animParams->num_images * sizeof(void *));
+  animParams->palettes = (void **) n64HeapAlloc(animParams->num_images * sizeof(void *));
   for (i = 0; i < animParams->num_images; i++) {
-    animParams->images[i] = (u8 *) n64HeapAlloc(FUN_03A750_80074888_twelveliner(&D_5206B0, animParams->img_ids[i]));
+    animParams->images[i] = n64HeapAlloc(FUN_03A750_80074888_twelveliner(&D_5206B0, animParams->img_ids[i]));
     FUN_03A750_800746c0_twentyliner(&D_5206B0, animParams->images[i], animParams->img_ids[i]);
     if (animParams->pal_ids[i] != 0) {
-      animParams->palettes[i] = (u8 *) n64HeapAlloc(FUN_03A750_80074888_twelveliner(&D_5206B0, animParams->pal_ids[i]));
+      animParams->palettes[i] = n64HeapAlloc(FUN_03A750_80074888_twelveliner(&D_5206B0, animParams->pal_ids[i]));
       FUN_03A750_800746c0_twentyliner(&D_5206B0, animParams->palettes[i], animParams->pal_ids[i]);
     }
   }

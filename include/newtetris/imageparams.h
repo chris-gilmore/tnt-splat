@@ -2,13 +2,13 @@
 #define _IMAGEPARAMS_H_
 
 typedef union {
-  s32   id;
-  u8   *data;
+  s32    id;
+  void  *data;
 } Img_u;
 
 typedef union {
-  s32   id;
-  u8   *data;
+  s32    id;
+  void  *data;
 } Pal_u;
 
 typedef struct {
