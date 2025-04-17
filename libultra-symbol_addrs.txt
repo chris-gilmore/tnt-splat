@@ -661,7 +661,7 @@ __osViDevMgr              = 0x800DA830; //            size:0x1C           OSDevM
 __additional_scanline     = 0x800DA84C; // type:u32   size:0x4
 
 // ultralib/gu/sins
-sintable                  = 0x800DA850; // type:s16   size:0x800  static
+sintable                  = 0x800DA850; // type:s16   size:0x800  static  [0x400]
 
 // ultralib/audio/sl
 alGlobals                 = 0x800DB050; //            size:0x4            ALGlobals*

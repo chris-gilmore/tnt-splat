@@ -1,5 +1,9 @@
 #include "common.h"
 
+#ifndef OS_CYCLES_TO_NSEC
+#define OS_CYCLES_TO_NSEC(c) ((u64)(c) * 64 / 3)
+#endif
+
 // handicap values
 u8 D_800CFF00[] = {
   0,  1,  2,  3,  4,  5,  6,  7,  8,  9,  0,  0,
@@ -561,9 +565,9 @@ void Game_Init(u8 numPlayers, u8 *handicap_arr) {
   game_ptr->unkE4FC.unk8 = 255.0f;
   game_ptr->unkE4FC.unk4 = (255.0f - game_ptr->unkE4FC.alpha) / 16.0f;
   game_ptr->unkE508 = TRUE;
-  gameVars.seed = __ull_div(__ll_mul(g_sram_ptr->unk18F4, 64), 3);
-  g_sram_ptr->unk18F4 = __ull_div(__ll_mul(osGetTime(), 64), 3);  // this line of code should have been deleted
-  func_8007C5CC(g_sram_ptr);
+  gameVars.seed = OS_CYCLES_TO_NSEC(g_sram_ptr->unk18F4);
+  g_sram_ptr->unk18F4 = OS_CYCLES_TO_NSEC(osGetTime());  // superfluous; this line of code should have been deleted, because ...
+  func_8007C5CC(g_sram_ptr);  // inside this function, g_sram_ptr->unk18F4 is immediately set to osGetTime()
   gameVars.unk4 = &game_ptr->unkE080.unk0;
   gameVars.screen = game_ptr->unkE4F8;
   gameVars.gameType = game_ptr->gameType;

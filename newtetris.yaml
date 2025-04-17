@@ -255,8 +255,8 @@ segments:
       - {start: 0x07DB50, type: asm, vram: 0x800B78D0, name: ultralib/gu/mtxutil}
       - {start: 0x07DDC0, type:   c, vram: 0x800B7B40, name: ultralib/gu/sinf}
       - {start: 0x07DF80, type: asm, vram: 0x800B7D00, name: ultralib/libc/bcopy}
-      - {start: 0x07E290, type: asm, vram: 0x800B8010, name: ultralib/gu/sins}
-      - {start: 0x07E300, type: asm, vram: 0x800B8080, name: ultralib/gu/coss}
+      - {start: 0x07E290, type:   c, vram: 0x800B8010, name: ultralib/gu/sins}
+      - {start: 0x07E300, type:   c, vram: 0x800B8080, name: ultralib/gu/coss}
       - {start: 0x07E330, type: asm, vram: 0x800B80B0, name: ultralib/libc/bcmp}
       - {start: 0x07E450, type:   c, vram: 0x800B81D0, name: ultralib/gu/cosf}
       - {start: 0x07E5C0, type: asm, vram: 0x800B8340, name: ultralib/gu/sqrtf}
@@ -428,7 +428,7 @@ segments:
       - {start: 0x0A0A10, type: data, vram: 0x800DA790, name: ultralib/vimodes/vimodempallan1}
       - {start: 0x0A0A60, type: data, vram: 0x800DA7E0, name: ultralib/vimodes/vimodepallan1}
       - {start: 0x0A0AB0, type: data, vram: 0x800DA830, name: ultralib/io/vimgr}
-      - {start: 0x0A0AD0, type: data, vram: 0x800DA850, name: ultralib/gu/sins}
+      - {start: 0x0A0AD0, type: .data, vram: 0x800DA850, name: ultralib/gu/sins}
       - {start: 0x0A12D0, type: data, vram: 0x800DB050, name: ultralib/audio/sl}
       - {start: 0x0A12E0, type: data, vram: 0x800DB060, name: ultralib/io/aisetnextbuf}
       - {start: 0x0A12F0, type: data, vram: 0x800DB070, name: ultralib/audio/drvrnew}

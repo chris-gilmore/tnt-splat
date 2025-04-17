@@ -122,6 +122,9 @@ $(BUILD_DIR)/src/newtetris/sprite.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/frametime.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/072080.o: OPT_FLAGS := -mips2 -O2
 
+$(BUILD_DIR)/src/ultralib/gu/coss.o: OPT_FLAGS := -mips2 -O2
+$(BUILD_DIR)/src/ultralib/gu/sins.o: OPT_FLAGS := -mips2 -O2
+
 # Assemble assembly code
 $(BUILD_DIR)/%.o: %.s
 	$(AS) $(ASFLAGS) -o $@ $<
