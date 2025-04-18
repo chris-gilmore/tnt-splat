@@ -972,7 +972,6 @@ Audio_80085bec_tenliner                    = 0x80085BEC; // type:func
 Audio_Wrap                                 = 0x80085D04; // type:func
 
 //      - {start: 0x04BFD0, type: asm, vram: 0x80085D50, name: newtetris/04BFD0}
-
 Audio2_InitVoices                          = 0x80085D50; // type:func
 Audio2_AllocDcmHeader                      = 0x80085F8C; // type:func
 Audio2_80086138_largeliner_channels        = 0x80086138; // type:func
@@ -1028,8 +1027,20 @@ FUN_069580_800A34A8_tenliner_allocs_heap     = 0x800A34A8; // type:func  note in
 func_800A352C                                = 0x800A352C; // type:func
 func_800A3534                                = 0x800A3534; // type:func
 
+//      - {start: 0x0697D0, type:   c, vram: 0x800A3550, name: newtetris/rand}
+func_800A3550                          = 0x800A3550; // type:func
+func_800A35AC                          = 0x800A35AC; // type:func static
+func_800A35EC                          = 0x800A35EC; // type:func
+func_800A3658                          = 0x800A3658; // type:func
+func_800A368C                          = 0x800A368C; // type:func static
+func_800A36F0                          = 0x800A36F0; // type:func
+func_800A3758                          = 0x800A3758; // type:func
+func_800A37F0                          = 0x800A37F0; // type:func static
+func_800A3840                          = 0x800A3840; // type:func
+func_800A38B8                          = 0x800A38B8; // type:func static
+func_800A3928                          = 0x800A3928; // type:func
 
-//      - {start: 0x069C30, type: asm, vram: 0x800A39B0, name: newtetris/frametime}
+//      - {start: 0x069C30, type:   c, vram: 0x800A39B0, name: newtetris/frametime}
 func_800A39B0                          = 0x800A39B0; // type:func
 func_800A39D4                          = 0x800A39D4; // type:func
 func_800A39FC                          = 0x800A39FC; // type:func
@@ -1522,7 +1533,11 @@ n64HeapEnd                = 0x801201D4; //            size:0x4    static  void*
 // - {type: bss, vram: 0x80128AB0, name: newtetris/04BFD0}
 
 
-// - {type: bss, vram: 0x80129370, name: newtetris/frametime}
+// - {type: .bss, vram: 0x80129340, name: newtetris/rand}
+D_80129340                = 0x80129340; // type:u32   size:0x14   static  [5]
+D_80129358                = 0x80129358; // type:f32   size:0x14   static  [5]
+
+// - {type: .bss, vram: 0x80129370, name: newtetris/frametime}
 g_frameTime               = 0x80129370; //            size:0x18           FrameTime
 
 

@@ -93,7 +93,7 @@
 #include "newtetris/03D140.h"
 #include "newtetris/formattime.h"
 #include "newtetris/027BF0.h"
-#include "newtetris/0697D0.h"
+#include "newtetris/rand.h"
 #include "newtetris/0691B0.h"
 
 typedef union {

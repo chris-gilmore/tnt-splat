@@ -1,7 +1,7 @@
 #ifndef _04BFD0_H_
 #define _04BFD0_H_
 
-extern s32 D_800D3A90;
+extern s32 D_800D3A90;  // TODO: change s32 to some new struct
 
 extern void   Audio2_GFXDone_SendPlayMessage(void *);
 extern void   Audio2_8008780c_sixliner_v1(void *);
