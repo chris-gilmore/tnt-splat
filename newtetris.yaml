@@ -147,8 +147,8 @@ segments:
       - {start: 0x0354E0, type:   c, vram: 0x8006F260, name: newtetris/minos}
       - {start: 0x037460, type:   c, vram: 0x800711E0, name: newtetris/bag63}
       - {start: 0x037700, type:   c, vram: 0x80071480, name: newtetris/formattime}
-      - {start: 0x0379B0, type: asm, vram: 0x80071730, name: newtetris/0379B0}  # displayPausePopupMenu
-      - {start: 0x038560, type: asm, vram: 0x800722E0, name: newtetris/finalrom_datetime}
+      - {start: 0x0379B0, type:   c, vram: 0x80071730, name: newtetris/pausemenu}
+      - {start: 0x038560, type:   c, vram: 0x800722E0, name: newtetris/finalrom_datetime}
       - {start: 0x038580, type: asm, vram: 0x80072300, name: newtetris/landfill}
       - {start: 0x038DB0, type:   c, vram: 0x80072B30, name: newtetris/garbage}
       - {start: 0x0393B0, type: asm, vram: 0x80073130, name: newtetris/aimedat}
@@ -396,7 +396,9 @@ segments:
       - {start: 0x0967D0, type: .data, vram: 0x800D0550, name: newtetris/032F00}
       - {start: 0x0967E0, type: .data, vram: 0x800D0560, name: newtetris/minos}
       #- {start: 0x0967E8, type: gfx, vram: 0x800D0568, name: newtetris/minos_dl}
-      - {start: 0x096840, type: data, vram: 0x800D05C0, name: newtetris/0379B0}
+      - {start: 0x096840, type: .data, vram: 0x800D05C0, name: newtetris/pausemenu}
+      - {start: 0x096850, type: .data, vram: 0x800D05D0, name: newtetris/finalrom_datetime}
+      - {start: 0x096860, type: data, vram: 0x800D05E0, name: newtetris/aimedat}
       - {start: 0x096880, type: .data, vram: 0x800D0600, name: newtetris/03A750}
       - {start: 0x096890, type: .data, vram: 0x800D0610, name: newtetris/03AC20}
       #- {start: 0x096890, type: gfx, vram: 0x800D0610, name: newtetris/03AC20_dl}
@@ -484,8 +486,8 @@ segments:
       - {start: 0x0A3B80, type: .rodata, vram: 0x800DD900, name: newtetris/fallingcubes}
       - {start: 0x0A3BA0, type: .rodata, vram: 0x800DD920, name: newtetris/minos}
       - {start: 0x0A3BC0, type: .rodata, vram: 0x800DD940, name: newtetris/formattime}
-      - {start: 0x0A3C10, type: rodata, vram: 0x800DD990, name: newtetris/0379B0}
-      - {start: 0x0A3C40, type: rodata, vram: 0x800DD9C0, name: newtetris/finalrom_datetime}
+      - {start: 0x0A3C10, type: .rodata, vram: 0x800DD990, name: newtetris/pausemenu}
+      - {start: 0x0A3C40, type: .rodata, vram: 0x800DD9C0, name: newtetris/finalrom_datetime}
       - {start: 0x0A3C70, type: rodata, vram: 0x800DD9F0, name: newtetris/landfill}
       - {start: 0x0A3D00, type: .rodata, vram: 0x800DDA80, name: newtetris/garbage}
       - {start: 0x0A3D20, type: rodata, vram: 0x800DDAA0, name: newtetris/aimedat}

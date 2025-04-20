@@ -20,15 +20,15 @@ static void FUN_032F00_8006cc80_twentyliner_checks_pnum_1_2_4(void) {
   D_801109F4 = func_800A3AF0();
   Game_line_782_game_c(&g_game);
   Game_render_stuff_line_850(&g_game);
-  func_80072248();
+  func_80072248();  // render pause menu
   switch (temp_s0) {
-  case 1:
+  case PAUSEMENU_CONTINUE:
     func_800721A4();
     Game_80051618_twentyliner(&g_game);
     D_800CFEE8 = 9;
     D_800CFD48 = TRUE;
     break;
-  case 2:
+  case PAUSEMENU_PROGRESS:
     temp_s0 = D_800D05C0->unk89;
     func_800721A4();
     D_801109F0 = 9;
@@ -36,7 +36,7 @@ static void FUN_032F00_8006cc80_twentyliner_checks_pnum_1_2_4(void) {
     D_800CFD48 = TRUE;
     wonders3_wonder_viewer(D_800CF838, 0, temp_s0);
     break;
-  case 4:
+  case PAUSEMENU_EXIT:
     func_800721A4();
     gets_lineCounts_loops_numPlayers_checks_gametype();
     break;

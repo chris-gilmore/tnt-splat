@@ -377,13 +377,13 @@ static void Game_800519b4_thirtyliner(Game *game_ptr) {
   register s32 j;
   register UnkStruct_1 *temp_s6;
 
-  var_s0 = 0;
+  var_s0 = FALSE;
   var_s1 = 0;
   for (i = 0; i < game_ptr->numPlayers; i++) {
     if (game_ptr->tetris_ptr_arr[i]->unk2) {
       temp_s3 = &g_PV_arr[i].unk28;
       if ((temp_s3->unk8C & CONT_START) && D_800CFF50) {  // START_BUTTON
-        var_s0 = 1;
+        var_s0 = TRUE;
         var_s1 = i;
       }
     }
