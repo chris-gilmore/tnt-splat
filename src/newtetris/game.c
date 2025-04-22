@@ -297,13 +297,13 @@ static void Game_QueryGameOver(Game *game_ptr) {
   if (Game_800510a4_eightliner(game_ptr) == 0) {
     rmonPrintf("Game_QueryGameOver(): Setting state to GAMEOVER\n");
     game_ptr->unk0 = 1;
-    game_ptr->unk1 = 2;
+    game_ptr->unk1 = 2;  // state = GAMEOVER
   }
 }
 
 static void Game_800515f8_twoliner(Game *game_ptr) {
   if (game_ptr->unk3 != 0) {
-    game_ptr->unk1 = 1;
+    game_ptr->unk1 = 1;  // state = PAUSE
   }
 }
 

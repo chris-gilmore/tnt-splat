@@ -598,28 +598,28 @@ MultisquareGlow_InitStaticMembers                          = 0x8006B248; // type
 MultisquareGlow_8006b384_oneliner_calls_fun                = 0x8006B384; // type:func
 
 //      - {start: 0x031630, type: asm, vram: 0x8006B3B0, name: newtetris/keyspin}
-KeySpin_8006b3b0_tenliner_nested_loop_10t                  = 0x8006B3B0; // type:func  note 10 is width of pf?
-KeySpin_8006b454_fourliner_sets_arg0_struct                = 0x8006B454; // type:func
-KeySpin_8006b478_eightliner                                = 0x8006B478; // type:func
-KeySpin_8006b53c_uses_pf_logic_cell_loops_10t_1            = 0x8006B53C; // type:func  note 10 is width of pf?
-KeySpin_8006b608_uses_pf_logic_cell_loops_10t_2            = 0x8006B608; // type:func  note 10 is width of pf?
-KeySpin_8006b6b4_twelveliner_ifs_elses_1                   = 0x8006B6B4; // type:func
-KeySpin_8006b7b4_twelveliner_ifs_elses_2                   = 0x8006B7B4; // type:func
-KeySpin_8006b8b8_fiveliner_calls_b6b4_b7b4                 = 0x8006B8B8; // type:func  note calls above 2 funs
-KeySpin_8006b938_thirteenliner_sets_arg0_struct            = 0x8006B938; // type:func
-
-KeySpin_8006ba24_thirtysixliner_sets_arg0_struct           = 0x8006BA24; // type:func
-KeySpin_8006bc8c_twelveliner_uses_pf_logic_cell_1          = 0x8006BC8C; // type:func
-KeySpin_8006bd94_twelveliner_uses_pf_logic_cell_2          = 0x8006BD94; // type:func
-KeySpin_8006be9c_fifteenliner_uses_pflcell_loopts_10t      = 0x8006BE9C; // type:func
-KeySpin_8006c09c_tenliner_loops_lcv_arg0_unk58             = 0x8006C09C; // type:func
-KeySpin_8006c160_twentyfiveliner_loops_lcv_arg0_unk58      = 0x8006C160; // type:func
-KeySpin_InitVPulse                                         = 0x8006C318; // type:func
-KeySpin_8006c5c4_sevenliner_sets_arg0_struct_1             = 0x8006C5C4; // type:func
-KeySpin_8006c644_fourliner_sets_arg0_struct                = 0x8006C644; // type:func
-KeySpin_8006c690_sevenliner_sets_arg0_struct_2             = 0x8006C690; // type:func
-KeySpin_8006c710_medliner_interesting_calls_pf_xy_to_lgc   = 0x8006C710; // type:func
-KeySpin_8006ca90_nineliner_sets_arg0_struct                = 0x8006CA90; // type:func
+KeySpin_8006b3b0_tenliner_nested_loop_10t                  = 0x8006B3B0; // type:func static
+KeySpin_8006b454_fourliner_sets_arg0_struct                = 0x8006B454; // type:func static
+KeySpin_8006b478_eightliner                                = 0x8006B478; // type:func static
+KeySpin_8006b53c_uses_pf_logic_cell_loops_10t_1            = 0x8006B53C; // type:func static
+KeySpin_8006b608_uses_pf_logic_cell_loops_10t_2            = 0x8006B608; // type:func static
+KeySpin_8006b6b4_twelveliner_ifs_elses_1                   = 0x8006B6B4; // type:func static
+KeySpin_8006b7b4_twelveliner_ifs_elses_2                   = 0x8006B7B4; // type:func static
+KeySpin_8006b8b8_fiveliner_calls_b6b4_b7b4                 = 0x8006B8B8; // type:func static
+KeySpin_8006b938_thirteenliner_sets_arg0_struct            = 0x8006B938; // type:func static
+KeySpin_8006ba24_thirtysixliner_sets_arg0_struct           = 0x8006BA24; // type:func static
+KeySpin_8006bc8c_twelveliner_uses_pf_logic_cell_1          = 0x8006BC8C; // type:func static
+KeySpin_8006bd94_twelveliner_uses_pf_logic_cell_2          = 0x8006BD94; // type:func static
+KeySpin_8006be9c_fifteenliner_uses_pflcell_loopts_10t      = 0x8006BE9C; // type:func static
+KeySpin_8006BF90                                           = 0x8006BF90; // type:func static
+KeySpin_8006c09c_tenliner_loops_lcv_arg0_unk58             = 0x8006C09C; // type:func static
+KeySpin_8006c160_twentyfiveliner_loops_lcv_arg0_unk58      = 0x8006C160; // type:func static
+KeySpin_InitVPulse                                         = 0x8006C318; // type:func static
+KeySpin_8006c5c4_sevenliner_sets_arg0_struct_1             = 0x8006C5C4; // type:func static
+KeySpin_8006c644_fourliner_sets_arg0_struct                = 0x8006C644; // type:func static
+KeySpin_8006c690_sevenliner_sets_arg0_struct_2             = 0x8006C690; // type:func static
+KeySpin_8006c710_medliner_interesting_calls_pf_xy_to_lgc   = 0x8006C710; // type:func static
+KeySpin_8006ca90_nineliner_sets_arg0_struct                = 0x8006CA90; // type:func static
 KeySpin_8006cb10_switch_arg0_2_to_8_playsfx_35             = 0x8006CB10; // type:func
 
 //      - {start: 0x032F00, type: asm, vram: 0x8006CC80, name: newtetris/032F00}

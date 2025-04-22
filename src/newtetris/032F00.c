@@ -49,10 +49,10 @@ static void FUN_032F00_8006cd98_tenliner_checks_12(void) {
   Game_render_stuff_line_850(&g_game);
 
   switch (g_game.unk1) {
-  case 2:
+  case 2:  // GAMEOVER
     gets_lineCounts_loops_numPlayers_checks_gametype();
     break;
-  case 1:
+  case 1:  // PAUSE
     if (func_80072140(g_game.unk4)) {
       D_800CFEE8 = 11;
       D_800CFD48 = FALSE;
