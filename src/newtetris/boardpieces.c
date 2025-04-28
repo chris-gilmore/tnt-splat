@@ -115,25 +115,25 @@ static void BoardP_8006d728_checkAndSetSurroundingCells(Cell *cell_ptr) {
   y = cell_ptr->cubeInfo.pos.y;
   piece_id = cell_ptr->piece_id;
   if (BoardP_playfield_xy_to_logic_cell_struct_8006e5e0(x - 1, y - 1)->piece_id == piece_id) {
-    surround_bitfield |= 0x80;   // NW
+    surround_bitfield |= 0x80;  // NW
   }
   if (BoardP_playfield_xy_to_logic_cell_struct_8006e5e0(x, y - 1)->piece_id == piece_id) {
-    surround_bitfield |= 0x1;   // N
+    surround_bitfield |= 0x01;  // N
   }
   if (BoardP_playfield_xy_to_logic_cell_struct_8006e5e0(x + 1, y - 1)->piece_id == piece_id) {
     surround_bitfield |= 0x10;  // NE
   }
   if (BoardP_playfield_xy_to_logic_cell_struct_8006e5e0(x - 1, y)->piece_id == piece_id) {
-    surround_bitfield |= 0x8;   // W
+    surround_bitfield |= 0x08;  // W
   }
   if (BoardP_playfield_xy_to_logic_cell_struct_8006e5e0(x + 1, y)->piece_id == piece_id) {
-    surround_bitfield |= 0x2;   // E
+    surround_bitfield |= 0x02;  // E
   }
   if (BoardP_playfield_xy_to_logic_cell_struct_8006e5e0(x - 1, y + 1)->piece_id == piece_id) {
     surround_bitfield |= 0x40;  // SW
   }
   if (BoardP_playfield_xy_to_logic_cell_struct_8006e5e0(x, y + 1)->piece_id == piece_id) {
-    surround_bitfield |= 0x4;   // S
+    surround_bitfield |= 0x04;  // S
   }
   if (BoardP_playfield_xy_to_logic_cell_struct_8006e5e0(x + 1, y + 1)->piece_id == piece_id) {
     surround_bitfield |= 0x20;  // SE

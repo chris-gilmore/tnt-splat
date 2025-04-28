@@ -5,7 +5,7 @@ void FUN_03C130_80075EB0_nineliner_allocs_heap(UnkStruct_21 *arg0) {
   main_8004A34C_threeliner();
 
   // light source (128x128)
-  arg0->unk64 = (u8 *) n64HeapAlloc(FUN_03A750_80074888_twelveliner(&D_273A00, IMG_UNKNOWN_0X2A774C));
+  arg0->unk64 = n64HeapAlloc(FUN_03A750_80074888_twelveliner(&D_273A00, IMG_UNKNOWN_0X2A774C));
   FUN_03A750_800746c0_twentyliner(&D_273A00, arg0->unk64, IMG_UNKNOWN_0X2A774C);
   func_80075830(&arg0->unk0);
   func_80075760(&arg0->unk0, 2);

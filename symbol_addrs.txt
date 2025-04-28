@@ -790,34 +790,49 @@ Garbage_80072e2c_set_arg0p_to_arg1      = 0x80072E2C; // type:func  note weird f
 //      - {start: 0x0393B0, type: asm, vram: 0x80073130, name: newtetris/aimedat}
 //      - {start: 0x039E50, type: asm, vram: 0x80073BD0, name: newtetris/hotpotato}
 
-//      - {start: 0x03A750, type: asm, vram: 0x800744D0, name: newtetris/03A750}
+//      - {start: 0x03A750, type:   c, vram: 0x800744D0, name: newtetris/03A750}
 func_800744D0                     = 0x800744D0; // type:func unused  note never called
 func_800745DC                     = 0x800745DC; // type:func unused  note never called
 FUN_03A750_800746c0_twentyliner   = 0x800746C0; // type:func         note gets called from all kinds of places
 FUN_03A750_80074888_twelveliner   = 0x80074888; // type:func         note gets called from all kinds of places
 
 //      - {start: 0x03AC20, type:   c, vram: 0x800749A0, name: newtetris/03AC20}
+func_800749A0                     = 0x800749A0; // type:func static
+func_80074B80                     = 0x80074B80; // type:func static
+func_80074C80                     = 0x80074C80; // type:func static
+func_80074D7C                     = 0x80074D7C; // type:func static
+func_80074E3C                     = 0x80074E3C; // type:func unused
+func_80074EC4                     = 0x80074EC4; // type:func
+func_80074F3C                     = 0x80074F3C; // type:func
+func_80075180                     = 0x80075180; // type:func
+func_800751C0                     = 0x800751C0; // type:func
+func_80075218                     = 0x80075218; // type:func
 func_8007523C                     = 0x8007523C; // type:func
+func_80075400                     = 0x80075400; // type:func
 
-//      - {start: 0x03B700, type: asm, vram: 0x80075480, name: newtetris/03B700}
+//      - {start: 0x03B700, type:   c, vram: 0x80075480, name: newtetris/03B700}
+func_80075480                     = 0x80075480; // type:func
+func_800756A8                     = 0x800756A8; // type:func
+func_800756E0                     = 0x800756E0; // type:func static
 func_80075700                     = 0x80075700; // type:func
 func_80075760                     = 0x80075760; // type:func
 func_800757BC                     = 0x800757BC; // type:func
 func_80075830                     = 0x80075830; // type:func
 func_80075870                     = 0x80075870; // type:func
 
-//      - {start: 0x03BB30, type: asm, vram: 0x800758B0, name: newtetris/cubetiles}
-CubeTiles_CopyPartialTile              = 0x800758B0; // type:func
-CubeTiles_80075a84_thirteenliner       = 0x80075a84; // type:func sets DAT_8011fcb8-fcc0 and calls CopyPartialTile four times
-CubeTiles_Init                         = 0x80075C98; // type:func  note has bumpmap related stuff
+//      - {start: 0x03BB30, type:   c, vram: 0x800758B0, name: newtetris/cubetiles}
+CubeTiles_CopyPartialTile              = 0x800758B0; // type:func static
+CubeTiles_80075a84_thirteenliner       = 0x80075a84; // type:func static  sets DAT_8011fcb8-fcc0 and calls CopyPartialTile four times
+CubeTiles_Init                         = 0x80075C98; // type:func         note has bumpmap related stuff
 CubeTiles_Deinit                       = 0x80075DB4; // type:func
-// todo donext nextdo todonext cubetiles
+func_80075DBC                          = 0x80075DBC; // type:func static
+func_80075DF4                          = 0x80075DF4; // type:func
 
 //      - {start: 0x03C130, type:   c, vram: 0x80075EB0, name: newtetris/03C130}
 FUN_03C130_80075EB0_nineliner_allocs_heap    = 0x80075EB0; // type:func
 func_80075F5C                                = 0x80075F5C; // type:func
 
-//      - {start: 0x03C220, type: asm, vram: 0x80075FA0, name: newtetris/03C220}
+//      - {start: 0x03C220, type:   c, vram: 0x80075FA0, name: newtetris/03C220}
 func_80075FA0                          = 0x80075FA0; // type:func static
 func_80075FAC                          = 0x80075FAC; // type:func static
 func_800760F4                          = 0x800760F4; // type:func static
@@ -1034,6 +1049,11 @@ Audio2_SFX_Debug_Print                     = 0x8008C15C; // type:func  note the 
 func_800905E8                                = 0x800905E8; // type:func
 func_80090E08                                = 0x80090E08; // type:func
 
+//      - {start: 0x0691B0, type:   c, vram: 0x800A2F30, name: newtetris/0691B0}
+func_800A2F30                                = 0x800A2F30; // type:func
+func_800A2F50                                = 0x800A2F50; // type:func
+func_800A2FB0                                = 0x800A2FB0; // type:func
+func_800A30F0                                = 0x800A30F0; // type:func
 
 //      - {start: 0x069580, type:   c, vram: 0x800A3300, name: newtetris/contq}
 FUN_069580_800A3300_nineliner_mod300         = 0x800A3300; // type:func
@@ -1231,11 +1251,6 @@ D_800D05D8                = 0x800D05D8; // type:char* size:0x4
 
 // - {start: 0x096860, type: data, vram: 0x800D05E0, name: newtetris/aimedat}
 
-
-// - {start: 0x096880, type: .data, vram: 0x800D0600, name: newtetris/03A750}
-D_800D0600                = 0x800D0600; // type:s32   size:0x4    static
-
-// - {start: 0x096890, type: data, vram: 0x800D0610, name: newtetris/03AC20}
 
 // - {start: 0x096BB0, type: .data, vram: 0x800D0930, name: newtetris/imageparams}
 D_800D0930                = 0x800D0930; //            size:0x300          ImageParams[24]

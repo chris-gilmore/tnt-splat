@@ -10,7 +10,7 @@ static s32 D_8011FCA8;
 static s32 D_8011FCAC;
 static s32 D_800D0600 = FALSE;
 
-void func_800744D0(u8 *arg0, u8 *arg1, u32 arg2) {
+void func_800744D0(u8 *arg0, void *arg1, u32 arg2) {
   u32 sp34;
   Dram_u sp28;
   Dram_u sp18[2];
@@ -61,7 +61,7 @@ u32 func_800745DC(u8 *arg0, u32 arg1) {
   return sp18[1].data - sp18[0].data;
 }
 
-void FUN_03A750_800746c0_twentyliner(u8 *arg0, u8 *arg1, u32 arg2) {
+void FUN_03A750_800746c0_twentyliner(u8 *arg0, void *arg1, u32 arg2) {
   u32 sp4C;
   Dram_u sp40;
   Dram_u sp30[2];

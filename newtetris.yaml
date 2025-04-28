@@ -155,10 +155,10 @@ segments:
       - {start: 0x039E50, type: asm, vram: 0x80073BD0, name: newtetris/hotpotato}
       - {start: 0x03A750, type:   c, vram: 0x800744D0, name: newtetris/03A750}  # image loading
       - {start: 0x03AC20, type:   c, vram: 0x800749A0, name: newtetris/03AC20}  # special fx - mayan large fire (x2)
-      - {start: 0x03B700, type: asm, vram: 0x80075480, name: newtetris/03B700}  # minos related
-      - {start: 0x03BB30, type: asm, vram: 0x800758B0, name: newtetris/cubetiles}
+      - {start: 0x03B700, type:   c, vram: 0x80075480, name: newtetris/03B700}
+      - {start: 0x03BB30, type:   c, vram: 0x800758B0, name: newtetris/cubetiles}
       - {start: 0x03C130, type:   c, vram: 0x80075EB0, name: newtetris/03C130}  # light source (128x128)
-      - {start: 0x03C220, type: asm, vram: 0x80075FA0, name: newtetris/03C220}  # minos related
+      - {start: 0x03C220, type:   c, vram: 0x80075FA0, name: newtetris/03C220}
       - {start: 0x03C720, type:   c, vram: 0x800764A0, name: newtetris/animparams}
       - {start: 0x03D120, type:   c, vram: 0x80076EA0, name: newtetris/03D120}
       - {start: 0x03D140, type:   c, vram: 0x80076EC0, name: newtetris/03D140}  # fx - skyboxes, rain, snow, butterflies, leaves
@@ -168,7 +168,7 @@ segments:
       - {start: 0x044240, type:   c, vram: 0x8007DFC0, name: newtetris/n64heap}
       - {start: 0x0449D0, type:   c, vram: 0x8007E750, name: newtetris/0449D0}
       - {start: 0x046030, type: asm, vram: 0x8007FDB0, name: newtetris/endscroller}
-      - {start: 0x046770, type:   c, vram: 0x800804F0, name: newtetris/046770}
+      - {start: 0x046770, type:   c, vram: 0x800804F0, name: newtetris/046770}  # credits special fx
       - {start: 0x046CF0, type: asm, vram: 0x80080A70, name: newtetris/046CF0}
       - {start: 0x046DD0, type: asm, vram: 0x80080B50, name: newtetris/046DD0}
       - {start: 0x0470D0, type:   c, vram: 0x80080E50, name: newtetris/0470D0}
@@ -186,7 +186,7 @@ segments:
       - {start: 0x055500, type: asm, vram: 0x8008F280, name: newtetris/055500}
       - {start: 0x063BC0, type: asm, vram: 0x8009D940, name: newtetris/063BC0}
       - {start: 0x066700, type: asm, vram: 0x800A0480, name: newtetris/066700}
-      - {start: 0x0691B0, type: asm, vram: 0x800A2F30, name: newtetris/0691B0}
+      - {start: 0x0691B0, type:   c, vram: 0x800A2F30, name: newtetris/0691B0}  # CubeTile related, handwritten assembly
       - {start: 0x069530, type: asm, vram: 0x800A32B0, name: newtetris/069530}
       - {start: 0x069580, type:   c, vram: 0x800A3300, name: newtetris/contq}
       - {start: 0x0697D0, type:   c, vram: 0x800A3550, name: newtetris/rand}
@@ -402,7 +402,7 @@ segments:
       - {start: 0x096880, type: .data, vram: 0x800D0600, name: newtetris/03A750}
       - {start: 0x096890, type: .data, vram: 0x800D0610, name: newtetris/03AC20}
       #- {start: 0x096890, type: gfx, vram: 0x800D0610, name: newtetris/03AC20_dl}
-      - {start: 0x096910, type: data, vram: 0x800D0690, name: newtetris/cubetiles}
+      - {start: 0x096910, type: .data, vram: 0x800D0690, name: newtetris/cubetiles}
       - {start: 0x096BB0, type: .data, vram: 0x800D0930, name: newtetris/imageparams}
       - {start: 0x0972B0, type: .data, vram: 0x800D1030, name: newtetris/animparams}
       - {start: 0x098F60, type: .data, vram: 0x800D2CE0, name: newtetris/03D120}
@@ -492,7 +492,7 @@ segments:
       - {start: 0x0A3D00, type: .rodata, vram: 0x800DDA80, name: newtetris/garbage}
       - {start: 0x0A3D20, type: rodata, vram: 0x800DDAA0, name: newtetris/aimedat}
       - {start: 0x0A3D70, type: rodata, vram: 0x800DDAF0, name: newtetris/hotpotato}
-      - {start: 0x0A3DC0, type: rodata, vram: 0x800DDB40, name: newtetris/cubetiles}
+      - {start: 0x0A3DC0, type: .rodata, vram: 0x800DDB40, name: newtetris/cubetiles}
       - {start: 0x0A3E20, type: .rodata, vram: 0x800DDBA0, name: newtetris/sram}
       - {start: 0x0A4170, type: rodata, vram: 0x800DDEF0, name: newtetris/0428D0, find_file_boundaries: False}
       - {start: 0x0A42C0, type: .rodata, vram: 0x800DE040, name: newtetris/n64heap}
@@ -584,8 +584,8 @@ segments:
       - {type: .bss, vram: 0x8011FC80, name: newtetris/garbage}
       - {type: bss, vram: 0x8011FC90, name: newtetris/aimedat}
       - {type: .bss, vram: 0x8011FCA0, name: newtetris/03A750}
-      - {type: bss, vram: 0x8011FCB0, name: newtetris/cubetiles}
-      - {type: bss, vram: 0x8011FCD0, name: newtetris/03C220}
+      - {type: .bss, vram: 0x8011FCB0, name: newtetris/cubetiles}
+      - {type: .bss, vram: 0x8011FCD0, name: newtetris/03C220}
       - {type: bss, vram: 0x8011FCE0, name: newtetris/8011FCE0}
       - {type: bss, vram: 0x8011FCF0, name: newtetris/sram}
       - {type: .bss, vram: 0x801201D0, name: newtetris/n64heap}

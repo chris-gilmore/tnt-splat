@@ -324,7 +324,7 @@ void Minos_Mino_Render(Mino *arg0, UnkStruct_8 *arg1) {
 }
 
 void Minos_800702e4_nineliner(Mino *arg0) {
-  Minos_80070818_oneliner_sets_arg0_0x130_to_arg1(arg0, g_cubeTiles_ptr->unkDC00[0x0]);
+  Minos_80070818_oneliner_sets_arg0_0x130_to_arg1(arg0, g_cubeTiles_ptr->unkDC00[0]);
   func_800A2F30(&arg0->unk24, arg0->unk130);
   arg0->unk1C = 0xFF;
   arg0->unk1E = arg0->unk1C;
@@ -358,7 +358,7 @@ static void Minos_800704e0_threeliner_sets_0x130(Mino *arg0) {
 
 void Minos_80070528_Morph(Mino *arg0) {
   if (arg0->unk130 != NULL) {
-    if ((arg0->unk130 > (s8 *)0x80000000) && (arg0->unk130 < (s8 *)0x80400000)) {
+    if (((void *)arg0->unk130 > (void *)0x80000000) && ((void *)arg0->unk130 < (void *)0x80400000)) {
       Minos_800704e0_threeliner_sets_0x130(arg0);
       arg0->unk1 |= 1;
     } else {
@@ -414,7 +414,7 @@ void Minos_80070528_Morph(Mino *arg0) {
   }
 }
 
-void Minos_80070818_oneliner_sets_arg0_0x130_to_arg1(Mino *arg0, s8 *arg1) {
+void Minos_80070818_oneliner_sets_arg0_0x130_to_arg1(Mino *arg0, CubeTile *arg1) {
   arg0->unk130 = arg1;
 }
 

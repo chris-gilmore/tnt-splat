@@ -23,16 +23,9 @@ typedef struct {
 } UnkStruct_14; // 0xA bytes
 
 typedef struct {
-  /* 0x0  */ UnkStruct_14   unk0[4];
-  /* 0x28 */ UnkStruct_0   *unk28;
-  /* 0x2C */ u8             unk2C;
-  /* 0x2E */ s16            unk2E;  // dsdx
-  /* 0x30 */ s16            unk30;  // dtdy
-  /* 0x34 */ void         (*unk34)(UnkStruct_8 *);
-  /* 0x38 */ u8             unk38;
-  /* 0x39 */ u8             is_transparent;  // boolean; render mode: xlu (transparent) or opa (opaque)
-  /* 0x3A */ u8             alpha;
-} UnkStruct_22; // 0x3B bytes
+  /* 0x0    */ s32   unk0[4][24][16];
+  /* 0x1800 */ u8    unk1800;
+} UnkStruct_38; // 0x1804 bytes
 
 extern void   func_8007635C(void);
 extern void   func_800763B4(void);

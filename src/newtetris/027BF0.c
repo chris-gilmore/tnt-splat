@@ -420,9 +420,9 @@ void FUN_027BF0_Init(s32 screen) {
       func_800764A0(&D_800D1474, &D_800D1030);
       func_80076EC0(&D_800D02B8, 1);
       bzero(&sp20, sizeof(UnkStruct_31));
-      sp20.unk0.unk0 = 0x11, sp20.unk0.unk1 = 0x40;
-      sp20.unk2 = 0x4A, sp20.unk4 = 0xD0;
-      sp20.unk6 = 0x80;
+      sp20.unk0.width = 17, sp20.unk0.height = 64;
+      sp20.unk2.x = 74, sp20.unk2.y = 208;
+      sp20.unk6 = 128;
       func_8007523C(&D_8011FB40, &sp20);
       break;
     case 1:

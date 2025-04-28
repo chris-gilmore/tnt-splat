@@ -36,7 +36,19 @@ u8 FUN_026900_80060770_sevenliner(UnkStruct_2 *arg0, f32 arg1) {
     return TRUE;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/026900/FUN_026900_PRNG_1.s")
+u32 FUN_026900_PRNG_1(void) {
+  register s32 retVal;
+  register s32 i;
+
+  D_8011FA70++;
+  retVal = 0;
+  for (i = 0; i < 32; i++) {
+    D_8011FA70 = ((D_8011FA70 << 3) | ((D_8011FA70 >> 29) & 7)) ^ 0x80500000;
+    retVal |= (D_8011FA70 & 1) << i;
+  }
+  D_8011FA70 = retVal;
+  return retVal;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/026900/FUN_026900_sets_g8011FA70_to_arg0.s")
 

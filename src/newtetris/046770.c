@@ -7,22 +7,35 @@ extern u16 draw_buffer;
 ////////////////////////////////////////
 
 void FUN_046770_800804f0_many_heapallocs_for_arg0_elems(UnkStruct_12 *arg0) {
-  u8 *sp4C;
+  u8 *sp4C;  // greyscale image used as height field
   register s32 i;
   register s32 j;
-  register u8 *var_s2;
+  register Gradient2D *var_s2;
   register u8 *var_s3;
   PaletteInfo palInfo_1;
   PaletteInfo palInfo_2;
 
-  sp4C = n64HeapAlloc(0x7530);         // 30000 (200 x 150) CI - IMG_UNKNOWN_0X49B274
-  arg0->unk8 = n64HeapAlloc(0xEA60);   // 60000
-  arg0->unk0 = n64HeapAlloc(0x7530);   // 30000 (200 x 150) CI - IMG_UNKNOWN_0X4946FE
-  arg0->unk4 = n64HeapAlloc(0x300);    // 768 (RGB palette)    - IMG_UNKNOWN_0X49AFAC
-  arg0->unkC = n64HeapAlloc(0x4000);   // 16384 (128 x 128)  I - IMG_UNKNOWN_0X4A1C4C
-  arg0->unk10 = n64HeapAlloc(0x300);   // 768 (RGB palette)    - IMG_UNKNOWN_0X4A3BBC
-  arg0->unk14 = n64HeapAlloc(0xEA68);  // 60008
-  arg0->unk18 = n64HeapAlloc(0xEA68);  // 60008
+  // (200 x 150)  I - IMG_UNKNOWN_0X49B274
+  sp4C = (u8 *) n64HeapAlloc(200 * 150 * sizeof(u8));
+
+  // gradients for above height field
+  arg0->unk8 = (Gradient2D *) n64HeapAlloc(200 * 150 * sizeof(Gradient2D));
+
+  // (200 x 150) CI - IMG_UNKNOWN_0X4946FE
+  arg0->unk0 = (u8 *) n64HeapAlloc(200 * 150 * sizeof(u8));
+
+  // (RGB palette)  - IMG_UNKNOWN_0X49AFAC
+  arg0->unk4 = (RGB *) n64HeapAlloc(256 * sizeof(RGB));
+
+  // (128 x 128) CI - IMG_UNKNOWN_0X4A1C4C
+  arg0->unkC = (u8 *) n64HeapAlloc(128 * 128 * sizeof(u8));
+
+  // (RGB palette)  - IMG_UNKNOWN_0X4A3BBC
+  arg0->unk10 = (RGB *) n64HeapAlloc(256 * sizeof(RGB));
+
+  arg0->unk14 = n64HeapAlloc(60008);
+  arg0->unk18 = n64HeapAlloc(60008);
+
   main_8004A34C_threeliner();
   FUN_03A750_800746c0_twentyliner(&D_273A00, arg0->unk0, IMG_UNKNOWN_0X4946FE);
   FUN_03A750_800746c0_twentyliner(&D_273A00, arg0->unk4, IMG_UNKNOWN_0X49AFAC);
@@ -34,16 +47,16 @@ void FUN_046770_800804f0_many_heapallocs_for_arg0_elems(UnkStruct_12 *arg0) {
   var_s2 = arg0->unk8;
   for (j = 0; j < 149; j++) {
     for (i = 0; i < 199; i++) {
-      // edge detector
-      var_s2[0] = var_s3[0] - var_s3[200];
-      var_s2[1] = var_s3[0] - var_s3[1];
-      var_s2 += 2;
-      var_s3 += 1;
+      // calculate gradient
+      var_s2->y = var_s3[0] - var_s3[200];
+      var_s2->x = var_s3[0] - var_s3[1];
+      var_s2++;
+      var_s3++;
     }
-    var_s2[0] = 0;
-    var_s2[1] = 0;
-    var_s2 += 2;
-    var_s3 += 1;
+    var_s2->y = 0;
+    var_s2->x = 0;
+    var_s2++;
+    var_s3++;
   }
   n64HeapUnalloc(sp4C);
 

@@ -1,6 +1,18 @@
 #ifndef _MINOS_H_
 #define _MINOS_H_
 
+typedef struct {
+  /* 0x0  */ UnkStruct_14   unk0[4];
+  /* 0x28 */ UnkStruct_0   *unk28;
+  /* 0x2C */ u8             unk2C;
+  /* 0x2E */ s16            unk2E;  // dsdx
+  /* 0x30 */ s16            unk30;  // dtdy
+  /* 0x34 */ void         (*unk34)(UnkStruct_8 *);
+  /* 0x38 */ u8             unk38;
+  /* 0x39 */ u8             is_transparent;  // boolean; render mode: xlu (transparent) or opa (opaque)
+  /* 0x3A */ u8             alpha;
+} UnkStruct_22; // 0x3B bytes
+
 typedef union {
   s16   s;
   struct {
@@ -10,24 +22,24 @@ typedef union {
 } cu;
 
 typedef struct {
-  /* 0x0   */ u8      unk0;
-  /* 0x1   */ u8      unk1;         // update flag
-  /* 0x2   */ u8      unk2;
-  /* 0x4   */ Color   unk4;
-  /* 0x10  */ Color   unk10;
-  /* 0x1C  */ u8      unk1C;        // mino color alpha
-  /* 0x1D  */ s8      unk1D;
-  /* 0x1E  */ u8      unk1E;        // mino color alpha
-  /* 0x20  */ cu      unk20;
-  /* 0x22  */ s16     unk22;
-  /* 0x24  */ s8      unk24;
-  /* 0x25  */ u8      pad25[0x8B];
-  /* 0xB0  */ s8      unkB0;
-  /* 0xB1  */ u8      padB1[0x3F];
-  /* 0xF0  */ s8      unkF0;
-  /* 0xF1  */ u8      padF1[0x3F];
-  /* 0x130 */ s8     *unk130;
-  /* 0x134 */ u8      pad134[0x4];
+  /* 0x0   */ u8         unk0;
+  /* 0x1   */ u8         unk1;   // update flag
+  /* 0x2   */ u8         unk2;
+  /* 0x4   */ Color      unk4;
+  /* 0x10  */ Color      unk10;
+  /* 0x1C  */ u8         unk1C;  // mino color alpha
+  /* 0x1D  */ s8         unk1D;
+  /* 0x1E  */ u8         unk1E;  // mino color alpha
+  /* 0x20  */ cu         unk20;
+  /* 0x22  */ s16        unk22;
+  /* 0x24  */ CubeTile   unk24;
+  /* 0xA4  */ u8         padA4[0xC];
+  /* 0xB0  */ s8         unkB0;
+  /* 0xB1  */ u8         padB1[0x3F];
+  /* 0xF0  */ s8         unkF0;
+  /* 0xF1  */ u8         padF1[0x3F];
+  /* 0x130 */ CubeTile  *unk130;
+  /* 0x134 */ u8         pad134[0x4];
 } Mino; // 0x138 bytes
 
 typedef struct {
@@ -51,7 +63,7 @@ extern void   Minos_Mino_Render(Mino *, UnkStruct_8 *);
 extern void   Minos_800702e4_nineliner(Mino *);
 extern void   Minos_80070398_fourteenliner(Mino *, Mino *);
 extern void   Minos_80070528_Morph(Mino *);
-extern void   Minos_80070818_oneliner_sets_arg0_0x130_to_arg1(Mino *, s8 *);
+extern void   Minos_80070818_oneliner_sets_arg0_0x130_to_arg1(Mino *, CubeTile *);
 extern void   Minos_80070820_fiveliner_sets_arg0_2_4_8_12_to_arg1(Mino *, Color *);
 extern void   Minos_80070860_fortyliner(Mino *, Color *, s32);
 extern void   Minos_800709d8_threeliner_sets_arg0_1c_1e_1d(Mino *, u8);
