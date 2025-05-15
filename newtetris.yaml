@@ -86,7 +86,7 @@ segments:
       # .text
       ########################################################################
 
-      - {start: 0x001050, type:   c, vram: 0x8003ADD0, name: newtetris/001050}
+      - {start: 0x001050, type:   c, vram: 0x8003ADD0, name: newtetris/001050}  # (-mips1 -O1) until H2O library
       - {start: 0x003E40, type:   c, vram: 0x8003DBC0, name: newtetris/003E40}
       - {start: 0x004460, type: asm, vram: 0x8003E1E0, name: newtetris/aisquarelist}
       - {start: 0x005580, type: asm, vram: 0x8003F300, name: newtetris/005580}
@@ -187,15 +187,17 @@ segments:
       - {start: 0x063BC0, type: asm, vram: 0x8009D940, name: newtetris/063BC0}
       - {start: 0x066700, type: asm, vram: 0x800A0480, name: newtetris/066700}
       - {start: 0x0691B0, type:   c, vram: 0x800A2F30, name: newtetris/0691B0}  # CubeTile related, handwritten assembly
-      - {start: 0x069530, type: asm, vram: 0x800A32B0, name: newtetris/069530}
-      - {start: 0x069580, type:   c, vram: 0x800A3300, name: newtetris/contq}
+
+      - {start: 0x069530, type: asm, vram: 0x800A32B0, name: newtetris/069530}  # odd looking assembly
+
+      - {start: 0x069580, type:   c, vram: 0x800A3300, name: newtetris/contq}   # H2O library (-mips2 -O2) until ultralib library
       - {start: 0x0697D0, type:   c, vram: 0x800A3550, name: newtetris/rand}
       - {start: 0x069C30, type:   c, vram: 0x800A39B0, name: newtetris/frametime}
-      - {start: 0x069D80, type: asm, vram: 0x800A3B00, name: newtetris/069D80}
-      - {start: 0x06AE00, type: asm, vram: 0x800A4B80, name: newtetris/06AE00}
+      - {start: 0x069D80, type:   c, vram: 0x800A3B00, name: newtetris/069D80}    # used by 03D140.c
+      - {start: 0x06AE00, type:   c, vram: 0x800A4B80, name: newtetris/borganim}  # used by 03D140.c
       - {start: 0x06F290, type: asm, vram: 0x800A9010, name: newtetris/06F290}
-      - {start: 0x06FFD0, type:   c, vram: 0x800A9D50, name: newtetris/06FFD0}
-      - {start: 0x072080, type:   c, vram: 0x800ABE00, name: newtetris/072080}
+      - {start: 0x06FFD0, type:   c, vram: 0x800A9D50, name: newtetris/06FFD0}  # fx loading
+      - {start: 0x072080, type:   c, vram: 0x800ABE00, name: newtetris/072080}  # rom xfer
       - {start: 0x072C40, type: asm, vram: 0x800AC9C0, name: newtetris/072C40}
       - {start: 0x073120, type: asm, vram: 0x800ACEA0, name: newtetris/073120}
       - {start: 0x073D50, type: asm, vram: 0x800ADAD0, name: newtetris/073D50}
@@ -252,7 +254,7 @@ segments:
       - {start: 0x07DAB0, type: asm, vram: 0x800B7830, name: ultralib/io/vigetcurrframebuf}
       - {start: 0x07DAF0, type: asm, vram: 0x800B7870, name: ultralib/io/vigetnextframebuf}
       - {start: 0x07DB30, type: asm, vram: 0x800B78B0, name: ultralib/io/sptaskyield}
-      - {start: 0x07DB50, type: asm, vram: 0x800B78D0, name: ultralib/gu/mtxutil}
+      - {start: 0x07DB50, type:   c, vram: 0x800B78D0, name: ultralib/gu/mtxutil}
       - {start: 0x07DDC0, type:   c, vram: 0x800B7B40, name: ultralib/gu/sinf}
       - {start: 0x07DF80, type: asm, vram: 0x800B7D00, name: ultralib/libc/bcopy}
       - {start: 0x07E290, type:   c, vram: 0x800B8010, name: ultralib/gu/sins}
@@ -418,7 +420,10 @@ segments:
       - {start: 0x0995C0, type: data, vram: 0x800D3340, name: newtetris/0497E0}
       - {start: 0x099B90, type: data, vram: 0x800D3910, name: newtetris/audio}
       - {start: 0x099BC0, type: data, vram: 0x800D3940, name: newtetris/04BFD0}
-      - {start: 0x09DD80, type: data, vram: 0x800D7B00, name: newtetris/06FFD0}
+      - {start: 0x09C470, type: data, vram: 0x800D61F0, name: newtetris/069D80}
+      - {start: 0x09C480, type: data, vram: 0x800D6200, name: newtetris/borganim}
+      - {start: 0x09C4A0, type: data, vram: 0x800D6220, name: newtetris/06F290}
+      - {start: 0x09DD80, type: .data, vram: 0x800D7B00, name: newtetris/06FFD0}
       - {start: 0x09DE10, type: data, vram: 0x800D7B90, name: newtetris/072080}
       - {start: 0x09F390, type: data, vram: 0x800D9110, name: newtetris/073120}
       - {start: 0x09F790, type: data, vram: 0x800D9510, name: ultralib/io/controller}
@@ -511,8 +516,8 @@ segments:
       - {start: 0x0A66A0, type: rodata, vram: 0x800E0420, name: newtetris/066700}
       - {start: 0x0A6A90, type: .rodata, vram: 0x800E0810, name: newtetris/contq}
       - {start: 0x0A6B90, type: .rodata, vram: 0x800E0910, name: newtetris/rand}
-      - {start: 0x0A6BA0, type: rodata, vram: 0x800E0920, name: newtetris/069D80}
-      - {start: 0x0A6BB0, type: rodata, vram: 0x800E0930, name: newtetris/06AE00}
+      - {start: 0x0A6BA0, type: .rodata, vram: 0x800E0920, name: newtetris/069D80}
+      - {start: 0x0A6BB0, type: .rodata, vram: 0x800E0930, name: newtetris/borganim}
       - {start: 0x0A6CE0, type: rodata, vram: 0x800E0A60, name: newtetris/06F290}
       - {start: 0x0A6CF0, type: .rodata, vram: 0x800E0A70, name: newtetris/06FFD0}
       - {start: 0x0A73D0, type: .rodata, vram: 0x800E1150, name: newtetris/072080}
@@ -597,8 +602,9 @@ segments:
       - {type: bss, vram: 0x80128AB0, name: newtetris/04BFD0}
       - {type: .bss, vram: 0x80129340, name: newtetris/rand}
       - {type: .bss, vram: 0x80129370, name: newtetris/frametime}
-      - {type: bss, vram: 0x80129390, name: newtetris/80129390}
-      - {type: bss, vram: 0x80129600, name: newtetris/06FFD0}
+      - {type: bss, vram: 0x80129390, name: newtetris/borganim}
+      - {type: bss, vram: 0x801295E0, name: newtetris/06F290}
+      - {type: .bss, vram: 0x80129600, name: newtetris/06FFD0}
       - {type: bss, vram: 0x8012A860, name: newtetris/072080}
       - {type: bss, vram: 0x8012CAF0, name: newtetris/8012CAF0}
       - {type: bss, vram: 0x8012CB80, name: newtetris/078FE0}

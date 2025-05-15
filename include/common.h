@@ -4,8 +4,17 @@
 #include "ultra64.h"
 #include "PR/sched.h"
 
+typedef long           intptr_t;
+typedef unsigned long  uintptr_t;
+
+#include "newtetris/074B00.h"
+#include "newtetris/06FFD0.h"
+#include "newtetris/borganim.h"
+#include "newtetris/069D80.h"
+
 #include "newtetris/img_defs.h"
 #include "newtetris/anim_defs.h"
+#include "newtetris/cfb.h"
 #include "newtetris/03D120.h"
 #include "newtetris/003E40.h"
 #include "newtetris/006B30.h"
@@ -84,8 +93,6 @@
 #include "newtetris/072080.h"
 #include "newtetris/0470D0.h"
 #include "newtetris/01D6E0.h"
-#include "newtetris/cfb.h"
-#include "newtetris/06FFD0.h"
 #include "newtetris/creditstext.h"
 #include "newtetris/credits.h"
 #include "newtetris/audio.h"
@@ -109,9 +116,6 @@ typedef union {
   u32 i;
   f32 f;
 } fu;
-
-extern u64 __ull_div(u64, u64);
-extern u64 __ll_mul(u64, u64);
 
 extern u8 D_273A00;  // image_lut
 extern u8 D_5206B0;  // anim_lut
