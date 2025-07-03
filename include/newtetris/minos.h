@@ -13,14 +13,6 @@ typedef struct {
   /* 0x3A */ u8             alpha;
 } UnkStruct_22; // 0x3B bytes
 
-typedef union {
-  s16   s;
-  struct {
-    u8 hi;
-    u8 lo;
-  } c;
-} cu;
-
 typedef struct {
   /* 0x0   */ u8         unk0;
   /* 0x1   */ u8         unk1;   // update flag
@@ -30,14 +22,12 @@ typedef struct {
   /* 0x1C  */ u8         unk1C;  // mino color alpha
   /* 0x1D  */ s8         unk1D;
   /* 0x1E  */ u8         unk1E;  // mino color alpha
-  /* 0x20  */ cu         unk20;
+  /* 0x20  */ s16        unk20;
   /* 0x22  */ s16        unk22;
   /* 0x24  */ CubeTile   unk24;
   /* 0xA4  */ u8         padA4[0xC];
-  /* 0xB0  */ s8         unkB0;
-  /* 0xB1  */ u8         padB1[0x3F];
-  /* 0xF0  */ s8         unkF0;
-  /* 0xF1  */ u8         padF1[0x3F];
+  /* 0xB0  */ u8         unkB0[0x40];
+  /* 0xF0  */ u8         unkF0[0x40];
   /* 0x130 */ CubeTile  *unk130;
   /* 0x134 */ u8         pad134[0x4];
 } Mino; // 0x138 bytes

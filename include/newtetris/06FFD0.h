@@ -8,36 +8,48 @@ typedef struct {
   /* 0x4 */ s32   unk4;
 } BaseHeader; // 0x8 bytes
 
-typedef struct {
-  /* 0x0 */ BaseHeader   basehdr;  // .id = 0
 
-  /* 0x8 */ s32          unk8;
-  /* 0xC */ u8           *unkC;
+typedef struct {
+  /* 0x0 */ s32   unk0;
+  /* 0x4 */ u8   *unk4;
+} UnkStruct_70; // 0x8 bytes
+
+typedef struct {
+  /* 0x0 */ BaseHeader     basehdr;  // .id = 0
+
+  /* 0x8 */ UnkStruct_70   unk8;
 } UnkStruct_43; // 0x10 bytes
 
 
 typedef struct {
-  /* 0x0  */ BaseHeader   basehdr;  // .id = 1
+  /* 0x0 */ s16   unk0;
+  /* 0x2 */ s16   unk2;  // sc
+  /* 0x4 */ s16   unk4;  // tc
+  /* 0x6 */ u8    unk6;
+  /* 0x7 */ u8    unk7;  // level
+  /* 0x8 */ Gfx  *unk8;  // displaylist
+  /* 0xC */ u16  *unkC;  // image data (rgba5551)
+} UnkStruct_71; // 0x10 bytes
 
-  /* 0x8  */ s32          unk8;
-  /* 0xC  */ s32          unkC;
-  /* 0x10 */ Gfx         *unk10;    // displaylist
-  /* 0x14 */ u8          *unk14;    // image data
+typedef struct {
+  /* 0x0  */ BaseHeader     basehdr;  // .id = 1
+
+  /* 0x8  */ UnkStruct_71   unk8;
 } UnkStruct_44; // 0x18 bytes
 
 
 #pragma pack(1)
 typedef struct {
   /* 0x0  */ s32   unk0;
-  /* 0x4  */ s32   unk4;
-  /* 0x8  */ s32   unk8;
-  /* 0xC  */ s32   unkC;
-  /* 0x10 */ s32   unk10;
+  /* 0x4  */ f32   unk4;
+  /* 0x8  */ f32   unk8;
+  /* 0xC  */ f32   unkC;
+  /* 0x10 */ f32   unk10;
 } UnkStruct_62; // 0x14 bytes
 #pragma pack(0)
 
 typedef struct {
-  /* 0x0 */ u8   pad0[0x40];
+  /* 0x0 */ LookAt   unk0[2];
 } UnkStruct_66; // 0x40 bytes
 
 typedef struct {
@@ -49,7 +61,6 @@ typedef struct {
   /* 0x4 */ u8   *unk4;
 } UnkStruct_47; // 0x8 bytes
 
-
 typedef struct {
   /* 0x0 */ s32            unk0;  // cnt of unk8
   /* 0x4 */ u8            *unk4;
@@ -57,61 +68,74 @@ typedef struct {
 } UnkStruct_61; // 0xC bytes
 
 typedef struct {
+  /* 0x0  */ f32            unk0;
+  /* 0x4  */ s32            unk4;   // cnt of unkC and of unk1C
+  /* 0x8  */ f32            unk8;
+  /* 0xC  */ Gfx          **unkC;   // displaylist list
+  /* 0x10 */ Vtx           *unk10;  // vertex list
+  /* 0x14 */ Vtx           *unk14;  // cnt of unk10, then set to a ptr
+  /* 0x18 */ UnkStruct_61  *unk18;
+  /* 0x1C */ UnkStruct_62  *unk1C;  // list
+} UnkStruct_72; // 0x20 bytes
+
+typedef struct {
   /* 0x0  */ BaseHeader     basehdr;  // .id = 2
   /* 0x8  */ UnkStruct_66  *unk8;
   /* 0xC  */ UnkStruct_67  *unkC;
 
-  /* 0x10 */ s32            unk10;
-  /* 0x14 */ s32            unk14;    // cnt of unk1C and of unk2C
-  /* 0x18 */ s32            unk18;
-  /* 0x1C */ Gfx          **unk1C;    // displaylist list
-  /* 0x20 */ Vtx           *unk20;    // vertex list
-  /* 0x24 */ Vtx           *unk24;    // cnt of unk20, then set to a ptr
-  /* 0x28 */ UnkStruct_61  *unk28;
-  /* 0x2C */ UnkStruct_62  *unk2C;    // list
+  /* 0x10 */ UnkStruct_72   unk10;
 } UnkStruct_46; // 0x30 bytes
 
 
 typedef struct {
-  /* 0x0 */ u8   pad0[0x80];
+  /* 0x0 */ Mtx   unk0[2];
 } UnkStruct_64; // 0x80 bytes
 
 typedef struct {
+  /* 0x0  */ f32            unk0;
+  /* 0x4  */ f32            unk4;   // fovy
+  /* 0x8  */ f32            unk8;   // near
+  /* 0xC  */ f32            unkC;   // far
+  /* 0x10 */ f32            unk10;
+  /* 0x14 */ f32            unk14;  // aspect
+  /* 0x18 */ Vp            *unk18;  // viewport
+  /* 0x1C */ UnkStruct_64  *unk1C;
+} UnkStruct_73; // 0x20 bytes
+
+typedef struct {
   /* 0x0  */ BaseHeader     basehdr;  // .id = 3
-  /* 0x8  */ s32            unk8;
+  /* 0x8  */ u16            unk8[2];  // perspNorm[2]
   /* 0xC  */ s32            unkC;
 
-  /* 0x10 */ s32            unk10;
-  /* 0x14 */ s32            unk14;
-  /* 0x18 */ s32            unk18;
-  /* 0x1C */ s32            unk1C;
-  /* 0x20 */ s32            unk20;
-  /* 0x24 */ s32            unk24;
-  /* 0x28 */ u8            *unk28;
-  /* 0x2C */ UnkStruct_64  *unk2C;
+  /* 0x10 */ UnkStruct_73   unk10;
 } UnkStruct_45; // 0x30 bytes
 
 
 typedef struct {
-  /* 0x0 */ u8   pad0[0x20];
+  /* 0x0 */ Light   lights[2];
 } UnkStruct_65; // 0x20 bytes
 
 typedef struct {
-  /* 0x0 */  BaseHeader     basehdr;  // .id = 4
+  /* 0x0  */ f32            unk0;
+  /* 0x4  */ f32            red;
+  /* 0x8  */ f32            green;
+  /* 0xC  */ f32            blue;
+  /* 0x10 */ UnkStruct_65  *unk10;
+} UnkStruct_74; // 0x14 bytes
 
-  /* 0x8 */  s32            unk8;
-  /* 0xC */  s32            unkC;
-  /* 0x10 */ s32            unk10;
-  /* 0x14 */ s32            unk14;
-  /* 0x18 */ UnkStruct_65  *unk18;
+typedef struct {
+  /* 0x0 */  BaseHeader    basehdr;  // .id = 4
+
+  /* 0x8 */ UnkStruct_74   unk8;
 } UnkStruct_39; // 0x1C bytes
 
 
 typedef struct UnkStruct_49 UnkStruct_49;
 
 typedef struct {
-  /* 0x0 */ s32   unk0;
-  /* 0x4 */ s32   unk4;
+  /* 0x0 */ f32   unk0;
+  /* 0x4 */ s16   unk4;
+  /* 0x4 */ s16   unk6;
 } UnkStruct_68; // 0x8 bytes
 
 typedef struct {
@@ -175,63 +199,68 @@ typedef struct {
 } UnkStruct_54; // 0x20 bytes
 
 typedef struct {
-  /* 0x0   */ u8    pad0[0x140];
-  /* 0x140 */ f32   unk140;
-  /* 0x144 */ f32   unk144;
-  /* 0x148 */ f32   unk148;
-  /* 0x14C */ f32   unk14C;
-  /* 0x150 */ f32   unk150;
-  /* 0x154 */ f32   unk154;
-  /* 0x158 */ f32   unk158;
-  /* 0x15C */ f32   unk15C;
-  /* 0x160 */ f32   unk160;
-  /* 0x164 */ f32   unk164;
-  /* 0x168 */ f32   unk168;
-  /* 0x16C */ f32   unk16C;
-  /* 0x170 */ u8    pad170[0x18];
+  /* 0x0   */ Mtx    unk0[2];
+  /* 0x80  */ MtxF   unk80;
+  /* 0xC0  */ MtxF   unkC0;
+  /* 0x100 */ u8     pad100[0x40];
+  /* 0x140 */ f32    unk140;
+  /* 0x144 */ f32    unk144;
+  /* 0x148 */ f32    unk148;
+  /* 0x14C */ f32    unk14C;
+  /* 0x150 */ f32    unk150;
+  /* 0x154 */ f32    unk154;
+  /* 0x158 */ f32    unk158;
+  /* 0x15C */ f32    unk15C;
+  /* 0x160 */ f32    unk160;
+  /* 0x164 */ f32    unk164;
+  /* 0x168 */ f32    unk168;
+  /* 0x16C */ f32    unk16C;
+  /* 0x170 */ u8     pad170[0x18];
 } UnkStruct_63; // 0x188 bytes
 
 struct UnkStruct_49 {
-  /* 0x0  */ u8             pad0[0x2];
+  /* 0x0  */ u16            unk0;
   /* 0x2  */ u8             unk2;
   /* 0x3  */ u8             unk3;  // cnt of unk4
   /* 0x4  */ UnkStruct_49 **unk4;
   /* 0x8  */ s32            unk8;
   /* 0xC  */ UnkStruct_63  *unkC;
-  /* 0x10 */ s32            unk10;
-  /* 0x14 */ s32            unk14;
-  /* 0x18 */ s32            unk18;
-  /* 0x1C */ s32            unk1C;
-  /* 0x20 */ s32            unk20;
-  /* 0x24 */ s32            unk24;
-  /* 0x28 */ s32            unk28;
-  /* 0x2C */ s32            unk2C;
-  /* 0x30 */ s32            unk30;
-  /* 0x34 */ s32            unk34;
-  /* 0x38 */ s32            unk38;
-  /* 0x3C */ s32            unk3C;
+  /* 0x10 */ f32            unk10[12];
 }; // 0x40 bytes
+
+typedef struct {
+  /* 0x0  */ f32   min;
+  /* 0x4  */ f32   max;
+  /* 0x8  */ f32   red;
+  /* 0xC  */ f32   green;
+  /* 0x10 */ f32   blue;
+  /* 0x14 */ f32   alpha;
+} FogParams; // 0x18 bytes
+
+typedef struct {
+  /* 0x0  */ s32            unk0;   // cnt of unk18
+  /* 0x4  */ s32            unk4;   // cnt of unk28
+  /* 0x8  */ s32            unk8;   // cnt of unk2C
+  /* 0xC  */ s32            unkC;   // cnt of unk30
+  /* 0x10 */ s32            unk10;
+  /* 0x14 */ s32            unk14;  // cnt of unk38
+  /* 0x18 */ UnkStruct_49  *unk18;  // list
+  /* 0x1C */ UnkStruct_54  *unk1C;
+  /* 0x20 */ FogParams     *unk20;
+  /* 0x24 */ UnkStruct_45  *unk24;  // id = 3
+  /* 0x28 */ UnkStruct_39 **unk28;  // id = 4[unk4]
+  /* 0x2C */ UnkStruct_46 **unk2C;  // id = 2[unk8]
+  /* 0x30 */ UnkStruct_44 **unk30;  // id = 1[unkC]
+  /* 0x34 */ UnkStruct_68  *unk34;  // list
+  /* 0x38 */ s16           *unk38;  // [unk14]
+} UnkStruct_75; // 0x3C bytes
 
 typedef struct {
   /* 0x0  */ BaseHeader     basehdr;  // .id = 5
   /* 0x8  */ u8            *unk8;
   /* 0xC  */ s32            unkC;
 
-  /* 0x10 */ s32            unk10;    // cnt of unk28
-  /* 0x14 */ s32            unk14;    // cnt of unk38
-  /* 0x18 */ s32            unk18;    // cnt of unk3C
-  /* 0x1C */ s32            unk1C;    // cnt of unk40
-  /* 0x20 */ s32            unk20;
-  /* 0x24 */ s32            unk24;
-  /* 0x28 */ UnkStruct_49  *unk28;    // list
-  /* 0x2C */ UnkStruct_54  *unk2C;
-  /* 0x30 */ u8            *unk30;
-  /* 0x34 */ UnkStruct_45  *unk34;    // id = 3
-  /* 0x38 */ UnkStruct_39 **unk38;    // id = 4[unk14]
-  /* 0x3C */ UnkStruct_46 **unk3C;    // id = 2[unk18]
-  /* 0x40 */ UnkStruct_44 **unk40;    // id = 1[unk1C]
-  /* 0x44 */ UnkStruct_68  *unk44;    // list
-  /* 0x48 */ u8            *unk48;
+  /* 0x10 */ UnkStruct_75   unk10;
 } UnkStruct_48; // 0x4C bytes
 
 
@@ -264,6 +293,12 @@ typedef struct {
   /* 0x20 */ UnkStruct_50  *unk20;
 } UnkStruct_51; // 0x24 bytes
 
+typedef struct {
+  /* 0x0 */ UnkStruct_48  *unk0;
+  /* 0x4 */ s32            unk4;  // cnt of unk8
+  /* 0x8 */ UnkStruct_51  *unk8;
+} UnkStruct_76; // 0xC bytes
+
 struct UnkStruct_50 {
   /* 0x0  */ BaseHeader     basehdr;  // .id = 6
   /* 0x8  */ UnkStruct_50  *unk8;     // parent node
@@ -273,9 +308,7 @@ struct UnkStruct_50 {
   /* 0x18 */ f32            unk18;
   /* 0x1C */ s32            unk1C;
 
-  /* 0x20 */ UnkStruct_48  *unk20;
-  /* 0x24 */ s32            unk24;    // cnt of unk28
-  /* 0x28 */ UnkStruct_51  *unk28;
+  /* 0x20 */ UnkStruct_76   unk20;
 }; // 0x2C bytes
 
 

@@ -55,7 +55,7 @@ static Square *Multisquare_8006a050_extralarge_manyloops_interesting(s32 x, s32 
     for (col = x; col < x + 4; col++) {
       temp_s5 = g_boardPieces_ptr->cell_ptr_arr[col + (row * 10)];
       temp_s5->square_id = square_id;
-      temp_s5->cubeInfo.cube_ptr->mino.unk22 = (0xFF - temp_s5->cubeInfo.cube_ptr->mino.unk20.s) / 16;
+      temp_s5->cubeInfo.cube_ptr->mino.unk22 = (0xFF - temp_s5->cubeInfo.cube_ptr->mino.unk20) / 16;
       Minos_80070860_fortyliner(&temp_s5->cubeInfo.cube_ptr->mino, &color, 16);
     }
   }

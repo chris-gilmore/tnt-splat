@@ -74,7 +74,7 @@ void func_80075760(UnkStruct_0 *arg0, u8 arg1) {
     arg0->unk58 = func_800A2FB0;
     break;
   case 1:
-    arg0->unk58 = (void (*)(UnkStruct_0 *))func_800A30F0;
+    arg0->unk58 = func_800A30F0;
     break;
   }
 }

@@ -24,8 +24,8 @@ static void   Minos_8006f300_eightliner_calls_80076458_4_times(Mino *);
 static void   func_8006F39C(UnkStruct_8 *);
 static void   Minos_8006f4b4_thirtyliner_interesting(UnkStruct_8 *);
 static void   func_8006F7E8(UnkStruct_8 *);
-static void   Minos_8006f7f0_sets_struct_0_to_0x11(s8 *);
-static void   Minos_8006f994_sets_struct_0_to_0x23(s8 *, s8 *);
+static void   Minos_8006f7f0_sets_struct_0_to_0x11(u8 *);
+static void   Minos_8006f994_sets_struct_0_to_0x23(u8 *, u8 *);
 static void   Minos_8006fc8c_twentyfive_liner(u8, u8);
 static void   Minos_800704e0_threeliner_sets_0x130(Mino *);
 
@@ -34,7 +34,7 @@ static void Minos_8006f260_eightliner_calls_8007641c_4_times(Mino *arg0) {
   register UnkStruct_24 *var_s1 = &D_8011FC18.unk28->unk14;
 
   var_s1->unk0 = &arg0->unk24;
-  var_s1->unk4 = &arg0->unkB0;
+  var_s1->unk4 = arg0->unkB0;
 
   func_8007641C(&var_s0->unk0[0], &var_s1->unk24[0]);
   func_8007641C(&var_s0->unk0[1], &var_s1->unk24[1]);
@@ -49,7 +49,7 @@ static void Minos_8006f300_eightliner_calls_80076458_4_times(Mino *arg0) {
   register UnkStruct_24 *var_s1 = &D_8011FC18.unk28->unk14;
 
   var_s1->unk0 = &arg0->unk24;
-  var_s1->unk4 = &arg0->unkF0;
+  var_s1->unk4 = arg0->unkF0;
 
   func_80076458(&var_s0->unk0[0], &var_s1->unk24[0]);
   func_80076458(&var_s0->unk0[1], &var_s1->unk24[1]);
@@ -147,7 +147,7 @@ static void Minos_8006f4b4_thirtyliner_interesting(UnkStruct_8 *arg0) {
 static void func_8006F7E8(UnkStruct_8 *arg0) {
 }
 
-static void Minos_8006f7f0_sets_struct_0_to_0x11(s8 *arg0) {
+static void Minos_8006f7f0_sets_struct_0_to_0x11(u8 *arg0) {
   register Gfx *gdl;
 
   gdl = g_gdl;
@@ -162,12 +162,14 @@ static void Minos_8006f7f0_sets_struct_0_to_0x11(s8 *arg0) {
 
   gDPLoadBlock(gdl++, G_TX_LOADTILE, 0, 0, 31, 2048);
 
+  // 0x8000 is 0.5
   gSPTexture(gdl++, 0x8000, 0x8000, 0, D_800D0560, G_ON);
 
   gDPTileSync(gdl++);
 
   gDPSetTile(gdl++, G_IM_FMT_I, G_IM_SIZ_8b, 1, 0x0000, D_800D0560, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOLOD);
 
+  // 28 is 7 << 2
   gDPSetTileSize(gdl++, D_800D0560, 0, 0, 28, 28);
 
   D_8011FC54 = D_800D0560;
@@ -176,7 +178,7 @@ static void Minos_8006f7f0_sets_struct_0_to_0x11(s8 *arg0) {
   g_gdl = gdl;
 }
 
-static void Minos_8006f994_sets_struct_0_to_0x23(s8 *arg0, s8 *arg1) {
+static void Minos_8006f994_sets_struct_0_to_0x23(u8 *arg0, u8 *arg1) {
   register Gfx *gdl;
 
   gdl = g_gdl;
@@ -203,18 +205,21 @@ static void Minos_8006f994_sets_struct_0_to_0x23(s8 *arg0, s8 *arg1) {
 
   gDPLoadBlock(gdl++, G_TX_LOADTILE, 0, 0, 31, 2048);
 
+  // 0x8000 is 0.5
   gSPTexture(gdl++, 0x8000, 0x8000, 0, D_800D0560, G_ON);
 
   gDPTileSync(gdl++);
 
   gDPSetTile(gdl++, G_IM_FMT_I, G_IM_SIZ_8b, 1, 0x0000, D_800D0560, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOLOD);
 
+  // 28 is 7 << 2
   gDPSetTileSize(gdl++, D_800D0560, 0, 0, 28, 28);
 
   gDPTileSync(gdl++);
 
   gDPSetTile(gdl++, G_IM_FMT_I, G_IM_SIZ_8b, 1, 0x0008, D_800D0560 + 1, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOLOD);
 
+  // 28 is 7 << 2
   gDPSetTileSize(gdl++, D_800D0560 + 1, 0, 0, 28, 28);
 
   D_8011FC54 = D_800D0560;
@@ -237,6 +242,9 @@ static void Minos_8006fc8c_twentyfive_liner(u8 arg0, u8 is_transparent) {
         break;
       case 2:
         gDPSetCycleType(gdl++, G_CYC_2CYCLE);
+        // see http://n64devkit.square7.ch/tutorial/graphics/10/10_5.htm
+        // for multi-tile morphing
+        // TODO: see about using gDPLoadMultiTile above instead of gDPLoadBlock, gDPSetTile and gDPSetTileSize
         gDPSetCombineLERP(gdl++, TEXEL1, TEXEL0, ENV_ALPHA, TEXEL0, 0, 0, 0, SHADE, ENVIRONMENT, PRIMITIVE, COMBINED, PRIMITIVE, 0, 0, 0, PRIMITIVE);
         break;
       }
@@ -262,7 +270,7 @@ void Minos_Mino_Render(Mino *arg0, UnkStruct_8 *arg1) {
   register u8 unused_s4;
   register Gfx *gdl;
 
-  temp_s0 = arg0->unk20.c.lo;
+  temp_s0 = arg0->unk20;
   if (arg0->unk1C == 0xFF) {
     alpha = D_8011FC18.alpha;
   } else if (D_8011FC18.alpha == 0xFF) {
@@ -282,11 +290,11 @@ void Minos_Mino_Render(Mino *arg0, UnkStruct_8 *arg1) {
       arg0->unk1 &= ~0x1;
     }
     if (temp_s0 == 0) {
-      Minos_8006f7f0_sets_struct_0_to_0x11(&arg0->unkB0);
+      Minos_8006f7f0_sets_struct_0_to_0x11(arg0->unkB0);
     } else if (temp_s0 == 0xFF) {
-      Minos_8006f7f0_sets_struct_0_to_0x11(&arg0->unkF0);
+      Minos_8006f7f0_sets_struct_0_to_0x11(arg0->unkF0);
     } else {
-      Minos_8006f994_sets_struct_0_to_0x23(&arg0->unkB0, &arg0->unkF0);
+      Minos_8006f994_sets_struct_0_to_0x23(arg0->unkB0, arg0->unkF0);
     }
     if ((temp_s0 == 0) || (temp_s0 == 0xFF)) {
       (alpha == 0xFF) ? Minos_8006fc8c_twentyfive_liner(1, FALSE) : Minos_8006fc8c_twentyfive_liner(1, TRUE);
@@ -325,11 +333,11 @@ void Minos_Mino_Render(Mino *arg0, UnkStruct_8 *arg1) {
 
 void Minos_800702e4_nineliner(Mino *arg0) {
   Minos_80070818_oneliner_sets_arg0_0x130_to_arg1(arg0, g_cubeTiles_ptr->unkDC00[0]);
-  func_800A2F30(&arg0->unk24, arg0->unk130);
+  func_800A2F30((s16 *) &arg0->unk24, (s16 *) arg0->unk130);
   arg0->unk1C = 0xFF;
   arg0->unk1E = arg0->unk1C;
   arg0->unk1D = 0;
-  arg0->unk20.s = 0;
+  arg0->unk20 = 0;
   arg0->unk22 = 0;
   arg0->unk0 = 1;
   arg0->unk1 |= 1;
@@ -338,18 +346,18 @@ void Minos_800702e4_nineliner(Mino *arg0) {
 void Minos_80070398_fourteenliner(Mino *arg0, Mino *arg1) {
   arg0->unk0 = arg1->unk0;
   arg0->unk1 = arg1->unk1;
-  arg0->unk20.s = arg1->unk20.s;
+  arg0->unk20 = arg1->unk20;
   arg0->unk22 = arg1->unk22;
   arg0->unk130 = arg1->unk130;
   arg0->unk1C = arg1->unk1C;
   arg0->unk2 = arg1->unk2;
   arg0->unk4 = arg1->unk4;
   arg0->unk10 = arg1->unk10;
-  func_800A2F30(&arg0->unk24, &arg1->unk24);
+  func_800A2F30((s16 *) &arg0->unk24, (s16 *) &arg1->unk24);
 }
 
 static void Minos_800704e0_threeliner_sets_0x130(Mino *arg0) {
-  register s32 var_s0 = func_800A2F50(arg0->unk130, &arg0->unk24);
+  register s32 var_s0 = func_800A2F50((s8 *) arg0->unk130, (s8 *) &arg0->unk24);
 
   if (var_s0 == 0) {
     arg0->unk130 = NULL;
@@ -402,13 +410,13 @@ void Minos_80070528_Morph(Mino *arg0) {
   }
 
   if (arg0->unk22 != 0) {
-    arg0->unk20.s += arg0->unk22;
-    if (arg0->unk20.s < 0) {
-      arg0->unk20.s = 0;
+    arg0->unk20 += arg0->unk22;
+    if (arg0->unk20 < 0) {
+      arg0->unk20 = 0;
       arg0->unk22 = 0;
     }
-    if (arg0->unk20.s > 0xFF) {
-      arg0->unk20.s = 0xFF;
+    if (arg0->unk20 > 0xFF) {
+      arg0->unk20 = 0xFF;
       arg0->unk22 = 0;
     }
   }
@@ -516,6 +524,7 @@ void Minos_Init(Minos *minos_ptr, UnkStruct_0 *arg1) {
   minos_ptr->unk20[0].v.tc[0] = 0;
   minos_ptr->unk20[0].v.tc[1] = 0;
   minos_ptr->unk20[1].v.flag = 0;
+  // 0x380 is 14 << 6
   minos_ptr->unk20[1].v.tc[0] = 0x380;
   minos_ptr->unk20[1].v.tc[1] = 0;
   minos_ptr->unk20[2].v.flag = 0;

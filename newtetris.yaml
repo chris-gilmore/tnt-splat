@@ -201,7 +201,7 @@ segments:
       - {start: 0x072C40, type: asm, vram: 0x800AC9C0, name: newtetris/072C40}
       - {start: 0x073120, type: asm, vram: 0x800ACEA0, name: newtetris/073120}
       - {start: 0x073D50, type: asm, vram: 0x800ADAD0, name: newtetris/073D50}
-      - {start: 0x074B00, type: asm, vram: 0x800AE880, name: newtetris/074B00}
+      - {start: 0x074B00, type:   c, vram: 0x800AE880, name: newtetris/074B00}
       - {start: 0x077340, type: asm, vram: 0x800B10C0, name: newtetris/077340}
       - {start: 0x0779F0, type:   c, vram: 0x800B1770, name: newtetris/sprite}
       - {start: 0x078FE0, type: asm, vram: 0x800B2D60, name: newtetris/078FE0}
@@ -291,7 +291,7 @@ segments:
       - {start: 0x080260, type: asm, vram: 0x800B9FE0, name: ultralib/gu/lookat}
       - {start: 0x080590, type: asm, vram: 0x800BA310, name: ultralib/gu/perspective}
       - {start: 0x080820, type: asm, vram: 0x800BA5A0, name: ultralib/gu/mtxcatl}
-      - {start: 0x0808E0, type: asm, vram: 0x800BA660, name: ultralib/gu/normalize}
+      - {start: 0x0808E0, type:   c, vram: 0x800BA660, name: ultralib/gu/normalize}
       - {start: 0x080970, type:   c, vram: 0x800BA6F0, name: ultralib/gu/align}
       - {start: 0x080B80, type: asm, vram: 0x800BA900, name: ultralib/gu/lookatref}
       - {start: 0x081010, type: asm, vram: 0x800BAD90, name: ultralib/libc/llcvt}
@@ -421,7 +421,7 @@ segments:
       - {start: 0x099B90, type: data, vram: 0x800D3910, name: newtetris/audio}
       - {start: 0x099BC0, type: data, vram: 0x800D3940, name: newtetris/04BFD0}
       - {start: 0x09C470, type: data, vram: 0x800D61F0, name: newtetris/069D80}
-      - {start: 0x09C480, type: data, vram: 0x800D6200, name: newtetris/borganim}
+      - {start: 0x09C480, type: .data, vram: 0x800D6200, name: newtetris/borganim}
       - {start: 0x09C4A0, type: data, vram: 0x800D6220, name: newtetris/06F290}
       - {start: 0x09DD80, type: .data, vram: 0x800D7B00, name: newtetris/06FFD0}
       - {start: 0x09DE10, type: data, vram: 0x800D7B90, name: newtetris/072080}
@@ -523,7 +523,7 @@ segments:
       - {start: 0x0A73D0, type: .rodata, vram: 0x800E1150, name: newtetris/072080}
       - {start: 0x0A73F0, type: rodata, vram: 0x800E1170, name: newtetris/072C40}
       - {start: 0x0A7400, type: rodata, vram: 0x800E1180, name: newtetris/073120}
-      - {start: 0x0A7410, type: rodata, vram: 0x800E1190, name: newtetris/074B00}
+      - {start: 0x0A7410, type: .rodata, vram: 0x800E1190, name: newtetris/074B00}
       - {start: 0x0A7560, type: rodata, vram: 0x800E12E0, name: newtetris/077340}
       - {start: 0x0A75C0, type: .rodata, vram: 0x800E1340, name: newtetris/sprite}
       - {start: 0x0A76D0, type: rodata, vram: 0x800E1450, name: newtetris/078FE0}
@@ -602,7 +602,7 @@ segments:
       - {type: bss, vram: 0x80128AB0, name: newtetris/04BFD0}
       - {type: .bss, vram: 0x80129340, name: newtetris/rand}
       - {type: .bss, vram: 0x80129370, name: newtetris/frametime}
-      - {type: bss, vram: 0x80129390, name: newtetris/borganim}
+      - {type: .bss, vram: 0x80129390, name: newtetris/borganim}
       - {type: bss, vram: 0x801295E0, name: newtetris/06F290}
       - {type: .bss, vram: 0x80129600, name: newtetris/06FFD0}
       - {type: bss, vram: 0x8012A860, name: newtetris/072080}

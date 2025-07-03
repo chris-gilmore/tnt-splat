@@ -18,15 +18,15 @@ static void func_80076F20(UnkStruct_11 *arg0) {
   if (arg0->unk2C != 0) {
     arg0->unk4 = func_800A6A74(arg0->unk2C);
     if (arg0->unk28 == 0) {
-      arg0->unk0 = func_800A6990((s32)arg0->unk4->unk20);
+      arg0->unk0 = func_800A6990((intptr_t)arg0->unk4->unk20.unk0);
     }
     func_800A678C(arg0->unk0, arg0->unk4);
   }
   if (arg0->unk20 == 0) {
     arg0->unk20 |= 0x1B;
   }
-  guMtxIdentF(arg0->unk0->unkC);
-  guMtxIdentF(arg0->unk0->unk4C);
+  guMtxIdentF(arg0->unk0->unkC.mf);
+  guMtxIdentF(arg0->unk0->unk4C.mf);
 }
 
 // deinit

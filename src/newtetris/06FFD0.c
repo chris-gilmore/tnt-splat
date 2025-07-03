@@ -101,7 +101,7 @@ void func_800A9E44(void *arg0, void *arg1) {
 
   D_80129600 = arg0;  // rom address of fx lut
   D_80129604 = arg1;  // rom address of fx assets
-  func_800ABFF0(D_80129600, &sp20, 8);
+  func_800ABFF0(D_80129600, &sp20, sizeof(UnkStruct_42));
   D_80129608 = sp20.num_assets;  // total number of fx assets
   D_800D7B00 = n64HeapAlloc(sp20.num_assets * sizeof(UnkStruct_40));
   for (i = 0; i < D_80129608; i++) {
@@ -118,7 +118,7 @@ void func_800A9EF0(void *arg0, void *arg1) {
 
   D_80129600 = arg0;
   D_80129604 = arg1;
-  func_800ABFF0(D_80129600, &sp20, 8);
+  func_800ABFF0(D_80129600, &sp20, sizeof(UnkStruct_42));
   D_80129608 = sp20.num_assets;
   D_800D7B00 = n64HeapAlloc(sp20.num_assets * sizeof(UnkStruct_40));
   for (i = 0; i < D_80129608; i++) {
@@ -305,7 +305,7 @@ void func_800AA514(void) {
 static void func_800AA5A8(void *addr) {
   UnkStruct_43 *obj = addr;
 
-  OFFSET_TO_PTR(obj->unkC, addr, 0x8);
+  OFFSET_TO_PTR(obj->unk8.unk4, addr, 0x8);
 }
 
 static s32 func_800AA5BC(void *addr) {
@@ -326,8 +326,8 @@ void func_800AA5C8(UnkStruct_43 *obj) {
 static void func_800AA608(void *addr) {
   UnkStruct_44 *obj = addr;
 
-  OFFSET_TO_PTR(obj->unk10, addr, 0x8);
-  OFFSET_TO_PTR(obj->unk14, addr, 0x8);
+  OFFSET_TO_PTR(obj->unk8.unk8, addr, 0x8);
+  OFFSET_TO_PTR(obj->unk8.unkC, addr, 0x8);
 }
 
 static s32 func_800AA62C(void *addr) {
@@ -351,22 +351,22 @@ static void func_800AA678(void *addr) {
   s32 i;
   UnkStruct_47 *lst;
 
-  OFFSET_TO_PTR(obj->unk1C, addr, 0x10);
-  OFFSET_TO_PTR(obj->unk20, addr, 0x10);
-  OFFSET_TO_PTR(obj->unk2C, addr, 0x10);
+  OFFSET_TO_PTR(obj->unk10.unkC, addr, 0x10);
+  OFFSET_TO_PTR(obj->unk10.unk10, addr, 0x10);
+  OFFSET_TO_PTR(obj->unk10.unk1C, addr, 0x10);
 
-  p_gdl = obj->unk1C;
-  for (i = obj->unk14; i != 0; i--, p_gdl++) {
+  p_gdl = obj->unk10.unkC;
+  for (i = obj->unk10.unk4; i != 0; i--, p_gdl++) {
     OFFSET_TO_PTR(*p_gdl, addr, 0x10);
   }
 
-  if ((intptr_t)obj->unk28 != 0) {
-    OFFSET_TO_PTR(obj->unk28, addr, 0x10);
-    OFFSET_TO_PTR(obj->unk28->unk4, addr, 0x10);
-    OFFSET_TO_PTR(obj->unk28->unk8, addr, 0x10);
+  if ((intptr_t)obj->unk10.unk18 != 0) {
+    OFFSET_TO_PTR(obj->unk10.unk18, addr, 0x10);
+    OFFSET_TO_PTR(obj->unk10.unk18->unk4, addr, 0x10);
+    OFFSET_TO_PTR(obj->unk10.unk18->unk8, addr, 0x10);
 
-    lst = obj->unk28->unk8;
-    for (i = obj->unk28->unk0; i != 0; i--, lst++) {
+    lst = obj->unk10.unk18->unk8;
+    for (i = obj->unk10.unk18->unk0; i != 0; i--, lst++) {
       if (lst->unk0 > 1) {
         OFFSET_TO_PTR(lst->unk4, addr, 0x10);
       }
@@ -415,8 +415,8 @@ void func_800AA8DC(UnkStruct_39 *obj) {
 static void func_800AA91C(void *addr) {
   UnkStruct_45 *obj = addr;
 
-  obj->unk2C = NULL;
-  OFFSET_TO_PTR(obj->unk28, addr, 0x10);
+  obj->unk10.unk1C = NULL;
+  OFFSET_TO_PTR(obj->unk10.unk18, addr, 0x10);
 }
 
 static s32 func_800AA934(void *addr) {
@@ -439,34 +439,34 @@ static void func_800AA980(void *addr) {
   UnkStruct_49 *lst;
   s32 i;
 
-  if ((intptr_t)obj->unk28 != 0) {
-    OFFSET_TO_PTR(obj->unk28, addr, 0x10);
+  if ((intptr_t)obj->unk10.unk18 != 0) {
+    OFFSET_TO_PTR(obj->unk10.unk18, addr, 0x10);
 
-    lst = obj->unk28;
-    for (i = obj->unk10; i != 0; i--, lst++) {
+    lst = obj->unk10.unk18;
+    for (i = obj->unk10.unk0; i != 0; i--, lst++) {
       OFFSET_TO_PTR(lst->unk4, addr, 0x10);
     }
   }
-  if ((intptr_t)obj->unk30 != 0) {
-    OFFSET_TO_PTR(obj->unk30, addr, 0x10);
+  if ((intptr_t)obj->unk10.unk20 != 0) {
+    OFFSET_TO_PTR(obj->unk10.unk20, addr, 0x10);
   }
-  if ((intptr_t)obj->unk2C != 0) {
-    OFFSET_TO_PTR(obj->unk2C, addr, 0x10);
-    func_800ABAB8(obj->unk2C, (u8 *)addr + 0x10);
+  if ((intptr_t)obj->unk10.unk1C != 0) {
+    OFFSET_TO_PTR(obj->unk10.unk1C, addr, 0x10);
+    func_800ABAB8(obj->unk10.unk1C, (u8 *)addr + 0x10);
   }
-  if ((intptr_t)obj->unk38 != 0) {
-    OFFSET_TO_PTR(obj->unk38, addr, 0x10);
+  if ((intptr_t)obj->unk10.unk28 != 0) {
+    OFFSET_TO_PTR(obj->unk10.unk28, addr, 0x10);
   }
-  if ((intptr_t)obj->unk3C != 0) {
-    OFFSET_TO_PTR(obj->unk3C, addr, 0x10);
+  if ((intptr_t)obj->unk10.unk2C != 0) {
+    OFFSET_TO_PTR(obj->unk10.unk2C, addr, 0x10);
   }
-  if ((intptr_t)obj->unk40 != 0) {
-    OFFSET_TO_PTR(obj->unk40, addr, 0x10);
+  if ((intptr_t)obj->unk10.unk30 != 0) {
+    OFFSET_TO_PTR(obj->unk10.unk30, addr, 0x10);
   }
-  if ((intptr_t)obj->unk44 != 0) {
-    OFFSET_TO_PTR(obj->unk44, addr, 0x10);
+  if ((intptr_t)obj->unk10.unk34 != 0) {
+    OFFSET_TO_PTR(obj->unk10.unk34, addr, 0x10);
   }
-  OFFSET_TO_PTR(obj->unk48, addr, 0x10);
+  OFFSET_TO_PTR(obj->unk10.unk38, addr, 0x10);
 
   obj->basehdr.unk4 = 0;
 }
@@ -490,45 +490,45 @@ static s32 func_800AAB0C(void *addr) {
   Vtx *var_v0_4;
   Vtx *var_v1_5;
 
-  temp_t0 = obj->unk10;
-  var_v1 = obj->unk28;
+  temp_t0 = obj->unk10.unk0;
+  var_v1 = obj->unk10.unk18;
   var_a3 = 0;
   for (i = 0; i < temp_t0; i++, var_v1++) {
     var_v0 = var_v1->unk4;
     var_a3 += sizeof(UnkStruct_63);
     for (j = var_v1->unk3; j != 0; j--, var_v0++) {
-      *var_v0 = obj->unk28 + (intptr_t)*var_v0;
+      *var_v0 = obj->unk10.unk18 + (intptr_t)*var_v0;
     }
   }
 
-  temp_a0 = obj->unk34;
-  if ((intptr_t)obj->unk34 != -1) {
-    obj->unk34 = func_800AA14C((intptr_t)temp_a0);
+  temp_a0 = obj->unk10.unk24;
+  if ((intptr_t)obj->unk10.unk24 != -1) {
+    obj->unk10.unk24 = func_800AA14C((intptr_t)temp_a0);
     var_a3 += sizeof(UnkStruct_64);
   } else {
-    obj->unk34 = NULL;
+    obj->unk10.unk24 = NULL;
   }
 
-  if (obj->unk38 != NULL) {
-    var_v1_2 = obj->unk38;
-    for (i = obj->unk14; i != 0; i--, var_v1_2++) {
+  if (obj->unk10.unk28 != NULL) {
+    var_v1_2 = obj->unk10.unk28;
+    for (i = obj->unk10.unk4; i != 0; i--, var_v1_2++) {
       *var_v1_2 = func_800AA14C((intptr_t)*var_v1_2);
       var_a3 += sizeof(UnkStruct_65);
     }
   }
 
-  if (obj->unk3C != NULL) {
-    var_t0 = obj->unk3C;
-    for (i = obj->unk18; i != 0; i--, var_t0++) {
+  if (obj->unk10.unk2C != NULL) {
+    var_t0 = obj->unk10.unk2C;
+    for (i = obj->unk10.unk8; i != 0; i--, var_t0++) {
       *var_t0 = func_800AA14C((intptr_t)*var_t0);
-      if ((*var_t0)->unk28 != NULL) {
+      if ((*var_t0)->unk10.unk18 != NULL) {
         var_a3 = (var_a3 + 7) & ~7;
-        var_a3 += (intptr_t)(*var_t0)->unk24 * sizeof(Vtx);
+        var_a3 += (intptr_t)(*var_t0)->unk10.unk14 * sizeof(Vtx);
       }
 
       var_a1 = 0;
-      var_v0_2 = (*var_t0)->unk2C;
-      for (j = (*var_t0)->unk14; j != 0; j--, var_v0_2++) {
+      var_v0_2 = (*var_t0)->unk10.unk1C;
+      for (j = (*var_t0)->unk10.unk4; j != 0; j--, var_v0_2++) {
         /*
           The assembly of the following statement suggests that var_v0_2
           is a pointer to a packed struct (ie, #pragma pack).
@@ -549,18 +549,18 @@ static s32 func_800AAB0C(void *addr) {
     }
   }
 
-  if (obj->unk40 != NULL) {
-    var_v1_3 = obj->unk40;
-    for (i = obj->unk1C; i != 0; i--, var_v1_3++) {
+  if (obj->unk10.unk30 != NULL) {
+    var_v1_3 = obj->unk10.unk30;
+    for (i = obj->unk10.unkC; i != 0; i--, var_v1_3++) {
       *var_v1_3 = func_800AA14C((intptr_t)*var_v1_3);
     }
   }
 
   obj->unk8 = n64HeapAlloc(var_a3);
 
-  var_v1 = obj->unk28;
+  var_v1 = obj->unk10.unk18;
   var_a3 = (intptr_t)obj->unk8;
-  for (i = obj->unk10; i != 0; i--, var_v1++) {
+  for (i = obj->unk10.unk0; i != 0; i--, var_v1++) {
     var_v1->unkC = (UnkStruct_63 *)var_a3;
     var_a3 += sizeof(UnkStruct_63);
 
@@ -578,27 +578,27 @@ static s32 func_800AAB0C(void *addr) {
     var_v1->unkC->unk16C = 0.0f;
   }
 
-  if (obj->unk34 != NULL) {
-    obj->unk34->unk2C = (UnkStruct_64 *)var_a3;
+  if (obj->unk10.unk24 != NULL) {
+    obj->unk10.unk24->unk10.unk1C = (UnkStruct_64 *)var_a3;
     var_a3 += sizeof(UnkStruct_64);
   }
 
-  if (obj->unk38 != NULL) {
-    var_v0_3 = obj->unk38;
-    for (i = obj->unk14; i != 0; i--, var_v0_3++) {
-      (*var_v0_3)->unk18 = (UnkStruct_65 *)var_a3;
+  if (obj->unk10.unk28 != NULL) {
+    var_v0_3 = obj->unk10.unk28;
+    for (i = obj->unk10.unk4; i != 0; i--, var_v0_3++) {
+      (*var_v0_3)->unk8.unk10 = (UnkStruct_65 *)var_a3;
       var_a3 += sizeof(UnkStruct_65);
     }
   }
 
-  if (obj->unk3C != NULL) {
-    var_t2 = obj->unk3C;
-    for (i = obj->unk18; i != 0; i--, var_t2++) {
-      if ((*var_t2)->unk28 != NULL) {
-        var_a1 = (intptr_t)(*var_t2)->unk24;
+  if (obj->unk10.unk2C != NULL) {
+    var_t2 = obj->unk10.unk2C;
+    for (i = obj->unk10.unk8; i != 0; i--, var_t2++) {
+      if ((*var_t2)->unk10.unk18 != NULL) {
+        var_a1 = (intptr_t)(*var_t2)->unk10.unk14;
         var_a3 = (var_a3 + 7) & ~7;
-        (*var_t2)->unk24 = (Vtx *) var_a3;
-        var_v0_4 = (*var_t2)->unk20;
+        (*var_t2)->unk10.unk14 = (Vtx *) var_a3;
+        var_v0_4 = (*var_t2)->unk10.unk10;
         var_v1_5 = (Vtx *) var_a3;
         for (j = var_a1; j != 0; j--, var_v0_4++, var_v1_5++) {
           *var_v1_5 = *var_v0_4;
@@ -618,14 +618,14 @@ static s32 func_800AAB0C(void *addr) {
     }
   }
 
-  if (obj->unk2C != NULL) {
-    func_800ABD64(obj->unk2C);
-    var_v1_6 = obj->unk2C->unk14;
-    for (i = obj->unk2C->unk4; i != 0; i--, var_v1_6++) {
+  if (obj->unk10.unk1C != NULL) {
+    func_800ABD64(obj->unk10.unk1C);
+    var_v1_6 = obj->unk10.unk1C->unk14;
+    for (i = obj->unk10.unk1C->unk4; i != 0; i--, var_v1_6++) {
       if ((intptr_t)var_v1_6->unk0 == -1) {
         var_v1_6->unk0 = NULL;
       } else {
-        var_v1_6->unk0 = obj->unk28 + (intptr_t)var_v1_6->unk0;
+        var_v1_6->unk0 = obj->unk10.unk18 + (intptr_t)var_v1_6->unk0;
       }
     }
   }
@@ -639,26 +639,26 @@ void func_800AB5E0(UnkStruct_48 *obj) {
   UnkStruct_44 **p_obj3;
   s32 i;
 
-  if (obj->unk34 != NULL) {
-    func_800AA940(obj->unk34);
+  if (obj->unk10.unk24 != NULL) {
+    func_800AA940(obj->unk10.unk24);
   }
-  if (obj->unk38 != NULL) {
-    p_obj1 = obj->unk38;
-    for (i = obj->unk14; i != 0; i--) {
+  if (obj->unk10.unk28 != NULL) {
+    p_obj1 = obj->unk10.unk28;
+    for (i = obj->unk10.unk4; i != 0; i--) {
       func_800AA8DC(*p_obj1);
       p_obj1++;
     }
   }
-  if (obj->unk3C != NULL) {
-    p_obj2 = obj->unk3C;
-    for (i = obj->unk18; i != 0; i--) {
+  if (obj->unk10.unk2C != NULL) {
+    p_obj2 = obj->unk10.unk2C;
+    for (i = obj->unk10.unk8; i != 0; i--) {
       func_800AA874(*p_obj2);
       p_obj2++;
     }
   }
-  if (obj->unk40 != NULL) {
-    p_obj3 = obj->unk40;
-    for (i = obj->unk1C; i != 0; i--) {
+  if (obj->unk10.unk30 != NULL) {
+    p_obj3 = obj->unk10.unk30;
+    for (i = obj->unk10.unkC; i != 0; i--) {
       func_800AA638(*p_obj3);
       p_obj3++;
     }
@@ -685,10 +685,10 @@ static void func_800AB700(void *addr) {
   s32 i, j;
   s32 tmp_1, tmp_2;
 
-  OFFSET_TO_PTR(obj->unk28, addr, 0x20);
+  OFFSET_TO_PTR(obj->unk20.unk8, addr, 0x20);
 
-  tmp_1 = obj->unk24;
-  lst_1 = obj->unk28;
+  tmp_1 = obj->unk20.unk4;
+  lst_1 = obj->unk20.unk8;
   for (i = 0; i < tmp_1; i++, lst_1++) {
     lst_1->unk20 = obj;
     OFFSET_TO_PTR(lst_1->unk1C, addr, 0x20);
@@ -725,8 +725,8 @@ static s32 func_800AB794(void *addr) {
 
   obj->unk14 = 0;
   obj->unk18 = 1.0;
-  var_t3 = obj->unk24;
-  var_t2 = obj->unk28;
+  var_t3 = obj->unk20.unk4;
+  var_t2 = obj->unk20.unk8;
   var_a1 = 0;
   for (i = 0; i < var_t3; i++, var_t2++) {
     var_t2->unk20 = obj;
@@ -750,7 +750,7 @@ static s32 func_800AB794(void *addr) {
   }
 
   var_a1_2 = n64HeapAlloc(var_a1);
-  var_t2 = obj->unk28;
+  var_t2 = obj->unk20.unk8;
   for (i = var_t3; i != 0; i--, var_t2++) {
     var_a3 = var_t2->unk1C;
     for (j = var_t2->unk18; j != 0; j--, var_a3++) {
@@ -780,13 +780,13 @@ static s32 func_800AB794(void *addr) {
 
 void func_800AB934(UnkStruct_50 *obj) {
   if (obj->basehdr.id == -1) {
-    n64HeapUnalloc(obj->unk28->unk1C->unk10);
+    n64HeapUnalloc(obj->unk20.unk8->unk1C->unk10);
     n64HeapUnalloc(obj);
     return;
   }
 
   if (func_800AA3DC(obj->basehdr.id) == 1) {
-    n64HeapUnalloc(obj->unk28->unk1C->unk10);
+    n64HeapUnalloc(obj->unk20.unk8->unk1C->unk10);
   }
 
   func_800AA3F4(obj->basehdr.id);
@@ -895,5 +895,5 @@ static void func_800ABD64(UnkStruct_54 *obj) {
 
 // unused
 s32 func_800ABDDC(s32 id) {
-  return *(s32 *)((u8 *)func_800AA14C(id) + 12);
+  return *(s32 *)((u8 *)func_800AA14C(id) + 0xC);
 }

@@ -14,18 +14,18 @@ typedef struct {
 } PaletteInfo; // 0x8 bytes
 
 typedef struct {
-  /* 0x0 */ u32   unk0;
-  /* 0x4 */ u32   unk4;
+  /* 0x0 */ s32   unk0;
+  /* 0x4 */ s32   unk4;
 } UnkStruct_23; // 0x8 bytes
 
 typedef struct {
-  /* 0x0  */ CubeTile      *unk0;        // &(Mino *)->unk24
-  /* 0x4  */ s8            *unk4;        // &(Mino *)->unk{B0,F0}
+  /* 0x0  */ CubeTile      *unk0;      // &(Mino *)->unk24
+  /* 0x4  */ u8            *unk4;      // &(Mino *)->unk{B0,F0}
   /* 0x8  */ u32            unk8;
-  /* 0xC  */ u32            unkC;
-  /* 0x10 */ u32            unk10;
-  /* 0x14 */ u32            unk14;
-  /* 0x18 */ u32            unk18;
+  /* 0xC  */ u32            unkC;      // 8, 200
+  /* 0x10 */ u32            unk10;     // 8, 150
+  /* 0x14 */ u32            unk14;     // 1, 2
+  /* 0x18 */ u32            unk18;     // 8 * 8, 200 * 150
   /* 0x1C */ u32            unk1C;
   /* 0x20 */ u32            unk20;
   /* 0x24 */ UnkStruct_23   unk24[4];

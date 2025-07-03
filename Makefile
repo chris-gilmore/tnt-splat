@@ -71,9 +71,9 @@ VERSION_J := 7
 VERSION_K := 8
 VERSION_L := 9
 
-VERSION_DEFINE := -DBUILD_VERSION=$(VERSION_$(VERSION))
+VERSION_DEFINE = -DBUILD_VERSION=$(VERSION_$(VERSION))
 
-TARGET_CFLAGS := -nostdinc -D_LANGUAGE_C -DNDEBUG -D_FINALROM -DF3DEX_GBI_2 -D_MIPS_SZLONG=32 $(VERSION_DEFINE)
+TARGET_CFLAGS = -nostdinc -D_LANGUAGE_C -DNDEBUG -D_FINALROM -DF3DEX_GBI_2 -D_MIPS_SZLONG=32 $(VERSION_DEFINE)
 
 INCLUDE_DIRS := /opt/ultralib/include /opt/ultralib/include/ido include include/minilzo
 
@@ -82,7 +82,7 @@ DEF_INC_CFLAGS := $(foreach i,$(INCLUDE_DIRS),-I$(i))
 CFLAGS = -G 0 $(OPT_FLAGS) $(TARGET_CFLAGS) $(DEF_INC_CFLAGS)
 CFLAGS += -non_shared -Wab,-r4300_mul -Xcpluscomm -fullwarn -32
 
-ASFLAGS := $(foreach i,$(INCLUDE_DIRS),-I$(i)) -march=vr4300 -mabi=32
+ASFLAGS = $(foreach i,$(INCLUDE_DIRS),-I$(i)) -march=vr4300 -mabi=32
 
 
 #==============================================================================#
@@ -125,10 +125,13 @@ $(BUILD_DIR)/src/newtetris/borganim.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/06FFD0.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/072080.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/sprite.o: OPT_FLAGS := -mips2 -O2
+$(BUILD_DIR)/src/newtetris/074B00.o: OPT_FLAGS := -mips2 -O2
 
-$(BUILD_DIR)/src/ultralib/gu/mtxutil.o: OPT_FLAGS := -mips2 -O2
-$(BUILD_DIR)/src/ultralib/gu/sins.o: OPT_FLAGS := -mips2 -O2
-$(BUILD_DIR)/src/ultralib/gu/coss.o: OPT_FLAGS := -mips2 -O2
+# handwritten assembly
+#$(BUILD_DIR)/src/newtetris/0691B0.o: OPT_FLAGS := -mips2 -O2
+#$(BUILD_DIR)/src/newtetris/0691B0.o: CFLAGS += -Wo,-loopunroll,0
+
+$(BUILD_DIR)/src/ultralib/%.o: OPT_FLAGS := -mips2 -O2
 
 # Assemble assembly code
 $(BUILD_DIR)/%.o: %.s

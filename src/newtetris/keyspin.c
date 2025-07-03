@@ -76,7 +76,7 @@ static void KeySpin_8006b53c_uses_pf_logic_cell_loops_10t_1(UnkStruct_36 *arg0, 
     if (cell_ptr->piece_type != EMPTY_CELL) {
       BoardP_8006d5bc_sixliner_calls_UpdateQueue_AddEntry(cell_ptr);
       Minos_80070860_fortyliner(&cell_ptr->cubeInfo.cube_ptr->mino, &g_color_white, 8);
-      cell_ptr->cubeInfo.cube_ptr->mino.unk22 = -cell_ptr->cubeInfo.cube_ptr->mino.unk20.s / 8;
+      cell_ptr->cubeInfo.cube_ptr->mino.unk22 = -cell_ptr->cubeInfo.cube_ptr->mino.unk20 / 8;
     }
     cell_ptr_ptr++;
   }

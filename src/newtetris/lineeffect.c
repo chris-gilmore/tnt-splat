@@ -73,7 +73,7 @@ static void LineEffect_800692fc_sixteenliner_loops_10_times(LineEffect *lineEffe
   }
   for (col = 0; col < 10; col++) {
     cell_ptr = lineEffect_ptr->cells[col];
-    cell_ptr->cubeInfo.cube_ptr->mino.unk22 = (0xFF - cell_ptr->cubeInfo.cube_ptr->mino.unk20.s) / 24;
+    cell_ptr->cubeInfo.cube_ptr->mino.unk22 = (0xFF - cell_ptr->cubeInfo.cube_ptr->mino.unk20) / 24;
     Minos_80070860_fortyliner(&cell_ptr->cubeInfo.cube_ptr->mino, &g_color_metal, 24);
   }
   lineEffect_ptr->state = 6;

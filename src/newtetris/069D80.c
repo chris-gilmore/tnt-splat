@@ -1,21 +1,18 @@
 #include "common.h"
 
 void func_800A3B00(UnkStruct_32 *arg0, f32 arg1, f32 arg2, f32 arg3) {
-  arg0->unkC[3][0] = arg1;
-  arg0->unkC[3][1] = arg2;
-  arg0->unkC[3][2] = arg3;
+  arg0->unkC.mf[3][0] = arg1;
+  arg0->unkC.mf[3][1] = arg2;
+  arg0->unkC.mf[3][2] = arg3;
 }
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/069D80/func_800A3B20.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/069D80/func_800A3B58.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/069D80/func_800A3BF8.s")
-/*
 void func_800A3BF8(UnkStruct_32 *arg0, f32 arg1, f32 arg2, f32 arg3) {
-  func_800B036C(arg0->unkC, arg1, arg2, arg3);
+  func_800B036C(&arg0->unkC, arg1, arg2, arg3);
 }
-*/
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/069D80/func_800A3C30.s")
 

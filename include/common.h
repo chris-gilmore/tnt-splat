@@ -7,6 +7,14 @@
 typedef long           intptr_t;
 typedef unsigned long  uintptr_t;
 
+typedef struct {
+  f32 x, y, z;
+} Vec3;
+
+typedef struct {
+  f32 mf[4][4];
+} MtxF;
+
 #include "newtetris/074B00.h"
 #include "newtetris/06FFD0.h"
 #include "newtetris/borganim.h"
