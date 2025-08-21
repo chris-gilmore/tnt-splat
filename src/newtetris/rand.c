@@ -19,7 +19,7 @@ static u32 func_800A35AC(void) {
   return D_80129340[0];
 }
 
-u32 func_800A35EC(s32 arg0, s32 arg1) {
+s32 func_800A35EC(s32 arg0, s32 arg1) {
   s32 tmp;
 
   if (arg0 == arg1) {
@@ -35,7 +35,7 @@ u32 func_800A35EC(s32 arg0, s32 arg1) {
   return (func_800A35AC() % ((arg1 - arg0) + 1)) + arg0;
 }
 
-u32 func_800A3658(s32 arg0) {
+s32 func_800A3658(s32 arg0) {
   s32 tmp = arg0 / 2;
 
   return func_800A35EC(-tmp, tmp);
@@ -80,7 +80,7 @@ static u32 func_800A37F0(u8 i) {
   return D_80129340[i];
 }
 
-u32 func_800A3840(u8 i, s32 arg1, s32 arg2) {
+s32 func_800A3840(u8 i, s32 arg1, s32 arg2) {
   s32 tmp;
 
   if (arg1 == arg2) {

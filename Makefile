@@ -25,7 +25,7 @@ ELF            := $(BUILD_DIR)/$(TARGET).elf
 LD_SCRIPT      := newtetris.ld
 
 # Directories containing source files
-SRC_DIRS := assets assets/y assets/image assets/anim assets/dcm assets/x asm asm/data src src/newtetris src/ultralib/gu asm/newtetris asm/data/newtetris asm/data/rsp asm/ultralib/audio asm/ultralib/debug asm/ultralib/gu asm/ultralib/io asm/ultralib/libc asm/ultralib/os asm/ultralib/sched asm/ultralib/vimodes asm/data/ultralib/audio asm/data/ultralib/debug asm/data/ultralib/gu asm/data/ultralib/io asm/data/ultralib/libc asm/data/ultralib/os asm/data/ultralib/sched asm/data/ultralib/vimodes
+SRC_DIRS := assets assets/y assets/image assets/anim assets/dcm assets/x asm asm/data src src/newtetris src/ultralib/gu asm/newtetris asm/data/newtetris asm/data/rsp asm/ultralib/audio asm/ultralib/debug asm/ultralib/gu asm/ultralib/io asm/ultralib/libc asm/ultralib/os asm/ultralib/vimodes asm/data/ultralib/audio asm/data/ultralib/debug asm/data/ultralib/gu asm/data/ultralib/io asm/data/ultralib/libc asm/data/ultralib/os asm/data/ultralib/vimodes
 
 # Source code files
 C_FILES           := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c))
@@ -117,6 +117,19 @@ $(BUILD_DIR)/%.o: %.c
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 # Alternate compiler flags needed for matching
+
+# These two should be -mips1 -O1
+$(BUILD_DIR)/src/newtetris/04BFD0.o: OPT_FLAGS := -mips2 -O1
+$(BUILD_DIR)/src/newtetris/haluci.o: OPT_FLAGS := -mips2 -O1
+
+# handwritten assembly
+#$(BUILD_DIR)/src/newtetris/0691B0.o: OPT_FLAGS := -mips2 -O2
+#$(BUILD_DIR)/src/newtetris/0691B0.o: CFLAGS += -Wo,-loopunroll,0
+
+# handwritten assembly
+#$(BUILD_DIR)/src/newtetris/06F220.o: OPT_FLAGS := -mips2 -O2
+#$(BUILD_DIR)/src/newtetris/06F220.o: CFLAGS += -Wo,-loopunroll,0
+
 $(BUILD_DIR)/src/newtetris/contq.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/rand.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/frametime.o: OPT_FLAGS := -mips2 -O2
@@ -126,10 +139,6 @@ $(BUILD_DIR)/src/newtetris/06FFD0.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/072080.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/sprite.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/074B00.o: OPT_FLAGS := -mips2 -O2
-
-# handwritten assembly
-#$(BUILD_DIR)/src/newtetris/0691B0.o: OPT_FLAGS := -mips2 -O2
-#$(BUILD_DIR)/src/newtetris/0691B0.o: CFLAGS += -Wo,-loopunroll,0
 
 $(BUILD_DIR)/src/ultralib/%.o: OPT_FLAGS := -mips2 -O2
 

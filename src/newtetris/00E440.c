@@ -1,13 +1,13 @@
 #include "common.h"
 
-u32 screen_1_width  = 320;
-u32 screen_1_height = 240;
-u32 screen_2_width  = SCREEN_WD;
-u32 screen_2_height = SCREEN_HT;
-u32 screen_3_width  = 320;
-u32 screen_3_height = 240;
-u32 screen_4_width  = 320;
-u32 screen_4_height = 240;
+s32 screen_1_width  = 320;
+s32 screen_1_height = 240;
+s32 screen_2_width  = SCREEN_WD;
+s32 screen_2_height = SCREEN_HT;
+s32 screen_3_width  = 320;
+s32 screen_3_height = 240;
+s32 screen_4_width  = 320;
+s32 screen_4_height = 240;
 
 static u32 D_800CFD70[44] = {
   0xE7000000, 0x00000000,

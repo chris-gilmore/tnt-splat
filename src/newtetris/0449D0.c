@@ -1,8 +1,38 @@
 #include "common.h"
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/0449D0/func_8007E750.s")
+extern f32 D_801201E0;
+extern f32 D_801201E4;
+/*
+static f32 D_801201E0;
+static f32 D_801201E4;
+*/
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/0449D0/func_8007E9F8.s")
+u8 func_8007E750(void) {
+  if (D_801201E4 <= 1.0) {
+    gDPPipeSync(g_gdl++);
+    gDPSetCycleType(g_gdl++, G_CYC_1CYCLE);
+    gSPClearGeometryMode(g_gdl++, G_ZBUFFER | G_SHADE | G_CULL_BOTH | G_FOG | G_LIGHTING | G_TEXTURE_GEN | G_TEXTURE_GEN_LINEAR | G_LOD | G_SHADING_SMOOTH);
+    gDPSetRenderMode(g_gdl++, G_RM_XLU_SURF, G_RM_XLU_SURF2);
+    gDPSetCombineMode(g_gdl++, G_CC_PRIMITIVE, G_CC_PRIMITIVE);
+    gDPSetPrimColor(g_gdl++, 0, 0, 0x00, 0x00, 0x00, D_801201E4 * 255);
+    gDPFillRectangle(g_gdl++, 0, 0, 400, 300);
+    gDPPipeSync(g_gdl++);
+
+    D_801201E4 += D_801201E0 * func_800A3AF0();
+    if (D_801201E4 >= 1.0) {
+      return TRUE;
+    }
+
+    return FALSE;
+  }
+
+  return TRUE;
+}
+
+void func_8007E9F8(f32 arg0) {
+  D_801201E0 = 1.0 / arg0;
+  D_801201E4 = 0;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/0449D0/func_8007EA2C.s")
 

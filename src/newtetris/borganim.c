@@ -61,6 +61,11 @@ Gfx *func_800A4B98(Gfx *gdl, UnkStruct_44 *arg1) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/borganim/func_800A4EC0.s")
 
+/*
+  The formulas used to fill the matrix match a rotation matrix constructed from three Euler angles (likely in ZYX or XYZ order), followed by translation.
+
+  The function is creating a 4x4 transformation matrix (rotation + translation) from an array of floats.
+*/
 static void func_800A5114(UnkStruct_49 *arg0, MtxF *arg1) {
   f32 *ptr;
   f32 sp48;
@@ -109,6 +114,16 @@ static void func_800A5114(UnkStruct_49 *arg0, MtxF *arg1) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/borganim/func_800A52E4.s")
 
+/*
+  This is a "look-at" matrix with an additional roll (rotation about the forward axis).
+  It's commonly used for camera orientation in 3D graphics, where you specify:
+
+  Eye position (camera location)
+
+  Target position (where the camera looks)
+
+  Roll (camera's tilt around its viewing direction)
+*/
 static void func_800A53E0(UnkStruct_49 *arg0, MtxF *arg1) {
   f32 temp_fv0;
   f32 temp_fv1;
@@ -199,6 +214,9 @@ static void func_800A5660(UnkStruct_49 *arg0, MtxF *arg1) {
   }
 }
 
+/*
+  Multiplies each axis of the input matrix by the corresponding value in the fourth column, effectively applying non-uniform scaling or perspective division, and writes the result to an output matrix.
+*/
 static void func_800A56E4(MtxF *arg0, MtxF *arg1) {
   f32 w, x, y, z;
 
@@ -1139,9 +1157,3 @@ static Gfx *func_800A7EFC(Gfx *gdl, UnkStruct_32 *arg1) {
 
   return gdl;
 }
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/borganim/func_800A8FA0.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/borganim/func_800A8FC8.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/borganim/func_800A8FE8.s")

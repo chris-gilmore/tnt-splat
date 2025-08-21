@@ -15,6 +15,7 @@ extern void   displayText_XY_RGBA_1(Gfx **, Font *, s32, s32, char *, s32, s32, 
 extern void   displayText_XY_RGBA_2(Gfx **, Font *, s32, s32, char *, s32, s32, s32, s32);
 extern s32    displayText_XY_RGBA_3(Gfx **, Font *, s32, s32, char, s32, s32, s32, s32);
 extern void   displayText_XY_RGBA_4(Gfx **, Font *, s32, s32, char *, s32, s32, s32, s32, s16);
+extern s32    get_char_width(Font *, char);
 extern s32    get_text_width(Font *, char *);
 extern s32    Font_80077e18_fifteenliner(Font *, char *);
 extern void   displayText_80077ee0_5(Gfx **, Font *, s32, s32, char *, s32, s32, s32, s32, s32, s32);

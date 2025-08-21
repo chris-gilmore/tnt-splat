@@ -5,50 +5,6 @@ osRomBase                 = 0x80000308;
 // .text
 // ===========================================================================
 
-// ultralib/sched/sched
-osCreateScheduler         = 0x8005EC10; // type:func
-osScAddClient             = 0x8005ED58; // type:func
-osScRemoveClient          = 0x8005EDC4; // type:func
-osScGetCmdQ               = 0x8005EE84; // type:func
-__scMain                  = 0x8005EE8C; // type:func
-__scHandleRetrace         = 0x8005EFC0; // type:func
-__scHandleRSP             = 0x8005F118; // type:func
-__scHandleRDP             = 0x8005F2D0; // type:func
-__scTaskReady             = 0x8005F388; // type:func
-__scTaskComplete          = 0x8005F3F0; // type:func
-__scAppendList            = 0x8005F510; // type:func
-__scExec                  = 0x8005F598; // type:func
-__scYield                 = 0x8005F6AC; // type:func
-__scSchedule              = 0x8005F6F8; // type:func
-
-// ultralib/audio/env
-alEnvmixerPull            = 0x8008C2F0; // type:func
-alEnvmixerParam           = 0x8008CB88; // type:func
-_pullSubFrame             = 0x8008CD1C; // type:func
-_frexpf                   = 0x8008D128; // type:func
-_ldexpf                   = 0x8008D290; // type:func
-_getRate                  = 0x8008D2C0; // type:func
-_getVol                   = 0x8008D690; // type:func
-
-// ultralib/audio/load_
-alAdpcmPull_              = 0x8008D770; // type:func
-alRaw16Pull_              = 0x8008DD18; // type:func
-alLoadParam_              = 0x8008E368; // type:func
-
-// ultralib/audio/synsetvol
-alSynSetVol               = 0x8008E5A0; // type:func
-
-// ultralib/audio/synthesizer
-alSynNew                  = 0x8008E690; // type:func
-alAudioFrame              = 0x8008EAAC; // type:func
-__allocParam              = 0x8008ED04; // type:func
-__freeParam               = 0x8008ED58; // type:func
-_collectPVoices           = 0x8008ED84; // type:func
-_freePVoice               = 0x8008EDE8; // type:func
-_timeToSamples            = 0x8008EE24; // type:func
-_samplesToTime            = 0x8008EE98; // type:func
-__nextSampleTime          = 0x8008EEFC; // type:func
-
 // ultralib/os/createmesgqueue
 osCreateMesgQueue         = 0x800B3080; // type:func
 

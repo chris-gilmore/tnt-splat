@@ -577,7 +577,7 @@ void Game_Init(u8 numPlayers, u8 *handicap_arr) {
     PlayerVars_SetGlobalPointers(k);
     temp_s5 = &g_PV_ptr->unk28;  // UnkStruct_1
     FUN_026900_80060ad4_oneliner_calls_fun(temp_s5);
-    FUN_026900_80060b04_twelveliner_loops_32t(temp_s5, 0xF00, 8, 4);  // JPAD (U, D, R, L) only
+    FUN_026900_80060b04_twelveliner_loops_32t(temp_s5, 0xF00, 8, 4);     // JPAD (U, D, R, L) only
     FUN_026900_80060b04_twelveliner_loops_32t(temp_s5, 0xC000, 16, 16);  // Buttons A and B only
     g_PV_ptr->unk20 = g_PV_ptr->unk24 = 0;
     gameVars.handicap = handicap_arr[k];

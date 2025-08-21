@@ -1,26 +1,6 @@
 #include "common.h"
 
 extern u8 D_800CFD48;
-extern s32 D_800D3CF4;
-extern s32 D_800D3CF8;
-extern s32 D_800D3CFC;
-extern u8 D_800D5378;
-extern u8 D_800D53C8;
-extern u8 D_800D6128;
-extern u8 D_800D6138;
-extern u8 D_801290D0;
-extern s32 D_801291E4;
-
-extern void   EndScroller_Init(u8 *, u8 *);
-extern void   EndScroller_Deinit(u8 *);
-extern u32    EndScroller_8008023c_line_452(u8 *, u32);
-extern void   EndScroller_80080400_line_502(u8 *);
-extern void   func_8008F280(u8 *, s32, u32, u32, void *);
-extern void   func_8008F360(u8 *, u8 *, u8 *);
-extern void   func_8009035C(void *, void *);
-extern void   func_80090A44(void);
-extern void   func_8009D5E4(void);
-extern u16   *func_800A8FC8(u8 *, u32, u16);
 
 ////////////////////////////////////////
 
@@ -41,13 +21,13 @@ static void Credits_Init(void) {
   D_80120240[5] = 0;
   D_80120240[6] = 0;
   D_80120240[7] = 0;
-  func_800A8FC8(D_80120240, 120004, 0);
+  func_800A8FC8((s16 *) D_80120240, 120004, 0);
   func_8008F280(&D_801290D0, -1, 400, 300, D_80120240);
-  func_8008F360(&D_801290D0, &D_800D6138, &D_800D6128);
+  func_8008F360(&D_801290D0, D_800D6138, D_800D6128);
   D_800D3CF4 = 0;
-  D_800D3CF8 = 0;
-  D_800D3CFC = 0;
-  D_801291E4 = 0;
+  D_800D3CF8 = NULL;
+  D_800D3CFC = NULL;
+  D_801290D0.unk114 = 0;
   EndScroller_Init(D_80120248, g_credits_str);
 }
 
@@ -74,9 +54,9 @@ void Credits_StateMachine_q(void) {
   case 2:
     EndScroller_Deinit(D_80120248);
     Credits_80083450_oneliner_calls_80090a44();
-    func_8009035C(&D_800D53C8, &D_800D5378);
+    func_8009035C(D_800D53C8, D_800D5378);
     D_800CFEE8 = 4;
-    D_800CFD48 = 1;
+    D_800CFD48 = TRUE;
     D_800D3330 = 0;
     return;
   }

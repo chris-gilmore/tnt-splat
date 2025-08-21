@@ -1,14 +1,14 @@
 #ifndef _00E440_H_
 #define _00E440_H_
 
-extern u32 screen_1_width;
-extern u32 screen_1_height;
-extern u32 screen_2_width;
-extern u32 screen_2_height;
-extern u32 screen_3_width;
-extern u32 screen_3_height;
-extern u32 screen_4_width;
-extern u32 screen_4_height;
+extern s32 screen_1_width;
+extern s32 screen_1_height;
+extern s32 screen_2_width;
+extern s32 screen_2_height;
+extern s32 screen_3_width;
+extern s32 screen_3_height;
+extern s32 screen_4_width;
+extern s32 screen_4_height;
 extern u8 D_800CFE24;
 
 extern Gfx *g_gdl;

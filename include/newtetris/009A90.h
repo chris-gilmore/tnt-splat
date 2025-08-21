@@ -3,5 +3,6 @@
 
 extern void   wonders1_case6_calls_music_magic(void);
 extern void   wonders1_something_hall_or_exit_case(void);
+extern void   wonders1_anim_related(s8);
 
 #endif /* !_009A90_H_ */

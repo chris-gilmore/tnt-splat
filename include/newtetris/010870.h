@@ -6,6 +6,8 @@ extern s16 D_800CFED4;
 //s32 D_800CFED8 = 0;
 extern s32 D_800CFED8;
 
+//u8 D_800CFEE4 = 0;
+extern u8 D_800CFEE4;
 //u8 D_800CFEE8 = 15;
 extern u8 D_800CFEE8;
 //u32 D_800CFEEC = 0;

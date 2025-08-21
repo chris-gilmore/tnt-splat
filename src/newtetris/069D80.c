@@ -1,5 +1,8 @@
 #include "common.h"
 
+// static
+Vec3 D_800D61F0 = { 1, 0, 0 };
+
 void func_800A3B00(UnkStruct_32 *arg0, f32 arg1, f32 arg2, f32 arg3) {
   arg0->unkC.mf[3][0] = arg1;
   arg0->unkC.mf[3][1] = arg2;
