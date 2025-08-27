@@ -1,7 +1,5 @@
 #include "common.h"
 
-extern u8 D_F00001;  // what is this?
-
 extern u16 draw_buffer;
 
 ////////////////////////////////////////
@@ -33,8 +31,8 @@ void FUN_046770_800804f0_many_heapallocs_for_arg0_elems(UnkStruct_12 *arg0) {
   // (RGB palette)  - IMG_UNKNOWN_0X4A3BBC
   arg0->unk10 = (RGB *) n64HeapAlloc(256 * sizeof(RGB));
 
-  arg0->unk14 = n64HeapAlloc(60008);
-  arg0->unk18 = n64HeapAlloc(60008);
+  arg0->unk14[0] = n64HeapAlloc(60008);
+  arg0->unk14[1] = n64HeapAlloc(60008);
 
   main_8004A34C_threeliner();
   FUN_03A750_800746c0_twentyliner(&D_273A00, arg0->unk0, IMG_UNKNOWN_0X4946FE);
@@ -79,8 +77,67 @@ void FUN_046770_800804f0_many_heapallocs_for_arg0_elems(UnkStruct_12 *arg0) {
   arg0->unk80 = 0;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/046770/FUN_046770_8008074c_nineliner_calls_9funcs_warg0_elems.s")
+void FUN_046770_8008074c_nineliner_calls_9funcs_warg0_elems(UnkStruct_12 *arg0) {
+  func_800756A8(&arg0->unk1C.unk8);
+  n64HeapUnalloc(arg0->unk8);
+  n64HeapUnalloc(arg0->unk14[0]);
+  n64HeapUnalloc(arg0->unk14[1]);
+  n64HeapUnalloc(arg0->unk4);
+  n64HeapUnalloc(arg0->unk0);
+  n64HeapUnalloc(arg0->unkC);
+  n64HeapUnalloc(arg0->unk10);
+  func_80075870(&arg0->unk1C);
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/046770/FUN_046770_8008080c_threeliner_sets_arg0.s")
+void FUN_046770_8008080c_threeliner_sets_arg0(UnkStruct_12 *arg0, s32 arg1) {
+  arg0->unk7C += arg1 * 129;
+  arg0->unk7E += arg1 * 53;
+  arg0->unk80 += arg1 * 17;
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/046770/FUN_046770_magic_150_is_it_ultra_related.s")
+void FUN_046770_magic_150_is_it_ultra_related(UnkStruct_12 *arg0) {
+  register UnkStruct_24 *temp_s0;
+  register u16 *temp_s1;
+  register s32 temp_s2;
+  register s32 temp_s3;
+  register s32 temp_s4;
+
+  temp_s0 = &arg0->unk1C.unk14;
+
+  temp_s1 = arg0->unk14[draw_buffer];
+  *temp_s1++ = 200;
+  *temp_s1++ = 150;
+  *temp_s1++ = 0;
+  *temp_s1++ = 0;
+
+  temp_s0->unk4 = temp_s1;
+
+  temp_s2 = sins(arg0->unk7C) << 7;
+  temp_s3 = coss(arg0->unk7E) << 7;
+  temp_s4 = (sins(arg0->unk80) << 7) + 0xF00000;
+
+  temp_s2 += temp_s3 >> 1;
+
+  temp_s0->unk24[0].unk0 = temp_s2;
+  temp_s0->unk24[0].unk4 = temp_s3;
+
+  temp_s0->unk24[1].unk0 = temp_s2 + temp_s4;
+  temp_s0->unk24[1].unk4 = temp_s3;
+
+  temp_s0->unk24[2].unk4 = temp_s3 + temp_s4;
+  temp_s0->unk24[2].unk0 = temp_s2;
+
+  temp_s0->unk24[3].unk0 = (temp_s2 + temp_s4) >> 1;
+  temp_s0->unk24[3].unk4 = temp_s3 + (temp_s4 / 2);
+
+  func_80075700(temp_s0, 200, 150, 2);
+  temp_s0->unk8 = arg0->unk0;
+  temp_s0->unk0 = arg0->unk8;
+  arg0->unk1C.unk58(&arg0->unk1C);
+
+  gDPSetScissor(g_gdl++, G_SC_NON_INTERLACE, 0, 0, 399, 299);
+
+  func_8005BBFC(&g_gdl);
+  weird_lots_of_magic_number_setting_66xrefs(&g_gdl, arg0->unk14[draw_buffer], NULL, 103, 70, 0xFF, 0xFF, 0xFF, 0xFF);
+  func_8005BE40(&g_gdl);
+}

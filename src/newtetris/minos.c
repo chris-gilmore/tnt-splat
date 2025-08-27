@@ -33,7 +33,7 @@ static void Minos_8006f260_eightliner_calls_8007641c_4_times(Mino *arg0) {
   register UnkStruct_22 *var_s0 = &D_8011FC18;
   register UnkStruct_24 *var_s1 = &D_8011FC18.unk28->unk14;
 
-  var_s1->unk0 = &arg0->unk24;
+  var_s1->unk0 = arg0->unk24.gradients;
   var_s1->unk4 = arg0->unkB0;
 
   func_8007641C(&var_s0->unk0[0], &var_s1->unk24[0]);
@@ -48,7 +48,7 @@ static void Minos_8006f300_eightliner_calls_80076458_4_times(Mino *arg0) {
   register UnkStruct_22 *var_s0 = &D_8011FC18;
   register UnkStruct_24 *var_s1 = &D_8011FC18.unk28->unk14;
 
-  var_s1->unk0 = &arg0->unk24;
+  var_s1->unk0 = arg0->unk24.gradients;
   var_s1->unk4 = arg0->unkF0;
 
   func_80076458(&var_s0->unk0[0], &var_s1->unk24[0]);

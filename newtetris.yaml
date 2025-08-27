@@ -169,7 +169,7 @@ segments:
       - {start: 0x0449D0, type:   c, vram: 0x8007E750, name: newtetris/0449D0}
       - {start: 0x046030, type:   c, vram: 0x8007FDB0, name: newtetris/endscroller}
       - {start: 0x046770, type:   c, vram: 0x800804F0, name: newtetris/046770}  # credits special fx
-      - {start: 0x046CF0, type: asm, vram: 0x80080A70, name: newtetris/046CF0}
+      - {start: 0x046CF0, type:   c, vram: 0x80080A70, name: newtetris/strutil}
       - {start: 0x046DD0, type: asm, vram: 0x80080B50, name: newtetris/046DD0}
       - {start: 0x0470D0, type:   c, vram: 0x80080E50, name: newtetris/0470D0}
       - {start: 0x0471E0, type:   c, vram: 0x80080F60, name: newtetris/minilzo}
@@ -416,7 +416,8 @@ segments:
       - {start: 0x099410, type: .data, vram: 0x800D3190, name: newtetris/n64heap}
       - {start: 0x099420, type: data, vram: 0x800D31A0, name: newtetris/099420}
       - {start: 0x099470, type: .data, vram: 0x800D31F0, name: newtetris/creditstext}
-      - {start: 0x099480, type: data, vram: 0x800D3200, name: newtetris/099480}
+      - {start: 0x099480, type: .data, vram: 0x800D3200, name: newtetris/endscroller}
+      - {start: 0x099540, type: data, vram: 0x800D32C0, name: newtetris/046DD0}
       - {start: 0x099550, type: data, vram: 0x800D32D0, name: newtetris/minilzo}
       - {start: 0x099560, type: data, vram: 0x800D32E0, name: newtetris/099560}
       - {start: 0x0995B0, type: .data, vram: 0x800D3330, name: newtetris/credits}

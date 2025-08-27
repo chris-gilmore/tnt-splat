@@ -957,11 +957,10 @@ FUN_046770_8008074c_nineliner_calls_9funcs_warg0_elems   = 0x8008074C; // type:f
 FUN_046770_8008080c_threeliner_sets_arg0                 = 0x8008080C; // type:func  note increments arg0 elements by arg1 elems
 FUN_046770_magic_150_is_it_ultra_related                 = 0x8008085C; // type:func  note probably not ultra related
 
-//      - {start: 0x046CF0, type: asm, vram: 0x80080A70, name: newtetris/046CF0}
-// consider naming this stringutils.c ?
-FUN_046CF0_leftSubString          = 0x80080A70; // type:func  note confirm that this looks for char arg1 within string arg0, and returns the left substring up till (and including?) that char, see ghidra with named vars
-FUN_046CF0_inString               = 0x80080AB8; // type:func  note confirm that this returns the position of char arg1 within string arg0, see ghidra with named vars
-FUN_046CF0_countNewLinesInString  = 0x80080B08; // type:func  note returns the count of '\n' characters
+// - {start: 0x046CF0, type:   c, vram: 0x80080A70, name: newtetris/strutil}
+strutil_nextline                  = 0x80080A70; // type:func
+strutil_linelen                   = 0x80080AB8; // type:func
+strutil_linecnt                   = 0x80080B08; // type:func
 
 //      - {start: 0x046DD0, type: asm, vram: 0x80080B50, name: newtetris/046DD0}
 func_80080B50                       = 0x80080B50; // type:func

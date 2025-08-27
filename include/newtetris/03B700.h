@@ -19,9 +19,9 @@ typedef struct {
 } UnkStruct_23; // 0x8 bytes
 
 typedef struct {
-  /* 0x0  */ CubeTile      *unk0;      // &(Mino *)->unk24
-  /* 0x4  */ u8            *unk4;      // &(Mino *)->unk{B0,F0}
-  /* 0x8  */ u32            unk8;
+  /* 0x0  */ Gradient2D    *unk0;      // &(Mino *)->unk24
+  /* 0x4  */ void          *unk4;      // &(Mino *)->unk{B0,F0}
+  /* 0x8  */ u8            *unk8;
   /* 0xC  */ u32            unkC;      // 8, 200
   /* 0x10 */ u32            unk10;     // 8, 150
   /* 0x14 */ u32            unk14;     // 1, 2
@@ -37,7 +37,7 @@ typedef struct {
   /* 0x6 */ s16   unk6;  // PaletteInfo.num_entries
   /* 0x8 */ u8    unk8;
   /* 0x9 */ u8    unk9;
-} UnkStruct_15; // 0xA bytes
+} UnkStruct_15; // 0xC bytes
 
 typedef struct UnkStruct_0 UnkStruct_0;
 

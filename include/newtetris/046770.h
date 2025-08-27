@@ -7,8 +7,7 @@ typedef struct {
   /* 0x8  */ Gradient2D   *unk8;
   /* 0xC  */ u8           *unkC;
   /* 0x10 */ RGB          *unk10;
-  /* 0x14 */ void         *unk14;
-  /* 0x18 */ void         *unk18;
+  /* 0x14 */ u16          *unk14[2];
   /* 0x1C */ UnkStruct_0   unk1C;
   /* 0x7C */ u16           unk7C;
   /* 0x7E */ u16           unk7E;
@@ -16,5 +15,8 @@ typedef struct {
 } UnkStruct_12; // 0x84 bytes
 
 extern void   FUN_046770_800804f0_many_heapallocs_for_arg0_elems(UnkStruct_12 *);
+extern void   FUN_046770_8008074c_nineliner_calls_9funcs_warg0_elems(UnkStruct_12 *);
+extern void   FUN_046770_8008080c_threeliner_sets_arg0(UnkStruct_12 *, s32);
+extern void   FUN_046770_magic_150_is_it_ultra_related(UnkStruct_12 *);
 
 #endif /* !_046700_H_ */
