@@ -25,8 +25,8 @@ static void func_80076F20(UnkStruct_11 *arg0) {
   if (arg0->unk20 == 0) {
     arg0->unk20 |= 0x1B;
   }
-  guMtxIdentF(arg0->unk0->unkC.mf);
-  guMtxIdentF(arg0->unk0->unk4C.mf);
+  guMtxIdentF((f32 (*)[4]) &arg0->unk0->unkC);
+  guMtxIdentF((f32 (*)[4]) &arg0->unk0->unk4C);
 }
 
 // deinit

@@ -117,19 +117,6 @@ $(BUILD_DIR)/%.o: %.c
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 # Alternate compiler flags needed for matching
-
-# These two should be -mips1 -O1
-$(BUILD_DIR)/src/newtetris/04BFD0.o: OPT_FLAGS := -mips2 -O1
-$(BUILD_DIR)/src/newtetris/haluci.o: OPT_FLAGS := -mips2 -O1
-
-# handwritten assembly
-#$(BUILD_DIR)/src/newtetris/0691B0.o: OPT_FLAGS := -mips2 -O2
-#$(BUILD_DIR)/src/newtetris/0691B0.o: CFLAGS += -Wo,-loopunroll,0
-
-# handwritten assembly
-#$(BUILD_DIR)/src/newtetris/06F220.o: OPT_FLAGS := -mips2 -O2
-#$(BUILD_DIR)/src/newtetris/06F220.o: CFLAGS += -Wo,-loopunroll,0
-
 $(BUILD_DIR)/src/newtetris/contq.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/rand.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/frametime.o: OPT_FLAGS := -mips2 -O2
@@ -141,6 +128,9 @@ $(BUILD_DIR)/src/newtetris/sprite.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/074B00.o: OPT_FLAGS := -mips2 -O2
 
 $(BUILD_DIR)/src/ultralib/%.o: OPT_FLAGS := -mips2 -O2
+
+# This should be -mips1 -O1
+$(BUILD_DIR)/src/newtetris/04BFD0.o: OPT_FLAGS := -mips2 -O1
 
 # Assemble assembly code
 $(BUILD_DIR)/%.o: %.s

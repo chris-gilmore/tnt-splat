@@ -165,7 +165,7 @@ void FrameAct_calls_gamefinish_something2(FrameAct *frameAct_ptr, s32 gf_type) {
 
   frameAct_ptr->unkC = TRUE;
   frameAct_ptr->state = 8;
-  if (D_800CFEE8 == 0xC) {
+  if (D_800CFEE8 == 12) {
     gamefinish_something2(&frameAct_ptr->unk10, gf_type, FALSE);
   } else {
     gamefinish_something2(&frameAct_ptr->unk10, gf_type, TRUE);
@@ -185,7 +185,7 @@ static void FrameAct_calls_gamefinish_something(FrameAct *frameAct_ptr) {
 
 void FrameAct_ScheduleEvents(FrameAct *frameAct_ptr, u32 arg1) {
   do {
-    if ((D_800CFEE8 != 0xC) || (frameAct_ptr->unk1 != 1)) {
+    if ((D_800CFEE8 != 12) || (frameAct_ptr->unk1 != 1)) {
       frameAct_ptr->unk1 = 0;
     }
     frameAct_ptr->unk2 = TRUE;

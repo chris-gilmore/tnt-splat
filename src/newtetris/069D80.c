@@ -4,9 +4,9 @@
 Vec3 D_800D61F0 = { 1, 0, 0 };
 
 void func_800A3B00(UnkStruct_32 *arg0, f32 arg1, f32 arg2, f32 arg3) {
-  arg0->unkC.mf[3][0] = arg1;
-  arg0->unkC.mf[3][1] = arg2;
-  arg0->unkC.mf[3][2] = arg3;
+  arg0->unkC.m30 = arg1;
+  arg0->unkC.m31 = arg2;
+  arg0->unkC.m32 = arg3;
 }
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/069D80/func_800A3B20.s")
@@ -55,11 +55,20 @@ void func_800A3BF8(UnkStruct_32 *arg0, f32 arg1, f32 arg2, f32 arg3) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/069D80/func_800A4304.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/069D80/func_800A4364.s")
+void func_800A4364(UnkStruct_32 *arg0, f32 fovy) {
+  if (arg0->unk8->unk10.unk24 != NULL) {
+    arg0->unk8->unk10.unk24->unk10.unk4 = fovy;
+  }
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/069D80/func_800A4384.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/069D80/func_800A43B0.s")
+void func_800A43B0(UnkStruct_32 *arg0, f32 near, f32 far) {
+  if (arg0->unk8->unk10.unk24 != NULL) {
+    arg0->unk8->unk10.unk24->unk10.unk8 = near;
+    arg0->unk8->unk10.unk24->unk10.unkC = far;
+  }
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/069D80/func_800A43E0.s")
 

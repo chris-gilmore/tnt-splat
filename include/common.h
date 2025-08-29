@@ -12,9 +12,11 @@ typedef struct {
 } Vec3;
 
 typedef struct {
-  f32 mf[4][4];
+  f32 m00, m01, m02, m03; // Row 0
+  f32 m10, m11, m12, m13; // Row 1
+  f32 m20, m21, m22, m23; // Row 2
+  f32 m30, m31, m32, m33; // Row 3
 } MtxF;
-
 
 #include "newtetris/sram.h"
 #include "newtetris/066700.h"
@@ -22,6 +24,7 @@ typedef struct {
 #include "newtetris/074B00.h"
 #include "newtetris/06FFD0.h"
 #include "newtetris/borganim.h"
+#include "newtetris/072C40.h"
 #include "newtetris/06F220.h"
 #include "newtetris/069D80.h"
 
@@ -31,6 +34,9 @@ typedef struct {
 #include "newtetris/03D120.h"
 #include "newtetris/003E40.h"
 #include "newtetris/006B30.h"
+#include "newtetris/077340.h"
+#include "newtetris/073D50.h"
+#include "newtetris/073120.h"
 #include "newtetris/haluci.h"
 #include "newtetris/0449D0.h"
 #include "newtetris/frametime.h"

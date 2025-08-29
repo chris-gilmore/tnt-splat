@@ -419,7 +419,7 @@ static void Game_Update(Game *game_ptr) {
     Game_SetGlobalPointers(i);
     debug_print2("PlayerVars_SetGlobalPointers", "GU");
     PlayerVars_SetGlobalPointers(i);
-    if ((D_800CFEE8 == 0xC) && (g_PV_arr[0].unk24 != 0)) {
+    if ((D_800CFEE8 == 12) && (g_PV_arr[0].unk24 != 0)) {
       D_800D0550 = 4000;
     }
     debug_print2("Tetris:Update() enter", "Game:Update()");
@@ -451,7 +451,7 @@ void Game_line_782_game_c(Game *game_ptr) {
       if (game_ptr->unk0 == 0) {
         aiplayer_8004311c_largefunction();
       }
-      if (D_800CFEE8 != 0xC) {
+      if (D_800CFEE8 != 12) {
         Game_800519b4_thirtyliner(game_ptr);
       }
       Game_800515f8_twoliner(game_ptr);

@@ -89,27 +89,27 @@ static void func_800A5114(UnkStruct_49 *arg0, MtxF *arg1) {
   sp40 = cosf(-*ptr * DEG2RAD);
   ptr++;
 
-  arg1->mf[0][0] = sp40 * sp44;
-  arg1->mf[1][0] = (sp34 * sp48) + (sp40 * sp38 * sp3C);
-  arg1->mf[2][0] = (sp34 * sp3C) - (sp40 * sp38 * sp48);
+  arg1->m00 = sp40 * sp44;
+  arg1->m10 = (sp34 * sp48) + (sp40 * sp38 * sp3C);
+  arg1->m20 = (sp34 * sp3C) - (sp40 * sp38 * sp48);
 
-  arg1->mf[0][1] = -sp34 * sp44;
-  arg1->mf[1][1] = (sp40 * sp48) - (sp34 * sp38 * sp3C);
-  arg1->mf[2][1] = (sp40 * sp3C) + (sp34 * sp38 * sp48);
+  arg1->m01 = -sp34 * sp44;
+  arg1->m11 = (sp40 * sp48) - (sp34 * sp38 * sp3C);
+  arg1->m21 = (sp40 * sp3C) + (sp34 * sp38 * sp48);
 
-  arg1->mf[0][2] = sp38;
-  arg1->mf[1][2] = -sp44 * sp3C;
-  arg1->mf[2][2] = sp44 * sp48;
+  arg1->m02 = sp38;
+  arg1->m12 = -sp44 * sp3C;
+  arg1->m22 = sp44 * sp48;
 
-  arg1->mf[3][0] = *ptr++;
-  arg1->mf[3][1] = *ptr++;
-  arg1->mf[3][2] = *ptr++;
+  arg1->m30 = *ptr++;
+  arg1->m31 = *ptr++;
+  arg1->m32 = *ptr++;
 
-  arg1->mf[0][3] = *ptr++;
-  arg1->mf[1][3] = *ptr++;
-  arg1->mf[2][3] = *ptr;
+  arg1->m03 = *ptr++;
+  arg1->m13 = *ptr++;
+  arg1->m23 = *ptr;
 
-  arg1->mf[3][3] = 1;
+  arg1->m33 = 1;
 }
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/borganim/func_800A52E4.s")
@@ -150,9 +150,9 @@ static void func_800A53E0(UnkStruct_49 *arg0, MtxF *arg1) {
   sp90 = arg0->unk10[5];
   sp6C = arg0->unk10[6];
 
-  sp2C.mf[3][0] = temp_fv0;
-  sp2C.mf[3][1] = temp_fv1;
-  sp2C.mf[3][2] = temp_fa0;
+  sp2C.m30 = temp_fv0;
+  sp2C.m31 = temp_fv1;
+  sp2C.m32 = temp_fa0;
 
   sp88 = temp_fv0 - sp88;
   sp8C = temp_fv1 - sp8C;
@@ -167,9 +167,9 @@ static void func_800A53E0(UnkStruct_49 *arg0, MtxF *arg1) {
   sp84 = -sp88;
   guNormalize(&sp7C, &sp80, &sp84);
 
-  sp2C.mf[2][0] = sp88;
-  sp2C.mf[2][1] = sp8C;
-  sp2C.mf[2][2] = sp90;
+  sp2C.m20 = sp88;
+  sp2C.m21 = sp8C;
+  sp2C.m22 = sp90;
 
   sp70 = (sp8C * sp84) - (sp80 * sp90);
   sp74 = (sp90 * sp7C) - (sp84 * sp88);
@@ -178,18 +178,18 @@ static void func_800A53E0(UnkStruct_49 *arg0, MtxF *arg1) {
   sp28 = cosf(sp6C * DEG2RAD);
   sp24 = sinf(sp6C * DEG2RAD);
 
-  sp2C.mf[0][0] = (sp7C * sp28) + (sp70 * sp24);
-  sp2C.mf[0][1] = (sp80 * sp28) + (sp74 * sp24);
-  sp2C.mf[0][2] = (sp84 * sp28) + (sp78 * sp24);
+  sp2C.m00 = (sp7C * sp28) + (sp70 * sp24);
+  sp2C.m01 = (sp80 * sp28) + (sp74 * sp24);
+  sp2C.m02 = (sp84 * sp28) + (sp78 * sp24);
 
-  sp2C.mf[1][0] = (-sp7C * sp24) + (sp70 * sp28);
-  sp2C.mf[1][1] = (-sp80 * sp24) + (sp74 * sp28);
-  sp2C.mf[1][2] = (-sp84 * sp24) + (sp78 * sp28);
+  sp2C.m10 = (-sp7C * sp24) + (sp70 * sp28);
+  sp2C.m11 = (-sp80 * sp24) + (sp74 * sp28);
+  sp2C.m12 = (-sp84 * sp24) + (sp78 * sp28);
 
-  sp2C.mf[0][3] = 1;
-  sp2C.mf[1][3] = 1;
-  sp2C.mf[2][3] = 1;
-  sp2C.mf[3][3] = 1;
+  sp2C.m03 = 1;
+  sp2C.m13 = 1;
+  sp2C.m23 = 1;
+  sp2C.m33 = 1;
 
   *arg1 = sp2C;
 }
@@ -220,48 +220,48 @@ static void func_800A5660(UnkStruct_49 *arg0, MtxF *arg1) {
 static void func_800A56E4(MtxF *arg0, MtxF *arg1) {
   f32 w, x, y, z;
 
-  w = arg0->mf[0][3];
-  x = arg0->mf[0][0];
-  y = arg0->mf[0][1];
-  z = arg0->mf[0][2];
+  w = arg0->m03;
+  x = arg0->m00;
+  y = arg0->m01;
+  z = arg0->m02;
   x *= w;
   y *= w;
   z *= w;
-  arg1->mf[0][0] = x;
-  arg1->mf[0][1] = y;
-  arg1->mf[0][2] = z;
+  arg1->m00 = x;
+  arg1->m01 = y;
+  arg1->m02 = z;
 
-  w = arg0->mf[1][3];
-  x = arg0->mf[1][0];
-  y = arg0->mf[1][1];
-  z = arg0->mf[1][2];
+  w = arg0->m13;
+  x = arg0->m10;
+  y = arg0->m11;
+  z = arg0->m12;
   x *= w;
   y *= w;
   z *= w;
-  arg1->mf[1][0] = x;
-  arg1->mf[1][1] = y;
-  arg1->mf[1][2] = z;
+  arg1->m10 = x;
+  arg1->m11 = y;
+  arg1->m12 = z;
 
-  w = arg0->mf[2][3];
-  x = arg0->mf[2][0];
-  y = arg0->mf[2][1];
-  z = arg0->mf[2][2];
+  w = arg0->m23;
+  x = arg0->m20;
+  y = arg0->m21;
+  z = arg0->m22;
   x *= w;
   y *= w;
   z *= w;
-  arg1->mf[2][0] = x;
-  arg1->mf[2][1] = y;
-  arg1->mf[2][2] = z;
+  arg1->m20 = x;
+  arg1->m21 = y;
+  arg1->m22 = z;
 
-  arg1->mf[3][0] = arg0->mf[3][0];
-  arg1->mf[3][1] = arg0->mf[3][1];
-  arg1->mf[3][2] = arg0->mf[3][2];
+  arg1->m30 = arg0->m30;
+  arg1->m31 = arg0->m31;
+  arg1->m32 = arg0->m32;
 
-  arg1->mf[0][3] = 0;
-  arg1->mf[1][3] = 0;
-  arg1->mf[2][3] = 0;
+  arg1->m03 = 0;
+  arg1->m13 = 0;
+  arg1->m23 = 0;
 
-  arg1->mf[3][3] = 1;
+  arg1->m33 = 1;
 }
 
 // static
@@ -270,9 +270,9 @@ void func_800A57A4(MtxF *arg0, MtxF *arg1) {
     *arg1 = *arg0;
   }
 
-  arg1->mf[0][3] = 1;
-  arg1->mf[1][3] = 1;
-  arg1->mf[2][3] = 1;
+  arg1->m03 = 1;
+  arg1->m13 = 1;
+  arg1->m23 = 1;
 }
 
 static void func_800A57FC(UnkStruct_49 *arg0, MtxF *arg1) {
@@ -300,7 +300,7 @@ void func_800A58A4(UnkStruct_32 *arg0) {
   if (arg0->unk0 & 4) {
     D_80129500 = arg0->unkC;
   } else {
-    guMtxIdentF(D_80129500.mf);
+    guMtxIdentF((f32 (*)[4]) &D_80129500);
   }
   func_800A59C0(arg0, &D_80129500);
 }
@@ -356,9 +356,9 @@ static void func_800A59C0(UnkStruct_32 *arg0, MtxF *arg1) {
       var_s1->unkC->unk80 = sp54;
       *var_s0 = sp54;
       func_800AE880(&var_s1->unkC->unkC0, &arg0->unk8C);
-      var_s1->unkC->unk80.mf[3][0] *= 16;
-      var_s1->unkC->unk80.mf[3][1] *= 16;
-      var_s1->unkC->unk80.mf[3][2] *= 16;
+      var_s1->unkC->unk80.m30 *= 16;
+      var_s1->unkC->unk80.m31 *= 16;
+      var_s1->unkC->unk80.m32 *= 16;
       func_800AE880(&var_s1->unkC->unk80, &arg0->unkCC);
       var_s1->unk0 |= 0x2;
       temp_s0 = sp220->unk24;
@@ -373,13 +373,13 @@ static void func_800A59C0(UnkStruct_32 *arg0, MtxF *arg1) {
       if (var_fv1 > 32000) {
         var_fv1 = 32000;
       }
-      guPerspectiveF(spA0.mf, &temp_s0->unk8[arg0->unk4], temp_s0->unk10.unk4, temp_s0->unk10.unk14, var_fv0, var_fv1, 2.0);
+      guPerspectiveF((f32 (*)[4]) &spA0, &temp_s0->unk8[arg0->unk4], temp_s0->unk10.unk4, temp_s0->unk10.unk14, var_fv0, var_fv1, 2.0);
       arg0->unk10C = spA0;
       mtx4_mult(&sp120, &spA0, &arg0->unkCC);
       if (arg0->unk0 & 0x4000) {
-        guMtxF2L(spA0.mf, &temp_s0->unk10.unk1C->unk0[arg0->unk4]);
+        guMtxF2L((f32 (*)[4]) &spA0, &temp_s0->unk10.unk1C->unk0[arg0->unk4]);
       } else {
-        guMtxF2L(sp120.mf, &temp_s0->unk10.unk1C->unk0[arg0->unk4]);
+        guMtxF2L((f32 (*)[4]) &sp120, &temp_s0->unk10.unk1C->unk0[arg0->unk4]);
       }
     }
     var_s1++;
@@ -545,8 +545,8 @@ UnkStruct_32 *func_800A6990(s32 arg0) {
   temp_v0->unk6 = 1;
   temp_v0->unk5 = 0;
   temp_v0->unk1D0 = NULL;
-  guMtxIdentF(temp_v0->unkC.mf);
-  guMtxIdentF(temp_v0->unk4C.mf);
+  guMtxIdentF((f32 (*)[4]) &temp_v0->unkC);
+  guMtxIdentF((f32 (*)[4]) &temp_v0->unk4C);
   return temp_v0;
 }
 
@@ -933,9 +933,9 @@ static Gfx *func_800A7EFC(Gfx *gdl, UnkStruct_32 *arg1) {
     for (D_80129580 = D_801293F0.unk4->unk4; D_80129580 != 0; D_80129580--) {
       temp_v1_2 = &D_80129594->unkC->unkC0;
       dir = ((*var_a0)->unk8.unk10->lights + temp_t6)->l.dir;
-      *dir++ = temp_v1_2->mf[2][0] * 90;
-      *dir++ = temp_v1_2->mf[2][1] * 90;
-      *dir = temp_v1_2->mf[2][2] * 90;
+      *dir++ = temp_v1_2->m20 * 90;
+      *dir++ = temp_v1_2->m21 * 90;
+      *dir = temp_v1_2->m22 * 90;
 
       red = (*var_a0)->unk8.red;
       if (red > 1.0) {
@@ -1070,15 +1070,15 @@ static Gfx *func_800A7EFC(Gfx *gdl, UnkStruct_32 *arg1) {
         temp_s0 = &D_801293F0.unk8->unkC->unkC0;
         temp_s1 = D_801293F0.unk8;
 
-        sp110.x = arg1->unk4C.mf[3][0] - temp_s0->mf[3][0];
-        sp110.y = arg1->unk4C.mf[3][1] - temp_s0->mf[3][1];
-        sp110.z = arg1->unk4C.mf[3][2] - temp_s0->mf[3][2];
+        sp110.x = arg1->unk4C.m30 - temp_s0->m30;
+        sp110.y = arg1->unk4C.m31 - temp_s0->m31;
+        sp110.z = arg1->unk4C.m32 - temp_s0->m32;
 
         guNormalize(&sp110.x, &sp110.y, &sp110.z);
 
-        sp104.x = temp_s0->mf[1][0];
-        sp104.y = temp_s0->mf[1][1];
-        sp104.z = temp_s0->mf[1][2];
+        sp104.x = temp_s0->m10;
+        sp104.y = temp_s0->m11;
+        sp104.z = temp_s0->m12;
 
         vec3_cross(&spF8, &sp104, &sp110);
 
@@ -1086,41 +1086,41 @@ static Gfx *func_800A7EFC(Gfx *gdl, UnkStruct_32 *arg1) {
 
         vec3_cross(&sp110, &spF8, &sp104);
 
-        D_801295D8->mf[0][0] = temp_s1->unk10[6] * spF8.x;
-        D_801295D8->mf[0][1] = temp_s1->unk10[6] * spF8.y;
-        D_801295D8->mf[0][2] = temp_s1->unk10[6] * spF8.z;
-        D_801295D8->mf[1][0] = temp_s1->unk10[7] * sp104.x;
-        D_801295D8->mf[1][1] = temp_s1->unk10[7] * sp104.y;
-        D_801295D8->mf[1][2] = temp_s1->unk10[7] * sp104.z;
-        D_801295D8->mf[2][0] = temp_s1->unk10[8] * sp110.x;
-        D_801295D8->mf[2][1] = temp_s1->unk10[8] * sp110.y;
-        D_801295D8->mf[2][2] = temp_s1->unk10[8] * sp110.z;
-        D_801295D8->mf[3][0] = temp_s0->mf[3][0];
-        D_801295D8->mf[3][1] = temp_s0->mf[3][1];
-        D_801295D8->mf[3][2] = temp_s0->mf[3][2];
-        D_801295D8->mf[3][3] = 1;
-        D_801295D8->mf[0][3] = 0;
-        D_801295D8->mf[1][3] = 0;
-        D_801295D8->mf[2][3] = 0;
+        D_801295D8->m00 = temp_s1->unk10[6] * spF8.x;
+        D_801295D8->m01 = temp_s1->unk10[6] * spF8.y;
+        D_801295D8->m02 = temp_s1->unk10[6] * spF8.z;
+        D_801295D8->m10 = temp_s1->unk10[7] * sp104.x;
+        D_801295D8->m11 = temp_s1->unk10[7] * sp104.y;
+        D_801295D8->m12 = temp_s1->unk10[7] * sp104.z;
+        D_801295D8->m20 = temp_s1->unk10[8] * sp110.x;
+        D_801295D8->m21 = temp_s1->unk10[8] * sp110.y;
+        D_801295D8->m22 = temp_s1->unk10[8] * sp110.z;
+        D_801295D8->m30 = temp_s0->m30;
+        D_801295D8->m31 = temp_s0->m31;
+        D_801295D8->m32 = temp_s0->m32;
+        D_801295D8->m33 = 1;
+        D_801295D8->m03 = 0;
+        D_801295D8->m13 = 0;
+        D_801295D8->m23 = 0;
       } else {
         D_801293F0.unk8->unkC->unk80 = D_801293F0.unk8->unkC->unkC0;
       }
 
       temp_fv0_4 = D_801293F0.unkC->unk10.unk8;
-      D_801295D8->mf[0][0] *= temp_fv0_4;
-      D_801295D8->mf[1][0] *= temp_fv0_4;
-      D_801295D8->mf[2][0] *= temp_fv0_4;
-      D_801295D8->mf[0][1] *= temp_fv0_4;
-      D_801295D8->mf[1][1] *= temp_fv0_4;
-      D_801295D8->mf[2][1] *= temp_fv0_4;
-      D_801295D8->mf[0][2] *= temp_fv0_4;
-      D_801295D8->mf[1][2] *= temp_fv0_4;
-      D_801295D8->mf[2][2] *= temp_fv0_4;
-      D_801295D8->mf[3][0] *= 16;
-      D_801295D8->mf[3][1] *= 16;
-      D_801295D8->mf[3][2] *= 16;
+      D_801295D8->m00 *= temp_fv0_4;
+      D_801295D8->m10 *= temp_fv0_4;
+      D_801295D8->m20 *= temp_fv0_4;
+      D_801295D8->m01 *= temp_fv0_4;
+      D_801295D8->m11 *= temp_fv0_4;
+      D_801295D8->m21 *= temp_fv0_4;
+      D_801295D8->m02 *= temp_fv0_4;
+      D_801295D8->m12 *= temp_fv0_4;
+      D_801295D8->m22 *= temp_fv0_4;
+      D_801295D8->m30 *= 16;
+      D_801295D8->m31 *= 16;
+      D_801295D8->m32 *= 16;
 
-      guMtxF2L(D_801295D8->mf, &D_801293F0.unk8->unkC->unk0[temp_t6]);
+      guMtxF2L((f32 (*)[4]) D_801295D8, &D_801293F0.unk8->unkC->unk0[temp_t6]);
 
       D_801293F0.unk8->unk0 |= 2;
       break;
@@ -1141,7 +1141,7 @@ static Gfx *func_800A7EFC(Gfx *gdl, UnkStruct_32 *arg1) {
             if (D_801293F0.unk14->unk0 & 1) {
               Mtx spA8;
 
-              guLookAtReflect(&spA8, D_801293F0.unkC->unk8->unk0 + temp_t6, arg1->unk4C.mf[3][0], arg1->unk4C.mf[3][1], arg1->unk4C.mf[3][2], D_801293F0.unk8->unkC->unkC0.mf[3][0], D_801293F0.unk8->unkC->unkC0.mf[3][1], D_801293F0.unk8->unkC->unkC0.mf[3][2], 0.0, 1.0, 0.0);
+              guLookAtReflect(&spA8, D_801293F0.unkC->unk8->unk0 + temp_t6, arg1->unk4C.m30, arg1->unk4C.m31, arg1->unk4C.m32, D_801293F0.unk8->unkC->unkC0.m30, D_801293F0.unk8->unkC->unkC0.m31, D_801293F0.unk8->unkC->unkC0.m32, 0.0, 1.0, 0.0);
               gSPLookAt(gdl++, D_801293F0.unkC->unk8->unk0 + temp_t6);
             }
             gSPDisplayList(gdl++, osVirtualToPhysical(D_801293F0.unkC->unk10.unkC[var_s0]));

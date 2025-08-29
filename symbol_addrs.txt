@@ -915,8 +915,17 @@ get_total_wonder_lines                         = 0x8007BCB4; // type:func
 load_from_sram                                 = 0x8007C0EC; // type:func
 func_8007C5CC                                  = 0x8007C5CC; // type:func note save_to_sram?
 
-//      - {start: 0x0428D0, type: asm, vram: 0x8007C650, name: newtetris/haluci}
+// - {start: 0x0428D0, type:   c, vram: 0x8007C650, name: newtetris/haluci}
+func_8007C650                          = 0x8007C650; // type:func unused
+func_8007C8B0                          = 0x8007C8B0; // type:func static
+func_8007CAC4                          = 0x8007CAC4; // type:func static
+func_8007CC14                          = 0x8007CC14; // type:func static
 func_8007CF40                          = 0x8007CF40; // type:func
+func_8007D214                          = 0x8007D214; // type:func unused
+func_8007D25C                          = 0x8007D25C; // type:func unused
+func_8007D458                          = 0x8007D458; // type:func static
+func_8007D510                          = 0x8007D510; // type:func static
+func_8007D6A8                          = 0x8007D6A8; // type:func unused
 func_8007DA00                          = 0x8007DA00; // type:func
 
 //      - {start: 0x044240, type:   c, vram: 0x8007DFC0, name: newtetris/n64heap}
@@ -1176,6 +1185,8 @@ func_800A3AF0                          = 0x800A3AF0; // type:func
 // - {start: 0x069D80, type:   c, vram: 0x800A3B00, name: newtetris/069D80}
 func_800A3B00                          = 0x800A3B00; // type:func
 func_800A3BF8                          = 0x800A3BF8; // type:func
+func_800A4364                          = 0x800A4364; // type:func
+func_800A43B0                          = 0x800A43B0; // type:func
 func_800A4590                          = 0x800A4590; // type:func
 func_800A45D8                          = 0x800A45D8; // type:func
 func_800A4698                          = 0x800A4698; // type:func

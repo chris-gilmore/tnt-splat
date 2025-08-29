@@ -87,7 +87,7 @@ u8 Tetris_Update(Tetris *tetris_ptr) {
     tetris_ptr->unk1 = 1;
     return 1;
   }
-  if (tetris_ptr->unk2 && (D_800CFEE8 != 0xC)) {
+  if (tetris_ptr->unk2 && (D_800CFEE8 != 12)) {
     Tetris_CheckButtons();
   }
   FrameAct_ScheduleEvents(&tetris_ptr->frameAct, D_801109F4);
