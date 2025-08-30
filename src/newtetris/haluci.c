@@ -195,6 +195,7 @@ static void func_8007CC14(void) {
   func_8007CAC4();
 }
 
+// haluci_init
 void func_8007CF40(u8 arg0) {
   Gfx *sp34;
 
@@ -218,7 +219,7 @@ void func_8007CF40(u8 arg0) {
   D_8011FEA8->unkD4 = 350;
   D_8011FEA8->unk114 = 1;
 
-  D_800D3044.unk8.unkC = D_8011FD10;
+  D_800D3044.unk8.unkC = (u16 *) D_8011FD10;  // perhaps this struct's field shouldn't be u16*; maybe it should be either u8* or void*
   D_800D3044.unk8.unk8 = D_800D3060;
 
   sp34 = D_800D3060;
@@ -370,6 +371,7 @@ static Gfx *func_8007D6A8(Gfx *gdl) {
   return gdl;
 }
 
+// haluci_update
 Gfx *func_8007DA00(Gfx *gdl) {
   Vec3 sp44;
   Vec3 sp38;

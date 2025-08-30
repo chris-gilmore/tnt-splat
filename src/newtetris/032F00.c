@@ -78,7 +78,7 @@ static void FUN_032F00_8006ce30_tenliner_magic_4000(void) {
 }
 
 static void FUN_032F00_8006cedc_sets_glb_to_fun_call_glb(void) {
-  g_gdl = func_8007DA00(g_gdl);
+  g_gdl = func_8007DA00(g_gdl);  // haluci_update
 }
 
 void debug_print2(const char *arg0, const char *arg1) {

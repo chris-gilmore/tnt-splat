@@ -51,9 +51,60 @@ void func_800A3BF8(UnkStruct_32 *arg0, f32 arg1, f32 arg2, f32 arg3) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/069D80/func_800A40D8.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/069D80/func_800A40FC.s")
+void func_800A40FC(UnkStruct_32 *arg0, f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, f32 arg8, f32 arg9) {
+  Vec3 sp44;
+  Vec3 sp38;
+  Vec3 sp2C;
+  f32 norm;
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/069D80/func_800A4304.s")
+  sp44.x = arg1 - arg4;
+  sp44.y = arg2 - arg5;
+  sp44.z = arg3 - arg6;
+
+  guNormalize(&sp44.x, &sp44.y, &sp44.z);
+
+  sp38.x = (arg8 * sp44.z) - (arg9 * sp44.y);
+  sp38.y = (arg9 * sp44.x) - (arg7 * sp44.z);
+  sp38.z = (arg7 * sp44.y) - (arg8 * sp44.x);
+
+  norm = sqrtf((sp38.x * sp38.x) + (sp38.y * sp38.y) + (sp38.z * sp38.z));
+  if (norm < 0.000001) {
+    sp38 = D_800D61F0;
+  } else {
+    norm = 1.0 / norm;
+    sp38.x *= norm;
+    sp38.y *= norm;
+    sp38.z *= norm;
+    D_800D61F0 = sp38;
+  }
+
+  vec3_cross(&sp2C, &sp44, &sp38);
+
+  arg0->unk4C.m00 = sp38.x;
+  arg0->unk4C.m01 = sp38.y;
+  arg0->unk4C.m02 = sp38.z;
+
+  arg0->unk4C.m10 = sp2C.x;
+  arg0->unk4C.m11 = sp2C.y;
+  arg0->unk4C.m12 = sp2C.z;
+
+  arg0->unk4C.m20 = sp44.x;
+  arg0->unk4C.m21 = sp44.y;
+  arg0->unk4C.m22 = sp44.z;
+
+  arg0->unk4C.m30 = arg1;
+  arg0->unk4C.m31 = arg2;
+  arg0->unk4C.m32 = arg3;
+
+  arg0->unk4C.m03 = 0;
+  arg0->unk4C.m13 = 0;
+  arg0->unk4C.m23 = 0;
+  arg0->unk4C.m33 = 1;
+}
+
+void func_800A4304(UnkStruct_32 *arg0, f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6) {
+  func_800A40FC(arg0, arg1, arg2, arg3, arg4, arg5, arg6, 0, 1, 0);
+}
 
 void func_800A4364(UnkStruct_32 *arg0, f32 fovy) {
   if (arg0->unk8->unk10.unk24 != NULL) {
