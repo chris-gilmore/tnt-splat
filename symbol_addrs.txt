@@ -1274,6 +1274,27 @@ func_800AC1A8                          = 0x800AC1A8; // type:func
 func_800AC22C                          = 0x800AC22C; // type:func
 func_800AC308                          = 0x800AC308; // type:func
 
+// - {start: 0x072C40, type:   c, vram: 0x800AC9C0, name: newtetris/072C40}
+func_800AC9C0                          = 0x800AC9C0; // type:func         init
+func_800ACCDC                          = 0x800ACCDC; // type:func unused  deinit
+func_800ACD10                          = 0x800ACD10; // type:func unused
+func_800ACD4C                          = 0x800ACD4C; // type:func unused
+func_800ACD94                          = 0x800ACD94; // type:func unused
+func_800ACDE4                          = 0x800ACDE4; // type:func unused
+
+// - {start: 0x073120, type:   c, vram: 0x800ACEA0, name: newtetris/073120}
+func_800ACEA0                          = 0x800ACEA0; // type:func
+func_800AD120                          = 0x800AD120; // type:func
+func_800AD2FC                          = 0x800AD2FC; // type:func static
+func_800AD970                          = 0x800AD970; // type:func
+
+// - {start: 0x073D50, type:   c, vram: 0x800ADAD0, name: newtetris/073D50}
+func_800ADE5C                          = 0x800ADE5C; // type:func
+func_800AE220                          = 0x800AE220; // type:func
+func_800AE6C8                          = 0x800AE6C8; // type:func unused
+func_800AE6E4                          = 0x800AE6E4; // type:func
+func_800AE700                          = 0x800AE700; // type:func
+
 // - {start: 0x074B00, type: asm, vram: 0x800AE880, name: newtetris/074B00}
 func_800AE880                          = 0x800AE880; // type:func
 func_800AF0C4                          = 0x800AF0C4; // type:func
@@ -1284,7 +1305,12 @@ vec3_squared                           = 0x800AFFA4; // type:func
 vec3_length                            = 0x800AFFCC; // type:func
 func_800B036C                          = 0x800B036C; // type:func
 
-// - {start: 0x0779F0, type:   c, vram: 0x800B1770, name: newtetris/sprite}
+// - {start: 0x0A7560, type: .rodata, vram: 0x800E12E0, name: newtetris/077340}
+func_800B10C0                          = 0x800B10C0; // type:func static
+func_800B110C                          = 0x800B110C; // type:func static
+func_800B11C4                          = 0x800B11C4; // type:func
+
+// - {start: 0x0779F0, type:   c, vram: 0x800B1770, name: newtetris/cont}
 func_800B1770                          = 0x800B1770; // type:func
 func_800B1A7C                          = 0x800B1A7C; // type:func
 
@@ -1636,6 +1662,30 @@ D_800D6200                = 0x800D6200; // type:s32   size:0x4    static
 D_800D6204                = 0x800D6204; //            size:0x4    static  UnkStruct_44*
 D_800D6208                = 0x800D6208; //            size:0x10   static  Light
 
+// - {start: 0x09F390, type: .data, vram: 0x800D9110, name: newtetris/073120}
+D_800D9110                = 0x800D9110; //            size:0x40   static  Mtx
+
+// - {start: 0x09F3D0, type: .data, vram: 0x800D9150, name: newtetris/09F3D0}
+D_800D9150                = 0x800D9150; // type:f32   size:0x40   unused
+
+// - {start: 0x09F410, type: data, vram: 0x800D9190, name: newtetris/sprite}
+D_800D9190                = 0x800D9190; // type:s16   size:0x2    static
+D_800D9194                = 0x800D9194; // type:s32   size:0x4    static
+
+// - {start: 0x09F420, type: .data, vram: 0x800D91A0, name: newtetris/078FE0}
+D_800D91A0                = 0x800D91A0; //            size:0x18   static  UnkStruct_44
+D_800D91B8                = 0x800D91B8; //            size:0x48   static  Gfx [9]
+D_800D9200                = 0x800D9200; // type:s32   size:0x4    static
+D_800D9208                = 0x800D9208; //            size:0x40           Gfx [8]
+D_800D9248                = 0x800D9248; //            size:0x40           Gfx [8]
+D_800D9288                = 0x800D9288; //            size:0x40   unused  Gfx [8]
+D_800D92C8                = 0x800D92C8; //            size:0x40   unused  Gfx [8]
+
+// - {start: 0x09F590, type: data, vram: 0x800D9310, name: newtetris/09F590}
+D_800D9310                = 0x800D9310; //            size:0x80           Gfx [16]
+D_800D9390                = 0x800D9390; //            size:0x80           Gfx [16]
+D_800D9410                = 0x800D9410; //            size:0x80           Gfx [16]
+D_800D9490                = 0x800D9490; //            size:0x80           Gfx [16]
 
 // ===========================================================================
 // .rodata

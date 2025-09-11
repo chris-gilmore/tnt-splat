@@ -12,7 +12,7 @@ static UnkStruct_32 *D_8011FE9C;
 static s32 D_8011FEA0;  // unused
 static s32 D_8011FEA4;  // unused
 static UnkStruct_86 *D_8011FEA8;
-static void *D_8011FEAC;
+static UnkStruct_88 *D_8011FEAC;
 static Mtx D_8011FEB0[8];
 static UnkStruct_84 D_801200B0;
 
@@ -49,15 +49,18 @@ static Gfx D_800D3108[] = {
 };
 static s32 D_800D3128 = 0;
 static s32 D_800D312C = 0;
-static UnkStruct_85 D_800D3130 = {
+static UnkStruct_84 D_800D3130 = {
   0,
   0.25,
   1,
   0,
-  800, 600,
-  511, 0,
-  800, 600,
-  511, 0,
+};
+// unused
+static Vp D_800D3140 = {
+  {
+    { 800, 600, 511, 0 },
+    { 800, 600, 511, 0 }
+  }
 };
 static Vec3 D_800D3150 = { 1.1, 1.1, 1.0 };
 static f32 D_800D315C = 0;
@@ -383,7 +386,7 @@ Gfx *func_8007DA00(Gfx *gdl) {
     gdl = func_800AE220(D_8011FEAC, gdl, cfb[draw_buffer ^ 1], 0xFA, 0xFA, 0xFA, 0xC0);
   }
 
-  if ((D_800CFEE8 == 13) && (g_PV_arr->unk1C->unk0 & 0x1000) && !(g_PV_arr->unk1C->unk4 & 0x1000)) {
+  if ((D_800CFEE8 == 13) && (g_PV_arr->unk1C->unk0 & 0x1000) && !(g_PV_arr->unk1C->unk4 & 0x1000)) {  // START_BUTTON / CONT_START
     D_800D3040 ^= 1;
   }
 

@@ -1,5 +1,5 @@
-#ifndef _SPRITE_H_
-#define _SPRITE_H_
+#ifndef _CONT_H_
+#define _CONT_H_
 
 typedef struct {
   /* 0x0  */ u32   unk0;
@@ -26,9 +26,9 @@ typedef struct {
   /* 0x4E */ s16   unk4E;
   /* 0x50 */ s16   unk50;
   /* 0x52 */ s16   unk52;
-} UnkStruct_3; // 0x54 bytes
+} Controller; // 0x54 bytes
 
-extern void   func_800B1770(UnkStruct_3 *, OSContPad *);
-extern void   func_800B1A7C(UnkStruct_3 *);
+extern void   func_800B1770(Controller *, OSContPad *);
+extern void   func_800B1A7C(Controller *);
 
-#endif /* !_SPRITE_H_ */
+#endif /* !_CONT_H_ */

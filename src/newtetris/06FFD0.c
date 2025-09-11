@@ -564,18 +564,18 @@ static s32 func_800AAB0C(void *addr) {
     var_v1->unkC = (UnkStruct_63 *)var_a3;
     var_a3 += sizeof(UnkStruct_63);
 
-    var_v1->unkC->unk140 = 0.0f;
-    var_v1->unkC->unk144 = 0.0f;
-    var_v1->unkC->unk148 = 0.0f;
-    var_v1->unkC->unk14C = 0.0f;
-    var_v1->unkC->unk150 = 0.0f;
-    var_v1->unkC->unk154 = 0.0f;
-    var_v1->unkC->unk158 = 0.0f;
-    var_v1->unkC->unk15C = 0.0f;
-    var_v1->unkC->unk160 = 0.0f;
-    var_v1->unkC->unk164 = 0.0f;
-    var_v1->unkC->unk168 = 0.0f;
-    var_v1->unkC->unk16C = 0.0f;
+    var_v1->unkC->unk140[0] = 0;
+    var_v1->unkC->unk140[1] = 0;
+    var_v1->unkC->unk140[2] = 0;
+    var_v1->unkC->unk14C[0] = 0;
+    var_v1->unkC->unk14C[1] = 0;
+    var_v1->unkC->unk14C[2] = 0;
+    var_v1->unkC->unk158[0] = 0;
+    var_v1->unkC->unk158[1] = 0;
+    var_v1->unkC->unk158[2] = 0;
+    var_v1->unkC->unk164[0] = 0;
+    var_v1->unkC->unk164[1] = 0;
+    var_v1->unkC->unk164[2] = 0;
   }
 
   if (obj->unk10.unk24 != NULL) {

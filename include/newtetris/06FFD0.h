@@ -204,18 +204,10 @@ typedef struct {
   /* 0x80  */ MtxF   unk80;
   /* 0xC0  */ MtxF   unkC0;
   /* 0x100 */ u8     pad100[0x40];
-  /* 0x140 */ f32    unk140;
-  /* 0x144 */ f32    unk144;
-  /* 0x148 */ f32    unk148;
-  /* 0x14C */ f32    unk14C;
-  /* 0x150 */ f32    unk150;
-  /* 0x154 */ f32    unk154;
-  /* 0x158 */ f32    unk158;
-  /* 0x15C */ f32    unk15C;
-  /* 0x160 */ f32    unk160;
-  /* 0x164 */ f32    unk164;
-  /* 0x168 */ f32    unk168;
-  /* 0x16C */ f32    unk16C;
+  /* 0x140 */ f32    unk140[3];
+  /* 0x14C */ f32    unk14C[3];
+  /* 0x158 */ f32    unk158[3];
+  /* 0x164 */ f32    unk164[3];
   /* 0x170 */ u8     pad170[0x18];
 } UnkStruct_63; // 0x188 bytes
 
@@ -258,7 +250,7 @@ typedef struct {
 
 typedef struct {
   /* 0x0  */ BaseHeader     basehdr;  // .id = 5
-  /* 0x8  */ u8            *unk8;
+  /* 0x8  */ void          *unk8;     // see func_800AC9C0
   /* 0xC  */ s32            unkC;
 
   /* 0x10 */ UnkStruct_75   unk10;
@@ -287,8 +279,8 @@ typedef struct {
   /* 0x4  */ s32            unk4;
   /* 0x8  */ s32            unk8;
   /* 0xC  */ s32            unkC;   // 0, 1, 2, or 3
-  /* 0x10 */ void          *unk10;
-  /* 0x14 */ s32            unk14;
+  /* 0x10 */ void          *unk10;  // see func_800A6BB0, func_800A6B60, and func_800A652C
+  /* 0x14 */ s32            unk14;  // bitfield
   /* 0x18 */ s32            unk18;  // cnt of unk1C
   /* 0x1C */ UnkStruct_52  *unk1C;
   /* 0x20 */ UnkStruct_50  *unk20;
@@ -304,7 +296,7 @@ struct UnkStruct_50 {
   /* 0x0  */ BaseHeader     basehdr;  // .id = 6
   /* 0x8  */ UnkStruct_50  *unk8;     // parent node
   /* 0xC  */ UnkStruct_50  *unkC;     // child node
-  /* 0x10 */ void          *unk10;    // UnkStruct_32 * ?
+  /* 0x10 */ void          *unk10;    // maybe UnkStruct_32*
   /* 0x14 */ s32            unk14;
   /* 0x18 */ f32            unk18;
   /* 0x1C */ s32            unk1C;

@@ -356,6 +356,9 @@ osEPiLinkHandle           = 0x800BB2C0; // type:func
 guOrthoF                  = 0x800BB310; // type:func
 guOrtho                   = 0x800BB464; // type:func
 
+// ultralib/gu/random
+guRandom                  = 0x800BB4D0; // type:func
+
 // ultralib/os/thread
 __osDequeueThread         = 0x800BB500; // type:func
 

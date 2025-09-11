@@ -28,16 +28,22 @@ static Light D_800D6208 = {
 extern /* static */ void   func_800A4CF0(UnkStruct_49 *, MtxF *);
 extern /* static */ void   func_800A4EC0(UnkStruct_49 *, MtxF *);
 static void   func_800A5114(UnkStruct_49 *, MtxF *);
-extern /* static */ void   func_800A52E4(UnkStruct_49 *, MtxF *);
+static void   func_800A52E4(UnkStruct_49 *, MtxF *);
 static void   func_800A53E0(UnkStruct_49 *, MtxF *);
 static void   func_800A5660(UnkStruct_49 *, MtxF *);
 static void   func_800A56E4(MtxF *, MtxF *);
-extern /* static */ void   func_800A57A4(MtxF *, MtxF *);
+static void   func_800A57A4(MtxF *, MtxF *);
 static void   func_800A57FC(UnkStruct_49 *, MtxF *);
-extern /* static */ void   func_800A58A4(UnkStruct_32 *);
+static void   func_800A58A4(UnkStruct_32 *);
 static void   func_800A59C0(UnkStruct_32 *, MtxF *);
 static void   func_800A652C(UnkStruct_32 *, UnkStruct_50 *);
-extern /* static */ void   func_800A70A8(UnkStruct_32 *);
+static void   func_800A6AC8(UnkStruct_52 *);
+static void   func_800A6B14(UnkStruct_51 *, f32);
+static void   func_800A6B60(UnkStruct_51 *, f32);
+static void   func_800A6BB0(UnkStruct_51 *, f32);
+static void   func_800A6D08(UnkStruct_51 *);
+static void   func_800A6E48(UnkStruct_51 *);
+static void   func_800A70A8(UnkStruct_32 *);
 static Gfx   *func_800A7374(Gfx *);
 static Gfx   *func_800A74DC(Gfx *);
 static Gfx   *func_800A7EFC(Gfx *, UnkStruct_32 *);
@@ -112,7 +118,42 @@ static void func_800A5114(UnkStruct_49 *arg0, MtxF *arg1) {
   arg1->m33 = 1;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/borganim/func_800A52E4.s")
+static void func_800A52E4(UnkStruct_49 *arg0, MtxF *arg1) {
+  f32 sp24;
+  f32 sp20;
+  f32 sp1C;
+
+  sp24 = arg0->unk10[0];
+  sp20 = arg0->unk10[1];
+  sp1C = arg0->unk10[2];
+
+  if ((sp24 == 0.0) && (sp20 == 0.0) && (sp1C == 0.0)) {
+    sp20 = 1;
+  }
+
+  guNormalize(&sp24, &sp20, &sp1C);
+
+  arg1->m00 = 0;
+  arg1->m01 = 0;
+  arg1->m02 = 0;
+
+  arg1->m10 = 0;
+  arg1->m11 = 0;
+  arg1->m12 = 0;
+
+  arg1->m20 = sp24;
+  arg1->m21 = sp20;
+  arg1->m22 = sp1C;
+
+  arg1->m30 = 0;
+  arg1->m31 = 0;
+  arg1->m32 = 0;
+
+  arg1->m03 = 1;
+  arg1->m13 = 1;
+  arg1->m23 = 1;
+  arg1->m33 = 1;
+}
 
 /*
   This is a "look-at" matrix with an additional roll (rotation about the forward axis).
@@ -264,8 +305,7 @@ static void func_800A56E4(MtxF *arg0, MtxF *arg1) {
   arg1->m33 = 1;
 }
 
-// static
-void func_800A57A4(MtxF *arg0, MtxF *arg1) {
+static void func_800A57A4(MtxF *arg0, MtxF *arg1) {
   if (arg1 != arg0) {
     *arg1 = *arg0;
   }
@@ -295,8 +335,7 @@ static void func_800A57FC(UnkStruct_49 *arg0, MtxF *arg1) {
   }
 }
 
-// static
-void func_800A58A4(UnkStruct_32 *arg0) {
+static void func_800A58A4(UnkStruct_32 *arg0) {
   if (arg0->unk0 & 4) {
     D_80129500 = arg0->unkC;
   } else {
@@ -305,6 +344,7 @@ void func_800A58A4(UnkStruct_32 *arg0) {
   func_800A59C0(arg0, &D_80129500);
 }
 
+// unused
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/borganim/func_800A5930.s")
 
 static void func_800A59C0(UnkStruct_32 *arg0, MtxF *arg1) {
@@ -468,6 +508,7 @@ static void func_800A652C(UnkStruct_32 *arg0, UnkStruct_50 *arg1) {
       var_s0->unk0 = temp_v0;
       break;
     case 1:
+      // UnkStruct_49*
       temp_v0_3 = &arg1->unk20.unk0->unk10.unk18[(intptr_t)var_s0->unk10];
       var_s0->unk10 = temp_v0_3;
       var_s0->unk0 = temp_v0_3;
@@ -478,9 +519,11 @@ static void func_800A652C(UnkStruct_32 *arg0, UnkStruct_50 *arg1) {
       var_s0->unk0 = temp_v0;
       break;
     case 3:
+      // UnkStruct_68*
       var_s0->unk10 = &arg1->unk20.unk0->unk10.unk34[(intptr_t)var_s0->unk10];
       // or is it this?
-      // var_s0->unk10 = &arg1->unk20.unk0->unk44[(intptr_t)var_s0->unk10].unk0;
+      // f32*
+      // var_s0->unk10 = &arg1->unk20.unk0->unk10.unk34[(intptr_t)var_s0->unk10].unk0;
       var_s0->unk0 = temp_v0;
       break;
     }
@@ -574,24 +617,258 @@ void func_800A6AA8(UnkStruct_50 *obj) {
   func_800AB934(obj);
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/borganim/func_800A6AC8.s")
+static void func_800A6AC8(UnkStruct_52 *arg0) {
+  UnkStruct_53 *temp_v0;
+  s32 var_v1;
+  f32 *var_a2;
+  f32 *var_a1;
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/borganim/func_800A6B14.s")
+  temp_v0 = arg0->unkC;
+  arg0->unk6 = 1;
+  arg0->unk8 = temp_v0;
+  var_v1 = temp_v0->unk2;
+  var_a1 = temp_v0->unk4;
+  var_a2 = arg0->unk10;
+  while (var_v1 != 0) {
+    if (var_v1 & 1) {
+      *var_a2 = *var_a1;
+      var_a1++;
+    }
+    var_a2++;
+    var_v1 >>= 1;
+  }
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/borganim/func_800A6B60.s")
+static void func_800A6B14(UnkStruct_51 *arg0, f32 arg1) {
+  if (arg0->unkC == 1) {
+    func_800A6BB0(arg0, arg1);
+  } else {
+    func_800A6B60(arg0, arg1);
+  }
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/borganim/func_800A6BB0.s")
+static void func_800A6B60(UnkStruct_51 *arg0, f32 arg1) {
+  UnkStruct_52 *var_v0;
+  s32 var_v1;
+  f32 *var_a1;
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/borganim/func_800A6D08.s")
+  var_v0 = arg0->unk1C;
+  var_v1 = arg0->unk14;
+  var_a1 = arg0->unk10;
+  while (var_v1 != 0) {
+    if (var_v1 & 1) {
+      *var_a1 += var_v0->unk10[0] * arg1;
+      var_v0++;
+    }
+    var_a1++;
+    var_v1 >>= 1;  // (bug?) this seems dangerous to do on a signed int, which may lead to the while loop never ending
+  }
+}
+
+static void func_800A6BB0(UnkStruct_51 *arg0, f32 arg1) {
+  UnkStruct_49 *temp_v0;
+  UnkStruct_52 *var_t0;
+  s32 var_t1;
+  s32 var_t2;
+  f32 *var_v1;
+  f32 *var_a1;
+  f32 *var_a3;
+
+  temp_v0 = arg0->unk10;
+  var_v1 = temp_v0->unk10;
+  var_a1 = temp_v0->unkC->unk158;
+  var_a3 = temp_v0->unkC->unk164;
+  var_t0 = arg0->unk1C;
+  var_t1 = arg0->unk14;
+
+  for (var_t2 = 3; var_t2 != 0; var_t2--, var_t1 >>= 1) {
+    if (var_t1 & 1) {
+      *var_v1 += var_t0->unk10[0] * arg1;
+      *var_a1 += var_t0->unk10[1] * arg1;
+      *var_a3 += var_t0->unk10[2] * arg1;
+      var_t0++;
+    }
+    var_v1++;
+    var_a1++;
+    var_a3++;
+  }
+
+  var_a1 = temp_v0->unkC->unk140;
+  var_a3 = temp_v0->unkC->unk14C;
+  for (var_t2 = 3; var_t2 != 0; var_t2--, var_t1 >>= 1) {
+    if (var_t1 & 1) {
+      *var_v1 += var_t0->unk10[0] * arg1;
+      *var_a1 += var_t0->unk10[1] * arg1;
+      *var_a3 += var_t0->unk10[2] * arg1;
+      var_t0++;
+    }
+    var_v1++;
+    var_a1++;
+    var_a3++;
+  }
+
+  for (var_t2 = 3; var_t2 != 0; var_t2--, var_t1 >>= 1) {
+    if (var_t1 & 1) {
+      *var_v1 += var_t0->unk10[0] * arg1;
+      var_t0++;
+    }
+    var_v1++;
+  }
+}
+
+static void func_800A6D08(UnkStruct_51 *arg0) {
+  UnkStruct_49 *temp_v0;
+  UnkStruct_63 *temp_a1;
+  f32 *var_v1;
+  s32 var_v0;
+
+  if (arg0->unkC == 1) {
+    temp_v0 = arg0->unk10;
+    var_v1 = temp_v0->unk10;
+    temp_a1 = temp_v0->unkC;
+    temp_a1->unk164[2] = 0;
+    temp_a1->unk164[1] = 0;
+    temp_a1->unk164[0] = 0;
+    temp_a1->unk158[2] = 0;
+    temp_a1->unk158[1] = 0;
+    temp_a1->unk158[0] = 0;
+    temp_a1->unk14C[2] = 0;
+    temp_a1->unk14C[1] = 0;
+    temp_a1->unk14C[0] = 0;
+    temp_a1->unk140[2] = 0;
+    temp_a1->unk140[1] = 0;
+    temp_a1->unk140[0] = 0;
+  } else {
+    var_v1 = arg0->unk10;
+  }
+
+  var_v0 = arg0->unk14;
+  while (var_v0 != 0) {
+    if (var_v0 & 1) {
+      *var_v1 = 0;
+    }
+    var_v1++;
+    var_v0 >>= 1;
+  }
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/borganim/func_800A6D90.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/borganim/func_800A6DD8.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/borganim/func_800A6E48.s")
+static void func_800A6E48(UnkStruct_51 *arg0) {
+  UnkStruct_52 *var_s0;
+  s32 var_s1;
+  UnkStruct_53 *temp_a2;
+  s32 var_a1;
+  f32 *var_v0;
+  f32 *var_a0;
+  s32 var_v1;
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/borganim/func_800A70A8.s")
-// static
+  var_s0 = arg0->unk1C;
+  for (var_s1 = arg0->unk18; var_s1 != 0; var_s1--) {
+    if (var_s0->unk6 == var_s0->unk4) {
+      switch (var_s0->unk0) {
+      case 0:
+        func_800A6AC8(var_s0);
+        break;
+      case 1:
+        func_800A6AC8(var_s0);
+        break;
+      case 2:
+        func_800A6AC8(var_s0);
+        break;
+      }
+    } else {
+      temp_a2 = var_s0->unk8;
+      var_a1 = 4;
+      temp_a2++;
+      if (temp_a2->unk0 == var_s0->unk6) {
+        var_s0->unk8 = temp_a2;
+        var_v0 = var_s0->unk10;
+        var_a0 = var_s0->unk8->unk4;
+        var_v1 = var_s0->unk8->unk2;
+        while (var_a1 != 0) {
+          if (var_v1 & 1) {
+            break;
+          }
+          var_v0++;
+          var_v1 >>= 1;
+          var_a1--;
+        }
+        while (var_a1 != 0) {
+          if (var_v1 & 1) {
+            *var_v0 = *var_a0;
+            var_a0++;
+          } else {
+            *var_v0 = 0;
+          }
+          var_v0++;
+          var_v1 >>= 1;
+          var_a1--;
+        }
+      }
+
+      temp_a2 = var_s0->unk8;
+      var_v1 = temp_a2->unk2;
+      var_v0 = var_s0->unk10;
+      var_a0 = var_v0 + 1;
+      if (var_v1 & 0x2) {
+        *var_v0 += *var_a0;
+        if (var_v1 & 0x4) {
+          var_v0++;
+          var_a0++;
+          *var_v0 += *var_a0;
+          if (var_v1 & 0x8) {
+            var_v0++;
+            var_a0++;
+            *var_v0 += *var_a0;
+          }
+        }
+      }
+
+      var_s0->unk6++;
+    }
+
+    var_s0++;
+  }
+}
+
+static void func_800A70A8(UnkStruct_32 *arg0) {
+  s32 var_s0;
+  UnkStruct_51 *var_s1;
+  s32 var_s2;
+  UnkStruct_50 *var_s3;
+  f32 temp_fs0;
+
+  if (arg0->unk5 != 0) {
+    if (arg0->unk1D0 != NULL) {
+      for (var_s3 = arg0->unk1D0; var_s3 != NULL; var_s3 = var_s3->unkC) {
+        var_s1 = var_s3->unk20.unk8;
+        for (var_s2 = var_s3->unk20.unk4; var_s2 != 0; var_s2--) {
+          for (var_s0 = arg0->unk5; var_s0 != 0; var_s0--) {
+            func_800A6E48(var_s1);
+          }
+          func_800A6D08(var_s1);
+          var_s1++;
+        }
+      }
+
+      for (var_s3 = arg0->unk1D0; var_s3 != NULL; var_s3 = var_s3->unkC) {
+        temp_fs0 = var_s3->unk18;
+        if (temp_fs0 != 0.0) {
+          var_s1 = var_s3->unk20.unk8;
+          for (var_s0 = var_s3->unk20.unk4; var_s0 != 0; var_s0--) {
+            func_800A6B14(var_s1, temp_fs0);
+            var_s1++;
+          }
+        }
+      }
+
+      arg0->unk6 += arg0->unk5;
+    }
+  }
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/borganim/func_800A71DC.s")
 

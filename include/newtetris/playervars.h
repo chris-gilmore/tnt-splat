@@ -4,7 +4,7 @@
 typedef struct {
   /* 0x0  */ s16               cont_no;
   /* 0x4  */ ControllerQueue   contQ;
-  /* 0x1C */ UnkStruct_3      *unk1C;      // buttons ptr
+  /* 0x1C */ Controller       *unk1C;
   /* 0x20 */ u32               unk20;      // buttons
   /* 0x24 */ u32               unk24;      // buttons
   /* 0x28 */ UnkStruct_1       unk28;

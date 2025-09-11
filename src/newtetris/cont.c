@@ -1,6 +1,16 @@
 #include "common.h"
 
-void func_800B1770(UnkStruct_3 *arg0, OSContPad *arg1) {
+#ifndef H2O_DEBUG
+#define H2O_DEBUG_PRINT1(f_) (f_)
+#define H2O_DEBUG_PRINT2(f_, a_) (f_)
+#define H2O_DEBUG_PRINT3(f_, a_, b_) (f_)
+#else
+#define H2O_DEBUG_PRINT1(f_) rmonPrintf((f_))
+#define H2O_DEBUG_PRINT2(f_, a_) rmonPrintf((f_), (a_))
+#define H2O_DEBUG_PRINT3(f_, a_, b_) rmonPrintf((f_), (a_), (b_))
+#endif
+
+void func_800B1770(Controller *arg0, OSContPad *arg1) {
   u32 temp_v0 = arg1->button;
   s32 var_v0 = 0;
 
@@ -60,16 +70,11 @@ void func_800B1770(UnkStruct_3 *arg0, OSContPad *arg1) {
   arg0->unk52 = (arg0->unk4E * 0xFF) / 80;  // scale stick_y to range [-255, 255]
 }
 
-void func_800B1A7C(UnkStruct_3 *arg0) {
-  bzero(arg0, 0x54);
+void func_800B1A7C(Controller *arg0) {
+  bzero(arg0, sizeof(Controller));
+  H2O_DEBUG_PRINT2("_Controller Size: %d\n", sizeof(Controller));
+
   arg0->unk48 = 8;  // stick_x dead-zone 10% (8/80)
   arg0->unk4A = 8;  // stick_y dead-zone 10% (8/80)
+  H2O_DEBUG_PRINT3("Cont->DeadX,Cont->DeadY Set to: (%d,%d)\n", arg0->unk48, arg0->unk4A);
 }
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sprite/func_800B1AB0.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sprite/func_800B1B64.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sprite/func_800B1BFC.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sprite/func_800B2810.s")

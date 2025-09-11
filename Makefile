@@ -124,8 +124,14 @@ $(BUILD_DIR)/src/newtetris/069D80.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/borganim.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/06FFD0.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/072080.o: OPT_FLAGS := -mips2 -O2
-$(BUILD_DIR)/src/newtetris/sprite.o: OPT_FLAGS := -mips2 -O2
+$(BUILD_DIR)/src/newtetris/072C40.o: OPT_FLAGS := -mips2 -O2
+$(BUILD_DIR)/src/newtetris/073120.o: OPT_FLAGS := -mips2 -O2
+$(BUILD_DIR)/src/newtetris/073D50.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/074B00.o: OPT_FLAGS := -mips2 -O2
+$(BUILD_DIR)/src/newtetris/077340.o: OPT_FLAGS := -mips2 -O2
+$(BUILD_DIR)/src/newtetris/cont.o: OPT_FLAGS := -mips2 -O2
+#$(BUILD_DIR)/src/newtetris/sprite.o: OPT_FLAGS := -mips2 -O2
+$(BUILD_DIR)/src/newtetris/078FE0.o: OPT_FLAGS := -mips2 -O2
 
 $(BUILD_DIR)/src/ultralib/%.o: OPT_FLAGS := -mips2 -O2
 

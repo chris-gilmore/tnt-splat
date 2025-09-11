@@ -14,7 +14,13 @@ typedef struct {
   /* 0x10C */ MtxF           unk10C;
   /* 0x14C */ u8             pad14C[0x84];
   /* 0x1D0 */ UnkStruct_50  *unk1D0;  // animation list (root node)
-  /* 0x1D4 */ u8             pad1D4[0x14];
+  /* 0x1D4 */ u8             unk1D4;
+  /* 0x1D5 */ u8             unk1D5;
+  /* 0x1D6 */ u8             unk1D6;
+  /* 0x1D7 */ u8             unk1D7;
+  /* 0x1D8 */ s32            unk1D8;
+  /* 0x1DC */ s32            unk1DC;
+  /* 0x1E0 */ u8             pad1E0[0x8];
 } UnkStruct_32; // 0x1E8 bytes
 
 typedef struct {

@@ -200,13 +200,14 @@ segments:
       - {start: 0x06F290, type: asm, vram: 0x800A9010, name: newtetris/06F290}
       - {start: 0x06FFD0, type:   c, vram: 0x800A9D50, name: newtetris/06FFD0}  # fx loading
       - {start: 0x072080, type:   c, vram: 0x800ABE00, name: newtetris/072080}  # rom xfer
-      - {start: 0x072C40, type: asm, vram: 0x800AC9C0, name: newtetris/072C40}
-      - {start: 0x073120, type: asm, vram: 0x800ACEA0, name: newtetris/073120}
-      - {start: 0x073D50, type: asm, vram: 0x800ADAD0, name: newtetris/073D50}
+      - {start: 0x072C40, type:   c, vram: 0x800AC9C0, name: newtetris/072C40}
+      - {start: 0x073120, type:   c, vram: 0x800ACEA0, name: newtetris/073120}
+      - {start: 0x073D50, type:   c, vram: 0x800ADAD0, name: newtetris/073D50}
       - {start: 0x074B00, type:   c, vram: 0x800AE880, name: newtetris/074B00}
-      - {start: 0x077340, type: asm, vram: 0x800B10C0, name: newtetris/077340}
-      - {start: 0x0779F0, type:   c, vram: 0x800B1770, name: newtetris/sprite}
-      - {start: 0x078FE0, type: asm, vram: 0x800B2D60, name: newtetris/078FE0}
+      - {start: 0x077340, type:   c, vram: 0x800B10C0, name: newtetris/077340}
+      - {start: 0x0779F0, type:   c, vram: 0x800B1770, name: newtetris/cont}
+      - {start: 0x077D30, type: asm, vram: 0x800B1AB0, name: newtetris/sprite}
+      - {start: 0x078FE0, type:   c, vram: 0x800B2D60, name: newtetris/078FE0}
       - {start: 0x079300, type: asm, vram: 0x800B3080, name: ultralib/os/createmesgqueue}
       - {start: 0x079330, type: asm, vram: 0x800B30B0, name: ultralib/os/seteventmesg}
       - {start: 0x0793A0, type: asm, vram: 0x800B3120, name: ultralib/io/controller}
@@ -303,7 +304,7 @@ segments:
       - {start: 0x081460, type: asm, vram: 0x800BB1E0, name: ultralib/io/epidma}
       - {start: 0x081540, type: asm, vram: 0x800BB2C0, name: ultralib/io/epilinkhandle}
       - {start: 0x081590, type: asm, vram: 0x800BB310, name: ultralib/gu/ortho}
-      - {start: 0x081750, type: asm, vram: 0x800BB4D0, name: ultralib/gu/random}
+      - {start: 0x081750, type:   c, vram: 0x800BB4D0, name: ultralib/gu/random}
       - {start: 0x081780, type: asm, vram: 0x800BB500, name: ultralib/os/thread}
       - {start: 0x0817C0, type: asm, vram: 0x800BB540, name: ultralib/os/interrupt}
       - {start: 0x081800, type: asm, vram: 0x800BB580, name: ultralib/os/settimer}
@@ -435,7 +436,11 @@ segments:
       - {start: 0x09C4A0, type: data, vram: 0x800D6220, name: newtetris/06F290}
       - {start: 0x09DD80, type: .data, vram: 0x800D7B00, name: newtetris/06FFD0}
       - {start: 0x09DE10, type: data, vram: 0x800D7B90, name: newtetris/072080}
-      - {start: 0x09F390, type: data, vram: 0x800D9110, name: newtetris/073120}
+      - {start: 0x09F390, type: .data, vram: 0x800D9110, name: newtetris/073120}
+      - {start: 0x09F3D0, type: .data, vram: 0x800D9150, name: newtetris/09F3D0}
+      - {start: 0x09F410, type: data, vram: 0x800D9190, name: newtetris/sprite}
+      - {start: 0x09F420, type: .data, vram: 0x800D91A0, name: newtetris/078FE0}
+      - {start: 0x09F590, type: data, vram: 0x800D9310, name: newtetris/09F590}
       - {start: 0x09F790, type: data, vram: 0x800D9510, name: ultralib/io/controller}
       - {start: 0x09F7A0, type: data, vram: 0x800D9520, name: ultralib/io/gbpakreadid}
       - {start: 0x09F7F0, type: data, vram: 0x800D9570, name: ultralib/io/vitbl}
@@ -449,7 +454,7 @@ segments:
       - {start: 0x0A12D0, type: data, vram: 0x800DB050, name: ultralib/audio/sl}
       - {start: 0x0A12E0, type: data, vram: 0x800DB060, name: ultralib/io/aisetnextbuf}
       - {start: 0x0A12F0, type: data, vram: 0x800DB070, name: ultralib/audio/drvrnew}
-      - {start: 0x0A1480, type: data, vram: 0x800DB200, name: ultralib/gu/random}
+      - {start: 0x0A1480, type: .data, vram: 0x800DB200, name: ultralib/gu/random}
       - {start: 0x0A1490, type: data, vram: 0x800DB210, name: ultralib/os/thread}
       - {start: 0x0A14B0, type: data, vram: 0x800DB230, name: ultralib/io/siacs}
       - {start: 0x0A14C0, type: data, vram: 0x800DB240, name: ultralib/os/exceptasm}
@@ -531,12 +536,13 @@ segments:
       - {start: 0x0A6CE0, type: rodata, vram: 0x800E0A60, name: newtetris/06F290}
       - {start: 0x0A6CF0, type: .rodata, vram: 0x800E0A70, name: newtetris/06FFD0}
       - {start: 0x0A73D0, type: .rodata, vram: 0x800E1150, name: newtetris/072080}
-      - {start: 0x0A73F0, type: rodata, vram: 0x800E1170, name: newtetris/072C40}
-      - {start: 0x0A7400, type: rodata, vram: 0x800E1180, name: newtetris/073120}
+      - {start: 0x0A73F0, type: .rodata, vram: 0x800E1170, name: newtetris/072C40}
+      - {start: 0x0A7400, type: .rodata, vram: 0x800E1180, name: newtetris/073120}
       - {start: 0x0A7410, type: .rodata, vram: 0x800E1190, name: newtetris/074B00}
-      - {start: 0x0A7560, type: rodata, vram: 0x800E12E0, name: newtetris/077340}
-      - {start: 0x0A75C0, type: .rodata, vram: 0x800E1340, name: newtetris/sprite}
-      - {start: 0x0A76D0, type: rodata, vram: 0x800E1450, name: newtetris/078FE0}
+      - {start: 0x0A7560, type: .rodata, vram: 0x800E12E0, name: newtetris/077340}
+      - {start: 0x0A7570, type: .rodata, vram: 0x800E12F0, name: newtetris/cont}
+      - {start: 0x0A75C0, type: rodata, vram: 0x800E1340, name: newtetris/sprite}
+      - {start: 0x0A76D0, type: .rodata, vram: 0x800E1450, name: newtetris/078FE0}
       - {start: 0x0A76E0, type: rodata, vram: 0x800E1460, name: ultralib/os/setintmask}
       - {start: 0x0A7760, type: .rodata, vram: 0x800E14E0, name: ultralib/gu/sinf}
       - {start: 0x0A77B0, type: .rodata, vram: 0x800E1530, name: ultralib/gu/cosf}
@@ -604,6 +610,7 @@ segments:
       - {type: bss, vram: 0x8011FCE0, name: newtetris/8011FCE0}
       - {type: bss, vram: 0x8011FCF0, name: newtetris/sram}
       - {type: .bss, vram: 0x8011FD10, name: newtetris/haluci}
+      - {type: bss, vram: 0x801200C0, name: newtetris/801200C0}
       - {type: .bss, vram: 0x801201D0, name: newtetris/n64heap}
       - {type: bss, vram: 0x801201E0, name: newtetris/0449D0}
       - {type: bss, vram: 0x80120210, name: newtetris/046DD0}
@@ -625,7 +632,7 @@ segments:
       - {type: .bss, vram: 0x80129600, name: newtetris/06FFD0}
       - {type: bss, vram: 0x8012A860, name: newtetris/072080}
       - {type: bss, vram: 0x8012CAF0, name: newtetris/8012CAF0}
-      - {type: bss, vram: 0x8012CB80, name: newtetris/078FE0}
+      - {type: .bss, vram: 0x8012CB80, name: newtetris/078FE0}
       - {type: bss, vram: 0x8012CC80, name: ultralib/os/seteventmesg}
       - {type: bss, vram: 0x8012CD00, name: ultralib/io/controller}
       - {type: bss, vram: 0x8012CD90, name: ultralib/io/motor}
