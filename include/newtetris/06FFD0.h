@@ -250,7 +250,7 @@ typedef struct {
 
 typedef struct {
   /* 0x0  */ BaseHeader     basehdr;  // .id = 5
-  /* 0x8  */ void          *unk8;     // see func_800AC9C0
+  /* 0x8  */ void          *unk8;     // see func_800AAB0C and func_800AC9C0
   /* 0xC  */ s32            unkC;
 
   /* 0x10 */ UnkStruct_75   unk10;

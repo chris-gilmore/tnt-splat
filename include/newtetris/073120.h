@@ -12,7 +12,7 @@ typedef struct {
 typedef struct {
   /* 0x0   */ u8             pad0[0x80];
   /* 0x80  */ Vtx            unk80[4];
-  /* 0xC0  */ s32            unkC0;
+  /* 0xC0  */ s32            unkC0;  // num rings
   /* 0xC4  */ UnkStruct_87  *unkC4;
   /* 0xC8  */ s32            unkC8;
   /* 0xCC  */ UnkStruct_87  *unkCC;

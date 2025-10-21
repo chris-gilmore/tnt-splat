@@ -386,7 +386,7 @@ Gfx *func_8007DA00(Gfx *gdl) {
     gdl = func_800AE220(D_8011FEAC, gdl, cfb[draw_buffer ^ 1], 0xFA, 0xFA, 0xFA, 0xC0);
   }
 
-  if ((D_800CFEE8 == 13) && (g_PV_arr->unk1C->unk0 & 0x1000) && !(g_PV_arr->unk1C->unk4 & 0x1000)) {  // START_BUTTON / CONT_START
+  if ((D_800CFEE8 == 13) && (g_PV_arr[0].unk1C->unk0 & 0x1000) && !(g_PV_arr[0].unk1C->unk4 & 0x1000)) {  // START_BUTTON / CONT_START
     D_800D3040 ^= 1;
   }
 
