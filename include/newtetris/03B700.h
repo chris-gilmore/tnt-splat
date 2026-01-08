@@ -42,7 +42,7 @@ typedef struct {
 typedef struct UnkStruct_0 UnkStruct_0;
 
 struct UnkStruct_0 {
-  /* 0x0  */ u8            *unk0;  // light source data
+  /* 0x0  */ u8            *unk0;  // spotlight data
   /* 0x4  */ u16            width;
   /* 0x6  */ u16            height;
   /* 0x8  */ UnkStruct_15   unk8;

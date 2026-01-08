@@ -1443,7 +1443,7 @@
   - [0x28A228, bin, image/main_background]
   - [0x2A54B2, bin, image/main_background_pal]
   - [0x2A56BA, bin, image/nintendo_logo]
-  - [0x2A774C, bin, image/unknown_0x2A774C]
+  - [0x2A774C, bin, image/spotlight]
   - [0x2A87FA, bin, image/font_a]
   - [0x2AAD06, bin, image/font_b]
   - [0x2AC39C, bin, image/font_c]

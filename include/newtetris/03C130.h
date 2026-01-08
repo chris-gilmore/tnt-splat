@@ -4,7 +4,7 @@
 typedef struct {
   /* 0x0  */ UnkStruct_0   unk0;
   /* 0x60 */ s32           unk60;
-  /* 0x64 */ void         *unk64;  // light source data
+  /* 0x64 */ void         *unk64;  // spotlight data
 } UnkStruct_21; // 0x68 bytes
 
 extern void   FUN_03C130_80075EB0_nineliner_allocs_heap(UnkStruct_21 *);

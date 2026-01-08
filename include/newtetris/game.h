@@ -12,7 +12,7 @@ typedef struct {
   /* 0x7    */ u8             unk7;     // 120 jiffies (2 seconds delay after end of game before you can exit)
   /* 0x8    */ Font           font;
   /* 0x80   */ CubeTiles      cubeTiles;
-  /* 0xE080 */ UnkStruct_21   unkE080;  // light source (128x128)
+  /* 0xE080 */ UnkStruct_21   unkE080;  // spotlight (128x128)
   /* 0xE0E8 */ Landfill       landfill;
   /* 0xE12C */ Tetris        *tetris_ptr_arr[4];
   /* 0xE13C */ Player         players[4];
