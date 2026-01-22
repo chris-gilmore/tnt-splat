@@ -673,7 +673,7 @@ segments:
 
   - [0x273C82, bin, image/tetris_start]
   - [0x289D82, bin, image/tetris_start_pal]
-  - [0x289F8A, bin, image/unknown_0x289F8A]
+  - [0x289F8A, bin, image/glyphs]
   # NOTE: abbreviated list
   - [0x28A228, bin, image_pad28A228]
 
