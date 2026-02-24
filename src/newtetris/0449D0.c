@@ -18,7 +18,7 @@ u8 func_8007E750(void) {
     gDPFillRectangle(g_gdl++, 0, 0, 400, 300);
     gDPPipeSync(g_gdl++);
 
-    D_801201E4 += D_801201E0 * func_800A3AF0();
+    D_801201E4 += D_801201E0 * frametime_delta();
     if (D_801201E4 >= 1.0) {
       return TRUE;
     }

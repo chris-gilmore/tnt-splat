@@ -603,7 +603,7 @@ void FUN_027BF0_8006332c_thirtyfiveliner(void) {
   s32 i;
   s32 j;
 
-  for (i = 0; i < func_800A3AF0(); i++) {
+  for (i = 0; i < frametime_delta(); i++) {
     if (D_800D04A0[0] != 0) {
       D_800D04A0[0]--;
     }
@@ -615,7 +615,7 @@ void FUN_027BF0_8006332c_thirtyfiveliner(void) {
   D_8011FB60[0] = ((sins(D_800CFED8 << 11) * D_800D04A0[0]) >> 13) + 0x400;
   D_8011FB64[0] = ((coss(D_800CFED8 << 11) * D_800D04A4[0]) >> 13) + 0x400;
 
-  for (j = 0; j < func_800A3AF0(); j++) {
+  for (j = 0; j < frametime_delta(); j++) {
     if (D_800D0498[0] > D_8011FB60[0]) {
       D_800D0498[0] -= 0x40;
       if (D_800D0498[0] < D_8011FB60[0]) {
@@ -1039,6 +1039,6 @@ void FUN_027BF0_800636C0_display_game_stats_screen_q(void) {
       displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 265, 110, "PRESS START", 0xFF, 0xFF, 0xFF, 0xFF);
       func_8005BE40(&g_gdl);
     }
-    D_800D04B8 = (func_800A3AF0() + D_800D04B8) % 30;
+    D_800D04B8 = (frametime_delta() + D_800D04B8) % 30;
   }
 }

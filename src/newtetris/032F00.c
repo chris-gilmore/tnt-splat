@@ -17,7 +17,7 @@ static void FUN_032F00_8006cc80_twentyliner_checks_pnum_1_2_4(void) {
   register s32 temp_s0;
 
   temp_s0 = func_800721D8();
-  D_801109F4 = func_800A3AF0();
+  D_801109F4 = frametime_delta();
   Game_line_782_game_c(&g_game);
   Game_render_stuff_line_850(&g_game);
   func_80072248();  // render pause menu
@@ -44,7 +44,7 @@ static void FUN_032F00_8006cc80_twentyliner_checks_pnum_1_2_4(void) {
 }
 
 static void FUN_032F00_8006cd98_tenliner_checks_12(void) {
-  D_801109F4 = func_800A3AF0();
+  D_801109F4 = frametime_delta();
   Game_line_782_game_c(&g_game);
   Game_render_stuff_line_850(&g_game);
 
@@ -63,7 +63,7 @@ static void FUN_032F00_8006cd98_tenliner_checks_12(void) {
 
 static void FUN_032F00_8006ce30_tenliner_magic_4000(void) {
   D_800D0550++;
-  D_801109F4 = func_800A3AF0();
+  D_801109F4 = frametime_delta();
   Game_line_782_game_c(&g_game);
   Game_render_stuff_line_850(&g_game);
   if (g_game.unk1 == 2) {

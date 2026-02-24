@@ -59,7 +59,7 @@ void func_80077098(UnkStruct_11 *arg0) {
       arg0->unk20 = arg0->unk20 | 1;
     }
     if (arg0->unk20 & 1) {
-      var_s0 = func_800A3AF0();
+      var_s0 = frametime_delta();
     } else {
       var_s0 = 0;
     }

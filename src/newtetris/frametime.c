@@ -2,65 +2,65 @@
 
 FrameTime g_frameTime;
 
-void func_800A39B0(void) {
-  g_frameTime.unk0 = 0;
-  g_frameTime.unk4 = 0;
-  g_frameTime.unk8 = 0;
-  g_frameTime.unkC = 0;
-  g_frameTime.unk10 = 0;
-  g_frameTime.unk14 = 0;
+void frametime_clear(void) {
+  g_frameTime.count = 0;
+  g_frameTime.delta = 0;
+  g_frameTime.jiffies = 0;
+  g_frameTime.seconds = 0;
+  g_frameTime.minutes = 0;
+  g_frameTime.hours = 0;
 }
 
-void func_800A39D4(s32 arg0) {
-  func_800A39B0();
-  g_frameTime.unk0 = arg0;
+void frametime_reset(s32 count) {
+  frametime_clear();
+  g_frameTime.count = count;
 }
 
-void func_800A39FC(s32 arg0) {
-  g_frameTime.unk4 = arg0;
-  g_frameTime.unk0 += arg0;
-  g_frameTime.unk8 += arg0;
-  while (g_frameTime.unk8 >= 60) {
-    g_frameTime.unk8 -= 60;
-    g_frameTime.unkC++;
-    if (g_frameTime.unkC == 60) {
-      g_frameTime.unkC = 0;
-      g_frameTime.unk10++;
-      if (g_frameTime.unk10 == 60) {
-        g_frameTime.unk10 = 0;
-        g_frameTime.unk14++;
-        if (g_frameTime.unk14 == 24) {
-          g_frameTime.unk14 = 0;
+void frametime_add(s32 delta) {
+  g_frameTime.delta = delta;
+  g_frameTime.count += delta;
+  g_frameTime.jiffies += delta;
+  while (g_frameTime.jiffies >= 60) {
+    g_frameTime.jiffies -= 60;
+    g_frameTime.seconds++;
+    if (g_frameTime.seconds == 60) {
+      g_frameTime.seconds = 0;
+      g_frameTime.minutes++;
+      if (g_frameTime.minutes == 60) {
+        g_frameTime.minutes = 0;
+        g_frameTime.hours++;
+        if (g_frameTime.hours == 24) {
+          g_frameTime.hours = 0;
         }
       }
     }
   }
 }
 
-void func_800A3A8C(s32 arg0) {
-  func_800A39FC(arg0 - g_frameTime.unk0);
+void frametime_update(s32 count) {
+  frametime_add(count - g_frameTime.count);
 }
 
-s32 func_800A3AB4(void) {
-  return g_frameTime.unk0;
+s32 frametime_count(void) {
+  return g_frameTime.count;
 }
 
-s32 func_800A3AC0(void) {
-  return g_frameTime.unk8;
+s32 frametime_jiffies(void) {
+  return g_frameTime.jiffies;
 }
 
-s32 func_800A3ACC(void) {
-  return g_frameTime.unkC;
+s32 frametime_seconds(void) {
+  return g_frameTime.seconds;
 }
 
-s32 func_800A3AD8(void) {
-  return g_frameTime.unk10;
+s32 frametime_minutes(void) {
+  return g_frameTime.minutes;
 }
 
-s32 func_800A3AE4(void) {
-  return g_frameTime.unk14;
+s32 frametime_hours(void) {
+  return g_frameTime.hours;
 }
 
-s32 func_800A3AF0(void) {
-  return g_frameTime.unk4;
+s32 frametime_delta(void) {
+  return g_frameTime.delta;
 }

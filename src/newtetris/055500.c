@@ -648,7 +648,7 @@ void func_80090E08(void) {
       sp24->unk88 = g_PV_arr[i].unk1C->unk0;
       sp24->unk8C = g_PV_arr[i].unk24;
       debug_print2("ControllerRepeat_Update", "MainMenu");
-      FUN_026900_GU_or_ControllerRepeat_Update(sp24, sp24->unk88, func_800A3AF0());
+      FUN_026900_GU_or_ControllerRepeat_Update(sp24, sp24->unk88, frametime_delta());
     }
 
     func_8009D5E4();
@@ -2652,7 +2652,7 @@ static void func_80099674(UnkStruct_78 *arg0) {
   if (arg0->unk114 != 0) {
     if (D_800D3E34 != 0) {
       if (D_800D3E2C > 0.0) {
-        D_800D3E2C -= D_800D3E30 * func_800A3AF0();
+        D_800D3E2C -= D_800D3E30 * frametime_delta();
       }
       if (D_800D3E2C < 0.0) {
         D_800D3E2C = 0;
@@ -2684,7 +2684,7 @@ static void func_80099674(UnkStruct_78 *arg0) {
       }
     } else {
       if (D_800D3E2C < 1.0) {
-        D_800D3E2C += D_800D3E30 * func_800A3AF0();
+        D_800D3E2C += D_800D3E30 * frametime_delta();
       }
       if (D_800D3E2C > 1.0) {
         D_800D3E2C = 1;

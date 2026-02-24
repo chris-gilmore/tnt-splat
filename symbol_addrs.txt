@@ -1171,16 +1171,16 @@ func_800A38B8                          = 0x800A38B8; // type:func static
 func_800A3928                          = 0x800A3928; // type:func
 
 // - {start: 0x069C30, type:   c, vram: 0x800A39B0, name: newtetris/frametime}
-func_800A39B0                          = 0x800A39B0; // type:func
-func_800A39D4                          = 0x800A39D4; // type:func
-func_800A39FC                          = 0x800A39FC; // type:func
-func_800A3A8C                          = 0x800A3A8C; // type:func
-func_800A3AB4                          = 0x800A3AB4; // type:func
-func_800A3AC0                          = 0x800A3AC0; // type:func
-func_800A3ACC                          = 0x800A3ACC; // type:func
-func_800A3AD8                          = 0x800A3AD8; // type:func
-func_800A3AE4                          = 0x800A3AE4; // type:func
-func_800A3AF0                          = 0x800A3AF0; // type:func
+frametime_clear                        = 0x800A39B0; // type:func         called from sched_sched.c
+frametime_reset                        = 0x800A39D4; // type:func
+frametime_add                          = 0x800A39FC; // type:func
+frametime_update                       = 0x800A3A8C; // type:func         called from 00E440.c, has_rounds_and_floors_large_liner()
+frametime_count                        = 0x800A3AB4; // type:func
+frametime_jiffies                      = 0x800A3AC0; // type:func
+frametime_seconds                      = 0x800A3ACC; // type:func
+frametime_minutes                      = 0x800A3AD8; // type:func
+frametime_hours                        = 0x800A3AE4; // type:func
+frametime_delta                        = 0x800A3AF0; // type:func
 
 // - {start: 0x069D80, type:   c, vram: 0x800A3B00, name: newtetris/069D80}
 func_800A3B00                          = 0x800A3B00; // type:func
