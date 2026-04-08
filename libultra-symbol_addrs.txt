@@ -661,8 +661,8 @@ __osPfsInodeCacheChannel  = 0x800DB280; // type:s32   size:0x4
 __osPfsInodeCacheBank     = 0x800DB284; // type:u8    size:0x1
 
 // ultralib/libc/xprintf
-spaces                    = 0x800DB290; // type:char  size:0x21   static  [33]
-zeroes                    = 0x800DB2B4; // type:char  size:0x21   static  [33]
+spaces                    = 0x800DB290; // type:char  size:0x24   static  [33]
+zeroes                    = 0x800DB2B4; // type:char  size:0x24   static  [33]
 
 // ultralib/io/vi
 vi                        = 0x800DB2E0; //            size:0x60   static  __OSViContext [2]
@@ -676,8 +676,8 @@ __osTimerList             = 0x800DB350; //            size:0x4            OSTime
 __osPiAccessQueueEnabled  = 0x800DB360; // type:u32   size:0x4
 
 // ultralib/libc/xlitob
-ldigs                     = 0x800DB370; // type:char  size:0x11   static  [17]
-udigs                     = 0x800DB384; // type:char  size:0x11   static  [17]
+ldigs                     = 0x800DB370; // type:char  size:0x14   static  [17]
+udigs                     = 0x800DB384; // type:char  size:0x14   static  [17]
 
 // ===========================================================================
 // .rodata
@@ -726,7 +726,7 @@ __osIntTable              = 0x800E1640; // type:jtbl  size:0x24   static  [9]
 
 // ultralib/libc/xprintf
 xprintf_rodata_0000       = 0x800E1670; // type:char  size:0x4    literal [4]
-fchar                     = 0x800E1674; // type:char  size:0x6    static  [6]
+fchar                     = 0x800E1674; // type:char  size:0x8    static  [6]
 fbit                      = 0x800E167C; // type:u32   size:0x18   static  [6]
 
 // ultralib/gu/libm_vals
@@ -739,7 +739,7 @@ reverb_rodata_0020        = 0x800E17C0; // type:f64   size:0x8    literal
 pows                      = 0x800E17D0; // type:f64   size:0x48   static  [9]
 xldtob_rodata_0048        = 0x800E1818; // type:char  size:0x4    literal [4]
 xldtob_rodata_004C        = 0x800E181C; // type:char  size:0x4    literal [4]
-xldtob_rodata_0050        = 0x800E1820; // type:char  size:0x2    literal [2]
+xldtob_rodata_0050        = 0x800E1820; // type:char  size:0x4    literal [2]
 xldtob_rodata_0058        = 0x800E1828; // type:f64   size:0x8    literal
 
 // ===========================================================================
