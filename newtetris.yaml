@@ -391,7 +391,7 @@ segments:
       - {start: 0x096400, type: data, vram: 0x800D0180, name: newtetris/sched_sched}
       - {start: 0x096420, type: .data, vram: 0x800D01A0, name: newtetris/pfgfx}
       - {start: 0x0964E0, type: .data, vram: 0x800D0260, name: newtetris/026900}
-      - {start: 0x096500, type: data, vram: 0x800D0280, name: newtetris/026F90}
+      - {start: 0x096500, type: .data, vram: 0x800D0280, name: newtetris/026F90}
       - {start: 0x096520, type: data, vram: 0x800D02A0, name: newtetris/0279C0}
       - {start: 0x096530, type: .data, vram: 0x800D02B0, name: newtetris/027BF0}
       - {start: 0x096740, type: .data, vram: 0x800D04C0, name: newtetris/piecehold}
@@ -586,7 +586,7 @@ segments:
       - {start: 0xA8190, type: .bss, vram: 0x8011F240, name: newtetris/tally}
       - {start: 0xA8190, type: .bss, vram: 0x8011F260, name: newtetris/pfgfx}
       - {start: 0xA8190, type: .bss, vram: 0x8011F270, name: newtetris/026900}
-      - {start: 0xA8190, type: bss, vram: 0x8011FA80, name: newtetris/026F90}
+      - {start: 0xA8190, type: .bss, vram: 0x8011FA80, name: newtetris/026F90}
       - {start: 0xA8190, type: bss, vram: 0x8011FAD0, name: newtetris/0279C0}
       - {start: 0xA8190, type: .bss, vram: 0x8011FAE0, name: newtetris/027BF0}
       - {start: 0xA8190, type: .bss, vram: 0x8011FB70, name: newtetris/currentpiece}
