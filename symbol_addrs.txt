@@ -361,7 +361,7 @@ game_over_display_stuff_huge_function_q          = 0x80055744; // type:func     
 //      - {start: 0x01D300, type: asm, vram: 0x80057080, name: newtetris/01D300}
 FUN_01D300_80057080_nevercalled              = 0x80057080; // type:func unused
 FUN_01D300_800570b0_fiveliner                = 0x800570B0; // type:func unused
-FUN_01D300_n64HeapUnalloc                    = 0x80057114; // type:func unused  note one liner just calls n64heapUnalloc
+FUN_01D300_n64HeapUnalloc                    = 0x80057114; // type:func unused
 FUN_01D300_80057140_sixliner                 = 0x80057140; // type:func unused
 FUN_01D300_800571d4_twentyliner              = 0x800571D4; // type:func  note interesting arg1,arg2 x84,x85 to x92,x93 (00C680.c calls this to load wonder screen images)
 FUN_01D300_800572f8_twoliner                 = 0x800572F8; // type:func

@@ -54,6 +54,7 @@ typedef struct {
 #include "newtetris/endscroller.h"
 #include "newtetris/055500.h"
 #include "newtetris/009A90.h"
+#include "newtetris/01D300.h"
 #include "newtetris/00C0D0.h"
 #include "newtetris/00C680.h"
 #include "newtetris/tally.h"

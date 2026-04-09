@@ -117,7 +117,7 @@ segments:
       - {start: 0x01AE00, type:   c, vram: 0x80054B80, name: newtetris/color}
       - {start: 0x01B150, type:   c, vram: 0x80054ED0, name: newtetris/piecedefs}
       - {start: 0x01B280, type:   c, vram: 0x80055000, name: newtetris/tally}
-      - {start: 0x01D300, type: asm, vram: 0x80057080, name: newtetris/01D300}
+      - {start: 0x01D300, type:   c, vram: 0x80057080, name: newtetris/01D300}
       - {start: 0x01D6E0, type:   c, vram: 0x80057460, name: newtetris/01D6E0}
       - {start: 0x024E90, type: asm, vram: 0x8005EC10, name: newtetris/sched_sched}
       - {start: 0x025D00, type:   c, vram: 0x8005FA80, name: newtetris/pfgfx}
