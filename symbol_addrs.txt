@@ -439,7 +439,7 @@ func_80061198                                    = 0x80061198; // type:func
 func_800611E0                                    = 0x800611E0; // type:func
 func_800614A8                                    = 0x800614A8; // type:func
 
-//      - {start: 0x0279C0, type: asm, vram: 0x80061740, name: newtetris/0279C0}
+//      - {start: 0x0279C0, type:   c, vram: 0x80061740, name: newtetris/0279C0}
 FUN_0279C0_80061740_switch_0to8_1to6_same        = 0x80061740; // type:func  note warning_no_controller
 
 //      - {start: 0x027BF0, type:   c, vram: 0x80061970, name: newtetris/027BF0}
@@ -1430,7 +1430,8 @@ D_800D0290                = 0x800D0290; // type:u32   size:0x4    static
 D_800D0294                = 0x800D0294; // type:u32   size:0x4    static
 D_800D0298                = 0x800D0298; // type:u32   size:0x4    static
 
-// - {start: 0x096520, type: data, vram: 0x800D02A0, name: newtetris/0279C0}
+// - {start: 0x096520, type: .data, vram: 0x800D02A0, name: newtetris/0279C0}
+D_800D02A0                = 0x800D02A0; // type:u32   size:0x4    static
 
 // - {start: 0x096740, type: .data, vram: 0x800D04C0, name: newtetris/piecehold}
 // piecehold 1p and 2p location tables
@@ -1862,6 +1863,12 @@ D_8011FA70                = 0x8011FA70; // type:u32   size:0x4    static
 
 // - {start: 0xA8190, type: .bss, vram: 0x8011FA80, name: newtetris/026F90}
 D_8011FA80                = 0x8011FA80; //            size:0x50   static  OSViMode
+
+// - {start: 0xA8190, type: .bss, vram: 0x8011FAD0, name: newtetris/0279C0}
+D_8011FAD0                = 0x8011FAD0; //            size:0x4    static  u8*
+D_8011FAD4                = 0x8011FAD4; //            size:0x4    static  u8*
+D_8011FAD8                = 0x8011FAD8; // type:s32   size:0x4    static
+D_8011FADC                = 0x8011FADC; // type:s32   size:0x4    static
 
 // - {start: 0xA8190, type: .bss, vram: 0x8011FB70, name: newtetris/currentpiece}
 g_currentPiece_ptr        = 0x8011FB70; //            size:0x4            CurrentPiece*
