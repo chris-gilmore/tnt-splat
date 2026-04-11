@@ -153,22 +153,24 @@ wonders2_8004624c_mult_7_add_6_etc      = 0x8004624C; // type:func note uh ok wh
 wonders2_80046280_tenliner_trap         = 0x80046280; // type:func
 wonders2_80046388_fiveliner             = 0x80046388; // type:func note subtract if non-neg else set to zero
 
-//      - {start: 0x00C680, type: asm, vram: 0x80046400, name: newtetris/00C680}
-wonders3_80046400_twentyliner            = 0x80046400; // type:func note calls that div by 7 function, looks at num wonders complete etc
-wonders3_80046610_fifteenliner           = 0x80046610; // type:func
-wonders3_80046798_threeliner             = 0x80046798; // type:func
-wonders3_800467f8_threeliner             = 0x800467F8; // type:func
-wonders3_init_tuples                     = 0x80046840; // type:func
+//      - {start: 0x00C680, type:   c, vram: 0x80046400, name: newtetris/00C680}
+wonders3_80046400_twentyliner            = 0x80046400; // type:func static  note calls that div by 7 function, looks at num wonders complete etc
+wonders3_80046610_fifteenliner           = 0x80046610; // type:func static
+wonders3_80046798_threeliner             = 0x80046798; // type:func static
+wonders3_800467f8_threeliner             = 0x800467F8; // type:func static
+wonders3_init_tuples                     = 0x80046840; // type:func static
 wonders3_switch_0to7_6and7are_same       = 0x80046A34; // type:func
-wonders3_display_wonders_hall_text       = 0x80046B28; // type:func
-wonders3_related                         = 0x80047014; // type:func
-wonders3_no_idea_menu_img_button         = 0x80047064; // type:func
+wonders3_display_wonders_hall_text       = 0x80046B28; // type:func static
+wonders3_related                         = 0x80047014; // type:func static
+wonders3_no_idea_menu_img_button         = 0x80047064; // type:func static
 wonders3_switch_0to3_2and3are_same       = 0x800471F8; // type:func
 wonders3_wonder_viewer                   = 0x800472F0; // type:func
-wonders3_8004745c_medium_liner_has_audio = 0x8004745C; // type:func note medium sized
-wonders3_800476f0_thirtyliner            = 0x800476F0; // type:func
-wonders3_display_contributors            = 0x800478C0; // type:func
-wonders3_display_contribs_or_story       = 0x80047C58; // type:func
+wonders3_8004745c_medium_liner_has_audio = 0x8004745C; // type:func static
+
+//      - {start: 0x00DB40, type: asm, vram: 0x800478C0, name: newtetris/00DB40}
+wonders4_800476f0_thirtyliner            = 0x800476F0; // type:func
+wonders4_display_contributors            = 0x800478C0; // type:func static
+wonders4_display_contribs_or_story       = 0x80047C58; // type:func
 
 //      - {start: 0x00E2A0, type: asm, vram: 0x80048020, name: newtetris/00E2A0}
 FUN_80048020_eightliner                  = 0x80048020; // type:func
@@ -1331,6 +1333,8 @@ PWM_Pulse                 = 0x800C5598; // type:u8    size:0x1    static
 D_800CF830                = 0x800CF830; // type:s8    size:0x1
 D_800CF838                = 0x800CF838; // type:s8    size:0x1
 
+// - {start: 0x095BD0, type: data, vram: 0x800CF950, name: newtetris/00C680}
+wonderViewer              = 0x800CFB5C; //            size:0x4    static  WonderViewer*
 
 //
 D_800CFD48                = 0x800CFD48; // type:u8    size:0x1
@@ -1796,7 +1800,11 @@ D_800E1F50                = 0x800E1F50; // type:u8    size:0x1
 
 // - {start: 0xA8190, type: bss, vram: 0x800E1F60, name: newtetris/009A90}
 
-// - {start: 0xA8190, type: bss, vram: 0x800E1F80, name: newtetris/00C680}
+// - {start: 0xA8190, type: .bss, vram: 0x800E1F80, name: newtetris/00C680}
+D_800E1F80                = 0x800E1F80; //            size:0x4    static  void*
+D_800E1F84                = 0x800E1F84; //            size:0x4    static  void*
+
+// - {start: 0xA8190, type: bss, vram: 0x800E1F90, name: newtetris/00DB40}
 
 // - {start: 0xA8190, type: bss, vram: 0x800E1FA0, name: newtetris/00E440}
 draw_buffer               = 0x800E20B0; // type:u16   size:0x2

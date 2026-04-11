@@ -34,7 +34,7 @@ static void FUN_032F00_8006cc80_twentyliner_checks_pnum_1_2_4(void) {
     D_801109F0 = 9;
     D_800CFEE8 = 8;
     D_800CFD48 = TRUE;
-    wonders3_wonder_viewer(D_800CF838, 0, temp_s0);
+    wonders3_wonder_viewer(D_800CF838, FALSE, temp_s0);
     break;
   case PAUSEMENU_EXIT:
     func_800721A4();

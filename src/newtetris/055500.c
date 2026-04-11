@@ -1031,7 +1031,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
           arg0->node->name[sp1CC] = D_800D3D48[15][sp1CC];  // "TITLE"
         }
         arg0->node->name[sp1CC] = 0;
-        if (D_800CF830 == 0x30) {
+        if (D_800CF830 == 48) {
           sp1C4 = 15;
         } else {
           sp1C4 = (D_800CF838 % 7) + 9;

@@ -148,7 +148,7 @@ void game_over_display_stuff_huge_function_q(void) {
   GameResults *spFC;
   Player *spF8;
   PlayerNode *spF4;
-  u8 spB8[60];
+  char spB8[60];
   s32 spB4;
   s32 unused;
   s32 spAC;
