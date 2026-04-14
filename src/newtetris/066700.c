@@ -513,8 +513,8 @@ void func_800A2E2C(void) {
   D_800D5B28.node = &D_800D2D80;
   D_800D5B8C.node = &D_800D2D80;
   D_800D5BF0.node = &D_800D2D80;
-  D_800D2D98.pack = 0xF;
-  D_800D2D80.pack = 0xE;
+  D_800D2D98.pack = 0xF;  // new name
+  D_800D2D80.pack = 0xE;  // guest
   D_800D3DD8 = 0;
 }
 

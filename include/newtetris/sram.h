@@ -70,6 +70,7 @@ extern u8           FUN_SRAM_80078424_twelveliner_div60_loop_30t_b(u16, u16);  /
 extern PlayerNode  *FUN_SRAM_8007868c_tenliner_loop_arg0_t(PlayerNode *);
 extern void         FUN_SRAM_8007875c_check_gameover_conditions(Player *, GameResults *, u8);
 extern void         func_800798F0(Player *, Sram *, u32);
+extern s32          func_80079F74(Sram *, u8);
 extern u8           func_80079F90(PlayerNode *, PlayerNode *);
 extern void         func_8007A078(PlayerNode *, u8);
 extern s32          func_8007A5D4(Sram *);

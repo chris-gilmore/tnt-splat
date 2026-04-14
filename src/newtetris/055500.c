@@ -1,10 +1,6 @@
 #include "common.h"
 
 extern u16 draw_buffer;
-extern s8 D_800CF830;
-extern s8 D_800CF834;
-extern s8 D_800CF838;
-extern s8 D_800CF83C;
 extern u8 D_800CFD48;
 extern u8 D_800CFD4C;
 

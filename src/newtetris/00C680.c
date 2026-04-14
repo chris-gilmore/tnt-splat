@@ -1,8 +1,6 @@
 #include "common.h"
 
 extern u16 draw_buffer;
-extern s8 D_800CF830;
-extern s8 D_800CF838;
 extern u8 D_800CFD48;
 
 ////////////////////////////////////////
@@ -78,17 +76,16 @@ static void wonders3_80046610_fifteenliner(WonderViewer *wndrVwr) {
 
   if (wndrVwr->cur_screen >= 7) {
     wndrVwr->unk8 = D_800CFB30[9];
+  } else if (wndrVwr->cur_screen < D_800CF838) {
+    wndrVwr->unk8 = D_800CFB30[wndrVwr->cur_screen];
+  } else if (wndrVwr->cur_screen > D_800CF838) {
+    wndrVwr->unk8 = D_800CFB30[7];
+  } else if (D_800CF830 == 48) {
+    wndrVwr->unk8 = D_800CFB30[wndrVwr->cur_screen];
   } else {
-    if (wndrVwr->cur_screen < D_800CF838) {
-      wndrVwr->unk8 = D_800CFB30[wndrVwr->cur_screen];
-    } else if (wndrVwr->cur_screen > D_800CF838) {
-      wndrVwr->unk8 = D_800CFB30[7];
-    } else if (D_800CF830 == 48) {
-      wndrVwr->unk8 = D_800CFB30[wndrVwr->cur_screen];
-    } else {
-      wndrVwr->unk8 = D_800CFB30[8];
-    }
+    wndrVwr->unk8 = D_800CFB30[8];
   }
+
   func_80076EC0(wndrVwr->unk8, 1);
   func_800A4654(wndrVwr->unk8->unk0);
   wndrVwr->unk8->unk0->unk8->unk10.unk20 = NULL;
@@ -191,7 +188,7 @@ static void wonders3_display_wonders_hall_text(void) {
   register WonderViewer *wndrVwr = wonderViewer;
   register s8 var_s1;
   register s8 var_s2;
-  register s32 var_s3;
+  register u32 var_s3;
   register u16 var_s4;
   register u16 var_s5;
   register u16 temp_s6;
