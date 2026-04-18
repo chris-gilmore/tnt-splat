@@ -16,6 +16,17 @@
 #define GUI_SLIDER    (1 << 12)
 #define GUI_QUIT      (1 << 15)
 
+typedef struct TextList TextList;
+
+struct TextList {
+  /* 0x0  */ char       text[9];
+  /* 0x9  */ u8         salt[2];
+  /* 0xB  */ u8         pack;
+  /* 0xC  */ void      *ptr;
+  /* 0x10 */ TextList  *next;
+  /* 0x14 */ TextList  *last;
+}; // 0x18 bytes
+
 typedef struct {
   /* 0x0  */ union { void *img; char *str; } data;
   /* 0x4  */ void  *pal;
@@ -47,7 +58,7 @@ typedef struct {
   /* 0x0  */ u32            id;
   /* 0x4  */ u8             unk4;  // name idx
   /* 0x5  */ s8             unk5;  // char idx
-  /* 0x8  */ PlayerNode    *node;  // maybe a better name is TextList?
+  /* 0x8  */ TextList      *textList;
   /* 0xC  */ s32            unkC;
   /* 0x10 */ s32            unk10;
   /* 0x14 */ UnkStruct_80   unk14;

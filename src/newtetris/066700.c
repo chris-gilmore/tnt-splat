@@ -148,7 +148,7 @@ GUI_Textbox D_800D41F0 = {
   0x40,
   8,
   0,
-  &D_800D2DE0,
+  &D_800D2DE0,  // "CHOOSE"
   0xBE,
   0xCC,
   { { NULL }, NULL, 0, 0, 0, 0, 0, 0, 0 },
@@ -357,7 +357,7 @@ GUI_Textbox D_800D4CDC = {
   0x40,
   8,
   0,
-  &D_800D2DC8,
+  &D_800D2DC8,  // " "
   0xB9,
   0xC8,
   { { NULL }, NULL, 0, 0, 0, 0, 0, 0, 0 },
@@ -509,12 +509,12 @@ void func_800A2E2C(void) {
   D_800D5B28.unk62 = 0;
   D_800D5B8C.unk62 = 0;
   D_800D5BF0.unk62 = 0;
-  D_800D5AC4.node = &D_800D2D80;
-  D_800D5B28.node = &D_800D2D80;
-  D_800D5B8C.node = &D_800D2D80;
-  D_800D5BF0.node = &D_800D2D80;
-  D_800D2D98.pack = 0xF;  // new name
-  D_800D2D80.pack = 0xE;  // guest
+  D_800D5AC4.textList = &D_800D2D80;  // "GUEST"
+  D_800D5B28.textList = &D_800D2D80;  // "GUEST"
+  D_800D5B8C.textList = &D_800D2D80;  // "GUEST"
+  D_800D5BF0.textList = &D_800D2D80;  // "GUEST"
+  D_800D2D98.pack = 0xF;  // "NEW NAME"
+  D_800D2D80.pack = 0xE;  // "GUEST"
   D_800D3DD8 = 0;
 }
 
@@ -522,7 +522,7 @@ GUI_Textbox D_800D5014 = {
   0x40,
   8,
   0,
-  &D_800D2DB0,
+  &D_800D2DB0,  // "GLOBAL"
   0x7B,
   0x60,
   { { NULL }, NULL, 0, 0, 0, 0, 0, 0, 0 },
@@ -741,7 +741,7 @@ GUI_Textbox D_800D57A4 = {
   0x40,
   8,
   0,
-  &D_800D2D80,
+  &D_800D2D80,  // "GUEST"
   0xB0,
   0x50,
   { { NULL }, NULL, 0, 0, 0, 0, 0, 0, 0 },
@@ -839,7 +839,7 @@ GUI_Textbox D_800D5AC4 = {
   0x40,
   8,
   0,
-  &D_800D2D80,
+  &D_800D2D80,  // "GUEST"
   0x28,
   0x4D,
   { { NULL }, NULL, 0, 0, 0, 0, 0, 0, 0 },
@@ -856,7 +856,7 @@ GUI_Textbox D_800D5B28 = {
   0x40,
   8,
   0,
-  &D_800D2D80,
+  &D_800D2D80,  // "GUEST"
   0x28,
   0x70,
   { { NULL }, NULL, 0, 0, 0, 0, 0, 0, 0 },
@@ -873,7 +873,7 @@ GUI_Textbox D_800D5B8C = {
   0x40,
   8,
   0,
-  &D_800D2D80,
+  &D_800D2D80,  // "GUEST"
   0xCC,
   0x4D,
   { { NULL }, NULL, 0, 0, 0, 0, 0, 0, 0 },
@@ -890,7 +890,7 @@ GUI_Textbox D_800D5BF0 = {
   0x40,
   8,
   0,
-  &D_800D2D80,
+  &D_800D2D80,  // "GUEST"
   0xCC,
   0x70,
   { { NULL }, NULL, 0, 0, 0, 0, 0, 0, 0 },

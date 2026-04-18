@@ -25,7 +25,7 @@ static void   FUN_80055704_threeliner(void);
 
 void gets_lineCounts_loops_numPlayers_checks_gametype(void) {
   s32 i, j;
-  PlayerNode *sp2C;
+  TextList *sp2C;
   GameResults *sp28;
   register s32 pack;
 
@@ -78,7 +78,7 @@ void gets_lineCounts_loops_numPlayers_checks_gametype(void) {
             if (pack == 0xD) {
               for (j = 0; j < 32; j++) {
                 if ((1 << j) & g_sram_ptr->unk0) {
-                  if (func_8007AADC((u8 *) (g_sram_ptr->unk4 + j), sp2C->ptr->node.salt[0], sp2C->ptr->node.salt[1])) {
+                  if (func_8007AADC((u8 *) (g_sram_ptr->unk4 + j), ((Player *) sp2C->ptr)->node.salt[0], ((Player *) sp2C->ptr)->node.salt[1])) {
                     func_8007AF88(sp2C->ptr, (u8 *) g_sram_ptr->unk4, j * sizeof(UnkStruct_34));
                   }
                 }
@@ -145,7 +145,7 @@ static void FUN_80055704_threeliner(void) {
 void game_over_display_stuff_huge_function_q(void) {
   GameResults *spFC;
   Player *spF8;
-  PlayerNode *spF4;
+  TextList *spF4;
   char spB8[60];
   s32 spB4;
   s32 unused;

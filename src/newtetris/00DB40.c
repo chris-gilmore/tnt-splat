@@ -1,326 +1,294 @@
 #include "common.h"
 
-//static u8 D_800E1F96;
-extern u8 D_800E1F96;
+static u8 D_800E1F90;
+static u8 D_800E1F91;
+static u8 D_800E1F92;
+static u8 D_800E1F93;
+static u8 D_800E1F94;
+static u8 D_800E1F95;
+static u8 D_800E1F96;
+static u8 D_800E1F97;
+static u8 D_800E1F98;
 
-/* static */ void wonders4_display_contributors(Font *, u8, u16, u16, u16);
+static void wonders4_display_contributors(Font *, u8, u16, u16, u16);
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/wonders4_800476f0_thirtyliner.s")
+void wonders4_800476f0_thirtyliner(u8 font, u8 arg1) {
+  register UnkStruct_3 *contributor;
+  register u8 i;
+  register Contributions *contributions;
 
-//
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB690.s")
+  D_800E1F96 = font;
+  D_800E1F90 = arg1;
+  if (D_800E1F90 == 0) {
+    D_800E1F94 = 115;
+    D_800E1F95 = 195;
+    D_800E1F91 = D_800CFB60[D_800E1F96] - 4;
+    D_800E1F97 = 4;
+    D_800E1F98 = D_800CFB60[D_800E1F96];
+  } else if (D_800E1F90 == 2) {
+    D_800E1F95 = 50;
+    D_800E1F97 = 15;
+    contributions = func_80079F74(g_sram_ptr, D_800E1F96);
+    for (i = 0; i < 10; i++) {
+      contributor = &contributions->contributors[i];
+      if ((contributor->lines == 0) || (contributor->unkA == 0) || (contributor->unkA == 0)) {
+        break;
+      }
+    }
+    D_800E1F98 = (i * 2) + 19;
+    D_800E1F91 = D_800E1F98 - 15;
+  } else {
+    D_800E1F94 = 80;
+    D_800E1F95 = 30;
+    D_800E1F91 = D_800CFB60[D_800E1F96] - 4;
+    D_800E1F97 = 4;
+    D_800E1F98 = D_800CFB60[D_800E1F96];
+  }
+  D_800E1F92 = 0;
+  D_800E1F93 = 0;
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/wonders4_display_contributors.s")
-/*
-void wonders4_display_contributors(Font *font, u8 arg1, u16 arg2, u16 arg3, u16 arg4) {
-  register void *temp_s0;
-  register s32 temp_s1;
-  register s32 temp_s2;
-  char sp70[4];
-  char sp5C[20];
-  char sp48[20];
+static void wonders4_display_contributors(Font *font, u8 arg1, u16 arg2, u16 arg3, u16 arg4) {
+  register UnkStruct_3 *contributor;
+  register u16 lines_x;
+  register Contributions *contributions;
+  char rank[4];
+  char name[20];
+  char lines[20];
 
-  temp_s2 = func_80079F74(g_sram_ptr, D_800E1F96);
+  contributions = func_80079F74(g_sram_ptr, D_800E1F96);
   if (arg1 == 0) {
-    sprintf(&sp70, "");
-    sprintf(&sp5C, "       CONTRIBUTORS");
-    sprintf(&sp48, "");
+    sprintf(rank, "");
+    sprintf(name, "       CONTRIBUTORS");
+    sprintf(lines, "");
   } else if (arg1 == 2) {
-    sprintf(&sp70, "");
-    sprintf(&sp5C, "NAME");
-    sprintf(&sp48, "LINES");
+    sprintf(rank, "");
+    sprintf(name, "NAME");
+    sprintf(lines, "LINES");
   } else if (arg1 >= 4) {
     arg1 -= 4;
-    if (((arg1 % 2) == 0) && ((arg1 / 2) < 10)) {
-      temp_s0 = temp_s2 + (((s32) (arg1 & 0xFF) / 2) * 0x18);
-      if ((temp_s0->unkC == 0) || (temp_s0->unkA == 0) || (temp_s0->unkA == 0)) {
-        sprintf(&sp70, "");
-        sprintf(&sp5C, "");
-        sprintf(&sp48, "");
+    if (!(arg1 % 2) && arg1 / 2 < 10) {
+      contributor = &contributions->contributors[arg1 / 2];
+      if ((contributor->lines == 0) || (contributor->unkA == 0) || (contributor->unkA == 0)) {
+        sprintf(rank, "");
+        sprintf(name, "");
+        sprintf(lines, "");
       } else {
-        sprintf(&sp70, "%2u", (arg1 / 2) + 1);
-        sprintf(&sp5C, "%-10s", temp_s0);
-        sprintf(&sp48, "%10u", temp_s0->unkC);
+        sprintf(rank, "%2u", (arg1 / 2) + 1);
+        sprintf(name, "%-10s", contributor->name);
+        sprintf(lines, "%10u", contributor->lines);
       }
     } else {
-      sprintf(&sp70, "");
-      sprintf(&sp5C, "");
-      sprintf(&sp48, "");
+      sprintf(rank, "");
+      sprintf(name, "");
+      sprintf(lines, "");
     }
   } else {
-    sprintf(&sp70, "");
-    sprintf(&sp5C, "");
-    sprintf(&sp48, "");
+    sprintf(rank, "");
+    sprintf(name, "");
+    sprintf(lines, "");
   }
-  temp_s1 = (0x14A - get_text_width(font, &sp48)) & 0xFFFF;
-  displayText_80077ee0_5(&g_gdl, font, 0x39, (s32) arg2, &sp70, 0xFF, 0xFF, 0xFF, 0xFF, (s32) arg3, (s32) arg4);
-  displayText_80077ee0_5(&g_gdl, font, 0x55, (s32) arg2, &sp5C, 0xFF, 0xFF, 0xFF, 0xFF, (s32) arg3, (s32) arg4);
-  displayText_80077ee0_5(&g_gdl, font, temp_s1, (s32) arg2, &sp48, 0xFF, 0xFF, 0xFF, 0xFF, (s32) arg3, (s32) arg4);
+  lines_x = 330 - get_text_width(font, lines);
+  displayText_80077ee0_5(&g_gdl, font, 57, arg2, rank, 0xFF, 0xFF, 0xFF, 0xFF, arg3, arg4);
+  displayText_80077ee0_5(&g_gdl, font, 85, arg2, name, 0xFF, 0xFF, 0xFF, 0xFF, arg3, arg4);
+  displayText_80077ee0_5(&g_gdl, font, lines_x, arg2, lines, 0xFF, 0xFF, 0xFF, 0xFF, arg3, arg4);
 }
-*/
 
-//
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB6A8.s")
-
-//
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB6AC.s")
-
-//
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB6B0.s")
-
-//
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB6B8.s")
-
-//
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB6C0.s")
-
-//
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB6C4.s")
-
-//
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB6C8.s")
-
-//
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB6CC.s")
-
-//
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB6D0.s")
-
-//
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB6D8.s")
-
-//
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB6E0.s")
-
-//
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB6E4.s")
-
-//
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB6E8.s")
-
-//
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB6EC.s")
-
-//
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB6F0.s")
-
-//
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB6F4.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/wonders4_display_contribs_or_story.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB704.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB724.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB728.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB748.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB768.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB788.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB7A8.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB7C8.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB7E8.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB804.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB824.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB840.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB860.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB880.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB898.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB89C.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB8A0.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB8A4.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB8A8.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB8C4.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB8D8.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB8DC.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB8FC.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB918.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB938.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB958.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB978.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB998.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB9A4.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB9A8.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB9AC.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB9B0.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB9B4.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB9D0.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB9D4.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DB9F4.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBA10.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBA2C.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBA4C.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBA6C.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBA8C.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBAAC.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBACC.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBAE8.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBB08.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBB0C.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBB10.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBB14.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBB18.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBB30.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBB34.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBB54.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBB74.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBB94.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBBB4.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBBD4.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBBF0.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBC10.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBC2C.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBC30.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBC34.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBC38.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBC3C.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBC5C.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBC60.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBC80.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBCA0.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBCC0.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBCE0.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBD00.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBD20.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBD3C.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBD4C.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBD50.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBD54.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBD58.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBD5C.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBD78.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBD90.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBD94.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBDB4.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBDD4.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBDF4.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBE14.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBE34.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBE54.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBE74.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBE94.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBEB0.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBEC8.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBECC.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBED0.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBED4.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBED8.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBEF8.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBEFC.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBF18.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBF34.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBF54.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBF74.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBF94.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBFB0.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBFD0.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DBFF0.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DC004.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DC008.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DC00C.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00DB40/D_800DC010.s")
+void wonders4_display_contribs_or_story(Font *font) {
+  register u8 i;
+  register u8 var_s1;
+  register u8 var_s2;
+  register u8 var_s3;
+  char text[32];
+
+  var_s1 = D_800E1F95;
+  var_s2 = font->height;
+  var_s3 = D_800E1F91;
+
+  if (D_800E1F90 == 2) {
+    wonders4_display_contributors(font, var_s3, var_s1, D_800E1F92, var_s2 - 1);
+  } else {
+    sprintf(text, "%s", D_800CFD18[D_800E1F96][var_s3]);
+    displayText_80077ee0_5(&g_gdl, font, D_800E1F94, var_s1, text, 0xFF, 0xFF, 0xFF, 0xFF, D_800E1F92, var_s2 - 1);
+  }
+  var_s1 += var_s2 - D_800E1F92;
+  var_s3++;
+  if (var_s3 == D_800E1F98) {
+    var_s3 = 0;
+  }
+
+  for (i = 1; i < D_800E1F97; i++) {
+    if (D_800E1F90 == 2) {
+      wonders4_display_contributors(font, var_s3, var_s1, 0, var_s2 - 1);
+    } else {
+      sprintf(text, "%s", D_800CFD18[D_800E1F96][var_s3]);
+      displayText_XY_RGBA_2(&g_gdl, font, D_800E1F94, var_s1, text, 0xFF, 0xFF, 0xFF, 0xFF);
+    }
+    var_s1 += var_s2;
+    var_s3++;
+    if (var_s3 == D_800E1F98) {
+      var_s3 = 0;
+    }
+  }
+
+  if (D_800E1F90 == 2) {
+    wonders4_display_contributors(font, var_s3, var_s1, 0, D_800E1F92);
+  } else {
+    sprintf(text, "%s", D_800CFD18[D_800E1F96][var_s3]);
+    displayText_80077ee0_5(&g_gdl, font, D_800E1F94, var_s1, text, 0xFF, 0xFF, 0xFF, 0xFF, 0, D_800E1F92);
+  }
+
+  D_800E1F93 += frametime_delta();
+  if (D_800E1F93 >= 8) {
+    D_800E1F92++;
+    D_800E1F93 -= 8;
+    if (D_800E1F92 >= var_s2) {
+      D_800E1F92 = 0;
+      D_800E1F91++;
+      if (D_800E1F91 == D_800E1F98) {
+        D_800E1F91 = 0;
+      }
+    }
+  }
+}
+
+u8 D_800CFB60[] = { 18, 14, 16, 14, 14, 17, 15 };
+
+char *D_800CFB68[] = {
+  " THE CARACOL AT CHICHEN ITZA",
+  "",
+  "MADE BY THE MAYANS DURING THE",
+  "FIRST MILLENNIUM, AND STANDING",
+  "ABOUT 400 FT (122 M) TALL, IT",
+  "IS ONE OF THE MAIN STRUCTURES",
+  "OF THE GREAT MAYAN CITY CALLED",
+  "CHICHEN ITZA. ITS PRESENT DAY",
+  "NAME COMES FROM THE SPANISH",
+  "WORD FOR SNAIL, WHICH ITS RUIN",
+  "RESEMBLES. THIS IS HOW THE",
+  "CARACOL MIGHT HAVE LOOKED WHEN",
+  "CHICHEN ITZA WAS AT ITS MOST",
+  "POWERFUL, IN 1180 A.D.",
+  "",
+  "",
+  "",
+  "",
+};
+
+char *D_800CFBB0[] = {
+  "   THE SANCTUARY OF APOLLO",
+  "          AT DELPHI",
+  "",
+  "FOR HUNDREDS OF YEARS IT SAT",
+  "AT THE CENTER OF THE GREEK",
+  "EMPIRE. THE FEMALE ORACLES OF",
+  "APOLLO GAVE ENIGMATIC ANSWERS",
+  "THAT OFTEN STUNNED THE WORLD'S",
+  "LEADERS AND CHANGED THE COURSE",
+  "OF HISTORY.",
+  "",
+  "",
+  "",
+  "",
+};
+
+char *D_800CFBE8[] = {
+  "   THE GREAT SPHINX AT GIZA",
+  "",
+  "IT GUARDS THE APPROACH TO THE",
+  "PYRAMID OF KHAFRE IN GIZA,",
+  "EGYPT. CARVED IN 2500 B.C.,",
+  "THIS HUGE MONUMENT SHOWS THE",
+  "ROYAL VISAGE OF PHARAOH KHAFRE",
+  "ATOP THE BODY OF A HUGE LION.",
+  "WHAT YOU SEE HERE IS THE GREAT",
+  "SPHINX AS IT MAY HAVE LOOKED",
+  "IN 1500 B.C., AFTER BEING",
+  "RESTORED BY THUTMOSE THE 4TH.",
+  "",
+  "",
+  "",
+  "",
+};
+
+char *D_800CFC28[] = {
+  "          STONEHENGE",
+  "",
+  "AN ANCIENT MONUMENT LOCATED ON",
+  "SALISBURY PLAIN IN ENGLAND, IT",
+  "IS MADE UP OF SEVERAL GROUPS",
+  "OF HUGE STANDING STONES, PLUS",
+  "DITCHES AND EARTHWORKS. IT WAS",
+  "PROBABLY USED AS A TEMPLE.",
+  "THIS IS STONEHENGE AS IT MAY",
+  "HAVE LOOKED IN 1500 B.C.",
+  "",
+  "",
+  "",
+  "",
+};
+
+char *D_800CFC60[] = {
+  "  THE GREAT MOSQUE AT DJENNE",
+  "",
+  "THE CITY OF DJENNE, IN MALI,",
+  "HAS HAD A MOSQUE AT ITS CENTER",
+  "SINCE THE 8TH CENTURY. IT IS A",
+  "MAGNIFICENT BLEND OF LOCAL AND",
+  "MUSLIM ARCHITECTURAL STYLES.",
+  "WHAT YOU SEE HERE IS THE GREAT",
+  "MOSQUE AT DJENNE MUCH AS IT",
+  "APPEARS TODAY.",
+  "",
+  "",
+  "",
+  "",
+};
+
+char *D_800CFC98[] = {
+  "    THE HORYU JI MONASTERY",
+  "       NEAR NARA, JAPAN",
+  "",
+  "THIS BUDDHIST TEMPLE CAPTURES",
+  "WHAT WAS A SIGNIFICANT MOMENT",
+  "IN JAPANESE HISTORY, WHEN THE",
+  "CULTURAL EXCHANGE WITH CHINA",
+  "BEGAN TO EXERT WIDE INFLUENCE",
+  "OVER JAPANESE MEDICINE, ART,",
+  "TECHNOLOGY, AND ARCHITECTURE.",
+  "ITS GRACEFUL LINES INFLUENCED",
+  "THE DESIGN OF NARA, JAPAN'S",
+  "FIRST IMPERIAL CITY.",
+  "",
+  "",
+  "",
+  "",
+};
+
+char *D_800CFCDC[] = {
+  "ST.BASIL'S CATHEDRAL IN MOSCOW",
+  "",
+  "THE 'STONE FLOWER IN RED",
+  "SQUARE' WAS COMMISSIONED BY",
+  "CZAR IVAN THE 4TH, ALSO KNOWN",
+  "AS 'THE TERRIBLE,' IN 1552 TO",
+  "COMMEMORATE THE CAPTURE OF THE",
+  "TARTAR CITY KAZAN. IT SHOWS",
+  "HOW BOTH BYZANTINE AND ASIATIC",
+  "INFLUENCES HAVE COME TOGETHER",
+  "IN RUSSIAN CULTURE.",
+  "",
+  "",
+  "",
+  "",
+};
+
+char **D_800CFD18[] = {
+  D_800CFB68,
+  D_800CFBB0,
+  D_800CFBE8,
+  D_800CFC28,
+  D_800CFC60,
+  D_800CFC98,
+  D_800CFCDC,
+};

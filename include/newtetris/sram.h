@@ -44,50 +44,64 @@ typedef struct {
 } UnkStruct_34; // 0x78 bytes
 
 typedef struct {
-  /* 0x0    */ u32            unk0;
-  /* 0x4    */ UnkStruct_34   unk4[32];
-  /* 0xF04  */ u32            total_wonder_lines_odd_bits;
-  /* 0xF08  */ u32            total_wonder_lines_even_bits;
-  /* 0xF0C  */ u8             padF0C[0x9D8];
-  /* 0x18E4 */ u32            music_level;
-  /* 0x18E8 */ u32            sfx_level;
-  /* 0x18EC */ u32            song;
-  /* 0x18F0 */ u32            music_mode;
-  /* 0x18F4 */ u32            unk18F4;
-  /* 0x18F8 */ u8             pad18F8[0x8];
+  /* 0x0  */ char   name[9];
+  /* 0x9  */ u8     unk9;
+  /* 0xA  */ u8     unkA;
+  /* 0xB  */ u8     unkB;
+  /* 0xC  */ u32    lines;
+  /* 0x10 */ u8     unk10[0x8];
+} UnkStruct_3; // 0x18 bytes
+
+typedef struct {
+  /* 0x0 */ UnkStruct_3   contributors[10];
+} Contributions; // 0xF0 bytes
+
+typedef struct {
+  /* 0x0    */ u32             unk0;
+  /* 0x4    */ UnkStruct_34    unk4[32];
+  /* 0xF04  */ u32             total_wonder_lines_odd_bits;
+  /* 0xF08  */ u32             total_wonder_lines_even_bits;
+  /* 0xF0C  */ u8              padF0C[0x168];
+  /* 0x1074 */ Contributions   contributions[9];
+  /* 0x18E4 */ u32             music_level;
+  /* 0x18E8 */ u32             sfx_level;
+  /* 0x18EC */ u32             song;
+  /* 0x18F0 */ u32             music_mode;
+  /* 0x18F4 */ u32             unk18F4;
+  /* 0x18F8 */ u8              pad18F8[0x8];
 } Sram; // 0x1900 bytes
 
-extern PlayerNode D_800D2D80;
-extern PlayerNode D_800D2D98;
-extern PlayerNode D_800D2DB0;
-extern PlayerNode D_800D2DC8;  // maybe a better name is TextList?  this variable seems to be related to GUI_Textbox
-extern PlayerNode D_800D2DE0;
+extern TextList D_800D2D80;
+extern TextList D_800D2D98;
+extern TextList D_800D2DB0;
+extern TextList D_800D2DC8;
+extern TextList D_800D2DE0;
 
 extern Sram *g_sram_ptr;
 
-extern u8           FUN_SRAM_80078300_twelveliner_div60_loop_30t_a(Player *);  // calculating rank
-extern u8           FUN_SRAM_80078424_twelveliner_div60_loop_30t_b(u16, u16);  // calculating rank, too
-extern PlayerNode  *FUN_SRAM_8007868c_tenliner_loop_arg0_t(PlayerNode *);
-extern void         FUN_SRAM_8007875c_check_gameover_conditions(Player *, GameResults *, u8);
-extern void         func_800798F0(Player *, Sram *, u32);
-extern s32          func_80079F74(Sram *, u8);
-extern u8           func_80079F90(PlayerNode *, PlayerNode *);
-extern void         func_8007A078(PlayerNode *, u8);
-extern s32          func_8007A5D4(Sram *);
-extern void         func_8007A62C(Sram *, s32);
-extern void         func_8007A648(Sram *, s32);
-extern u32          func_8007A660(Sram *);
-extern void         func_8007A6C4(Player *, PlayerNode *, s32);
-extern PlayerNode  *func_8007A738(PlayerNode *, u8);
-extern PlayerNode  *func_8007AA5C(PlayerNode *, PlayerNode *);
-extern u8           func_8007AADC(u8 *, u8, u8);
-extern PlayerNode  *func_8007AEB0(PlayerNode *);
-extern void         func_8007AF88(Player *, u8 *, s32);
-extern void         func_8007B38C(PlayerNode *);
-extern void         func_8007B420(Player *);
-extern void         func_8007B430(Player *, UnkStruct_34 *, s32);
-extern u32          get_total_wonder_lines(Sram *);
-extern void         load_from_sram(u8);
-extern void         func_8007C5CC(Sram *);  // save_to_sram?
+extern u8              FUN_SRAM_80078300_twelveliner_div60_loop_30t_a(Player *);  // calculating rank
+extern u8              FUN_SRAM_80078424_twelveliner_div60_loop_30t_b(u16, u16);  // calculating rank, too
+extern TextList       *FUN_SRAM_8007868c_tenliner_loop_arg0_t(TextList *);
+extern void            FUN_SRAM_8007875c_check_gameover_conditions(Player *, GameResults *, u8);
+extern void            func_800798F0(Player *, Sram *, u32);
+extern Contributions  *func_80079F74(Sram *, u8);
+extern u8              func_80079F90(TextList *, TextList *);
+extern void            func_8007A078(TextList *, u8);
+extern s32             func_8007A5D4(Sram *);
+extern void            func_8007A62C(Sram *, s32);
+extern void            func_8007A648(Sram *, s32);
+extern u32             func_8007A660(Sram *);
+extern void            func_8007A6C4(Player *, TextList *, s32);
+extern TextList       *func_8007A738(TextList *, u8);
+extern TextList       *func_8007AA5C(TextList *, PlayerNode *);
+extern u8              func_8007AADC(u8 *, u8, u8);
+extern TextList       *func_8007AEB0(TextList *);
+extern void            func_8007AF88(Player *, u8 *, s32);
+extern void            func_8007B38C(PlayerNode *);
+extern void            func_8007B420(Player *);
+extern void            func_8007B430(Player *, UnkStruct_34 *, s32);
+extern u32             get_total_wonder_lines(Sram *);
+extern void            load_from_sram(u8);
+extern void            func_8007C5CC(Sram *);  // save_to_sram?
 
 #endif /* !_SRAM_H_ */

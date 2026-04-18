@@ -3,31 +3,31 @@
 // Sram *g_sram_ptr;
 
 /*
-PlayerNode D_800D2D80 = {
+TextList D_800D2D80 = {
   { 'G', 'U', 'E', 'S', 'T', 0, 0, 0, 0 },
-  { 0x20, 0x20 },
+  { 32, 32 },
   0xE,
   NULL,
   &D_800D2D98,
   &D_800D2D98
 };
-PlayerNode D_800D2D98 = {
+TextList D_800D2D98 = {
   { 'N', 'E', 'W', ' ', 'N', 'A', 'M', 'E', 0 },
-  { 0x20, 0x20 },
+  { 32, 32 },
   0xF,
   NULL,
   &D_800D2D80,
   &D_800D2D80
 };
-PlayerNode D_800D2DB0 = {
+TextList D_800D2DB0 = {
   { 'G', 'L', 'O', 'B', 'A', 'L', 0, 0, 0 },
-  { 0x20, 0x20 },
+  { 32, 32 },
   0x9,
   NULL,
   &D_800D2DB0,
   &D_800D2DB0
 };
-PlayerNode D_800D2DC8 = {
+TextList D_800D2DC8 = {
   { ' ', 0, 0, 0, 0, 0, 0, 0, 0 },
   { 0, 0 },
   0x5,
@@ -35,7 +35,7 @@ PlayerNode D_800D2DC8 = {
   &D_800D2DC8,
   &D_800D2DC8
 };
-PlayerNode D_800D2DE0 = {
+TextList D_800D2DE0 = {
   { 'C', 'H', 'O', 'O', 'S', 'E', 0, 0, 0 },
   { 0xFF, 0xFF },
   0x4,
@@ -104,8 +104,8 @@ u8 FUN_SRAM_80078424_twelveliner_div60_loop_30t_b(u16 time_in_seconds, u16 lines
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sram/FUN_SRAM_800785e0_sixliner_loop_arg0_t.s")
 
-PlayerNode *FUN_SRAM_8007868c_tenliner_loop_arg0_t(PlayerNode *arg0) {
-  PlayerNode *sp1C;
+TextList *FUN_SRAM_8007868c_tenliner_loop_arg0_t(TextList *arg0) {
+  TextList *sp1C;
   s32 sp18;
 
   sp18 = 0;
@@ -136,7 +136,9 @@ PlayerNode *FUN_SRAM_8007868c_tenliner_loop_arg0_t(PlayerNode *arg0) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sram/func_800798F0.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sram/func_80079F74.s")
+Contributions *func_80079F74(Sram *sram_ptr, u8 arg1) {
+  return &sram_ptr->contributions[arg1];
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sram/func_80079F90.s")
 
@@ -308,12 +310,12 @@ PlayerNode *FUN_SRAM_8007868c_tenliner_loop_arg0_t(PlayerNode *arg0) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sram/func_8007AA50.s")
 
-PlayerNode *func_8007AA5C(PlayerNode *arg0, PlayerNode *arg1) {
-  PlayerNode *sp4;
+TextList *func_8007AA5C(TextList *arg0, PlayerNode *arg1) {
+  TextList *sp4;
 
   sp4 = arg0;
   do {
-    if ((sp4->salt[0] == arg1->salt[0]) && (sp4->salt[1] == arg1->salt[1]) && (sp4->name[0] == arg1->name[0])) {
+    if ((sp4->salt[0] == arg1->salt[0]) && (sp4->salt[1] == arg1->salt[1]) && (sp4->text[0] == arg1->name[0])) {
       return sp4;
     }
     sp4 = sp4->next;
@@ -332,8 +334,8 @@ u8 func_8007AADC(u8 *arg0, u8 arg1, u8 arg2) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sram/func_8007AB10.s")
 
-PlayerNode *func_8007AEB0(PlayerNode *arg0) {
-  PlayerNode *sp1C;
+TextList *func_8007AEB0(TextList *arg0) {
+  TextList *sp1C;
 
   if (((arg0->pack & 0xF) != 0xE) && ((arg0->pack & 0xF) != 0xF) && ((arg0->pack & 0xF) != 0xA) && ((arg0->pack & 0xF) != 5)) {
     arg0->last->next = arg0->next;

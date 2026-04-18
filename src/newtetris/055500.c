@@ -252,9 +252,9 @@ void func_8008F360(UnkStruct_78 *arg0, UnkStruct_77 *arg1, u32 *arg2) {
       j = g_sram_ptr->song - 1;
     }
     for (i = 0; D_800D3D48[j][i] != '.'; i++) {
-      D_800D2DC8.name[i] = D_800D3D48[j][i];
+      D_800D2DC8.text[i] = D_800D3D48[j][i];
     }
-    D_800D2DC8.name[i] = 0;
+    D_800D2DC8.text[i] = 0;
   }
 
   if ((arg0->unk124 == D_800D5850) || (arg0->unk124 == D_800D5D48) || (arg0->unk124 == D_800D42B4) || (arg0->unk124 == D_800D5180)) {
@@ -561,7 +561,7 @@ void func_80090E08(void) {
       }
       FUN_027BF0_check_music_settings_and_play(game_ptr->unkE4F8);
       Audio_LoadSFX(&D_800D3A90);
-      func_8007A078(&D_800D2D80, 0);
+      func_8007A078(&D_800D2D80, 0);  // "GUEST"
       aiplayer_gameinit_related(1, 0, 6);
       D_800CFED4 = 1;
       Game_Init(1, handicap);
@@ -604,15 +604,15 @@ void func_80090E08(void) {
       gui_textbox_2 = D_801290D0.unk124[4].unk30;
       gui_textbox_3 = D_801290D0.unk124[5].unk30;
       gui_textbox_4 = D_801290D0.unk124[6].unk30;
-      if (((gui_textbox_1->unk5C == 0xFF) && (gui_textbox_1->node->pack & 0x10) &&
+      if (((gui_textbox_1->unk5C == 0xFF) && (gui_textbox_1->textList->pack & 0x10) &&
            (gui_textbox_2->unk5C == 0xFF) &&
            (gui_textbox_3->unk5C != 0xFF) &&
            (gui_textbox_4->unk5C != 0xFF)) ||
-          ((gui_textbox_1->unk5C == 0xFF) && (gui_textbox_1->node->pack & 0x10) &&
+          ((gui_textbox_1->unk5C == 0xFF) && (gui_textbox_1->textList->pack & 0x10) &&
            (gui_textbox_2->unk5C == 0xFF) &&
            (gui_textbox_3->unk5C == 0xFF) &&
            (gui_textbox_4->unk5C != 0xFF)) ||
-          ((gui_textbox_1->unk5C == 0xFF) && (gui_textbox_1->node->pack & 0x10) &&
+          ((gui_textbox_1->unk5C == 0xFF) && (gui_textbox_1->textList->pack & 0x10) &&
            (gui_textbox_2->unk5C == 0xFF) &&
            (gui_textbox_3->unk5C == 0xFF) &&
            (gui_textbox_4->unk5C == 0xFF))) {
@@ -629,7 +629,7 @@ void func_80090E08(void) {
     if (D_800D5850 == D_801290D0.unk124) {
       gui_textbox_5 = D_801290D0.unk124[3].unk30;
       if (gui_textbox_5->unk5C == 0xFF) {
-        if (gui_textbox_5->node->pack & 0x10) {
+        if (gui_textbox_5->textList->pack & 0x10) {
           D_800D3D34 = 1;
         } else {
           D_800D3D34 = 0;
@@ -782,34 +782,34 @@ static void func_80091A8C(UnkStruct_78 *arg0) {
   }
 
   if (D_800D5850 == temp_s0) {
-    FUN_SRAM_8007868c_tenliner_loop_arg0_t(D_800D57A4.node);
-    D_800D57A4.node = &D_800D2D80;
+    FUN_SRAM_8007868c_tenliner_loop_arg0_t(D_800D57A4.textList);
+    D_800D57A4.textList = &D_800D2D80;  // "GUEST"
     D_800D57A4.unk5D = 0xFE;
     D_800D57A4.unk60 = 0xFD;
     D_800D57A4.unk62 = 0;
   }
 
   if (D_800D5D48 == temp_s0) {
-    FUN_SRAM_8007868c_tenliner_loop_arg0_t(D_800D5AC4.node);
-    D_800D5AC4.node = &D_800D2D80;
+    FUN_SRAM_8007868c_tenliner_loop_arg0_t(D_800D5AC4.textList);
+    D_800D5AC4.textList = &D_800D2D80;  // "GUEST"
     D_800D5AC4.unk5D = 0xFE;
     D_800D5AC4.unk60 = 0xFD;
-    D_800D5B28.node = &D_800D2D80;
-    D_800D5B8C.node = &D_800D2D80;
-    D_800D5BF0.node = &D_800D2D80;
+    D_800D5B28.textList = &D_800D2D80;  // "GUEST"
+    D_800D5B8C.textList = &D_800D2D80;  // "GUEST"
+    D_800D5BF0.textList = &D_800D2D80;  // "GUEST"
     func_800A2E2C();
   }
 
   if (D_800D5180 == temp_s0) {
-    D_800D5014.node = FUN_SRAM_8007868c_tenliner_loop_arg0_t(D_800D5014.node);
-    D_800D5014.node = &D_800D2DB0;
+    D_800D5014.textList = FUN_SRAM_8007868c_tenliner_loop_arg0_t(D_800D5014.textList);
+    D_800D5014.textList = &D_800D2DB0;  // "GLOBAL"
     D_800D5014.unk5D = 0xFE;
     D_800D5014.unk60 = 0xFC;
   }
 
   if (D_800D4E1C == temp_s0) {
-    D_800D4CDC.node = FUN_SRAM_8007868c_tenliner_loop_arg0_t(D_800D4CDC.node);
-    D_800D4CDC.node = &D_800D2DC8;
+    D_800D4CDC.textList = FUN_SRAM_8007868c_tenliner_loop_arg0_t(D_800D4CDC.textList);
+    D_800D4CDC.textList = &D_800D2DC8;  // " "
     D_800D4CDC.unk5D = 0xF7;
     D_800D4CDC.unk60 = 0xF9;
   }
@@ -819,11 +819,11 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
   register UnkStruct_77 *temp_s0 = arg1->unk124;
   UnkStruct_1 *sp218;
   Player *sp214;
-  PlayerNode *sp210;
+  TextList *sp210;
   s32 sp20C;
   s32 pfs_err_1;
   OSPfsState cpaknote_1;
-  PlayerNode *sp1E4;
+  TextList *sp1E4;
   Player *sp1E0;
   u8 *sp1DC;
   s32 file_no_1;
@@ -832,7 +832,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
   s32 sp1CC;
   s32 sp1C8;
   s32 sp1C4;
-  PlayerNode *sp1C0;
+  TextList *sp1C0;
   s32 sp1BC;  // y
   s32 sp1B8;  // x
   s32 sp1B4;  // y
@@ -840,7 +840,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
   s32 sp1AC;  // y
   s32 sp1A8;  // x
   s32 sp1A4;
-  PlayerNode *sp1A0;
+  TextList *sp1A0;
   OSPfsState cpaknote_2;
   u8 sp17F;
   s32 pfs_err_2;
@@ -870,9 +870,9 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
   s32 sp118;  // x
   s32 sp114;  // y
   s32 sp110;  // x
-  PlayerNode *sp10C;
-  PlayerNode *sp108;
-  PlayerNode *sp104;
+  TextList *sp10C;
+  TextList *sp108;
+  TextList *sp104;
   s32 sp100;
   s32 spFC;  // unused
   s32 spF8;  // unused
@@ -898,22 +898,22 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
   s32 sp54;  // x
   s32 sp50;  // y
   s32 sp4C;  // unused
-  PlayerNode *sp48;
+  TextList *sp48;
   u8 sp47;
 
   sp218 = &g_PV_arr[arg0->unk5C].unk28;
   if (arg0->unk62 == 2) {
     if (arg0->unk5D == 0xFE) {
       if (arg2 == 0) {
-        arg0->node = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->node);
+        arg0->textList = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->textList);
         if (arg0->unk60 != 0xFB) {
           for (sp20C = 0; sp20C < 32; sp20C++) {
             if (g_sram_ptr->unk0 & (1 << sp20C)) {
-              sp210 = n64HeapAlloc(sizeof(PlayerNode));
+              sp210 = n64HeapAlloc(sizeof(TextList));
               sp214 = n64HeapAlloc(sizeof(Player));
               func_8007B430(sp214, g_sram_ptr->unk4, sp20C * sizeof(UnkStruct_34));
               func_8007A6C4(sp214, sp210, 0xD);
-              if (func_80079F90(arg0->node, sp210)) {
+              if (func_80079F90(arg0->textList, sp210)) {
                 n64HeapUnalloc(sp210);
                 n64HeapUnalloc(sp214);
               } else {
@@ -926,8 +926,8 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
 
       FUN_001050_8003b5d0_controller_sendrecvmsg(&superThread);
       arg0->unk5E = FUN_001050_getControllerStatus(&superThread, arg0->unk5C);
-      D_800D2D98.pack = 0xF;
-      D_800D2D80.pack = 0xE;
+      D_800D2D98.pack = 0xF;  // "NEW NAME"
+      D_800D2D80.pack = 0xE;  // "GUEST"
       arg0->unk5C = 0;
       arg0->unk5D = 0;
       switch (arg0->unk60) {
@@ -996,12 +996,12 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
               D_800D3DF0 = 1;
             }
             if (D_800D3DF0 == 0) {
-              sp1E4 = n64HeapAlloc(sizeof(PlayerNode));
+              sp1E4 = n64HeapAlloc(sizeof(TextList));
               sp1E0 = n64HeapAlloc(sizeof(Player));
               func_8007B430(sp1E0, (UnkStruct_34 *) sp1DC, 0);
               func_8007A6C4(sp1E0, sp1E4, (arg0->unk5C << 4) | 0xC);
               sp1E0->unkD4 = (arg0->unk5C << 4) | 0xC;
-              if (func_80079F90(arg0->node, sp1E4)) {
+              if (func_80079F90(arg0->textList, sp1E4)) {
                 n64HeapUnalloc(sp1E4);
                 n64HeapUnalloc(sp1E0);
               }
@@ -1024,35 +1024,35 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
 
       if (arg0->unk5D == 0xF7) {
         for (sp1CC = 0; sp1CC < 5; sp1CC++) {
-          arg0->node->name[sp1CC] = D_800D3D48[15][sp1CC];  // "TITLE"
+          arg0->textList->text[sp1CC] = D_800D3D48[15][sp1CC];  // "TITLE"
         }
-        arg0->node->name[sp1CC] = 0;
+        arg0->textList->text[sp1CC] = 0;
         if (D_800CF830 == 48) {
           sp1C4 = 15;
         } else {
           sp1C4 = (D_800CF838 % 7) + 9;
         }
         for (sp1CC = 0; sp1CC < sp1C4; sp1CC++) {
-          sp1C0 = n64HeapAlloc(sizeof(PlayerNode));
+          sp1C0 = n64HeapAlloc(sizeof(TextList));
           for (sp1C8 = 0; D_800D3D48[sp1CC][sp1C8] != '.'; sp1C8++) {
-            sp1C0->name[sp1C8] = D_800D3D48[sp1CC][sp1C8];
+            sp1C0->text[sp1C8] = D_800D3D48[sp1CC][sp1C8];
           }
-          sp1C0->name[sp1C8] = 0;
+          sp1C0->text[sp1C8] = 0;
           sp1C0->pack = 3;
           sp1C0->salt[0] = sp1CC + 1;
           sp1C0->ptr = NULL;
-          if (func_80079F90(arg0->node, sp1C0)) {
+          if (func_80079F90(arg0->textList, sp1C0)) {
             n64HeapUnalloc(sp1C0);
           }
         }
         arg0->unk5D = 0;
-        arg0->node = &D_800D2DC8;
+        arg0->textList = &D_800D2DC8;  // " "
         for (sp1CC = 0; sp1CC < g_sram_ptr->song; sp1CC++) {
-          arg0->node = arg0->node->last;
+          arg0->textList = arg0->textList->last;
         }
 
       } else if (arg0->unk5D == 0xF6) {
-        arg0->node = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->node);
+        arg0->textList = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->textList);
         arg0->unk5D = 0;
 
       } else if (arg0->unk5D == 0xEF) {
@@ -1074,7 +1074,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
         displayText_XY_RGBA_2(&g_gdl, &D_80128F28, sp1B8, sp1BC, "TO CONTINUE ", 0xFF, 0xFF, 0, 0xFF);
         if (g_PV_arr[arg2].unk24 & 0x8000) {
           arg0->unk4 = 0;
-          arg0->node = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->node);
+          arg0->textList = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->textList);
           arg0->unk5D = 0xF6;
           D_800D42B4[8].unk24 = GUI_NULL;
           D_800D3D10[0] = D_800D3D00[0];
@@ -1110,7 +1110,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
         if (arg0->unk5D == 0xFB) {
           sp1AC = sp1D0;
           sp1A8 = sp1D4;
-          sp1A0 = arg0->node;
+          sp1A0 = arg0->textList;
           weird_lots_of_magic_number_setting_66xrefs(&g_gdl, D_80129028, NULL, sp1D4 - 10, sp1D0 - 10, 0xFF, 0xFF, 0xFF, 0xFF);
           displayText_XY_RGBA_2(&g_gdl, &D_80128F28, sp1D4, sp1AC, "ARE YOU SURE YOU WANT TO", 0xFF, 0xFF, 0xFF, 0xFF);
           sp1AC += 15;
@@ -1130,10 +1130,10 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
             switch (sp1A0->pack & 0xF) {
             case 0xD:
               for (sp1A4 = 0; sp1A4 < 32; sp1A4++) {
-                if (func_8007AADC((u8 *) &g_sram_ptr->unk4[sp1A4], arg0->node->salt[0], arg0->node->salt[1])) {
+                if (func_8007AADC((u8 *) &g_sram_ptr->unk4[sp1A4], arg0->textList->salt[0], arg0->textList->salt[1])) {
                   func_8007A62C(g_sram_ptr, sp1A4);
                   bzero(&g_sram_ptr->unk4[sp1A4], sizeof(UnkStruct_34));
-                  arg0->node = func_8007AEB0(arg0->node);
+                  arg0->textList = func_8007AEB0(arg0->textList);
                   break;
                 }
               }
@@ -1164,14 +1164,14 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                 if (!((pfs_err_2 >> 4) & 0xF)) {
                   file_no_2 = pfs_err_2;
                   pfs_err_2 = FUN_001050_cpakRead(&superThread, file_no_2, 32, 0, sp16C, arg0->unk5C);
-                  if (func_8007AADC(sp16C, arg0->node->ptr->node.salt[0], arg0->node->ptr->node.salt[1])) {
+                  if (func_8007AADC(sp16C, ((Player *) arg0->textList->ptr)->node.salt[0], ((Player *) arg0->textList->ptr)->node.salt[1])) {
                     pfs_err_2 = FUN_001050_cpakDeleteFile(&superThread, &cpaknote_2, arg0->unk5C);
                     if ((pfs_err_2 >> 4) & 0xF) {
                       arg0->unk5D = 0xFA;
                       n64HeapUnalloc(sp16C);
                       return;
                     }
-                    arg0->node = func_8007AEB0(arg0->node);
+                    arg0->textList = func_8007AEB0(arg0->textList);
                     break;
                   }
                 }
@@ -1185,7 +1185,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
           if (g_PV_arr[arg2].unk24 & 0x4000) {
             D_800D3D00[arg0->unk5C] = 5;
             D_800D3D10[arg0->unk5C] = 7;
-            arg0->node = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->node);
+            arg0->textList = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->textList);
             arg0->unk5C = 0xFF;
             arg0->unk5D = 0xF6;
             arg0->unk4 = 0;
@@ -1212,7 +1212,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
           if (g_PV_arr[arg2].unk24 & 0x8000) {
             D_800D3DF8 = 0;
             Audio2_Play_SFX(&D_801235B0, &D_800D3988, 4);
-            arg0->node = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->node);
+            arg0->textList = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->textList);
             arg0->unk5D = 0xF6;
             arg0->unk60 = 0xF8;
             arg0->unk5C = 0xFF;
@@ -1303,7 +1303,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
           if (g_PV_arr[arg2].unk24 & 0x8000) {
             n64HeapUnalloc(D_80129018);
             D_800D3E04 = 0;
-            arg0->node = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->node);
+            arg0->textList = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->textList);
             arg0->unk5C = 0xFF;
             arg0->unk5D = 0xF6;
             arg0->unk4 = 0;
@@ -1336,7 +1336,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
             D_800D3E08 = 0;
             Audio2_Play_SFX(&D_801235B0, &D_800D3988, 3);
             arg0->unk4 = 0;
-            arg0->node = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->node);
+            arg0->textList = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->textList);
             arg0->unk5D = 0xF6;
             arg0->unk5C = 0xFF;
             D_800D42B4[8].unk24 = GUI_NULL;
@@ -1374,7 +1374,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
             D_800D3E0C = 0;
             Audio2_Play_SFX(&D_801235B0, &D_800D3988, 3);
             arg0->unk4 = 0;
-            arg0->node = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->node);
+            arg0->textList = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->textList);
             arg0->unk5D = 0xF6;
             arg0->unk5C = 0xFF;
             D_800D42B4[8].unk24 = GUI_NULL;
@@ -1412,7 +1412,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
             D_800D3E10 = 0;
             Audio2_Play_SFX(&D_801235B0, &D_800D3988, 3);
             arg0->unk4 = 0;
-            arg0->node = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->node);
+            arg0->textList = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->textList);
             arg0->unk5D = 0xF6;
             arg0->unk5C = 0xFF;
             D_800D42B4[8].unk24 = GUI_NULL;
@@ -1450,7 +1450,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
             D_800D3E14 = 0;
             Audio2_Play_SFX(&D_801235B0, &D_800D3988, 3);
             arg0->unk4 = 0;
-            arg0->node = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->node);
+            arg0->textList = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->textList);
             arg0->unk5D = 0xF6;
             arg0->unk5C = 0xFF;
             D_800D42B4[8].unk24 = GUI_NULL;
@@ -1531,7 +1531,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
             D_800D3E18 = 0;
             Audio2_Play_SFX(&D_801235B0, &D_800D3988, 3);
             arg0->unk4 = 0;
-            arg0->node = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->node);
+            arg0->textList = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->textList);
             arg0->unk5D = 0xF6;
             arg0->unk5C = 0xFF;
             D_800D42B4[8].unk24 = GUI_NULL;
@@ -1570,7 +1570,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
             D_800D3E1C = 0;
             Audio2_Play_SFX(&D_801235B0, &D_800D3988, 3);
             arg0->unk4 = 0;
-            arg0->node = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->node);
+            arg0->textList = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->textList);
             arg0->unk5D = 0xF6;
             arg0->unk5C = 0xFF;
             D_800D42B4[8].unk24 = GUI_NULL;
@@ -1610,7 +1610,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
             D_800D3E20 = 0;
             Audio2_Play_SFX(&D_801235B0, &D_800D3988, 3);
             arg0->unk4 = 0;
-            arg0->node = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->node);
+            arg0->textList = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->textList);
             arg0->unk5D = 0xF6;
             arg0->unk5C = 0xFF;
             D_800D42B4[8].unk24 = GUI_NULL;
@@ -1641,10 +1641,10 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
           }
           arg0->unk5C = arg2;
           Audio2_Play_SFX(&D_801235B0, &D_800D3988, 4);
-          if ((arg0->node->pack & 0xF) == 0xE) {
-            arg0->node->pack &= ~((1 << arg0->unk5C) << 4);
+          if ((arg0->textList->pack & 0xF) == 0xE) {
+            arg0->textList->pack &= ~((1 << arg0->unk5C) << 4);
           } else {
-            arg0->node->pack = ((1 << arg0->unk5C) << 4) | (arg0->node->pack & 0xF);
+            arg0->textList->pack = ((1 << arg0->unk5C) << 4) | (arg0->textList->pack & 0xF);
           }
         }
 
@@ -1658,10 +1658,10 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
             arg0->unk61 = FALSE;
             arg0->unk5C = arg2;
             arg0->unk5D = 0;
-            if ((arg0->node->pack & 0xF) == 0xE) {
-              arg0->node->pack &= ~((1 << arg0->unk5C) << 4);
+            if ((arg0->textList->pack & 0xF) == 0xE) {
+              arg0->textList->pack &= ~((1 << arg0->unk5C) << 4);
             } else {
-              arg0->node->pack = ((1 << arg0->unk5C) << 4) | (arg0->node->pack & 0xF);
+              arg0->textList->pack = ((1 << arg0->unk5C) << 4) | (arg0->textList->pack & 0xF);
             }
             return;
           }
@@ -1672,7 +1672,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
             return;
           }
 
-          arg0->node = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->node);
+          arg0->textList = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->textList);
 
           if ((arg0->unk60 == 0xFF) || (arg0->unk60 == 0xFE) || (arg0->unk60 == 0xFB) || (arg0->unk60 == 0xFA)) {
             arg0->unk5D = 0xF6;
@@ -1685,9 +1685,9 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
           }
 
           if (D_800D5D48 == temp_s0) {
-            D_800D5B28.node = arg0->node;
-            D_800D5B8C.node = arg0->node;
-            D_800D5BF0.node = arg0->node;
+            D_800D5B28.textList = arg0->textList;
+            D_800D5B8C.textList = arg0->textList;
+            D_800D5BF0.textList = arg0->textList;
             func_800A2E2C();
           }
         }
@@ -1719,13 +1719,13 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
       } else if ((arg0->unk5C == arg2) || (arg2 == 0)) {
 
         if (arg0->unk5D == 0) {
-          sp10C = arg0->node;
+          sp10C = arg0->textList;
 
           if (sp218->unk84 & 0x4000) {
             if (arg0->unk5C == 0) {
-              arg0->node->pack = (((arg0->node->pack >> 4) & 0xF & ~((1 << arg0->unk5C) & 0xF)) << 4) | (arg0->node->pack & 0xF);
+              arg0->textList->pack = (((arg0->textList->pack >> 4) & 0xF & ~((1 << arg0->unk5C) & 0xF)) << 4) | (arg0->textList->pack & 0xF);
               if ((arg0->unk60 == 0xFF) || (arg0->unk60 == 0xFE) || (arg0->unk60 == 0xFB) || (arg0->unk60 == 0xFA)) {
-                arg0->node = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->node);
+                arg0->textList = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->textList);
                 arg0->unk5D = 0xF6;
                 arg0->unk5C = 0xFF;
                 D_800D42B4[8].unk24 = GUI_NULL;
@@ -1758,12 +1758,12 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                   func_80091A8C(arg1);
                   Audio2_Play_SFX(&D_801235B0, &D_800D3988, 5);
                   if (D_800D5D48 == temp_s0) {
-                    D_800D5B28.node = arg0->node;
-                    D_800D5B8C.node = arg0->node;
-                    D_800D5BF0.node = arg0->node;
+                    D_800D5B28.textList = arg0->textList;
+                    D_800D5B8C.textList = arg0->textList;
+                    D_800D5BF0.textList = arg0->textList;
                     func_800A2E2C();
                   }
-                  arg0->node = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->node);
+                  arg0->textList = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->textList);
                   arg0->unk61 = FALSE;
                 }
               } else {
@@ -1777,84 +1777,84 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
           }
 
           if ((sp218->unk84 & 0x400) || (sp218->unk84 & 0x100)) {
-            sp108 = arg0->node;
+            sp108 = arg0->textList;
             if ((sp108->pack & 0xF) != 0xE) {
               sp108->pack = (((sp108->pack >> 4) & 0xF & ~(1 << arg0->unk5C)) << 4) | (sp108->pack & 0xF);
             }
 
             do {
               if (((sp108->next->pack & 0xF) == 0xE) || ((sp108->next->pack & 0xF) == 0xF) || ((sp108->next->pack & 0xF) == 4) || ((sp108->next->pack & 0xF) == 9)) {
-                arg0->node = sp108->next;
+                arg0->textList = sp108->next;
                 break;
               }
 
               if (sp108->next->ptr != NULL) {
-                if ((sp108->next->ptr->unkD4 & 0xF) == 0xC) {
-                  if (((sp108->next->ptr->unkD4 >> 4) & 0xF) == arg0->unk5C) {
-                    arg0->node = sp108->next;
+                if ((((Player *) sp108->next->ptr)->unkD4 & 0xF) == 0xC) {
+                  if (((((Player *) sp108->next->ptr)->unkD4 >> 4) & 0xF) == arg0->unk5C) {
+                    arg0->textList = sp108->next;
                     break;
                   }
                 } else if (((sp108->next->pack >> 4) & 0xF) == 0) {
-                  arg0->node = sp108->next;
-                  if ((arg0->node->pack & 0xF) != 0xE) {
-                    arg0->node->pack = ((1 << arg0->unk5C) << 4) | (arg0->node->pack & 0xF);
+                  arg0->textList = sp108->next;
+                  if ((arg0->textList->pack & 0xF) != 0xE) {
+                    arg0->textList->pack = ((1 << arg0->unk5C) << 4) | (arg0->textList->pack & 0xF);
                   }
                   break;
                 }
               } else {
                 if (((sp108->next->pack >> 4) & 0xF) == 0) {
-                  arg0->node = sp108->next;
+                  arg0->textList = sp108->next;
                   if ((sp108->pack & 0xF) != 0xE) {
-                    arg0->node->pack = ((1 << arg0->unk5C) << 4) | (arg0->node->pack & 0xF);
+                    arg0->textList->pack = ((1 << arg0->unk5C) << 4) | (arg0->textList->pack & 0xF);
                   }
                   break;
                 }
               }
 
               sp108 = sp108->next;
-            } while (arg0->node != sp108);
+            } while (arg0->textList != sp108);
 
             Audio2_Play_SFX(&D_801235B0, &D_800D3988, 1);
             return;
           }
 
           if ((sp218->unk84 & 0x200) || (sp218->unk84 & 0x800)) {
-            sp104 = arg0->node;
+            sp104 = arg0->textList;
             if ((sp104->pack & 0xF) != 0xE) {
               sp104->pack = (((sp104->pack >> 4) & 0xF & ~(1 << arg0->unk5C)) << 4) | (sp104->pack & 0xF);
             }
 
             do {
               if (((sp104->last->pack & 0xF) == 0xE) || ((sp104->last->pack & 0xF) == 0xF) || ((sp104->last->pack & 0xF) == 4) || ((sp104->last->pack & 0xF) == 9)) {
-                arg0->node = sp104->last;
+                arg0->textList = sp104->last;
                 break;
               }
 
               if (sp104->last->ptr != NULL) {
-                if ((sp104->last->ptr->unkD4 & 0xF) == 0xC) {
-                  if (((sp104->last->ptr->unkD4 >> 4) & 0xF) == arg0->unk5C) {
-                    arg0->node = sp104->last;
+                if ((((Player *) sp104->last->ptr)->unkD4 & 0xF) == 0xC) {
+                  if (((((Player *) sp104->last->ptr)->unkD4 >> 4) & 0xF) == arg0->unk5C) {
+                    arg0->textList = sp104->last;
                     break;
                   }
                 } else if (((sp104->last->pack >> 4) & 0xF) == 0) {
-                  arg0->node = sp104->last;
-                  if ((arg0->node->pack & 0xF) != 0xE) {
-                    arg0->node->pack = ((1 << arg0->unk5C) << 4) | (arg0->node->pack & 0xF);
+                  arg0->textList = sp104->last;
+                  if ((arg0->textList->pack & 0xF) != 0xE) {
+                    arg0->textList->pack = ((1 << arg0->unk5C) << 4) | (arg0->textList->pack & 0xF);
                   }
                   break;
                 }
               } else {
                 if (((sp104->last->pack >> 4) & 0xF) == 0) {
-                  arg0->node = sp104->last;
+                  arg0->textList = sp104->last;
                   if ((sp104->pack & 0xF) != 0xE) {
-                    arg0->node->pack = ((1 << arg0->unk5C) << 4) | (arg0->node->pack & 0xF);
+                    arg0->textList->pack = ((1 << arg0->unk5C) << 4) | (arg0->textList->pack & 0xF);
                   }
                   break;
                 }
               }
 
               sp104 = sp104->last;
-            } while (arg0->node != sp104);
+            } while (arg0->textList != sp104);
 
             Audio2_Play_SFX(&D_801235B0, &D_800D3988, 1U);
             return;
@@ -1862,7 +1862,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
 
           if (sp218->unk84 & 0x8000) {
 
-            if (arg0->node->pack == 0x4) {
+            if (arg0->textList->pack == 0x4) {
               return;
             }
 
@@ -1886,7 +1886,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
               break;
 
             case 0xFF:
-              if (arg0->node->ptr != NULL) {
+              if (arg0->textList->ptr != NULL) {
                 arg0->unk5D = 0xFB;
               }
               return;
@@ -1909,9 +1909,9 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                   n64HeapUnalloc(spC4);
                   return;
                 }
-                D_800D3DD0 = arg0->node->ptr->unkC4;
-                func_800798F0(arg0->node->ptr, g_sram_ptr, arg0->node->ptr->unkC4);
-                arg0->node->ptr->unkC4 = 0;
+                D_800D3DD0 = ((Player *) arg0->textList->ptr)->unkC4;
+                func_800798F0(arg0->textList->ptr, g_sram_ptr, ((Player *) arg0->textList->ptr)->unkC4);
+                ((Player *) arg0->textList->ptr)->unkC4 = 0;
 
                 for (spCC = 0; spCC < 16; spCC++) {
                   cpaknote_3.ext_name[0] = spD7 + spCC;
@@ -1924,7 +1924,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                       n64HeapUnalloc(spC4);
                       return;
                     }
-                    if (func_8007AADC(spC4, arg0->node->ptr->node.salt[0], arg0->node->ptr->node.salt[1])) {
+                    if (func_8007AADC(spC4, ((Player *) arg0->textList->ptr)->node.salt[0], ((Player *) arg0->textList->ptr)->node.salt[1])) {
                       pfs_err_3 = FUN_001050_cpakDeleteFile(&superThread, &cpaknote_3, arg0->unk5C);
                       if ((pfs_err_3 >> 4) & 0xF) {
                         arg0->unk5D = 0xFA;
@@ -1939,8 +1939,8 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                       }
                       file_no_3 = pfs_err_3;
                       bzero(spC4, 128);
-                      func_8007B420(arg0->node->ptr);
-                      func_8007AF88(arg0->node->ptr, spC4, 0);
+                      func_8007B420(arg0->textList->ptr);
+                      func_8007AF88(arg0->textList->ptr, spC4, 0);
                       pfs_err_3 = FUN_001050_cpakWrite(&superThread, file_no_3, 128, 0, spC4, arg0->unk5C);
                       if ((pfs_err_3 >> 4) & 0xF) {
                         arg0->unk5D = 0xFA;
@@ -2003,7 +2003,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
 
                     if (((sp9C >> 4) & 0xF) == 0) {
                       for (sp100 = 0; sp100 < 32; sp100++) {
-                        if (func_8007AADC((u8 *) &g_sram_ptr->unk4[sp100], arg0->node->salt[0], arg0->node->salt[1])) {
+                        if (func_8007AADC((u8 *) &g_sram_ptr->unk4[sp100], arg0->textList->salt[0], arg0->textList->salt[1])) {
                           sp9C = FUN_001050_cpakWrite(&superThread, sp9C, 128, 0, (u8 *) &g_sram_ptr->unk4[sp100], arg0->unk5C);
                           if (((sp9C >> 4) & 0xF) != 0) {
                             FUN_001050_cpakDeleteFile(&superThread, &cpaknote_4, arg0->unk5C);
@@ -2017,8 +2017,8 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                             func_8007A62C(g_sram_ptr, sp100);
                             bzero(&g_sram_ptr->unk4[sp100], sizeof(UnkStruct_34));
                             func_8007C5CC(g_sram_ptr);
-                            arg0->node->ptr->unkD4 = 0xC;
-                            arg0->node->pack = (arg0->unk5C << 4) | 0xC;
+                            ((Player *) arg0->textList->ptr)->unkD4 = 0xC;
+                            arg0->textList->pack = (arg0->unk5C << 4) | 0xC;
                             break;
                           }
 
@@ -2076,7 +2076,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                       return;
                     }
 
-                    if (func_8007AADC(sp5C, arg0->node->ptr->node.salt[0], arg0->node->ptr->node.salt[1])) {
+                    if (func_8007AADC(sp5C, ((Player *) arg0->textList->ptr)->node.salt[0], ((Player *) arg0->textList->ptr)->node.salt[1])) {
                       pfs_err_5 = FUN_001050_cpakDeleteFile(&superThread, &cpaknote_5, arg0->unk5C);
                       if (((pfs_err_5 >> 4) & 0xF) != 0) {
                         arg0->unk5D = 0xFA;
@@ -2084,8 +2084,8 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                         return;
                       }
 
-                      arg0->node->pack = (arg0->node->pack & 0xF0) | 0xD;
-                      func_8007AF88(arg0->node->ptr, (u8 *) &g_sram_ptr->unk4[0], func_8007A5D4(g_sram_ptr) * sizeof(UnkStruct_34));
+                      arg0->textList->pack = (arg0->textList->pack & 0xF0) | 0xD;
+                      func_8007AF88(arg0->textList->ptr, (u8 *) &g_sram_ptr->unk4[0], func_8007A5D4(g_sram_ptr) * sizeof(UnkStruct_34));
                       func_8007A648(g_sram_ptr, func_8007A5D4(g_sram_ptr));
                       func_8007C5CC(g_sram_ptr);
                       sp64 = 1;
@@ -2130,7 +2130,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                     return;
                   }
 
-                  arg0->node = func_8007A738(arg0->node, arg0->unk5C);
+                  arg0->textList = func_8007A738(arg0->textList, arg0->unk5C);
                   arg0->unk5D = 1;
                   arg0->unk4 = 0;
 
@@ -2267,7 +2267,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
         }
 
         if (arg0->unk5D == 1) {
-          sp48 = arg0->node;
+          sp48 = arg0->textList;
 
           if (sp218->unk84 & 0x100) {  // R_JPAD / CONT_RIGHT
             Audio2_Play_SFX(&D_801235B0, &D_800D3988, 1);
@@ -2283,7 +2283,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
             } else {
               arg0->unk5++;
             }
-            sp48->name[arg0->unk4] = D_800D3DA0[arg0->unk5];
+            sp48->text[arg0->unk4] = D_800D3DA0[arg0->unk5];
           }
 
           if (sp218->unk84 & 0x200) {  // L_JPAD / CONT_LEFT
@@ -2300,7 +2300,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
             } else {
               arg0->unk5--;
             }
-            sp48->name[arg0->unk4] = D_800D3DA0[arg0->unk5];
+            sp48->text[arg0->unk4] = D_800D3DA0[arg0->unk5];
           }
 
           if (sp218->unk84 & 0x800) {  // U_JPAD / CONT_UP
@@ -2313,7 +2313,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
             } else {
               arg0->unk5 -= 15;
             }
-            sp48->name[arg0->unk4] = D_800D3DA0[arg0->unk5];
+            sp48->text[arg0->unk4] = D_800D3DA0[arg0->unk5];
           }
 
           if (sp218->unk84 & 0x400) {  // D_JPAD / CONT_DOWN
@@ -2326,14 +2326,14 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
             } else {
               arg0->unk5 += 15;
             }
-            sp48->name[arg0->unk4] = D_800D3DA0[arg0->unk5];
+            sp48->text[arg0->unk4] = D_800D3DA0[arg0->unk5];
           }
 
           if (g_PV_arr[arg0->unk5C].unk24 & 0x1000) {  // START_BUTTON / CONT_START
             arg0->unk5 = 44;
             Audio2_Play_SFX(&D_801235B0, &D_800D3988, 4);
             if (arg0->unk4 < 8) {
-              sp48->name[arg0->unk4] = D_800D3DA0[arg0->unk5];
+              sp48->text[arg0->unk4] = D_800D3DA0[arg0->unk5];
             }
           }
 
@@ -2342,7 +2342,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
             if (arg0->unk5 == 43) {  // BACKSPACE
               if (arg0->unk4 > 0) {
                 Audio2_Play_SFX(&D_801235B0, &D_800D3988, 3);
-                sp48->name[arg0->unk4] = 0;
+                sp48->text[arg0->unk4] = 0;
                 arg0->unk4--;
               }
 
@@ -2355,23 +2355,23 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
               }
 
               arg0->unk61 = TRUE;
-              sp48->name[arg0->unk4] = 0;
+              sp48->text[arg0->unk4] = 0;
               Audio2_Play_SFX(&D_801235B0, &D_800D3988, 2);
 
               for (sp58 = 0; sp58 < 8; sp58++) {
-                sp48->ptr->node.name[sp58] = sp48->name[sp58];
+                ((Player *) sp48->ptr)->node.name[sp58] = sp48->text[sp58];
               }
 
               arg0->unk5D = 0;
 
               if (D_800D5850 == temp_s0) {
 
-                if ((sp48->name[0] == 'H') &&
-                    (sp48->name[1] == 'A') &&
-                    (sp48->name[2] == 'L') &&
-                    (sp48->name[3] == 'U') &&
-                    (sp48->name[4] == 'C') &&
-                    (sp48->name[5] == 'I')) {
+                if ((sp48->text[0] == 'H') &&
+                    (sp48->text[1] == 'A') &&
+                    (sp48->text[2] == 'L') &&
+                    (sp48->text[3] == 'U') &&
+                    (sp48->text[4] == 'C') &&
+                    (sp48->text[5] == 'I')) {
                   if (func_800A35EC(1, 3) == 2) {
                     Audio2_Play_SFX(&D_801235B0, &D_800D3988, 1);
                     Audio2_Play_SFX(&D_801235B0, &D_800D3988, 4);
@@ -2381,13 +2381,13 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                   sp47 = TRUE;
                 }
 
-                if ((sp48->name[0] == '2') &&
-                    (sp48->name[1] == 'F') &&
-                    ((sp48->name[2] ^ 0x10) != 0) &&
-                    (sp48->name[3] == 'S') &&
-                    (sp48->name[4] == 'T') &&
-                    (sp48->name[5] == '4') &&
-                    (sp48->name[6] == 'U')) {
+                if ((sp48->text[0] == '2') &&
+                    (sp48->text[1] == 'F') &&
+                    ((sp48->text[2] ^ 0x10) != 0) &&
+                    (sp48->text[3] == 'S') &&
+                    (sp48->text[4] == 'T') &&
+                    (sp48->text[5] == '4') &&
+                    (sp48->text[6] == 'U')) {
                   Audio2_Play_SFX(&D_801235B0, &D_800D3988, 1);
                   Audio2_Play_SFX(&D_801235B0, &D_800D3988, 4);
                   Audio2_Play_SFX(&D_801235B0, &D_800D3988, 2);
@@ -2395,12 +2395,12 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                   sp47 = TRUE;
                 }
 
-                if (((sp48->name[0] ^ 0x3) != 0) &&
-                    (sp48->name[1] == '1') &&
-                    (sp48->name[2] == 'D') &&
-                    ((sp48->name[3] ^ 0x1E) != 0) &&
-                    (sp48->name[4] == 'R') &&
-                    (sp48->name[5] == 'S')) {
+                if (((sp48->text[0] ^ 0x3) != 0) &&
+                    (sp48->text[1] == '1') &&
+                    (sp48->text[2] == 'D') &&
+                    ((sp48->text[3] ^ 0x1E) != 0) &&
+                    (sp48->text[4] == 'R') &&
+                    (sp48->text[5] == 'S')) {
                   Audio2_Play_SFX(&D_801235B0, &D_800D3988, 1);
                   Audio2_Play_SFX(&D_801235B0, &D_800D3988, 4);
                   Audio2_Play_SFX(&D_801235B0, &D_800D3988, 2);
@@ -2416,14 +2416,14 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                   sp47 = TRUE;
                 }
 
-                if ((sp48->name[0] == '1') &&
-                    (sp48->name[1] == 'N') &&
-                    (sp48->name[2] == '1') &&
-                    ((sp48->name[3] ^ 0x4) != 0) &&
-                    (sp48->name[4] == '5') &&
-                    ((sp48->name[5] ^ 0xF) != 0) &&
-                    (sp48->name[6] == '4') &&
-                    (sp48->name[7] == 'M')) {
+                if ((sp48->text[0] == '1') &&
+                    (sp48->text[1] == 'N') &&
+                    (sp48->text[2] == '1') &&
+                    ((sp48->text[3] ^ 0x4) != 0) &&
+                    (sp48->text[4] == '5') &&
+                    ((sp48->text[5] ^ 0xF) != 0) &&
+                    (sp48->text[6] == '4') &&
+                    (sp48->text[7] == 'M')) {
                   Audio2_Play_SFX(&D_801235B0, &D_800D3988, 1);
                   Audio2_Play_SFX(&D_801235B0, &D_800D3988, 4);
                   Audio2_Play_SFX(&D_801235B0, &D_800D3988, 2);
@@ -2434,19 +2434,19 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                   load_from_sram(1);
                   wonders2_80045e50_sets_num_won_compl_q();
                   g_game.unkE4F8 = D_800CF838;
-                  arg0->node = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->node);
+                  arg0->textList = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->textList);
                   sp47 = TRUE;
                 }
 
                 D_800E1F50 = FALSE;
-                if ((sp48->name[0] == 'A') &&
-                    (sp48->name[1] == 'I') &&
-                    (sp48->name[2] == '2') &&
-                    ((sp48->name[3] ^ 0xC) != 0) &&
-                    (sp48->name[4] == 'Z') &&
-                    ((sp48->name[5] ^ 0x14) != 0) &&
-                    (sp48->name[6] == 'U') &&
-                    (sp48->name[7] == '?')) {
+                if ((sp48->text[0] == 'A') &&
+                    (sp48->text[1] == 'I') &&
+                    (sp48->text[2] == '2') &&
+                    ((sp48->text[3] ^ 0xC) != 0) &&
+                    (sp48->text[4] == 'Z') &&
+                    ((sp48->text[5] ^ 0x14) != 0) &&
+                    (sp48->text[6] == 'U') &&
+                    (sp48->text[7] == '?')) {
                   Audio2_Play_SFX(&D_801235B0, &D_800D3988, 1);
                   Audio2_Play_SFX(&D_801235B0, &D_800D3988, 4);
                   Audio2_Play_SFX(&D_801235B0, &D_800D3988, 2);
@@ -2486,15 +2486,15 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                 }
               }
               if (sp47) {
-                arg0->node = func_8007AEB0(arg0->node);
-                arg0->node = &D_800D2D80;
+                arg0->textList = func_8007AEB0(arg0->textList);
+                arg0->textList = &D_800D2D80;  // "GUEST"
               } else {
                 func_8007A078(sp48, arg0->unk5C);
                 arg0->unk5C = 0xFF;
               }
               return;
 
-            } else if (sp48->name[0] != ' ') {
+            } else if (sp48->text[0] != ' ') {
               if (arg0->unk4 < 8) {
                 Audio2_Play_SFX(&D_801235B0, &D_800D3988, 4);
                 arg0->unk4++;
@@ -2509,15 +2509,15 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
               Audio2_Play_SFX(&D_801235B0, &D_800D3988, 3);
             }
 
-            sp48->name[arg0->unk4] = D_800D3DA0[arg0->unk5];
+            sp48->text[arg0->unk4] = D_800D3DA0[arg0->unk5];
           }
 
           if (g_PV_arr[arg0->unk5C].unk24 & 0x4000) {  // B_BUTTON / CONT_B
             if (arg0->unk4 > 0) {
               Audio2_Play_SFX(&D_801235B0, &D_800D3988, 3);
-              sp48->name[arg0->unk4] = 0;
+              sp48->text[arg0->unk4] = 0;
               arg0->unk4--;
-              sp48->name[arg0->unk4] = D_800D3DA0[arg0->unk5];
+              sp48->text[arg0->unk4] = D_800D3DA0[arg0->unk5];
             } else {
               arg0->unk61 = FALSE;
               D_800D3D94 &= ~(1 << arg0->unk5C);
@@ -2533,8 +2533,8 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                   temp_s0[8].unk24 = GUI_TOGGLE | GUI_FUNC | GUI_TITLE;
                 }
               }
-              arg0->node = func_8007AEB0(arg0->node);
-              arg0->node = &D_800D2D80;
+              arg0->textList = func_8007AEB0(arg0->textList);
+              arg0->textList = &D_800D2D80;  // "GUEST"
               arg0->unk5D = 0;
             }
           }
@@ -2543,14 +2543,14 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
           sp54 = arg0->unkC + 5;
           sp50 = arg0->unk10 + 8;
           do {
-            if ((sp48->name[sp58] == 0) || (sp58 == 8)) {
+            if ((sp48->text[sp58] == 0) || (sp58 == 8)) {
               continue;
             }
 
             if (arg0->unk4 == sp58) {
-              sp54 = displayText_XY_RGBA_3(&g_gdl, &D_80128F28, sp54, sp50, sp48->name[sp58], 255 * arg3, 255 * arg3, 255 * arg3, 255 * arg3);
+              sp54 = displayText_XY_RGBA_3(&g_gdl, &D_80128F28, sp54, sp50, sp48->text[sp58], 255 * arg3, 255 * arg3, 255 * arg3, 255 * arg3);
             } else {
-              sp54 = displayText_XY_RGBA_3(&g_gdl, &D_80128F28, sp54, sp50, sp48->name[sp58], 0xFF, 0xFF, 0xFF, 0xFF);
+              sp54 = displayText_XY_RGBA_3(&g_gdl, &D_80128F28, sp54, sp50, sp48->text[sp58], 0xFF, 0xFF, 0xFF, 0xFF);
             }
           } while (++sp58 < 9);
         }
@@ -2824,21 +2824,21 @@ static void func_80099674(UnkStruct_78 *arg0) {
             if ((FUN_001050_getControllerErrNo(&superThread, spB8) == 0) && ((spB8 != 3) || (FUN_001050_getControllerErrNo(&superThread, 2) == 0)) && (spB8 + 3 == var_s1)) {
               if (gui_textbox_3->unk5C == 0xFF) {
                 if (D_800D3D00[0] == var_s1) {
-                  displayText_XY_RGBA_2(&g_gdl, &D_80128F28, gui_textbox_3->unkC + 5, gui_textbox_3->unk10 + 8, gui_textbox_3->node->name, 0xFF, 255 * D_800D3E24, 255 * D_800D3E24, temp_s0[var_s1].unk0.a * D_800D3E2C);
+                  displayText_XY_RGBA_2(&g_gdl, &D_80128F28, gui_textbox_3->unkC + 5, gui_textbox_3->unk10 + 8, gui_textbox_3->textList->text, 0xFF, 255 * D_800D3E24, 255 * D_800D3E24, temp_s0[var_s1].unk0.a * D_800D3E2C);
                 } else {
-                  displayText_XY_RGBA_2(&g_gdl, &D_80128F28, gui_textbox_3->unkC + 5, gui_textbox_3->unk10 + 8, gui_textbox_3->node->name, 0xFF, 0xFF, 0xFF, temp_s0[var_s1].unk0.a * D_800D3E2C);
+                  displayText_XY_RGBA_2(&g_gdl, &D_80128F28, gui_textbox_3->unkC + 5, gui_textbox_3->unk10 + 8, gui_textbox_3->textList->text, 0xFF, 0xFF, 0xFF, temp_s0[var_s1].unk0.a * D_800D3E2C);
                 }
               } else {
                 weird_lots_of_magic_number_setting_66xrefs(&g_gdl, gui_textbox_3->unk14.data.img, NULL, gui_textbox_3->unkC, gui_textbox_3->unk10, temp_s0[var_s1].unk0.r, temp_s0[var_s1].unk0.g, temp_s0[var_s1].unk0.b, temp_s0[var_s1].unk0.a * D_800D3E2C);
-                displayText_XY_RGBA_2(&g_gdl, &D_80128F28, gui_textbox_3->unkC + 5, gui_textbox_3->unk10 + 8, gui_textbox_3->node->name, 0xFF, 255 * D_800D3E24, 255 * D_800D3E24, temp_s0[var_s1].unk0.a * D_800D3E2C * D_800D3E24);
+                displayText_XY_RGBA_2(&g_gdl, &D_80128F28, gui_textbox_3->unkC + 5, gui_textbox_3->unk10 + 8, gui_textbox_3->textList->text, 0xFF, 255 * D_800D3E24, 255 * D_800D3E24, temp_s0[var_s1].unk0.a * D_800D3E2C * D_800D3E24);
               }
             }
           }
         } else if (gui_textbox_3->unk5C == 0xFF) {
           if (D_800D3D00[0] == var_s1) {
-            displayText_XY_RGBA_2(&g_gdl, &D_80128F28, gui_textbox_3->unkC + 5, gui_textbox_3->unk10 + 8, gui_textbox_3->node->name, temp_s0[var_s1].unk0.r, temp_s0[var_s1].unk0.g * D_800D3E24, temp_s0[var_s1].unk0.b * D_800D3E24, temp_s0[var_s1].unk0.a * D_800D3E2C);
+            displayText_XY_RGBA_2(&g_gdl, &D_80128F28, gui_textbox_3->unkC + 5, gui_textbox_3->unk10 + 8, gui_textbox_3->textList->text, temp_s0[var_s1].unk0.r, temp_s0[var_s1].unk0.g * D_800D3E24, temp_s0[var_s1].unk0.b * D_800D3E24, temp_s0[var_s1].unk0.a * D_800D3E2C);
           } else {
-            displayText_XY_RGBA_2(&g_gdl, &D_80128F28, gui_textbox_3->unkC + 5, gui_textbox_3->unk10 + 8, gui_textbox_3->node->name, temp_s0[var_s1].unk0.r, temp_s0[var_s1].unk0.g, temp_s0[var_s1].unk0.b, temp_s0[var_s1].unk0.a * D_800D3E2C);
+            displayText_XY_RGBA_2(&g_gdl, &D_80128F28, gui_textbox_3->unkC + 5, gui_textbox_3->unk10 + 8, gui_textbox_3->textList->text, temp_s0[var_s1].unk0.r, temp_s0[var_s1].unk0.g, temp_s0[var_s1].unk0.b, temp_s0[var_s1].unk0.a * D_800D3E2C);
           }
           if ((gui_textbox_3->unk60 == 0xFF) || (gui_textbox_3->unk60 == 0xFE) || (gui_textbox_3->unk60 == 0xFB) || (gui_textbox_3->unk60 == 0xFA) || (gui_textbox_3->unk60 == 0xF9) || (gui_textbox_3->unk60 == 0xF8) || (gui_textbox_3->unk60 == 0xFC)) {
             weird_lots_of_magic_number_setting_66xrefs(&g_gdl, gui_textbox_3->unk14.data.img, NULL, gui_textbox_3->unkC, gui_textbox_3->unk10, 0xFF, 0xFF, 0xFF, temp_s0[var_s1].unk0.a * D_800D3E2C);
@@ -2846,7 +2846,7 @@ static void func_80099674(UnkStruct_78 *arg0) {
         } else {
           weird_lots_of_magic_number_setting_66xrefs(&g_gdl, gui_textbox_3->unk14.data.img, NULL, gui_textbox_3->unkC, gui_textbox_3->unk10, temp_s0[var_s1].unk0.r, temp_s0[var_s1].unk0.g, temp_s0[var_s1].unk0.b, temp_s0[var_s1].unk0.a * D_800D3E2C);
           if (gui_textbox_3->unk5D != 1) {
-            displayText_XY_RGBA_2(&g_gdl, &D_80128F28, gui_textbox_3->unkC + 5, gui_textbox_3->unk10 + 8, gui_textbox_3->node->name, 0xFF, 255 * D_800D3E24, 255 * D_800D3E24, temp_s0[var_s1].unk0.a * D_800D3E2C * D_800D3E24);
+            displayText_XY_RGBA_2(&g_gdl, &D_80128F28, gui_textbox_3->unkC + 5, gui_textbox_3->unk10 + 8, gui_textbox_3->textList->text, 0xFF, 255 * D_800D3E24, 255 * D_800D3E24, temp_s0[var_s1].unk0.a * D_800D3E2C * D_800D3E24);
           }
         }
       }
@@ -2899,31 +2899,31 @@ static void func_80099674(UnkStruct_78 *arg0) {
 
       if ((temp_s0[var_s1].unk24 & GUI_TEXTBOX) && (arg0->unk114 != 0)) {
         gui_textbox_4 = temp_s0[var_s1].unk30;
-        if ((gui_textbox_4->unk5D != 1) && (gui_textbox_4->node->ptr != NULL) && (gui_textbox_4->unk60 != 0xFA)) {
+        if ((gui_textbox_4->unk5D != 1) && (gui_textbox_4->textList->ptr != NULL) && (gui_textbox_4->unk60 != 0xFA)) {
           if (D_800D5D48 == D_801290D0.unk124) {
-            if ((gui_textbox_4->node->pack & 0xF) == 0xC) {
+            if ((gui_textbox_4->textList->pack & 0xF) == 0xC) {
               weird_lots_of_magic_number_setting_66xrefs(&g_gdl, D_80129020, NULL, gui_textbox_4->unkC + 128, gui_textbox_4->unk10 + 3, 0xFF, 0xFF, 0xFF, 255 * D_800D3E2C);
             } else {
               weird_lots_of_magic_number_setting_66xrefs(&g_gdl, D_80129024, NULL, gui_textbox_4->unkC + 128, gui_textbox_4->unk10 + 3, 0xFF, 0xFF, 0xFF, 255 * D_800D3E2C);
             }
-            if ((FUN_SRAM_80078300_twelveliner_div60_loop_30t_a(gui_textbox_4->node->ptr) + 1) >= 10) {
-              sp5C = displayText_XY_RGBA_3(&g_gdl, &D_80128F28, gui_textbox_4->unkC + 133, gui_textbox_4->unk10 + 8, ((FUN_SRAM_80078300_twelveliner_div60_loop_30t_a(gui_textbox_4->node->ptr) + 1) / 10) + 0x30, 0xFF, 0xFF, 0, 255 * D_800D3E2C);
-              displayText_XY_RGBA_3(&g_gdl, &D_80128F28, sp5C, gui_textbox_4->unk10 + 8, ((FUN_SRAM_80078300_twelveliner_div60_loop_30t_a(gui_textbox_4->node->ptr) + 1) % 10) + 0x30, 0xFF, 0xFF, 0, 255 * D_800D3E2C);
+            if ((FUN_SRAM_80078300_twelveliner_div60_loop_30t_a(gui_textbox_4->textList->ptr) + 1) >= 10) {
+              sp5C = displayText_XY_RGBA_3(&g_gdl, &D_80128F28, gui_textbox_4->unkC + 133, gui_textbox_4->unk10 + 8, ((FUN_SRAM_80078300_twelveliner_div60_loop_30t_a(gui_textbox_4->textList->ptr) + 1) / 10) + 0x30, 0xFF, 0xFF, 0, 255 * D_800D3E2C);
+              displayText_XY_RGBA_3(&g_gdl, &D_80128F28, sp5C, gui_textbox_4->unk10 + 8, ((FUN_SRAM_80078300_twelveliner_div60_loop_30t_a(gui_textbox_4->textList->ptr) + 1) % 10) + 0x30, 0xFF, 0xFF, 0, 255 * D_800D3E2C);
             } else {
-              displayText_XY_RGBA_3(&g_gdl, &D_80128F28, gui_textbox_4->unkC + 137, gui_textbox_4->unk10 + 8, (FUN_SRAM_80078300_twelveliner_div60_loop_30t_a(gui_textbox_4->node->ptr) + 1) + 0x30, 0xFF, 0xFF, 0, 255 * D_800D3E2C);
+              displayText_XY_RGBA_3(&g_gdl, &D_80128F28, gui_textbox_4->unkC + 137, gui_textbox_4->unk10 + 8, (FUN_SRAM_80078300_twelveliner_div60_loop_30t_a(gui_textbox_4->textList->ptr) + 1) + 0x30, 0xFF, 0xFF, 0, 255 * D_800D3E2C);
             }
           } else {
-            if ((gui_textbox_4->node->pack & 0xF) == 0xC) {
+            if ((gui_textbox_4->textList->pack & 0xF) == 0xC) {
               weird_lots_of_magic_number_setting_66xrefs(&g_gdl, D_80129020, NULL, gui_textbox_4->unkC + 128, gui_textbox_4->unk10 + 3, 0xFF, 0xFF, 0xFF, 255 * D_800D3E2C);
             } else {
               weird_lots_of_magic_number_setting_66xrefs(&g_gdl, D_80129024, NULL, gui_textbox_4->unkC + 128, gui_textbox_4->unk10 + 3, 0xFF, 0xFF, 0xFF, 255 * D_800D3E2C);
             }
             func_8005BBFC(&g_gdl);
-            if ((FUN_SRAM_80078300_twelveliner_div60_loop_30t_a(gui_textbox_4->node->ptr) + 1) >= 10) {
-              sp5C = displayText_XY_RGBA_3(&g_gdl, &D_80128F28, gui_textbox_4->unkC + 133, gui_textbox_4->unk10 + 8, ((FUN_SRAM_80078300_twelveliner_div60_loop_30t_a(gui_textbox_4->node->ptr) + 1) / 10) + 0x30, 0xFF, 0xFF, 0, 255 * D_800D3E2C);
-              displayText_XY_RGBA_3(&g_gdl, &D_80128F28, sp5C, gui_textbox_4->unk10 + 8, ((FUN_SRAM_80078300_twelveliner_div60_loop_30t_a(gui_textbox_4->node->ptr) + 1) % 10) + 0x30, 0xFF, 0xFF, 0, 255 * D_800D3E2C);
+            if ((FUN_SRAM_80078300_twelveliner_div60_loop_30t_a(gui_textbox_4->textList->ptr) + 1) >= 10) {
+              sp5C = displayText_XY_RGBA_3(&g_gdl, &D_80128F28, gui_textbox_4->unkC + 133, gui_textbox_4->unk10 + 8, ((FUN_SRAM_80078300_twelveliner_div60_loop_30t_a(gui_textbox_4->textList->ptr) + 1) / 10) + 0x30, 0xFF, 0xFF, 0, 255 * D_800D3E2C);
+              displayText_XY_RGBA_3(&g_gdl, &D_80128F28, sp5C, gui_textbox_4->unk10 + 8, ((FUN_SRAM_80078300_twelveliner_div60_loop_30t_a(gui_textbox_4->textList->ptr) + 1) % 10) + 0x30, 0xFF, 0xFF, 0, 255 * D_800D3E2C);
             } else {
-              displayText_XY_RGBA_3(&g_gdl, &D_80128F28, gui_textbox_4->unkC + 137, gui_textbox_4->unk10 + 8, (FUN_SRAM_80078300_twelveliner_div60_loop_30t_a(gui_textbox_4->node->ptr) + 1) +  0x30, 0xFF, 0xFF, 0, 255 * D_800D3E2C);
+              displayText_XY_RGBA_3(&g_gdl, &D_80128F28, gui_textbox_4->unkC + 137, gui_textbox_4->unk10 + 8, (FUN_SRAM_80078300_twelveliner_div60_loop_30t_a(gui_textbox_4->textList->ptr) + 1) +  0x30, 0xFF, 0xFF, 0, 255 * D_800D3E2C);
             }
           }
         }

@@ -18,8 +18,8 @@ typedef struct {
   f32 m30, m31, m32, m33; // Row 3
 } MtxF;
 
-#include "newtetris/sram.h"
 #include "newtetris/066700.h"
+#include "newtetris/sram.h"
 #include "newtetris/069170.h"
 #include "newtetris/074B00.h"
 #include "newtetris/06FFD0.h"
