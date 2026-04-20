@@ -157,13 +157,21 @@ void func_800A45D8(UnkStruct_32 *arg0) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/069D80/func_800A460C.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/069D80/func_800A4620.s")
+void func_800A4620(UnkStruct_32 *arg0) {
+  arg0->unk0 |= 0x40;
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/069D80/func_800A4630.s")
+void func_800A4630(UnkStruct_32 *arg0) {
+  arg0->unk0 &= ~0x40;
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/069D80/func_800A4644.s")
+void func_800A4644(UnkStruct_32 *arg0) {
+  arg0->unk0 |= 0x80;
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/069D80/func_800A4654.s")
+void func_800A4654(UnkStruct_32 *arg0) {
+  arg0->unk0 &= ~0x80;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/069D80/func_800A4668.s")
 

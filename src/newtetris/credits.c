@@ -1,14 +1,10 @@
 #include "common.h"
 
-extern u8 D_800CFD48;
-
-////////////////////////////////////////
-
 static void *D_80120240;
 static UnkStruct_82 D_80120248;
 
-static void   Credits_Init(void);
-static void   Credits_80083450_oneliner_calls_80090a44(void);
+static void Credits_Init(void);
+static void Credits_80083450_oneliner_calls_80090a44(void);
 
 static void Credits_Init(void) {
   main_8004A34C_threeliner();

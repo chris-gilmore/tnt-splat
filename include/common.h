@@ -18,6 +18,7 @@ typedef struct {
   f32 m30, m31, m32, m33; // Row 3
 } MtxF;
 
+#include "newtetris/00E2A0.h"
 #include "newtetris/066700.h"
 #include "newtetris/sram.h"
 #include "newtetris/069170.h"
@@ -53,11 +54,11 @@ typedef struct {
 #include "newtetris/strutil.h"
 #include "newtetris/endscroller.h"
 #include "newtetris/055500.h"
+#include "newtetris/03D140.h"
 #include "newtetris/00DB40.h"
+#include "newtetris/00C0D0.h"
 #include "newtetris/009A90.h"
 #include "newtetris/01D300.h"
-#include "newtetris/03D140.h"
-#include "newtetris/00C0D0.h"
 #include "newtetris/00C680.h"
 #include "newtetris/tally.h"
 #include "newtetris/pausemenu.h"

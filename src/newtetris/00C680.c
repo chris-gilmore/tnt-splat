@@ -1,23 +1,22 @@
 #include "common.h"
 
 extern u16 draw_buffer;
-extern u8 D_800CFD48;
 
 ////////////////////////////////////////
 
 static void *D_800E1F80;
 static void *D_800E1F84;
 
-static UnkStruct_11 D_800CF950 = { NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 0x42200000, 0, 1072 };
-static UnkStruct_11 D_800CF980 = { NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 0x42200000, 0, 1048 };
-static UnkStruct_11 D_800CF9B0 = { NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 0x42200000, 0, 189 };
-static UnkStruct_11 D_800CF9E0 = { NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 0x42200000, 0, 317 };
-static UnkStruct_11 D_800CFA10 = { NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 0x42200000, 0, 376 };
-static UnkStruct_11 D_800CFA40 = { NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 0x42200000, 0, 472 };
-static UnkStruct_11 D_800CFA70 = { NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 0x42200000, 0, 560 };
-static UnkStruct_11 D_800CFAA0 = { NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 0x42200000, 0, 757 };
-static UnkStruct_11 D_800CFAD0 = { NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 0x42200000, 0, 891 };
-static UnkStruct_11 D_800CFB00 = { NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 0x42200000, 0, 1426 };
+static UnkStruct_11 D_800CF950 = { NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 40.0, 0, 1072 };
+static UnkStruct_11 D_800CF980 = { NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 40.0, 0, 1048 };
+static UnkStruct_11 D_800CF9B0 = { NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 40.0, 0, 189 };
+static UnkStruct_11 D_800CF9E0 = { NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 40.0, 0, 317 };
+static UnkStruct_11 D_800CFA10 = { NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 40.0, 0, 376 };
+static UnkStruct_11 D_800CFA40 = { NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 40.0, 0, 472 };
+static UnkStruct_11 D_800CFA70 = { NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 40.0, 0, 560 };
+static UnkStruct_11 D_800CFAA0 = { NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 40.0, 0, 757 };
+static UnkStruct_11 D_800CFAD0 = { NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 40.0, 0, 891 };
+static UnkStruct_11 D_800CFB00 = { NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 40.0, 0, 1426 };
 static UnkStruct_11 *D_800CFB30[11] = {
   &D_800CF9B0,
   &D_800CF9E0,
@@ -88,7 +87,7 @@ static void wonders3_80046610_fifteenliner(WonderViewer *wndrVwr) {
 
   func_80076EC0(wndrVwr->unk8, 1);
   func_800A4654(wndrVwr->unk8->unk0);
-  wndrVwr->unk8->unk0->unk8->unk10.unk20 = NULL;
+  wndrVwr->unk8->unk0->unk8->unk10.unk20 = NULL;  // FogParams
   func_800773A4(wndrVwr->unk8);
   wndrVwr->unk0 = 0;
 }

@@ -2,7 +2,7 @@
 #define _BORGANIM_H_
 
 typedef struct {
-  /* 0x0   */ u32            unk0;
+  /* 0x0   */ u32            unk0;    // bit pattern
   /* 0x4   */ u8             unk4;    // 0 or 1 (toggle)
   /* 0x5   */ u8             unk5;
   /* 0x6   */ u16            unk6;

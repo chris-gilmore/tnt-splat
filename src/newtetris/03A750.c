@@ -1,9 +1,5 @@
 #include "common.h"
 
-extern u8 D_800CFD4C;
-
-////////////////////////////////////////
-
 static s32 D_8011FCA0;
 static s32 D_8011FCA4;
 static s32 D_8011FCA8;

@@ -7,7 +7,7 @@ static f32 D_801201E0;
 static f32 D_801201E4;
 */
 
-u8 func_8007E750(void) {
+s32 func_8007E750(void) {
   if (D_801201E4 <= 1.0) {
     gDPPipeSync(g_gdl++);
     gDPSetCycleType(g_gdl++, G_CYC_1CYCLE);
@@ -20,13 +20,13 @@ u8 func_8007E750(void) {
 
     D_801201E4 += D_801201E0 * frametime_delta();
     if (D_801201E4 >= 1.0) {
-      return TRUE;
+      return 1;
     }
 
-    return FALSE;
+    return 0;
   }
 
-  return TRUE;
+  return 1;
 }
 
 void func_8007E9F8(f32 arg0) {

@@ -1,9 +1,5 @@
 #include "common.h"
 
-extern u8 D_800CFD48;
-
-////////////////////////////////////////
-
 static s32 D_800D0140 = TRUE;
 static s32 D_800D0144 = FALSE;
 static u8 D_800D0148 = 0;

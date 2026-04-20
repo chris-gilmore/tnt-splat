@@ -18,52 +18,52 @@ static u8 D_800D02B4 = 0;
 
 // mayan skybox
 static UnkStruct_11 D_800D02B8 = {
-  NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x10, 0, 201, 0
+  NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x10, 0.0, 201, 0
 };
 
 // japanese skybox
 static UnkStruct_11 D_800D02E8 = {
-  NULL, NULL, 0.2, -0.2, -0.7, 0.0, 0.0, 0.0, 0x1B, 0, 770, 0
+  NULL, NULL, 0.2, -0.2, -0.7, 0.0, 0.0, 0.0, 0x1B, 0.0, 770, 0
 };
 
 // celtic skybox
 static UnkStruct_11 D_800D0318 = {
-  NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 0, 0, 488
+  NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 0.0, 0, 488
 };
 
 // russian skybox
 static UnkStruct_11 D_800D0348 = {
-  NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 0, 0, 902
+  NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 0.0, 0, 902
 };
 
 // african skybox
 static UnkStruct_11 D_800D0378 = {
-  NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 0, 0, 568
+  NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 0.0, 0, 568
 };
 
 // greek skybox
 static UnkStruct_11 D_800D03A8 = {
-  NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 0, 1399, 0
+  NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 0.0, 1399, 0
 };
 
 // japanese flying butterflies
 static UnkStruct_11 D_800D03D8 = {
-  NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 0, 0, 1361
+  NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 0.0, 0, 1361
 };
 
 // celtic flying leaves
 static UnkStruct_11 D_800D0408 = {
-  NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 0, 0, 1336
+  NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 0.0, 0, 1336
 };
 
 // russian snow
 static UnkStruct_11 D_800D0438 = {
-  NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 0, 0, 1371
+  NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 0.0, 0, 1371
 };
 
 // greek rain
 static UnkStruct_11 D_800D0468 = {
-  NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 0, 0, 1319
+  NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 0.0, 0, 1319
 };
 
 static s16 D_800D0498[2] = { 0x400, 0x400 };

@@ -1,7 +1,6 @@
 #include "common.h"
 
 extern s8 D_800CF838;
-extern u8 D_800CFD48;
 
 ////////////////////////////////////////
 

@@ -11,7 +11,7 @@ typedef struct {
   /* 0x18 */ f32            unk18;
   /* 0x1C */ f32            unk1C;
   /* 0x20 */ u8             unk20;  // bit pattern
-  /* 0x24 */ s32            unk24;
+  /* 0x24 */ f32            unk24;
   /* 0x28 */ s32            unk28;  // fx_id
   /* 0x2C */ s32            unk2C;  // fx_id
 } UnkStruct_11; // 0x30 bytes
