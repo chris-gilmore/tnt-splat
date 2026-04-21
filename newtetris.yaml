@@ -622,7 +622,7 @@ segments:
       - {start: 0xA8190, type: .bss, vram: 0x8011FD10, name: newtetris/haluci}
       - {start: 0xA8190, type: bss, vram: 0x801200C0, name: newtetris/801200C0}
       - {start: 0xA8190, type: .bss, vram: 0x801201D0, name: newtetris/n64heap}
-      - {start: 0xA8190, type: bss, vram: 0x801201E0, name: newtetris/0449D0}
+      - {start: 0xA8190, type: .bss, vram: 0x801201E0, name: newtetris/0449D0}
       - {start: 0xA8190, type: bss, vram: 0x80120210, name: newtetris/046DD0}
       - {start: 0xA8190, type: bss, vram: 0x80120230, name: newtetris/minilzo}
       - {start: 0xA8190, type: .bss, vram: 0x80120240, name: newtetris/credits}

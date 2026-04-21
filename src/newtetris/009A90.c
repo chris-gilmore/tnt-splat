@@ -8,7 +8,8 @@ static u8 D_800E1F6E;
 static u8 D_800E1F6F;
 static u8 D_800E1F70;
 
-static WonderAnim *wonderAnim = NULL;
+WonderAnim *g_wonderAnim = NULL;
+
 static UnkStruct_11 D_800C5E14 = { NULL, NULL, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0, 40.0f, 0x440, 0 };
 static UnkStruct_11 D_800C5E44 = { NULL, NULL, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0, 40.0f, 0, 0x45B };
 static UnkStruct_11 D_800C5E74 = { NULL, NULL, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0, 40.0f, 0, 0x471 };
@@ -2076,7 +2077,7 @@ static void wonders1_800438a8_mediumliner_loop(WonderAnim *wndrAnm) {
   wndrAnm->unk4 = D_800CF70C[wndrAnm->unk1];
   D_800E1F70 = 0;
   while (wndrAnm->unk8[D_800E1F70] != NULL) {
-    func_80076EC0(wndrAnm->unk8[D_800E1F70], 1);
+    func_80076EC0(wndrAnm->unk8[D_800E1F70], TRUE);
     if (wonders2_divide_by_seven(wndrAnm->unk1) > 2) {
       if (D_800E1F70 != 1) {
         func_800A4620(wndrAnm->unk8[D_800E1F70]->unk0);
@@ -2117,7 +2118,7 @@ static void wonders1_80043c7c_thirtyliner_loop(WonderAnim *wndrAnm) {
   wndrAnm->unk8 = D_800CF59C[wonders2_divide_by_seven(wndrAnm->unk1)];
   wndrAnm->unk4 = D_800CF7D0[wonders2_divide_by_seven(wndrAnm->unk1)];
   for (i = 0; wndrAnm->unk8[i] != NULL; i++) {
-    func_80076EC0(wndrAnm->unk8[i], 1);
+    func_80076EC0(wndrAnm->unk8[i], TRUE);
     if (i != 0) {
       func_800A4620(wndrAnm->unk8[i]->unk0);
     }
@@ -2143,7 +2144,7 @@ static void wonders1_80043ed8_thirtyliner_loop(WonderAnim *wndrAnm) {
   wndrAnm->unk8 = D_800CF5B8[temp_v0];
   wndrAnm->unk4 = D_800CF7EC[temp_v0];
   for (i = 0; wndrAnm->unk8[i] != NULL; i++) {
-    func_80076EC0(wndrAnm->unk8[i], 1);
+    func_80076EC0(wndrAnm->unk8[i], TRUE);
     func_800A4654(wndrAnm->unk8[i]->unk0);
     if (temp_v0 == 0) {
       wndrAnm->unk8[i]->unk0->unk1D0->unk18 = 1;
@@ -2168,7 +2169,7 @@ static void wonders1_8004411c_tenliner_loop(WonderAnim *wndrAnm) {
   wndrAnm->unk8 = D_800CF510[wndrAnm->unk1];
   wndrAnm->unk4 = D_800CF744[wndrAnm->unk1];
   for (i = 0; wndrAnm->unk8[i] != NULL; i++) {
-    func_80076EC0(wndrAnm->unk8[i], 1);
+    func_80076EC0(wndrAnm->unk8[i], TRUE);
     func_800A4654(wndrAnm->unk8[i]->unk0);
   }
 }
@@ -2232,7 +2233,7 @@ static void wonders1_80044464_threeliner(WonderAnim *wndrAnm) {
 }
 
 void wonders1_case6_calls_music_magic(void) {
-  register WonderAnim *wndrAnm = wonderAnim;
+  register WonderAnim *wndrAnm = g_wonderAnim;
 
   if (wndrAnm == NULL) {
     return;
@@ -2313,7 +2314,7 @@ static void wonders1_800446ac_eightliner(u8 arg0) {
 }
 
 static void wonders1_hall_or_exit(void) {
-  register WonderAnim *wndrAnm = wonderAnim;
+  register WonderAnim *wndrAnm = g_wonderAnim;
   register u16 i;
   register u16 var_s2;
   register u16 var_s3;
@@ -2409,7 +2410,7 @@ static void wonders1_hall_or_exit(void) {
 }
 
 static void wonders1_display_complete_message(void) {
-  register WonderAnim *wndrAnm = wonderAnim;
+  register WonderAnim *wndrAnm = g_wonderAnim;
   register u16 i;
   register u16 temp_s2;
   register u16 temp_s3;
@@ -2448,7 +2449,7 @@ static void wonders1_display_complete_message(void) {
 }
 
 static void wonders1_finale_or_hall(void) {
-  register WonderAnim *wndrAnm = wonderAnim;
+  register WonderAnim *wndrAnm = g_wonderAnim;
   register u8 temp_s1;
   register u16 i;
   register UnkStruct_50 *temp_s3;
@@ -2513,7 +2514,7 @@ static void wonders1_finale_or_hall(void) {
 }
 
 static void wonders1_800455bc_inc_won_compl_q(void) {
-  register WonderAnim *wndrAnm = wonderAnim;
+  register WonderAnim *wndrAnm = g_wonderAnim;
   register u8 temp_s1;
   register u16 temp_s2;
   register u16 temp_s3;
@@ -2567,7 +2568,7 @@ static void wonders1_800455bc_inc_won_compl_q(void) {
 }
 
 void wonders1_something_hall_or_exit_case(void) {
-  register WonderAnim *wndrAnm = wonderAnim;
+  register WonderAnim *wndrAnm = g_wonderAnim;
 
   if (wndrAnm == NULL) {
     return;
@@ -2645,8 +2646,8 @@ void wonders1_anim_related(s8 arg0) {
   register WonderAnim *wndrAnm;
 
   main_8004A34C_threeliner();
-  wonderAnim = n64HeapAlloc(sizeof(WonderAnim));
-  wndrAnm = wonderAnim;
+  g_wonderAnim = n64HeapAlloc(sizeof(WonderAnim));
+  wndrAnm = g_wonderAnim;
   if (wndrAnm == NULL) {
     debug_print_reason_routine("Not enough memory", "for WonderAnim");
   }
@@ -2665,7 +2666,7 @@ void wonders1_anim_related(s8 arg0) {
 }
 
 static void wonders1_calls_music_400x300_magic(void) {
-  register WonderAnim *wndrAnm = wonderAnim;
+  register WonderAnim *wndrAnm = g_wonderAnim;
   register u8 temp_s1;
   register u8 temp_s2;
 
@@ -2674,8 +2675,8 @@ static void wonders1_calls_music_400x300_magic(void) {
   wonders1_80044218_tenliner_loop(wndrAnm);
   temp_s1 = wndrAnm->state;
   temp_s2 = wndrAnm->unk1;
-  n64HeapUnalloc(wonderAnim);
-  wonderAnim = NULL;
+  n64HeapUnalloc(g_wonderAnim);
+  g_wonderAnim = NULL;
   main_8004A34C_threeliner();
   D_800D3CF0 = 0;
   if (temp_s1 == 14) {

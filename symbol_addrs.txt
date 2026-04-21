@@ -1339,7 +1339,7 @@ PWM_Pulse                 = 0x800C5598; // type:u8    size:0x1    static
 // - {start: 0x08B820, type: data, vram: 0x800C55A0, name: newtetris/aisquarelist}
 
 // - {start: 0x08C090, type: .data, vram: 0x800C5E10, name: newtetris/009A90}
-wonderAnim                = 0x800C5E10; //            size:0x4    static  WonderAnim*
+g_wonderAnim              = 0x800C5E10; //            size:0x4            WonderAnim*
 
 D_800CF4D8                = 0x800CF4D8; //            size:0x38   static  UnkStruct_11** [2]
 D_800CF510                = 0x800CF510; //            size:0x8C   static  UnkStruct_11** [5]

@@ -29,6 +29,7 @@ static void   Minos_8006f994_sets_struct_0_to_0x23(u8 *, u8 *);
 static void   Minos_8006fc8c_twentyfive_liner(u8, u8);
 static void   Minos_800704e0_threeliner_sets_0x130(Mino *);
 
+// non-square
 static void Minos_8006f260_eightliner_calls_8007641c_4_times(Mino *arg0) {
   register UnkStruct_22 *var_s0 = &D_8011FC18;
   register UnkStruct_24 *var_s1 = &D_8011FC18.unk28->unk14;
@@ -44,6 +45,7 @@ static void Minos_8006f260_eightliner_calls_8007641c_4_times(Mino *arg0) {
   D_8011FC18.unk28->unk58(D_8011FC18.unk28);
 }
 
+// square
 static void Minos_8006f300_eightliner_calls_80076458_4_times(Mino *arg0) {
   register UnkStruct_22 *var_s0 = &D_8011FC18;
   register UnkStruct_24 *var_s1 = &D_8011FC18.unk28->unk14;
@@ -59,6 +61,7 @@ static void Minos_8006f300_eightliner_calls_80076458_4_times(Mino *arg0) {
   var_s0->unk28->unk58(var_s0->unk28);
 }
 
+// landed piece
 static void func_8006F39C(UnkStruct_8 *arg0) {
   register UnkStruct_14 *var_a1 = D_8011FC18.unk0;
   register s32 temp_a2;
@@ -97,6 +100,7 @@ static void func_8006F39C(UnkStruct_8 *arg0) {
   var_a1[3].p.y = temp_t5 + temp_t3;
 }
 
+// falling piece
 static void Minos_8006f4b4_thirtyliner_interesting(UnkStruct_8 *arg0) {
   register UnkStruct_14 *var_s0 = D_8011FC18.unk0;
   register s32 temp_s1;

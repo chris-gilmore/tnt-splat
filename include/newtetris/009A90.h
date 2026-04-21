@@ -16,6 +16,8 @@ typedef struct {
   /* 0x84 */ Font           font_1;
 } WonderAnim; // 0xFC bytes
 
+extern WonderAnim *g_wonderAnim;
+
 extern void   wonders1_case6_calls_music_magic(void);
 extern void   wonders1_something_hall_or_exit_case(void);
 extern void   wonders1_anim_related(s8);

@@ -51,8 +51,7 @@ void FUN_01D300_80057338_fifteenliner(ImgPalParams *imgPalParams) {
 
   if ((imgPalParams->unkC == 0x400) && (imgPalParams->unkE == 0x400)) {
     weird_lots_of_magic_number_setting_66xrefs(&g_gdl, imgPalParams->img, imgPalParams->pal, imgPalParams->x, imgPalParams->y, imgPalParams->red, imgPalParams->green, imgPalParams->blue, imgPalParams->alpha);
-    return;
+  } else {
+    func_8005DB90(&g_gdl, imgPalParams->img, imgPalParams->pal, imgPalParams->x, imgPalParams->y, imgPalParams->red, imgPalParams->green, imgPalParams->blue, imgPalParams->alpha, imgPalParams->unkC, imgPalParams->unkE);
   }
-
-  func_8005DB90(&g_gdl, imgPalParams->img, imgPalParams->pal, imgPalParams->x, imgPalParams->y, imgPalParams->red, imgPalParams->green, imgPalParams->blue, imgPalParams->alpha, imgPalParams->unkC, imgPalParams->unkE);
 }

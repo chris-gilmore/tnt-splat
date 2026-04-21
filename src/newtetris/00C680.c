@@ -85,7 +85,7 @@ static void wonders3_80046610_fifteenliner(WonderViewer *wndrVwr) {
     wndrVwr->unk8 = D_800CFB30[8];
   }
 
-  func_80076EC0(wndrVwr->unk8, 1);
+  func_80076EC0(wndrVwr->unk8, TRUE);
   func_800A4654(wndrVwr->unk8->unk0);
   wndrVwr->unk8->unk0->unk8->unk10.unk20 = NULL;  // FogParams
   func_800773A4(wndrVwr->unk8);
@@ -328,7 +328,7 @@ void wonders3_wonder_viewer(s8 screen, u8 arg1, u8 playernum) {
 
   wndrVwr->playernum = playernum;
   wndrVwr->cur_screen = screen;
-  wndrVwr->unk8 = 0;
+  wndrVwr->unk8 = NULL;
   D_801290D0.img = n64HeapAlloc(240008);
   func_800A8FC8(((s16 *) D_801290D0.img) + 2, 120000, 0);  // minor bug, falls short by 2 shorts
   func_8008F280(&D_801290D0, -1, 400, 300, D_801290D0.img);
@@ -387,20 +387,20 @@ static void wonders3_8004745c_medium_liner_has_audio(void) {
   } else if (D_801109F0 == 5) {
     func_8009035C(D_800D5850, D_800D5808);
     D_800CFEE8 = 4;
-    D_800CFD48 = 1;
+    D_800CFD48 = TRUE;
   } else if (D_801109F0 == 6) {
     func_8009035C(D_800D5D48, D_800D5CE8);
     D_800CFEE8 = 4;
-    D_800CFD48 = 1;
+    D_800CFD48 = TRUE;
   } else if (D_801109F0 == 4) {
     func_800905E8(1);
     D_800CFEE8 = 4;
-    D_800CFD48 = 1;
+    D_800CFD48 = TRUE;
   } else {
     Audio_UnloadSFX();
     Game_80051618_twentyliner(&g_game);
     D_800CFEE8 = 9;
-    D_800CFD48 = 1;
+    D_800CFD48 = TRUE;
     Audio_LoadSFX(&D_800D3A90);
   }
 }
