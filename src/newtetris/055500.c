@@ -1,9 +1,5 @@
 #include "common.h"
 
-extern u16 draw_buffer;
-
-////////////////////////////////////////
-
 Font D_80128EB0;
 Font D_80128F28;
 Font D_80128FA0;

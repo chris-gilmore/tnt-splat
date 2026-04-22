@@ -1,5 +1,12 @@
 #include "common.h"
 
+//u16 draw_buffer;
+
+u32 D_800CFD40 = 0;
+u32 D_800CFD44 = 0;
+u8 D_800CFD48 = TRUE;
+u8 D_800CFD4C = TRUE;
+
 s32 screen_1_width  = 320;
 s32 screen_1_height = 240;
 s32 screen_2_width  = SCREEN_WD;
@@ -40,21 +47,60 @@ static u32 D_800CFE28 = 1; // unused
 
 static void   four_arguments_get_debug_printed(void);
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00E440/FUN_800481C0_allocs_heap.s")
+void FUN_80048020_eightliner(void) {
+  register s32 tmp;
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00E440/FUN_8004831C_allocs_heap.s")
+  if (D_800E20C4 != 0) {
+    tmp = ((intptr_t) g_gdl - (intptr_t) D_800E20B8[draw_buffer]) >> 3;
+    if (D_800CFD40 < tmp) {
+      D_800CFD40 = tmp;
+    }
+  }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00E440/FUN_800483E8_allocs_heap.s")
+  if (D_800E20D4 != 0) {
+    tmp = ((intptr_t) D_800E20D0 - (intptr_t) D_800E20C8[draw_buffer]) >> 4;
+    if (D_800CFD44 < tmp) {
+      D_800CFD44 = tmp;
+    }
+  }
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00E440/inits_bunch_of_stuff_q_allocs_heap.s")
+void func_800480D8_nevercalled(void) {
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00E440/FUN_80048934_inits_struct_q.s")
+void FUN_800480E0_threeliner_glist(void) {
+  char sp18[16];
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00E440/FUN_80048A6C_inits_struct_q.s")
+  if ((intptr_t) g_gdl > ((intptr_t) D_800E20B8[draw_buffer] + D_800E20C4)) {
+    sprintf(sp18, "glistEntries %d", D_800E20C4 >> 3);
+    debug_print_reason_routine("glist assert", sp18);
+  }
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00E440/has_rounds_and_floors_large_liner.s")
+void FUN_80048150_threeliner_vlist(void) {
+  char sp18[16];
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00E440/has_rounds_and_floors_2_large_liner.s")
+  if ((intptr_t) D_800E20D0 > ((intptr_t) D_800E20C8[draw_buffer] + D_800E20D4)) {
+    sprintf(sp18, "vlistEntries %d", D_800E20D4 >> 4);
+    debug_print_reason_routine("vlist assert", sp18);
+  }
+}
+
+#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00E2A0/FUN_800481C0_allocs_heap.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00E2A0/FUN_8004831C_allocs_heap.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00E2A0/FUN_800483E8_allocs_heap.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00E2A0/inits_bunch_of_stuff_q_allocs_heap.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00E2A0/FUN_80048934_inits_struct_q.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00E2A0/FUN_80048A6C_inits_struct_q.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00E2A0/has_rounds_and_floors_large_liner.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/00E2A0/has_rounds_and_floors_2_large_liner.s")
 
 static void four_arguments_get_debug_printed(void) {
   OSMesg msg;

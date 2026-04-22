@@ -18,7 +18,6 @@ typedef struct {
   f32 m30, m31, m32, m33; // Row 3
 } MtxF;
 
-#include "newtetris/00E2A0.h"
 #include "newtetris/066700.h"
 #include "newtetris/sram.h"
 #include "newtetris/069170.h"
@@ -106,7 +105,7 @@ typedef struct {
 #include "newtetris/pfgfx.h"
 #include "newtetris/n64heap.h"
 #include "newtetris/001050.h"
-#include "newtetris/00E440.h"
+#include "newtetris/00E2A0.h"
 #include "newtetris/bootmain.h"
 #include "newtetris/010870.h"
 #include "newtetris/aiplayer.h"

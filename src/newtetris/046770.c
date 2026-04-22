@@ -1,9 +1,5 @@
 #include "common.h"
 
-extern u16 draw_buffer;
-
-////////////////////////////////////////
-
 void FUN_046770_800804f0_many_heapallocs_for_arg0_elems(UnkStruct_12 *arg0) {
   u8 *sp4C;  // grayscale image used as height field
   register s32 i;

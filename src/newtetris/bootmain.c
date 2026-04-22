@@ -1,9 +1,5 @@
 #include "common.h"
 
-extern u16 draw_buffer;
-
-////////////////////////////////////////
-
 static u32 D_800CFE30 = 0; // unused
 u8 D_800CFE34 = FALSE;
 static u32 D_800CFE38 = 0;

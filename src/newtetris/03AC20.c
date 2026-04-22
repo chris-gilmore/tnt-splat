@@ -1,9 +1,5 @@
 #include "common.h"
 
-extern u16 draw_buffer;
-
-////////////////////////////////////////
-
 static Gfx D_800D0610[] = {
   gsSPClearGeometryMode(G_ZBUFFER | G_SHADE | G_CULL_BOTH | G_FOG | G_LIGHTING | G_TEXTURE_GEN | G_TEXTURE_GEN_LINEAR | G_SHADING_SMOOTH),
   gsDPPipeSync(),

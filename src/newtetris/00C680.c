@@ -1,9 +1,5 @@
 #include "common.h"
 
-extern u16 draw_buffer;
-
-////////////////////////////////////////
-
 static void *D_800E1F80;
 static void *D_800E1F84;
 

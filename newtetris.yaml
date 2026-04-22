@@ -102,8 +102,7 @@ segments:
       - {start: 0x00C0D0, type:   c, vram: 0x80045E50, name: newtetris/00C0D0}
       - {start: 0x00C680, type:   c, vram: 0x80046400, name: newtetris/00C680}
       - {start: 0x00D970, type:   c, vram: 0x800476F0, name: newtetris/00DB40}
-      - {start: 0x00E2A0, type: asm, vram: 0x80048020, name: newtetris/00E2A0}
-      - {start: 0x00E440, type:   c, vram: 0x800481C0, name: newtetris/00E440}
+      - {start: 0x00E2A0, type:   c, vram: 0x80048020, name: newtetris/00E2A0}
       - {start: 0x00FEF0, type:   c, vram: 0x80049C70, name: newtetris/bootmain}
       - {start: 0x010820, type:   c, vram: 0x8004A5A0, name: newtetris/dbgprntrrl}
       - {start: 0x010870, type: asm, vram: 0x8004A5F0, name: newtetris/010870}
@@ -384,8 +383,7 @@ segments:
       - {start: 0x095AB0, type: .data, vram: 0x800CF830, name: newtetris/00C0D0}
       - {start: 0x095BD0, type: .data, vram: 0x800CF950, name: newtetris/00C680}
       - {start: 0x095DE0, type: .data, vram: 0x800CFB60, name: newtetris/00DB40}
-      - {start: 0x095FC0, type: data, vram: 0x800CFD40, name: newtetris/00E2A0}
-      - {start: 0x095FD0, type: .data, vram: 0x800CFD50, name: newtetris/00E440}
+      - {start: 0x095FC0, type: .data, vram: 0x800CFD40, name: newtetris/00E2A0}
       - {start: 0x0960B0, type: .data, vram: 0x800CFE30, name: newtetris/bootmain}
       - {start: 0x0960D0, type: data, vram: 0x800CFE50, name: newtetris/010870}
       - {start: 0x096180, type: .data, vram: 0x800CFF00, name: newtetris/game}
@@ -485,8 +483,7 @@ segments:
       - {start: 0x0A1850, type: .rodata, vram: 0x800DB5D0, name: newtetris/00C0D0}
       - {start: 0x0A18A0, type: .rodata, vram: 0x800DB620, name: newtetris/00C680}
       - {start: 0x0A1910, type: .rodata, vram: 0x800DB690, name: newtetris/00DB40}
-      - {start: 0x0A22A0, type: rodata, vram: 0x800DC020, name: newtetris/00E2A0}
-      - {start: 0x0A22E0, type: .rodata, vram: 0x800DC060, name: newtetris/00E440}
+      - {start: 0x0A22A0, type: .rodata, vram: 0x800DC020, name: newtetris/00E2A0}
       - {start: 0x0A2310, type: .rodata, vram: 0x800DC090, name: newtetris/dbgprntrrl}
       - {start: 0x0A2320, type: rodata, vram: 0x800DC0A0, name: newtetris/010870}
       - {start: 0x0A2CE0, type: .rodata, vram: 0x800DCA60, name: newtetris/ids}
@@ -583,7 +580,7 @@ segments:
       - {start: 0xA8190, type: .bss, vram: 0x800E1F60, name: newtetris/009A90}
       - {start: 0xA8190, type: .bss, vram: 0x800E1F80, name: newtetris/00C680}
       - {start: 0xA8190, type: .bss, vram: 0x800E1F90, name: newtetris/00DB40}
-      - {start: 0xA8190, type: bss, vram: 0x800E1FA0, name: newtetris/00E440}
+      - {start: 0xA8190, type: bss, vram: 0x800E1FA0, name: newtetris/00E2A0}
       - {start: 0xA8190, type: .bss, vram: 0x801031C0, name: newtetris/bootmain}
       - {start: 0xA8190, type: .bss, vram: 0x80110570, name: newtetris/dbgprntrrl}
       - {start: 0xA8190, type: bss, vram: 0x80110580, name: newtetris/010870}
