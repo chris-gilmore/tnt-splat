@@ -85,7 +85,7 @@ void FUN_03A750_800746c0_twentyliner(u8 *arg0, void *arg1, u32 arg2) {
   func_800ABFF0(sp30[0].data + arg0 + 4, &sp28, 4);
   func_800ABFF0(sp30[0].data + arg0, &sp20, 4);
   sp4C = sp30[1].data - sp30[0].data;
-  sp18 = (u8 *) LZOBUF;
+  sp18 = (u8 *) LZO_BUF;
   if ((sp20.data & 0xFF) == 'S') {  // as in 'H2OS'
     func_800ABFF0(sp30[0].data + arg0, sp18, sp4C);
     func_80080EC8(arg1, &sp1C, sp18 + 8, sp4C - 8);

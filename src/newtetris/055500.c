@@ -3243,11 +3243,11 @@ void func_8009D5E4(void) {
   if (D_801290D0.unk114 == 0) {
     gDPPipeSync(g_gdl++);
 
-    gDPSetColorImage(g_gdl++, G_IM_FMT_RGBA, G_IM_SIZ_16b, screen_1_width, OS_PHYSICAL_TO_K0(D_8012902C[D_800D3CF4]->img));
+    gDPSetColorImage(g_gdl++, G_IM_FMT_RGBA, G_IM_SIZ_16b, screen_1_width, OS_K0_TO_PHYSICAL(D_8012902C[D_800D3CF4]->img));
 
     weird_lots_of_magic_number_setting_66xrefs(&g_gdl, sp3C->unk0.data.img, sp3C->unk0.pal, sp3C->unk0.x, sp3C->unk0.y, sp3C->unk0.r, sp3C->unk0.g, sp3C->unk0.b, sp3C->unk0.a);
 
-    gDPSetColorImage(g_gdl++, G_IM_FMT_RGBA, G_IM_SIZ_16b, screen_1_width, OS_PHYSICAL_TO_K0(cfb[draw_buffer]));
+    gDPSetColorImage(g_gdl++, G_IM_FMT_RGBA, G_IM_SIZ_16b, screen_1_width, OS_K0_TO_PHYSICAL(cfb[draw_buffer]));
   } else {
     weird_lots_of_magic_number_setting_66xrefs(&g_gdl, sp3C->unk0.data.img, sp3C->unk0.pal, sp3C->unk0.x, sp3C->unk0.y, sp3C->unk0.r, sp3C->unk0.g, sp3C->unk0.b, sp3C->unk0.a);
   }

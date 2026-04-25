@@ -11,7 +11,7 @@ void frametime_clear(void) {
   g_frameTime.hours = 0;
 }
 
-void frametime_reset(s32 count) {
+void frametime_reset(u32 count) {
   frametime_clear();
   g_frameTime.count = count;
 }
@@ -37,11 +37,11 @@ void frametime_add(s32 delta) {
   }
 }
 
-void frametime_update(s32 count) {
+void frametime_update(u32 count) {
   frametime_add(count - g_frameTime.count);
 }
 
-s32 frametime_count(void) {
+u32 frametime_count(void) {
   return g_frameTime.count;
 }
 

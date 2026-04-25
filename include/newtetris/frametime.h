@@ -2,7 +2,7 @@
 #define _FRAMETIME_H_
 
 typedef struct {
-  /* 0x0  */ s32   count;
+  /* 0x0  */ u32   count;
   /* 0x4  */ s32   delta;
   /* 0x8  */ s32   jiffies;
   /* 0xC  */ s32   seconds;
@@ -13,10 +13,10 @@ typedef struct {
 extern FrameTime g_frameTime;
 
 extern void   frametime_clear(void);
-extern void   frametime_reset(s32);
+extern void   frametime_reset(u32);
 extern void   frametime_add(s32);
-extern void   frametime_update(s32);
-extern s32    frametime_count(void);
+extern void   frametime_update(u32);
+extern u32    frametime_count(void);
 extern s32    frametime_jiffies(void);
 extern s32    frametime_seconds(void);
 extern s32    frametime_minutes(void);

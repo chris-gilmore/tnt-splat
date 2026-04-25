@@ -31,7 +31,7 @@ void wonders4_800476f0_thirtyliner(u8 font, u8 arg1) {
     contributions = func_80079F74(g_sram_ptr, D_800E1F96);
     for (i = 0; i < 10; i++) {
       contributor = &contributions->contributors[i];
-      if ((contributor->lines == 0) || (contributor->unkA == 0) || (contributor->unkA == 0)) {
+      if ((contributor->lines == 0) || (contributor->unkA == 0) || (contributor->unkA == 0)) {  // (bug?) why twice?
         break;
       }
     }
@@ -67,9 +67,9 @@ static void wonders4_display_contributors(Font *font, u8 arg1, u16 arg2, u16 arg
     sprintf(lines, "LINES");
   } else if (arg1 >= 4) {
     arg1 -= 4;
-    if (!(arg1 % 2) && arg1 / 2 < 10) {
+    if (!(arg1 % 2) && (arg1 / 2 < 10)) {
       contributor = &contributions->contributors[arg1 / 2];
-      if ((contributor->lines == 0) || (contributor->unkA == 0) || (contributor->unkA == 0)) {
+      if ((contributor->lines == 0) || (contributor->unkA == 0) || (contributor->unkA == 0)) {  // (bug?) why twice?
         sprintf(rank, "");
         sprintf(name, "");
         sprintf(lines, "");

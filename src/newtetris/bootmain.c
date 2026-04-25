@@ -98,6 +98,12 @@ static void main_infinite_loop_at_end_3(void *arg) {
     D_800CFE3C += main_TEXT_START[i];
   }
   func_80060E30();
+
+#ifdef _HALUCI
+  func_8007CF40(1);  // haluci_init(1)
+  has_rounds_and_floors_2_large_liner();
+#endif
+
   while (TRUE) {
     osRecvMesg(&D_8010BB08, &msg, OS_MESG_BLOCK);
     switch (*(s16 *)msg) {
@@ -146,7 +152,7 @@ static void main_maybe_audio_related(void) {
 void main_8004A34C_threeliner(void) {
   while (D_800CFEF0 > D_800CFEEC) {
     main_maybe_audio_related();
-  } 
+  }
 }
 
 static void main_another_but_diff_400x300(void) {

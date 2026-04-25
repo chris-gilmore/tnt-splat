@@ -1,7 +1,7 @@
 #ifndef _03A750_H_
 #define _03A750_H_
 
-#define LZOBUF 0x80000400
+#define LZO_BUF 0x80000400
 
 typedef union {
   u32   data;

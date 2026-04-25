@@ -283,11 +283,11 @@ static void wonders3_no_idea_menu_img_button(void) {
 
   gDPPipeSync(g_gdl++);
 
-  gDPSetColorImage(g_gdl++, G_IM_FMT_RGBA, G_IM_SIZ_16b, screen_1_width, OS_PHYSICAL_TO_K0(D_801290D0.img));
+  gDPSetColorImage(g_gdl++, G_IM_FMT_RGBA, G_IM_SIZ_16b, screen_1_width, OS_K0_TO_PHYSICAL(D_801290D0.img));
 
   weird_lots_of_magic_number_setting_66xrefs(&g_gdl, D_800E1F80, D_800E1F84, 0, 0, 0xFF, 0xFF, 0xFF, 0xFF);
 
-  gDPSetColorImage(g_gdl++, G_IM_FMT_RGBA, G_IM_SIZ_16b, screen_1_width, OS_PHYSICAL_TO_K0(cfb[draw_buffer]));
+  gDPSetColorImage(g_gdl++, G_IM_FMT_RGBA, G_IM_SIZ_16b, screen_1_width, OS_K0_TO_PHYSICAL(cfb[draw_buffer]));
 
   func_8005BE40(&g_gdl);
 }

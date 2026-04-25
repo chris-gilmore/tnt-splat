@@ -127,7 +127,7 @@ void func_80074F3C(UnkStruct_30 *arg0) {
 void func_80075180(void) {
   register Gfx *gdl = g_gdl;
 
-  gSPDisplayList(gdl++, &D_800D0610);
+  gSPDisplayList(gdl++, D_800D0610);
 
   g_gdl = gdl;
 }

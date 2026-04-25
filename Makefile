@@ -73,7 +73,9 @@ VERSION_L := 9
 
 VERSION_DEFINE = -DBUILD_VERSION=$(VERSION_$(VERSION))
 
-TARGET_CFLAGS = -nostdinc -D_LANGUAGE_C -DNDEBUG -D_FINALROM -DF3DEX_GBI_2 -D_MIPS_SZLONG=32 $(VERSION_DEFINE)
+# Note: -D_FINALROM was not defined for the original rom
+TARGET_CFLAGS = -nostdinc -D_LANGUAGE_C -DNDEBUG -DF3DEX_GBI_2 -D_MIPS_SZLONG=32 $(VERSION_DEFINE)
+#TARGET_CFLAGS += -D_HALUCI
 
 INCLUDE_DIRS := /opt/ultralib/include /opt/ultralib/include/ido include include/minilzo
 

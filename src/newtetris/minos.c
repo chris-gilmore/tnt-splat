@@ -550,7 +550,7 @@ void Minos_Deinit_doesnothing(Minos *minos_ptr) {
 }
 
 void Minos_BeginRender(Minos *minos_ptr) {
-  gSPDisplayList(g_gdl++, &D_800D0568);
+  gSPDisplayList(g_gdl++, D_800D0568);
   gSPVertex(g_gdl++, &minos_ptr->unk20, 4, 0);
   D_8011FC18.unk38 = 2;
   D_8011FC18.is_transparent = TRUE;
