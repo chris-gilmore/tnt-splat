@@ -75,8 +75,8 @@ static void func_8006F39C(UnkStruct_8 *arg0) {
   register s32 unused;
 
   temp_t0->unk2C = 1;
-  temp_t0->unk2E = g_minos_ptr->unkA.x;
-  temp_t0->unk30 = g_minos_ptr->unkA.y;
+  temp_t0->dsdx = g_minos_ptr->dsdx;
+  temp_t0->dtdy = g_minos_ptr->dtdy;
 
   temp_t1 = g_minos_ptr->unk8;
 
@@ -318,7 +318,7 @@ void Minos_Mino_Render(Mino *arg0, UnkStruct_8 *arg1) {
       switch (var_s6->unk2C) {
       case 1:
         // gSPTextureRectangle(pkt, xl, yl, xh, yh, tile, s, t, dsdx, dtdy)
-        gSPTextureRectangle(gdl++, var_s6->unk0[0].p.x, var_s6->unk0[0].p.y, var_s6->unk0[3].p.x, var_s6->unk0[3].p.y, D_8011FC54, 0, 0, var_s6->unk2E, var_s6->unk30);
+        gSPTextureRectangle(gdl++, var_s6->unk0[0].p.x, var_s6->unk0[0].p.y, var_s6->unk0[3].p.x, var_s6->unk0[3].p.y, D_8011FC54, 0, 0, var_s6->dsdx, var_s6->dtdy);
         break;
       case 2:
         gSPModifyVertex(gdl++, 0, G_MWO_POINT_XYSCREEN, (var_s6->unk0[0].p.x << 0x10) | var_s6->unk0[0].p.y);
@@ -477,8 +477,8 @@ void Minos_80070a34_twentyliner(void) {
     var_a1 = minos_ptr->unk2 * minos_ptr->scale;
     var_a1 >>= 8;
     minos_ptr->unk8 = minos_ptr->scale >> 1;
-    minos_ptr->unkA.x = 0x200000 / var_a1;
-    minos_ptr->unkA.y = 0x200000 / var_a1;
+    minos_ptr->dsdx = 0x200000 / var_a1;
+    minos_ptr->dtdy = 0x200000 / var_a1;
   }
 
   minos_ptr->pattern = 0x0;

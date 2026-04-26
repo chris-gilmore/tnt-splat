@@ -1,7 +1,7 @@
 #include "common.h"
 
 static u8 D_800D02B0 = 10;
-static u8 D_800D02B4 = 0;
+static u8 D_800D02B4 = FALSE;
 
 /*
    201 - mayan skybox
@@ -659,6 +659,12 @@ void func_8006364C(void) {
   D_800D049C[1] = 0x400;
 }
 
+#ifdef _WOBBLE
+#define __WOBBLE TRUE
+#else
+#define __WOBBLE FALSE
+#endif
+
 void FUN_027BF0_800636C0_display_game_stats_screen_q(void) {
   Game *game_ptr = &g_game;
   u8 tmp;
@@ -668,10 +674,21 @@ void FUN_027BF0_800636C0_display_game_stats_screen_q(void) {
     if (D_800D02B0 == 0) {
       tmp = Game_calls_SETGP_magic_7(game_ptr);
       if (D_800D02B4 != tmp) {
-        if (FALSE);
+        if (__WOBBLE) {
+          if (tmp) {
+            func_80063618(0);  // start wobble
+          } else {
+            func_8006364C();   // stop wobble
+          }
+        }
         D_800D02B4 = tmp;
       }
       D_800D02B0 = 10;
+    }
+    if (__WOBBLE) {
+      FUN_027BF0_8006332c_thirtyfiveliner();  // update wobble
+      g_minos_ptr->dsdx = D_800D0498[0];      // set dsdx
+      g_minos_ptr->dtdy = D_800D049C[0];      // set dtdy
     }
   }
 
@@ -704,15 +721,17 @@ void FUN_027BF0_800636C0_display_game_stats_screen_q(void) {
       // p0 name
       displayText_XY_RGBA_2(&g_gdl, &game_ptr->font, 290, 202, game_ptr->players[0].node.name, 0xFF, 0xFF, 0xFF, 0xFF);
 
-      // mayan temple fire (x8)
-      func_800767C0(&D_800D1030);
-      func_800767C0(&D_800D10CC);
-      func_800767C0(&D_800D1168);
-      func_800767C0(&D_800D1204);
-      func_800767C0(&D_800D12A0);
-      func_800767C0(&D_800D133C);
-      func_800767C0(&D_800D13D8);
-      func_800767C0(&D_800D1474);
+      if (!__WOBBLE) {
+        // mayan temple fire (x8)
+        func_800767C0(&D_800D1030);
+        func_800767C0(&D_800D10CC);
+        func_800767C0(&D_800D1168);
+        func_800767C0(&D_800D1204);
+        func_800767C0(&D_800D12A0);
+        func_800767C0(&D_800D133C);
+        func_800767C0(&D_800D13D8);
+        func_800767C0(&D_800D1474);
+      }
 
       func_8005BE40(&g_gdl);
 

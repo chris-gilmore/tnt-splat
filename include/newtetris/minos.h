@@ -5,8 +5,8 @@ typedef struct {
   /* 0x0  */ UnkStruct_14   unk0[4];
   /* 0x28 */ UnkStruct_0   *unk28;
   /* 0x2C */ u8             unk2C;
-  /* 0x2E */ s16            unk2E;  // dsdx
-  /* 0x30 */ s16            unk30;  // dtdy
+  /* 0x2E */ s16            dsdx;
+  /* 0x30 */ s16            dtdy;
   /* 0x34 */ void         (*unk34)(UnkStruct_8 *);
   /* 0x38 */ u8             unk38;
   /* 0x39 */ u8             is_transparent;  // boolean; render mode: xlu (transparent) or opa (opaque)
@@ -38,7 +38,8 @@ typedef struct {
   /* 0x4  */ u16     unk4;
   /* 0x6  */ u16     scale;
   /* 0x8  */ u16     unk8;
-  /* 0xA  */ Point   unkA;
+  /* 0xA  */ s16     dsdx;
+  /* 0xC  */ s16     dtdy;
   /* 0xE  */ Point   unkE;
   /* 0x12 */ Point   unk12;
   /* 0x16 */ Point   unk16;
