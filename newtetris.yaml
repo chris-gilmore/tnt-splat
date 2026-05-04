@@ -183,7 +183,7 @@ segments:
       - {start: 0x0471E0, type:   c, vram: 0x80080F60, name: newtetris/minilzo}
       - {start: 0x049380, type: asm, vram: 0x80083100, name: newtetris/049380}
       - {start: 0x0495A0, type:   c, vram: 0x80083320, name: newtetris/credits}
-      - {start: 0x0497E0, type: asm, vram: 0x80083560, name: newtetris/0497E0}  # debug_print_reason_routine and crash handler
+      - {start: 0x0497E0, type:   c, vram: 0x80083560, name: newtetris/0497E0}  # debug_print_reason_routine and crash handler
       - {start: 0x04A980, type:   c, vram: 0x80084700, name: newtetris/audio}
       - {start: 0x04BFD0, type:   c, vram: 0x80085D50, name: newtetris/04BFD0}  # (-mips2 -O1) (not really -- asm-processor bug)
       - {start: 0x052570, type: asm, vram: 0x8008C2F0, name: newtetris/audio_env}
@@ -436,7 +436,7 @@ segments:
       - {start: 0x099550, type: data, vram: 0x800D32D0, name: newtetris/minilzo}
       - {start: 0x099560, type: data, vram: 0x800D32E0, name: newtetris/099560}
       - {start: 0x0995B0, type: .data, vram: 0x800D3330, name: newtetris/credits}
-      - {start: 0x0995C0, type: data, vram: 0x800D3340, name: newtetris/0497E0}
+      - {start: 0x0995C0, type: .data, vram: 0x800D3340, name: newtetris/0497E0}
 
       #- {start: 0x099B90, type: data, vram: 0x800D3910, name: newtetris/audio}
       - {start: 0x099B90, type: data, vram: 0x800D3910, name: newtetris/04BFD0}
@@ -536,7 +536,7 @@ segments:
       - {start: 0x0A4B90, type: .rodata, vram: 0x800DE910, name: newtetris/endscroller}
       - {start: 0x0A4C90, type: rodata, vram: 0x800DEA10, name: newtetris/046DD0}
       - {start: 0x0A4CB0, type: .rodata, vram: 0x800DEA30, name: newtetris/minilzo}
-      - {start: 0x0A4CF0, type: rodata, vram: 0x800DEA70, name: newtetris/0497E0}
+      - {start: 0x0A4CF0, type: .rodata, vram: 0x800DEA70, name: newtetris/0497E0}
       - {start: 0x0A53B0, type: .rodata, vram: 0x800DF130, name: newtetris/audio}
       - {start: 0x0A58C0, type: .rodata, vram: 0x800DF640, name: newtetris/04BFD0}
       - {start: 0x0A5DB0, type: rodata, vram: 0x800DFB30, name: newtetris/audio_env}
@@ -632,8 +632,8 @@ segments:
       - {start: 0xA8190, type: bss, vram: 0x80120210, name: newtetris/046DD0}
       - {start: 0xA8190, type: bss, vram: 0x80120230, name: newtetris/minilzo}
       - {start: 0xA8190, type: .bss, vram: 0x80120240, name: newtetris/credits}
-      - {start: 0xA8190, type: bss, vram: 0x801203D0, name: newtetris/0497E0}
-      - {start: 0xA8190, type: bss, vram: 0x80120A70, name: newtetris/audio}
+      - {start: 0xA8190, type: .bss, vram: 0x801203D0, name: newtetris/0497E0}
+      - {start: 0xA8190, type: bss, vram: 0x80120A40, name: newtetris/audio}
 
       - {start: 0xA8190, type: bss, vram: 0x80123900, name: newtetris/04BFD0}
       #- {start: 0xA8190, type: bss, vram: 0x80128AB0, name: newtetris/04BFD0}

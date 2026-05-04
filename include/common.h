@@ -1,8 +1,13 @@
 #ifndef _COMMON_H_
 #define	_COMMON_H_
 
+#define _SIZE_T_DEF
+typedef signed size_t;
+#include "compiler/ido/string.h"
+
 #include "ultra64.h"
 #include "PR/sched.h"
+#include "PR/os_internal_error.h"
 
 typedef long           intptr_t;
 typedef unsigned long  uintptr_t;
