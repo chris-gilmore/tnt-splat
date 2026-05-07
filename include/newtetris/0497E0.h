@@ -7,7 +7,7 @@ typedef struct {
   /* 0x8 */ char   *unk8;
 } UnkStruct_92; //0xC bytes
 
-extern void   debug_print_reason_routine(char *, char *);
+extern void   debug_print_reason_routine(const char *, const char *);
 extern void   func_80084630(void (*)(void), u16 *, u16, u16);
 
 #endif /* !_0497E0_H_ */
