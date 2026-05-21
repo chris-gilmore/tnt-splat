@@ -79,22 +79,22 @@ static void LineScan_800698e0_largeliner_loops_20_times_plays_sfx(LineScan *line
   if (D_800D0540 != 0) {
     switch (D_800D0540) {
     case 1:
-      Audio2_Play_SFX(&D_801235B0, &D_800D3A90, 0xF);
+      Audio2_Play_SFX(&D_801235B0, &g_gameSfxBank, SFX_GAME_15);
       break;
     case 2:
-      Audio2_Play_SFX(&D_801235B0, &D_800D3A90, 0xF);
-      Audio2_Play_SFX(&D_801235B0, &D_800D3A90, 0x11);
+      Audio2_Play_SFX(&D_801235B0, &g_gameSfxBank, SFX_GAME_15);
+      Audio2_Play_SFX(&D_801235B0, &g_gameSfxBank, SFX_GAME_17);
       break;
     case 3:
-      Audio2_Play_SFX(&D_801235B0, &D_800D3A90, 0xF);
-      Audio2_Play_SFX(&D_801235B0, &D_800D3A90, 0x11);
-      Audio2_Play_SFX(&D_801235B0, &D_800D3A90, 0x13);
+      Audio2_Play_SFX(&D_801235B0, &g_gameSfxBank, SFX_GAME_15);
+      Audio2_Play_SFX(&D_801235B0, &g_gameSfxBank, SFX_GAME_17);
+      Audio2_Play_SFX(&D_801235B0, &g_gameSfxBank, SFX_GAME_19);
       break;
     case 4:
-      Audio2_Play_SFX(&D_801235B0, &D_800D3A90, 0xF);
-      Audio2_Play_SFX(&D_801235B0, &D_800D3A90, 0x11);
-      Audio2_Play_SFX(&D_801235B0, &D_800D3A90, 0x12);
-      Audio2_Play_SFX(&D_801235B0, &D_800D3A90, 0x13);
+      Audio2_Play_SFX(&D_801235B0, &g_gameSfxBank, SFX_GAME_15);
+      Audio2_Play_SFX(&D_801235B0, &g_gameSfxBank, SFX_GAME_17);
+      Audio2_Play_SFX(&D_801235B0, &g_gameSfxBank, SFX_GAME_18);
+      Audio2_Play_SFX(&D_801235B0, &g_gameSfxBank, SFX_GAME_19);
       break;
     }
     D_800D0540 = 0;

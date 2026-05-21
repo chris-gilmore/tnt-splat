@@ -191,14 +191,14 @@ void CurrentPiece_8006715c_twelveliner_plays_SFX(CurrentPiece *currentPiece_ptr)
     if (CurrentPiece_80066d8c_maybeRotCkw_retbool(currentPiece_ptr, -1, -1, 0)) {
       currentPiece_ptr->logicalPos.x -= 1;
       currentPiece_ptr->possibleMoves &= ~0x1;  // reset LEFT flag
-      Audio2_Play_SFX(&D_801235B0, &D_800D3A90, 1);
+      Audio2_Play_SFX(&D_801235B0, &g_gameSfxBank, SFX_GAME_1);
       return;
     }
     if (currentPiece_ptr->isLocked) {
       currentPiece_ptr->piece.physicalPos.y = currentPiece_ptr->logicalPos.y << 8;
       currentPiece_ptr->logicalPos.x -= 1;
       currentPiece_ptr->possibleMoves &= ~0x1;  // reset LEFT flag
-      Audio2_Play_SFX(&D_801235B0, &D_800D3A90, 1);
+      Audio2_Play_SFX(&D_801235B0, &g_gameSfxBank, SFX_GAME_1);
     }
   }
 }
@@ -208,14 +208,14 @@ void CurrentPiece_80067254_twelveliner_plays_SFX(CurrentPiece *currentPiece_ptr)
     if (CurrentPiece_80066d8c_maybeRotCkw_retbool(currentPiece_ptr, 1, -1, 0)) {
       currentPiece_ptr->logicalPos.x += 1;
       currentPiece_ptr->possibleMoves &= ~0x2;  // reset RIGHT flag
-      Audio2_Play_SFX(&D_801235B0, &D_800D3A90, 1);
+      Audio2_Play_SFX(&D_801235B0, &g_gameSfxBank, SFX_GAME_1);
       return;
     }
     if (currentPiece_ptr->isLocked) {
       currentPiece_ptr->piece.physicalPos.y = currentPiece_ptr->logicalPos.y << 8;
       currentPiece_ptr->logicalPos.x += 1;
       currentPiece_ptr->possibleMoves &= ~0x2;  // reset RIGHT flag
-      Audio2_Play_SFX(&D_801235B0, &D_800D3A90, 1);
+      Audio2_Play_SFX(&D_801235B0, &g_gameSfxBank, SFX_GAME_1);
     }
   }
 }
@@ -264,7 +264,7 @@ void CurrentPiece_8006734c_thirtyliner_looks_interesting(CurrentPiece *currentPi
       currentPiece_ptr->rotate_angle_step = 0x1000;
       currentPiece_ptr->num_rotate_angle_steps = 4;
     }
-    Audio2_Play_SFX(&D_801235B0, &D_800D3A90, 0);
+    Audio2_Play_SFX(&D_801235B0, &g_gameSfxBank, SFX_GAME_0);
     currentPiece_ptr->possibleMoves &= ~0x8;   // reset A button
     currentPiece_ptr->possibleMoves &= ~0x10;  // reset B button
   }
@@ -283,7 +283,7 @@ void CurrentPiece_80067604_fourteenliner_loops4times(void) {
   register CurrentPiece *currentPiece_ptr = g_currentPiece_ptr;
   register s32 i;
 
-  Audio2_Play_SFX(&D_801235B0, &D_800D3A90, 2);
+  Audio2_Play_SFX(&D_801235B0, &g_gameSfxBank, SFX_GAME_2);
   CurrentPiece_800675a8_fiveliner_loops4times();
   CurrentPiece_80066cc8_fourliner();
   currentPiece_ptr->qWinLoseIndicator = 1;

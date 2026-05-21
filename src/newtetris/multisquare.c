@@ -79,10 +79,10 @@ static Square *Multisquare_8006a050_extralarge_manyloops_interesting(s32 x, s32 
   g_squares_ptr->cnt++;
 
   if (square_type == SQUARETYPE_MULTI) {
-    Audio2_Play_SFX(&D_801235B0, &D_800D3A90, 3);
+    Audio2_Play_SFX(&D_801235B0, &g_gameSfxBank, SFX_GAME_3);
   } else if (square_type == SQUARETYPE_MONO) {
-    Audio2_Play_SFX(&D_801235B0, &D_800D3A90, 3);
-    Audio2_Play_SFX(&D_801235B0, &D_800D3A90, 4);
+    Audio2_Play_SFX(&D_801235B0, &g_gameSfxBank, SFX_GAME_3);
+    Audio2_Play_SFX(&D_801235B0, &g_gameSfxBank, SFX_GAME_4);
   }
 
   return square_ptr;

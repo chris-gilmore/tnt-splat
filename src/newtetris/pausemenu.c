@@ -68,7 +68,7 @@ static void func_80071B2C(UnkStruct_35 *arg0) {
 static void func_80071B44(UnkStruct_10 *arg0) {
   Audio_UnloadSFX();
   func_80071DEC(arg0);
-  Audio_LoadSFX(&D_800D3A90);
+  Audio_LoadSFX(&g_gameSfxBank);
   arg0->unk1 = PAUSEMENU_CONTINUE;
 }
 
@@ -83,7 +83,7 @@ static void func_80071BBC(UnkStruct_10 *arg0) {
 }
 
 static void displayPausePopupMenu(UnkStruct_10 *arg0) {
-  Audio_LoadSFX(&D_800D3988);
+  Audio_LoadSFX(&g_menuSfxBank);
   Font_Init46Char(&arg0->font, IMG_FONT_A);
   arg0->unk7C = 3;
   arg0->unk80 = (UnkStruct_35 *) n64HeapAlloc(arg0->unk7C * sizeof(UnkStruct_35));
@@ -126,7 +126,7 @@ static void func_80071E58(UnkStruct_10 *arg0) {
       func_80071B2C(arg0->unk84);
       arg0->unk84 = arg0->unk84->unk24;
       func_80071B08(arg0->unk84);
-      Audio2_Play_SFX(&D_801235B0, &D_800D3988, 1);
+      Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_1);
     }
   }
   if (temp_s0 & 0x400) {  // CONT_DOWN
@@ -134,7 +134,7 @@ static void func_80071E58(UnkStruct_10 *arg0) {
       func_80071B2C(arg0->unk84);
       arg0->unk84 = arg0->unk84->unk28;
       func_80071B08(arg0->unk84);
-      Audio2_Play_SFX(&D_801235B0, &D_800D3988, 1);
+      Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_1);
     }
   }
   if (temp_s0 & 0x100) {  // CONT_RIGHT
@@ -153,7 +153,7 @@ static void func_80071E58(UnkStruct_10 *arg0) {
   }
   // CONT_A
   if ((temp_s0 & 0x8000) && (arg0->unk84->unk20 != NULL)) {
-    Audio2_Play_SFX(&D_801235B0, &D_800D3988, 4);
+    Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_4);
     arg0->unk84->unk20(arg0);
   }
 }

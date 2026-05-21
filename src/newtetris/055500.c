@@ -358,7 +358,7 @@ void func_8009035C(UnkStruct_77 *arg0, u32 *arg1) {
   Font_Init46Char(&D_80128FA0, IMG_FONT_C);
   func_8009FA2C(&D_801290D0);
   D_800D3CF8 = NULL;
-  Audio_LoadSFX(&D_800D3988);
+  Audio_LoadSFX(&g_menuSfxBank);
   for (i = 0; i < 4; i++) {
     D_800D3FF8[3 + i].unk0.a = 0xA0;
     D_800D3FF8[3 + i].unk0.r = 0xFF;
@@ -391,7 +391,7 @@ void func_800905E8(u8 arg0) {
   D_801290D0.img = n64HeapAlloc(240008);
   func_800A8FC8(D_801290D0.img, 120004, 0);
   func_8008F280(&D_801290D0, -1, 400, 300, D_801290D0.img);
-  Audio_LoadSFX(&D_800D3988);
+  Audio_LoadSFX(&g_menuSfxBank);
   func_800A36F0(-50, 50);
   func_800A36F0(-50, 50);
   D_8012902C[0] = &D_801290D0;
@@ -533,7 +533,7 @@ void func_80090E08(void) {
       game_ptr->unkE4F8 = func_800A35EC(0, D_800CF838);
     }
     FUN_027BF0_check_music_settings_and_play(game_ptr->unkE4F8);
-    Audio_LoadSFX(&D_800D3A90);
+    Audio_LoadSFX(&g_gameSfxBank);
     Game_Init(D_800CFED4, handicap);
     if (D_800D3D20 != 0) {
       D_800D3D20 = 0;
@@ -554,7 +554,7 @@ void func_80090E08(void) {
         game_ptr->unkE4F8 = func_800A35EC(0, D_800CF838);
       }
       FUN_027BF0_check_music_settings_and_play(game_ptr->unkE4F8);
-      Audio_LoadSFX(&D_800D3A90);
+      Audio_LoadSFX(&g_gameSfxBank);
       func_8007A078(&D_800D2D80, 0);  // "GUEST"
       aiplayer_gameinit_related(1, 0, 6);
       D_800CFED4 = 1;
@@ -652,7 +652,7 @@ static s32 func_80091440(UnkStruct_78 *arg0, s32 arg1, s32 *arg2) {
 
   func_800A35EC(0, 0xFF);
   if (D_800D3D94 != 0) {
-    Audio2_Play_SFX(&D_801235B0, &D_800D3988, 3);
+    Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_3);
     return arg1;
   }
 
@@ -689,11 +689,11 @@ static s32 func_80091440(UnkStruct_78 *arg0, s32 arg1, s32 *arg2) {
     }
     if (temp_s0[sp28].unk24 & GUI_NULL) {
       if (temp_s0[sp28].unk24 & GUI_TEXTBOX) {
-        Audio2_Play_SFX(&D_801235B0, &D_800D3988, 1);
+        Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_1);
         return sp28;
       }
     } else {
-      Audio2_Play_SFX(&D_801235B0, &D_800D3988, 1);
+      Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_1);
       return sp28;
     }
     sp28--;
@@ -709,7 +709,7 @@ static s32 func_80091744(UnkStruct_78 *arg0, s32 arg1, s32 *arg2) {
 
   func_800A35EC(0, 0xFF);
   if (D_800D3D94 != 0) {
-    Audio2_Play_SFX(&D_801235B0, &D_800D3988, 3);
+    Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_3);
     return arg1;
   }
 
@@ -746,11 +746,11 @@ static s32 func_80091744(UnkStruct_78 *arg0, s32 arg1, s32 *arg2) {
     }
     if (temp_s0[sp28].unk24 & GUI_NULL) {
       if (temp_s0[sp28].unk24 & GUI_TEXTBOX) {
-        Audio2_Play_SFX(&D_801235B0, &D_800D3988, 1);
+        Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_1);
         return sp28;
       }
     } else {
-      Audio2_Play_SFX(&D_801235B0, &D_800D3988, 1);
+      Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_1);
       return sp28;
     }
     sp28++;
@@ -1205,7 +1205,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
           displayText_XY_RGBA_2(&g_gdl, &D_80128F28, sp164, sp168, "TO CONTINUE ", 0xFF, 0xFF, 0, 0xFF);
           if (g_PV_arr[arg2].unk24 & 0x8000) {
             D_800D3DF8 = 0;
-            Audio2_Play_SFX(&D_801235B0, &D_800D3988, 4);
+            Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_4);
             arg0->textList = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->textList);
             arg0->unk5D = 0xF6;
             arg0->unk60 = 0xF8;
@@ -1233,7 +1233,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
           displayText_XY_RGBA_2(&g_gdl, &D_80128F28, sp15C, sp160, "TO CONTINUE ", 0xFF, 0xFF, 0, 0xFF);
           if (g_PV_arr[arg2].unk24 & 0x8000) {
             D_800D3DFC = 0;
-            Audio2_Play_SFX(&D_801235B0, &D_800D3988, 4);
+            Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_4);
             arg0->unk5D = 0xF6;
             arg0->unk60 = 0xF8;
             arg0->unk5C = 0xFF;
@@ -1260,7 +1260,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
           displayText_XY_RGBA_2(&g_gdl, &D_80128F28, sp154, sp158, "TO CONTINUE ", 0xFF, 0xFF, 0, 0xFF);
           if (g_PV_arr[arg2].unk24 & 0x8000) {
             D_800D3E00 = 0;
-            Audio2_Play_SFX(&D_801235B0, &D_800D3988, 4);
+            Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_4);
             arg0->unk5D = 0xF6;
             arg0->unk60 = 0xF8;
             arg0->unk5C = 0xFF;
@@ -1328,7 +1328,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
           displayText_XY_RGBA_2(&g_gdl, &D_80128F28, sp144, sp148, "TO CONTINUE ", 0xFF, 0xFF, 0, 0xFF);
           if (g_PV_arr[arg2].unk24 & 0x8000) {
             D_800D3E08 = 0;
-            Audio2_Play_SFX(&D_801235B0, &D_800D3988, 3);
+            Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_3);
             arg0->unk4 = 0;
             arg0->textList = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->textList);
             arg0->unk5D = 0xF6;
@@ -1366,7 +1366,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
           displayText_XY_RGBA_2(&g_gdl, &D_80128F28, sp13C, sp140, "TO CONTINUE ", 0xFF, 0xFF, 0, 0xFF);
           if (g_PV_arr[arg2].unk24 & 0x8000) {
             D_800D3E0C = 0;
-            Audio2_Play_SFX(&D_801235B0, &D_800D3988, 3);
+            Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_3);
             arg0->unk4 = 0;
             arg0->textList = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->textList);
             arg0->unk5D = 0xF6;
@@ -1404,7 +1404,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
           displayText_XY_RGBA_2(&g_gdl, &D_80128F28, sp134, sp138, "TO CONTINUE ", 0xFF, 0xFF, 0, 0xFF);
           if (g_PV_arr[arg2].unk24 & 0x8000) {
             D_800D3E10 = 0;
-            Audio2_Play_SFX(&D_801235B0, &D_800D3988, 3);
+            Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_3);
             arg0->unk4 = 0;
             arg0->textList = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->textList);
             arg0->unk5D = 0xF6;
@@ -1442,7 +1442,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
           displayText_XY_RGBA_2(&g_gdl, &D_80128F28, sp12C, sp130, "TO CONTINUE ", 0xFF, 0xFF, 0, 0xFF);
           if (g_PV_arr[arg2].unk24 & 0x8000) {
             D_800D3E14 = 0;
-            Audio2_Play_SFX(&D_801235B0, &D_800D3988, 3);
+            Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_3);
             arg0->unk4 = 0;
             arg0->textList = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->textList);
             arg0->unk5D = 0xF6;
@@ -1523,7 +1523,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
             return;
           } else if (g_PV_arr[arg2].unk24 & 0x4000) {
             D_800D3E18 = 0;
-            Audio2_Play_SFX(&D_801235B0, &D_800D3988, 3);
+            Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_3);
             arg0->unk4 = 0;
             arg0->textList = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->textList);
             arg0->unk5D = 0xF6;
@@ -1562,7 +1562,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
           sp11C += 15;
           if (g_PV_arr[arg2].unk24 & 0x8000) {
             D_800D3E1C = 0;
-            Audio2_Play_SFX(&D_801235B0, &D_800D3988, 3);
+            Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_3);
             arg0->unk4 = 0;
             arg0->textList = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->textList);
             arg0->unk5D = 0xF6;
@@ -1602,7 +1602,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
           displayText_XY_RGBA_2(&g_gdl, &D_80128F28, sp110, sp114, "TO CONTINUE ", 0xFF, 0xFF, 0, 0xFF);
           if (g_PV_arr[arg2].unk24 & 0x8000) {
             D_800D3E20 = 0;
-            Audio2_Play_SFX(&D_801235B0, &D_800D3988, 3);
+            Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_3);
             arg0->unk4 = 0;
             arg0->textList = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->textList);
             arg0->unk5D = 0xF6;
@@ -1634,7 +1634,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
             arg0->unk61 = FALSE;
           }
           arg0->unk5C = arg2;
-          Audio2_Play_SFX(&D_801235B0, &D_800D3988, 4);
+          Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_4);
           if ((arg0->textList->pack & 0xF) == 0xE) {
             arg0->textList->pack &= ~((1 << arg0->unk5C) << 4);
           } else {
@@ -1644,7 +1644,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
 
         if ((g_PV_arr[arg2].unk24 & 0x4000) && (arg2 == 0)) {
           if (D_800D3D94 != 0) {
-            Audio2_Play_SFX(&D_801235B0, &D_800D3988, 3);
+            Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_3);
             return;
           }
 
@@ -1661,7 +1661,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
           }
 
           func_80091A8C(arg1);
-          Audio2_Play_SFX(&D_801235B0, &D_800D3988, 5);
+          Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_5);
           if (arg0->unk60 == 0xF9) {
             return;
           }
@@ -1690,7 +1690,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
 
           if (g_PV_arr[arg2].unk24 & 0x800) {
             if (D_800D3D94 != 0) {
-              Audio2_Play_SFX(&D_801235B0, &D_800D3988, 3);
+              Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_3);
               return;
             }
 
@@ -1699,7 +1699,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
 
           if (g_PV_arr[arg2].unk24 & 0x400) {
             if (D_800D3D94 != 0) {
-              Audio2_Play_SFX(&D_801235B0, &D_800D3988, 3);
+              Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_3);
             } else if (D_800D5850 == temp_s0) {
               D_800D3D00[arg2] = func_80091744(arg1, D_800D3D00[arg2], &D_800D3D10[arg2]);
             } else if (D_800D3D00[arg2] == 3) {
@@ -1747,10 +1747,10 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                 arg0->unk5D = 0;
               } else if (!arg0->unk61) {
                 if (D_800D3D94 != 0) {
-                  Audio2_Play_SFX(&D_801235B0, &D_800D3988, 3);
+                  Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_3);
                 } else {
                   func_80091A8C(arg1);
-                  Audio2_Play_SFX(&D_801235B0, &D_800D3988, 5);
+                  Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_5);
                   if (D_800D5D48 == temp_s0) {
                     D_800D5B28.textList = arg0->textList;
                     D_800D5B8C.textList = arg0->textList;
@@ -1808,7 +1808,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
               sp108 = sp108->next;
             } while (arg0->textList != sp108);
 
-            Audio2_Play_SFX(&D_801235B0, &D_800D3988, 1);
+            Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_1);
             return;
           }
 
@@ -1850,7 +1850,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
               sp104 = sp104->last;
             } while (arg0->textList != sp104);
 
-            Audio2_Play_SFX(&D_801235B0, &D_800D3988, 1U);
+            Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_1);
             return;
           }
 
@@ -2031,7 +2031,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                 if (sp94 == 0) {
                   arg0->unk5C = 0xFF;
                   arg0->unk5D = 0xFA;
-                  Audio2_Play_SFX(&D_801235B0, &D_800D3988, 3);
+                  Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_3);
                 }
                 break;
 
@@ -2100,7 +2100,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                 if (sp64 == 0) {
                   arg0->unk5C = 0xFF;
                   arg0->unk5D = 0xFA;
-                  Audio2_Play_SFX(&D_801235B0, &D_800D3988, 3);
+                  Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_3);
                   n64HeapUnalloc(sp5C);
                 }
                 break;
@@ -2129,7 +2129,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                   arg0->unk4 = 0;
 
                   if (D_800D5850 == temp_s0) {
-                    Audio2_Play_SFX(&D_801235B0, &D_800D3988, 2);
+                    Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_2);
                     temp_s0[4].unk24 = GUI_NULL;
                     temp_s0[5].unk24 = GUI_NULL;
                     temp_s0[D_800D3D00[0]].unk0.a = 0xA0;
@@ -2141,7 +2141,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                   }
 
                   if (D_800D5D48 == temp_s0) {
-                    Audio2_Play_SFX(&D_801235B0, &D_800D3988, 2);
+                    Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_2);
                     temp_s0[7].unk24 = GUI_NULL;
                     temp_s0[8].unk24 = GUI_NULL;
                     temp_s0[D_800D3D00[0]].unk0.a = 0xA0;
@@ -2166,7 +2166,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                     temp_s0[D_800D3D00[arg2]].unk0.r = 0xA0;
                     temp_s0[D_800D3D00[arg2]].unk0.g = 0xA0;
                     temp_s0[D_800D3D00[arg2]].unk0.b = 0xA0;
-                    Audio2_Play_SFX(&D_801235B0, &D_800D3988, 2);
+                    Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_2);
                     D_800D3D10[0] = D_800D3D00[0];
                     D_800D3D00[0] = 4;
                   }
@@ -2176,7 +2176,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                     temp_s0[D_800D3D00[arg2]].unk0.r = 0xA0;
                     temp_s0[D_800D3D00[arg2]].unk0.g = 0xA0;
                     temp_s0[D_800D3D00[arg2]].unk0.b = 0xA0;
-                    Audio2_Play_SFX(&D_801235B0, &D_800D3988, 2);
+                    Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_2);
                     D_800D3D10[0] = D_800D3D00[0];
                     D_800D3D00[0] = 7;
                   }
@@ -2202,7 +2202,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                     temp_s0[D_800D3D00[arg2]].unk0.r = 0xA0;
                     temp_s0[D_800D3D00[arg2]].unk0.g = 0xA0;
                     temp_s0[D_800D3D00[arg2]].unk0.b = 0xA0;
-                    Audio2_Play_SFX(&D_801235B0, &D_800D3988, 2);
+                    Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_2);
                     D_800D3D10[0] = D_800D3D00[0];
                     D_800D3D00[0] = 4;
                   }
@@ -2212,7 +2212,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                     temp_s0[D_800D3D00[arg2]].unk0.r = 0xA0;
                     temp_s0[D_800D3D00[arg2]].unk0.g = 0xA0;
                     temp_s0[D_800D3D00[arg2]].unk0.b = 0xA0;
-                    Audio2_Play_SFX(&D_801235B0, &D_800D3988, 2);
+                    Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_2);
                     D_800D3D10[0] = D_800D3D00[0];
                     D_800D3D00[0] = 7;
                   }
@@ -2231,7 +2231,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                     temp_s0[D_800D3D00[arg2]].unk0.r = 0xA0;
                     temp_s0[D_800D3D00[arg2]].unk0.g = 0xA0;
                     temp_s0[D_800D3D00[arg2]].unk0.b = 0xA0;
-                    Audio2_Play_SFX(&D_801235B0, &D_800D3988, 2);
+                    Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_2);
                     D_800D3D10[0] = D_800D3D00[0];
                     D_800D3D00[0] = 4;
                   }
@@ -2241,7 +2241,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                     temp_s0[D_800D3D00[arg2]].unk0.r = 0xA0;
                     temp_s0[D_800D3D00[arg2]].unk0.g = 0xA0;
                     temp_s0[D_800D3D00[arg2]].unk0.b = 0xA0;
-                    Audio2_Play_SFX(&D_801235B0, &D_800D3988, 2);
+                    Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_2);
                     D_800D3D10[0] = D_800D3D00[0];
                     D_800D3D00[0] = 7;
                   }
@@ -2264,7 +2264,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
           sp48 = arg0->textList;
 
           if (sp218->unk84 & 0x100) {  // R_JPAD / CONT_RIGHT
-            Audio2_Play_SFX(&D_801235B0, &D_800D3988, 1);
+            Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_1);
             if (arg0->unk4 == 8) {
               arg0->unk4 = 7;
             }
@@ -2281,7 +2281,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
           }
 
           if (sp218->unk84 & 0x200) {  // L_JPAD / CONT_LEFT
-            Audio2_Play_SFX(&D_801235B0, &D_800D3988, 1);
+            Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_1);
             if (arg0->unk4 == 8) {
               arg0->unk4 = 7;
             }
@@ -2298,7 +2298,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
           }
 
           if (sp218->unk84 & 0x800) {  // U_JPAD / CONT_UP
-            Audio2_Play_SFX(&D_801235B0, &D_800D3988, 1);
+            Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_1);
             if (arg0->unk4 == 8) {
               arg0->unk4 = 7;
             }
@@ -2311,7 +2311,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
           }
 
           if (sp218->unk84 & 0x400) {  // D_JPAD / CONT_DOWN
-            Audio2_Play_SFX(&D_801235B0, &D_800D3988, 1);
+            Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_1);
             if (arg0->unk4 == 8) {
               arg0->unk4 = 7;
             }
@@ -2325,7 +2325,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
 
           if (g_PV_arr[arg0->unk5C].unk24 & 0x1000) {  // START_BUTTON / CONT_START
             arg0->unk5 = 44;
-            Audio2_Play_SFX(&D_801235B0, &D_800D3988, 4);
+            Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_4);
             if (arg0->unk4 < 8) {
               sp48->text[arg0->unk4] = D_800D3DA0[arg0->unk5];
             }
@@ -2335,7 +2335,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
 
             if (arg0->unk5 == 43) {  // BACKSPACE
               if (arg0->unk4 > 0) {
-                Audio2_Play_SFX(&D_801235B0, &D_800D3988, 3);
+                Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_3);
                 sp48->text[arg0->unk4] = 0;
                 arg0->unk4--;
               }
@@ -2344,13 +2344,13 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
               sp47 = FALSE;
 
               if (arg0->unk4 == 0) {
-                Audio2_Play_SFX(&D_801235B0, &D_800D3988, 3);
+                Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_3);
                 return;
               }
 
               arg0->unk61 = TRUE;
               sp48->text[arg0->unk4] = 0;
-              Audio2_Play_SFX(&D_801235B0, &D_800D3988, 2);
+              Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_2);
 
               for (sp58 = 0; sp58 < 8; sp58++) {
                 ((Player *) sp48->ptr)->node.name[sp58] = sp48->text[sp58];
@@ -2367,9 +2367,9 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                     (sp48->text[4] == 'C') &&
                     (sp48->text[5] == 'I')) {
                   if (func_800A35EC(1, 3) == 2) {
-                    Audio2_Play_SFX(&D_801235B0, &D_800D3988, 1);
-                    Audio2_Play_SFX(&D_801235B0, &D_800D3988, 4);
-                    Audio2_Play_SFX(&D_801235B0, &D_800D3988, 2);
+                    Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_1);
+                    Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_4);
+                    Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_2);
                     D_800D3CF0 = 4;
                   }
                   sp47 = TRUE;
@@ -2382,9 +2382,9 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                     (sp48->text[4] == 'T') &&
                     (sp48->text[5] == '4') &&
                     (sp48->text[6] == 'U')) {
-                  Audio2_Play_SFX(&D_801235B0, &D_800D3988, 1);
-                  Audio2_Play_SFX(&D_801235B0, &D_800D3988, 4);
-                  Audio2_Play_SFX(&D_801235B0, &D_800D3988, 2);
+                  Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_1);
+                  Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_4);
+                  Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_2);
                   g_pieceFallAcceleration = 0.0001;
                   sp47 = TRUE;
                 }
@@ -2395,9 +2395,9 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                     ((sp48->text[3] ^ 0x1E) != 0) &&
                     (sp48->text[4] == 'R') &&
                     (sp48->text[5] == 'S')) {
-                  Audio2_Play_SFX(&D_801235B0, &D_800D3988, 1);
-                  Audio2_Play_SFX(&D_801235B0, &D_800D3988, 4);
-                  Audio2_Play_SFX(&D_801235B0, &D_800D3988, 2);
+                  Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_1);
+                  Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_4);
+                  Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_2);
                   D_800CF830 = 0;
                   D_800CF834 = 0;
                   D_800CF838 = 0;
@@ -2418,9 +2418,9 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                     ((sp48->text[5] ^ 0xF) != 0) &&
                     (sp48->text[6] == '4') &&
                     (sp48->text[7] == 'M')) {
-                  Audio2_Play_SFX(&D_801235B0, &D_800D3988, 1);
-                  Audio2_Play_SFX(&D_801235B0, &D_800D3988, 4);
-                  Audio2_Play_SFX(&D_801235B0, &D_800D3988, 2);
+                  Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_1);
+                  Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_4);
+                  Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_2);
                   D_800CF830 = 0;
                   D_800CF834 = 0;
                   D_800CF838 = 0;
@@ -2441,9 +2441,9 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                     ((sp48->text[5] ^ 0x14) != 0) &&
                     (sp48->text[6] == 'U') &&
                     (sp48->text[7] == '?')) {
-                  Audio2_Play_SFX(&D_801235B0, &D_800D3988, 1);
-                  Audio2_Play_SFX(&D_801235B0, &D_800D3988, 4);
-                  Audio2_Play_SFX(&D_801235B0, &D_800D3988, 2);
+                  Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_1);
+                  Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_4);
+                  Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_2);
                   D_800E1F50 = TRUE;
                   sp47 = TRUE;
                 }
@@ -2451,7 +2451,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
 
               D_800D3D94 &= ~(1 << arg0->unk5C);
               if (D_800D3D94 == 0) {
-                Audio2_Play_SFX(&D_801235B0, &D_800D3988, 2);
+                Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_2);
                 if (D_800D3D94 == 0) {
                   if (D_800D5850 == temp_s0) {
                     temp_s0[4].unk24 = GUI_TOGGLE | GUI_FUNC | GUI_TITLE;
@@ -2490,7 +2490,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
 
             } else if (sp48->text[0] != ' ') {
               if (arg0->unk4 < 8) {
-                Audio2_Play_SFX(&D_801235B0, &D_800D3988, 4);
+                Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_4);
                 arg0->unk4++;
               }
               if (arg0->unk4 == 8) {
@@ -2500,7 +2500,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
               }
 
             } else {
-              Audio2_Play_SFX(&D_801235B0, &D_800D3988, 3);
+              Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_3);
             }
 
             sp48->text[arg0->unk4] = D_800D3DA0[arg0->unk5];
@@ -2508,16 +2508,16 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
 
           if (g_PV_arr[arg0->unk5C].unk24 & 0x4000) {  // B_BUTTON / CONT_B
             if (arg0->unk4 > 0) {
-              Audio2_Play_SFX(&D_801235B0, &D_800D3988, 3);
+              Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_3);
               sp48->text[arg0->unk4] = 0;
               arg0->unk4--;
               sp48->text[arg0->unk4] = D_800D3DA0[arg0->unk5];
             } else {
               arg0->unk61 = FALSE;
               D_800D3D94 &= ~(1 << arg0->unk5C);
-              Audio2_Play_SFX(&D_801235B0, &D_800D3988, 5);
+              Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_5);
               if (D_800D3D94 == 0) {
-                Audio2_Play_SFX(&D_801235B0, &D_800D3988, 2);
+                Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_2);
                 if (D_800D5850 == temp_s0) {
                   temp_s0[4].unk24 = GUI_TOGGLE | GUI_FUNC | GUI_TITLE;
                   temp_s0[5].unk24 = GUI_TOGGLE | GUI_FUNC | GUI_TITLE;
@@ -2947,7 +2947,7 @@ static void func_80099674(UnkStruct_78 *arg0) {
         temp_s0[D_800D3D00[0]].unk0.g = 0xFF;
         temp_s0[D_800D3D00[0]].unk0.b = 0xFF;
         ((void (*)(void *, f32)) temp_s0[6].unk28)(temp_s0[6].unk30, 0);
-        Audio2_Play_SFX(&D_801235B0, &D_800D3988, 4);
+        Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_4);
         func_8005BE40(&g_gdl);
         D_800D57A4.unk61 = FALSE;
         return;
@@ -2959,7 +2959,7 @@ static void func_80099674(UnkStruct_78 *arg0) {
         temp_s0[D_800D3D00[0]].unk0.g = 0xFF;
         temp_s0[D_800D3D00[0]].unk0.b = 0xFF;
         ((void (*)(void *, f32)) temp_s0[9].unk28)(temp_s0[9].unk30, 0);
-        Audio2_Play_SFX(&D_801235B0, &D_800D3988, 4);
+        Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_4);
         func_8005BE40(&g_gdl);
         D_800D5AC4.unk61 = FALSE;
         D_800D5B28.unk61 = FALSE;
@@ -2979,7 +2979,7 @@ static void func_80099674(UnkStruct_78 *arg0) {
               debug_print_reason_routine("gui func call in menu", "bad mojo");
             }
             ((void (*)(void *, f32)) temp_s0[D_800D3D00[0]].unk28)(temp_s0[D_800D3D00[0]].unk30, 0);
-            Audio2_Play_SFX(&D_801235B0, &D_800D3988, 1);
+            Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_1);
           } else {
             return;
           }
@@ -2991,7 +2991,7 @@ static void func_80099674(UnkStruct_78 *arg0) {
               debug_print_reason_routine("gui func call in menu", "bad mojo");
             }
             ((void (*)(void *, f32)) temp_s0[D_800D3D00[0]].unk28)(temp_s0[D_800D3D00[0]].unk30, 0);
-            Audio2_Play_SFX(&D_801235B0, &D_800D3988, 1);
+            Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_1);
           } else {
             return;
           }
@@ -3015,7 +3015,7 @@ static void func_80099674(UnkStruct_78 *arg0) {
         if (temp_s0[D_800D3D00[0]].unk28 != NULL) {
           ((void (*)(void *, f32)) temp_s0[D_800D3D00[0]].unk28)(temp_s0[D_800D3D00[0]].unk30, D_800D3E2C);
         }
-        Audio2_Play_SFX(&D_801235B0, &D_800D3988, 1);
+        Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_1);
       }
 
       if ((temp_s0[D_800D3D00[0]].unk24 & GUI_FUNC) && (arg0->unk114 != 0) && ((g_PV_arr[0].unk24 & 0x8000) || (g_PV_arr[0].unk24 & 0x1000))) {
@@ -3029,7 +3029,7 @@ static void func_80099674(UnkStruct_78 *arg0) {
             debug_print_reason_routine("gui func call in menu", "bad mojo");
           }
           ((void (*)(void *, f32)) temp_s0[D_800D3D00[0]].unk28)(temp_s0[D_800D3D00[0]].unk30, 0);
-          Audio2_Play_SFX(&D_801235B0, &D_800D3988, 2);
+          Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_2);
           func_8005BE40(&g_gdl);
           return;
         }
@@ -3038,7 +3038,7 @@ static void func_80099674(UnkStruct_78 *arg0) {
           debug_print_reason_routine("gui func call in menu", "bad mojo");
         }
         ((void (*)(void *, f32)) temp_s0[D_800D3D00[0]].unk28)(temp_s0[D_800D3D00[0]].unk30, 0);
-        Audio2_Play_SFX(&D_801235B0, &D_800D3988, 2);
+        Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_2);
         func_8005BE40(&g_gdl);
         return;
       }
@@ -3046,7 +3046,7 @@ static void func_80099674(UnkStruct_78 *arg0) {
       if ((temp_s0[D_800D3D00[0]].unk24 & GUI_MENU) && (arg0->unk114 != 0) && (g_PV_arr[0].unk24 & 0x8000) && (D_800D3CF8 == NULL)) {
         D_800D3E34 = 2;
         func_8007E9F8(9);
-        Audio2_Play_SFX(&D_801235B0, &D_800D3988, 4);
+        Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_4);
       }
 
       if ((D_800D3E34 == 0) && (g_PV_arr[0].unk24 & 0x8000)) {
@@ -3087,14 +3087,14 @@ static void func_80099674(UnkStruct_78 *arg0) {
 
         func_8007E9F8(9);
         D_800D3E34 = 1;
-        Audio2_Play_SFX(&D_801235B0, &D_800D3988, 5);
+        Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_5);
         return;
       }
 
       if (sp58->unk84 & 0x800) {  // U_JPAD / CONT_UP
         if (D_800D5D48 == temp_s0) {
           if (D_800D3D94 != 0) {
-            Audio2_Play_SFX(&D_801235B0, &D_800D3988, 3);
+            Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_3);
             return;
           }
 
@@ -3119,7 +3119,7 @@ static void func_80099674(UnkStruct_78 *arg0) {
 
       if (sp58->unk84 & 0x400) {  // D_JPAD / CONT_DOWN
         if (D_800D3D94 != 0) {
-          Audio2_Play_SFX(&D_801235B0, &D_800D3988, 3);
+          Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_3);
           return;
         }
 

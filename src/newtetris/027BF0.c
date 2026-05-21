@@ -169,7 +169,7 @@ void FUN_027BF0_check_music_settings_and_play(s32 screen) {
     switch (screen) {
     case 0:
       if (sp1C == 0xFE) {
-        Audio_80084e20_twentyliner(9, &D_80120A70, 1);
+        Audio_80084e20_twentyliner(SONG_MAYAN, &D_80120A70, 1);
         Audio2_GFXDone_SendPlayMessage(&D_80120A70);
       } else if (sp1C < 16) {
         Audio_80084e20_twentyliner(sp1C, &D_80120A70, 1);
@@ -178,7 +178,7 @@ void FUN_027BF0_check_music_settings_and_play(s32 screen) {
       break;
     case 1:
       if (sp1C == 0xFE) {
-        Audio_80084e20_twentyliner(10, &D_80120A70, 1);
+        Audio_80084e20_twentyliner(SONG_GREEK, &D_80120A70, 1);
         Audio2_GFXDone_SendPlayMessage(&D_80120A70);
       } else if (sp1C < 16) {
         Audio_80084e20_twentyliner(sp1C, &D_80120A70, 1);
@@ -187,7 +187,7 @@ void FUN_027BF0_check_music_settings_and_play(s32 screen) {
       break;
     case 2:
       if (sp1C == 0xFE) {
-        Audio_80084e20_twentyliner(11, &D_80120A70, 1);
+        Audio_80084e20_twentyliner(SONG_EGYPT, &D_80120A70, 1);
         Audio2_GFXDone_SendPlayMessage(&D_80120A70);
       } else if (sp1C < 16) {
         Audio_80084e20_twentyliner(sp1C, &D_80120A70, 1);
@@ -196,7 +196,7 @@ void FUN_027BF0_check_music_settings_and_play(s32 screen) {
       break;
     case 3:
       if (sp1C == 0xFE) {
-        Audio_80084e20_twentyliner(12, &D_80120A70, 1);
+        Audio_80084e20_twentyliner(SONG_CELTIC, &D_80120A70, 1);
         Audio2_GFXDone_SendPlayMessage(&D_80120A70);
       } else if (sp1C < 16) {
         Audio_80084e20_twentyliner(sp1C, &D_80120A70, 1);
@@ -205,7 +205,7 @@ void FUN_027BF0_check_music_settings_and_play(s32 screen) {
       break;
     case 4:
       if (sp1C == 0xFE) {
-        Audio_80084e20_twentyliner(13, &D_80120A70, 1);
+        Audio_80084e20_twentyliner(SONG_AFRICA, &D_80120A70, 1);
         Audio2_GFXDone_SendPlayMessage(&D_80120A70);
       } else if (sp1C < 16) {
         Audio_80084e20_twentyliner(sp1C, &D_80120A70, 1);
@@ -214,7 +214,7 @@ void FUN_027BF0_check_music_settings_and_play(s32 screen) {
       break;
     case 5:
       if (sp1C == 0xFE) {
-        Audio_80084e20_twentyliner(14, &D_80120A70, 1);
+        Audio_80084e20_twentyliner(SONG_JAPAN, &D_80120A70, 1);
         Audio2_GFXDone_SendPlayMessage(&D_80120A70);
       } else if (sp1C < 16) {
         Audio_80084e20_twentyliner(sp1C, &D_80120A70, 1);
@@ -223,7 +223,7 @@ void FUN_027BF0_check_music_settings_and_play(s32 screen) {
       break;
     case 6:
       if (sp1C == 0xFE) {
-        Audio_80084e20_twentyliner(15, &D_80120A70, 1);
+        Audio_80084e20_twentyliner(SONG_KALINKA, &D_80120A70, 1);
         Audio2_GFXDone_SendPlayMessage(&D_80120A70);
       } else if (sp1C < 16) {
         Audio_80084e20_twentyliner(sp1C, &D_80120A70, 1);
@@ -232,7 +232,7 @@ void FUN_027BF0_check_music_settings_and_play(s32 screen) {
       break;
     case 7:
       if (sp1C == 0xFE) {
-        Audio_80084e20_twentyliner(15, &D_80120A70, 1);
+        Audio_80084e20_twentyliner(SONG_KALINKA, &D_80120A70, 1);
         Audio2_GFXDone_SendPlayMessage(&D_80120A70);
       } else if (sp1C < 16) {
         Audio_80084e20_twentyliner(sp1C, &D_80120A70, 1);
@@ -246,7 +246,7 @@ void FUN_027BF0_check_music_settings_and_play(s32 screen) {
     switch (screen) {
     case 0:
       if (sp1C == 0xFE) {
-        Audio_80084e20_twentyliner(9, &D_80120A70, 1);
+        Audio_80084e20_twentyliner(SONG_MAYAN, &D_80120A70, 1);
         Audio2_GFXDone_SendPlayMessage(&D_80120A70);
       } else if (sp1C < 16) {
         Audio_80084e20_twentyliner(sp1C, &D_80120A70, 1);
@@ -255,7 +255,7 @@ void FUN_027BF0_check_music_settings_and_play(s32 screen) {
       break;
     case 1:
       if (sp1C == 0xFE) {
-        Audio_80084e20_twentyliner(10, &D_80120A70, 1);
+        Audio_80084e20_twentyliner(SONG_GREEK, &D_80120A70, 1);
         Audio2_GFXDone_SendPlayMessage(&D_80120A70);
       } else if (sp1C < 16) {
         Audio_80084e20_twentyliner(sp1C, &D_80120A70, 1);
@@ -264,7 +264,7 @@ void FUN_027BF0_check_music_settings_and_play(s32 screen) {
       break;
     case 2:
       if (sp1C == 0xFE) {
-        Audio_80084e20_twentyliner(11, &D_80120A70, 1);
+        Audio_80084e20_twentyliner(SONG_EGYPT, &D_80120A70, 1);
         Audio2_GFXDone_SendPlayMessage(&D_80120A70);
       } else if (sp1C < 16) {
         Audio_80084e20_twentyliner(sp1C, &D_80120A70, 1);
@@ -273,7 +273,7 @@ void FUN_027BF0_check_music_settings_and_play(s32 screen) {
       break;
     case 3:
       if (sp1C == 0xFE) {
-        Audio_80084e20_twentyliner(12, &D_80120A70, 1);
+        Audio_80084e20_twentyliner(SONG_CELTIC, &D_80120A70, 1);
         Audio2_GFXDone_SendPlayMessage(&D_80120A70);
       } else if (sp1C < 16) {
         Audio_80084e20_twentyliner(sp1C, &D_80120A70, 1);
@@ -282,7 +282,7 @@ void FUN_027BF0_check_music_settings_and_play(s32 screen) {
       break;
     case 4:
       if (sp1C == 0xFE) {
-        Audio_80084e20_twentyliner(13, &D_80120A70, 1);
+        Audio_80084e20_twentyliner(SONG_AFRICA, &D_80120A70, 1);
         Audio2_GFXDone_SendPlayMessage(&D_80120A70);
       } else if (sp1C < 16) {
         Audio_80084e20_twentyliner(sp1C, &D_80120A70, 1);
@@ -291,7 +291,7 @@ void FUN_027BF0_check_music_settings_and_play(s32 screen) {
       break;
     case 5:
       if (sp1C == 0xFE) {
-        Audio_80084e20_twentyliner(14, &D_80120A70, 1);
+        Audio_80084e20_twentyliner(SONG_JAPAN, &D_80120A70, 1);
         Audio2_GFXDone_SendPlayMessage(&D_80120A70);
       } else if (sp1C < 16) {
         Audio_80084e20_twentyliner(sp1C, &D_80120A70, 1);
@@ -300,7 +300,7 @@ void FUN_027BF0_check_music_settings_and_play(s32 screen) {
       break;
     case 6:
       if (sp1C == 0xFE) {
-        Audio_80084e20_twentyliner(15, &D_80120A70, 1);
+        Audio_80084e20_twentyliner(SONG_KALINKA, &D_80120A70, 1);
         Audio2_GFXDone_SendPlayMessage(&D_80120A70);
       } else if (sp1C < 16) {
         Audio_80084e20_twentyliner(sp1C, &D_80120A70, 1);
@@ -309,7 +309,7 @@ void FUN_027BF0_check_music_settings_and_play(s32 screen) {
       break;
     case 7:
       if (sp1C == 0xFE) {
-        Audio_80084e20_twentyliner(15, &D_80120A70, 1);
+        Audio_80084e20_twentyliner(SONG_KALINKA, &D_80120A70, 1);
         Audio2_GFXDone_SendPlayMessage(&D_80120A70);
       } else if (sp1C < 16) {
         Audio_80084e20_twentyliner(sp1C, &D_80120A70, 1);
@@ -323,7 +323,7 @@ void FUN_027BF0_check_music_settings_and_play(s32 screen) {
     switch (screen) {
     case 0:
       if (sp1C == 0xFE) {
-        Audio_80084e20_twentyliner(9, &D_80120A70, 1);
+        Audio_80084e20_twentyliner(SONG_MAYAN, &D_80120A70, 1);
         Audio2_GFXDone_SendPlayMessage(&D_80120A70);
       } else if (sp1C < 16) {
         Audio_80084e20_twentyliner(sp1C, &D_80120A70, 1);
@@ -332,7 +332,7 @@ void FUN_027BF0_check_music_settings_and_play(s32 screen) {
       break;
     case 1:
       if (sp1C == 0xFE) {
-        Audio_80084e20_twentyliner(10, &D_80120A70, 1);
+        Audio_80084e20_twentyliner(SONG_GREEK, &D_80120A70, 1);
         Audio2_GFXDone_SendPlayMessage(&D_80120A70);
       } else if (sp1C < 16) {
         Audio_80084e20_twentyliner(sp1C, &D_80120A70, 1);
@@ -341,7 +341,7 @@ void FUN_027BF0_check_music_settings_and_play(s32 screen) {
       break;
     case 2:
       if (sp1C == 0xFE) {
-        Audio_80084e20_twentyliner(11, &D_80120A70, 1);
+        Audio_80084e20_twentyliner(SONG_EGYPT, &D_80120A70, 1);
         Audio2_GFXDone_SendPlayMessage(&D_80120A70);
       } else if (sp1C < 16) {
         Audio_80084e20_twentyliner(sp1C, &D_80120A70, 1);
@@ -350,7 +350,7 @@ void FUN_027BF0_check_music_settings_and_play(s32 screen) {
       break;
     case 3:
       if (sp1C == 0xFE) {
-        Audio_80084e20_twentyliner(12, &D_80120A70, 1);
+        Audio_80084e20_twentyliner(SONG_CELTIC, &D_80120A70, 1);
         Audio2_GFXDone_SendPlayMessage(&D_80120A70);
       } else if (sp1C < 16) {
         Audio_80084e20_twentyliner(sp1C, &D_80120A70, 1);
@@ -359,7 +359,7 @@ void FUN_027BF0_check_music_settings_and_play(s32 screen) {
       break;
     case 4:
       if (sp1C == 0xFE) {
-        Audio_80084e20_twentyliner(13, &D_80120A70, 1);
+        Audio_80084e20_twentyliner(SONG_AFRICA, &D_80120A70, 1);
         Audio2_GFXDone_SendPlayMessage(&D_80120A70);
       } else if (sp1C < 16) {
         Audio_80084e20_twentyliner(sp1C, &D_80120A70, 1);
@@ -368,7 +368,7 @@ void FUN_027BF0_check_music_settings_and_play(s32 screen) {
       break;
     case 5:
       if (sp1C == 0xFE) {
-        Audio_80084e20_twentyliner(14, &D_80120A70, 1);
+        Audio_80084e20_twentyliner(SONG_JAPAN, &D_80120A70, 1);
         Audio2_GFXDone_SendPlayMessage(&D_80120A70);
       } else if (sp1C < 16) {
         Audio_80084e20_twentyliner(sp1C, &D_80120A70, 1);
@@ -377,7 +377,7 @@ void FUN_027BF0_check_music_settings_and_play(s32 screen) {
       break;
     case 6:
       if (sp1C == 0xFE) {
-        Audio_80084e20_twentyliner(15, &D_80120A70, 1);
+        Audio_80084e20_twentyliner(SONG_KALINKA, &D_80120A70, 1);
         Audio2_GFXDone_SendPlayMessage(&D_80120A70);
       } else if (sp1C < 16) {
         Audio_80084e20_twentyliner(sp1C, &D_80120A70, 1);
@@ -386,7 +386,7 @@ void FUN_027BF0_check_music_settings_and_play(s32 screen) {
       break;
     case 7:
       if (sp1C == 0xFE) {
-        Audio_80084e20_twentyliner(15, &D_80120A70, 1);
+        Audio_80084e20_twentyliner(SONG_KALINKA, &D_80120A70, 1);
         Audio2_GFXDone_SendPlayMessage(&D_80120A70);
       } else if (sp1C < 16) {
         Audio_80084e20_twentyliner(sp1C, &D_80120A70, 1);

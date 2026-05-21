@@ -15,7 +15,7 @@ static void LineEffect_80068ff0_elevenliner(LineEffect *lineEffect_ptr, u8 arg1)
   if (lineEffect_ptr->col_step < 5) {
     BoardP_8006d674_tenliner_alloc_fallingcubes(lineEffect_ptr->cells[4 - lineEffect_ptr->col_step]);
     BoardP_8006d674_tenliner_alloc_fallingcubes(lineEffect_ptr->cells[5 + lineEffect_ptr->col_step]);
-    Audio2_Play_SFX(&D_801235B0, &D_800D3A90, func_800A35EC(9, 12));
+    Audio2_Play_SFX(&D_801235B0, &g_gameSfxBank, func_800A35EC(SFX_GAME_9, SFX_GAME_12));
     lineEffect_ptr->col_step++;
     lineEffect_ptr->unk3 = TRUE;
     lineEffect_ptr->unk2 = FALSE;
@@ -45,8 +45,8 @@ static void LineEffect_80069160_seventeen_liner(LineEffect *lineEffect_ptr, u8 a
 
   lineEffect_ptr->unk4 = 0;
   if (lineEffect_ptr->col_step < 5) {
-    Audio2_Play_SFX(&D_801235B0, &D_800D3A90, func_800A35EC(9, 12));
-    Audio2_Play_SFX(&D_801235B0, &D_800D3A90, 8);
+    Audio2_Play_SFX(&D_801235B0, &g_gameSfxBank, func_800A35EC(SFX_GAME_9, SFX_GAME_12));
+    Audio2_Play_SFX(&D_801235B0, &g_gameSfxBank, SFX_GAME_8);
     BoardP_8006d674_tenliner_alloc_fallingcubes(lineEffect_ptr->cells[4 - lineEffect_ptr->col_step]);
     BoardP_8006d674_tenliner_alloc_fallingcubes(lineEffect_ptr->cells[5 + lineEffect_ptr->col_step]);
     BoardP_8006e288_adds_8_entries_and_swaps_cubes(lineEffect_ptr->cells[4 - lineEffect_ptr->col_step]);
@@ -84,7 +84,7 @@ static void LineEffect_800692fc_sixteenliner_loops_10_times(LineEffect *lineEffe
 static void LineEffect_8006942c_sixliner(LineEffect *lineEffect_ptr, u8 arg1) {
   if (--lineEffect_ptr->unk4 == 0) {
     lineEffect_ptr->state = 7;
-    Audio2_Play_SFX(&D_801235B0, &D_800D3A90, 16);
+    Audio2_Play_SFX(&D_801235B0, &g_gameSfxBank, SFX_GAME_16);
   }
   lineEffect_ptr->unk3 = TRUE;
   lineEffect_ptr->unk2 = FALSE;

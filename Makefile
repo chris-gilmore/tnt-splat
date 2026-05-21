@@ -78,7 +78,7 @@ TARGET_CFLAGS = -nostdinc -D_LANGUAGE_C -DNDEBUG -DF3DEX_GBI_2 -D_MIPS_SZLONG=32
 #TARGET_CFLAGS += -D_HALUCI
 #TARGET_CFLAGS += -D_WOBBLE
 
-INCLUDE_DIRS := /opt/ultralib/include /opt/ultralib/include/ido include include/minilzo
+INCLUDE_DIRS := /opt/ultralib/include /opt/ultralib/include/ido /opt/ultralib/src/audio /opt/ultralib/include/PR include include/minilzo
 
 DEF_INC_CFLAGS := $(foreach i,$(INCLUDE_DIRS),-I$(i))
 
@@ -137,9 +137,6 @@ $(BUILD_DIR)/src/newtetris/cont.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/078FE0.o: OPT_FLAGS := -mips2 -O2
 
 $(BUILD_DIR)/src/ultralib/%.o: OPT_FLAGS := -mips2 -O2
-
-# This should be -mips1 -O1
-$(BUILD_DIR)/src/newtetris/04BFD0.o: OPT_FLAGS := -mips2 -O1
 
 # Assemble assembly code
 $(BUILD_DIR)/%.o: %.s

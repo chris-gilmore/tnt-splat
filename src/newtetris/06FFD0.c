@@ -1,6 +1,5 @@
 #include "common.h"
-
-#include "newtetris/coders.h"
+#include "coders.h"
 
 static void   func_800A9D78(void *);
 static s32    func_800A9F9C(void *, s32, void *, s32, s32);

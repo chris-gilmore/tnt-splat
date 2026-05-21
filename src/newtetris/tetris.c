@@ -23,7 +23,7 @@ static void Tetris_CheckButtons(void) {
     if (currentPiece_ptr->state == 1) {
       if (temp_s1->unk8C & 0x20) {           // L_TRIG / CONT_L
         PieceHold_Swap(&tetris_ptr->pieceHold, currentPiece_ptr);
-        Audio2_Play_SFX(&D_801235B0, &D_800D3A90, 1);
+        Audio2_Play_SFX(&D_801235B0, &g_gameSfxBank, SFX_GAME_1);
       }
       if (temp_s1->unk84 & 0x200) {          // L_JPAD / CONT_LEFT
         currentPiece_ptr->possibleMoves |= 0x1;
@@ -51,14 +51,14 @@ static void Tetris_CheckButtons(void) {
       }
       if (temp_s1->unk8C & 0x400) {          // D_JPAD / CONT_DOWN
         currentPiece_ptr->fallVelocity = 0x100;
-        Audio2_Play_SFX(&D_801235B0, &D_800D3A90, 0xE);
+        Audio2_Play_SFX(&D_801235B0, &g_gameSfxBank, SFX_GAME_14);
       }
       if (!(temp_s1->unk88 & 0x400)) {       // D_JPAD / CONT_DOWN
         currentPiece_ptr->fallVelocity = currentPiece_ptr->fallVelocityCopy;
       }
       if (temp_s1->unk8C & 0x800) {          // U_JPAD / CONT_UP
         CurrentPiece_800676ac_fourliner_looper(currentPiece_ptr);
-        Audio2_Play_SFX(&D_801235B0, &D_800D3A90, 0xE);
+        Audio2_Play_SFX(&D_801235B0, &g_gameSfxBank, SFX_GAME_14);
       }
     }
     if ((g_playercount >= 3) && (g_landfill_ptr->type == LANDFILLTYPE_DIRECTED)) {

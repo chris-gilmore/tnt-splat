@@ -442,7 +442,7 @@ static void func_8009FF08(UnkStruct_78 *arg0, u8 arg1) {
       temp_s0->unk1C4 = 1;
       temp_s0->unk1BC = 0;
       temp_s0->unk1B8 = arg0->unk128;
-      Audio2_Play_SFX(&D_801235B0, &D_800D3988, 0);
+      Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_0);
     }
   }
 

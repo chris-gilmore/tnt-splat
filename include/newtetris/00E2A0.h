@@ -40,12 +40,12 @@ extern void   has_rounds_and_floors_2_large_liner(void);
 extern void   four_arguments_get_debug_printed(void);
 
 
-extern u8 *D_80120EB4;
+//extern u8 *D_80120EB4;
 extern u8 main_TEXT_START[];
 extern u8 main_TEXT_END[];
 extern u8 main_BSS_END[];
 extern u8 audioheap_BASE[];
-extern u8 D_A8190;
-extern u8 D_ADAE0;
+extern u8 D_A8190;  // fx_lut
+extern u8 D_ADAE0;  // fx assets
 
 #endif /* !_00E2A0_H_ */

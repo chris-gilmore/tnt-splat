@@ -1,4 +1,5 @@
 #include "common.h"
+#include "os_internal_error.h"
 
 static OSThread D_801203D0;
 static u64 D_80120580[0x400/sizeof(u64)];

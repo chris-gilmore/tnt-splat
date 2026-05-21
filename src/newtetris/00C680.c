@@ -397,6 +397,6 @@ static void wonders3_8004745c_medium_liner_has_audio(void) {
     Game_80051618_twentyliner(&g_game);
     D_800CFEE8 = 9;
     D_800CFD48 = TRUE;
-    Audio_LoadSFX(&D_800D3A90);
+    Audio_LoadSFX(&g_gameSfxBank);
   }
 }

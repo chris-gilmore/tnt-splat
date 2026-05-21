@@ -148,7 +148,7 @@ static void BoardP_8006d910_sevenliner_loopThroughConnectedMinos(Cell *first_cel
     return;
   }
 
-  Audio2_Play_SFX(&D_801235B0, &D_800D3A90, func_800A35EC(5, 7));
+  Audio2_Play_SFX(&D_801235B0, &g_gameSfxBank, func_800A35EC(SFX_GAME_5, SFX_GAME_7));
   cell_ptr = first_cell_ptr;
   do {
     BoardP_8006d728_checkAndSetSurroundingCells(cell_ptr);

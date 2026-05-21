@@ -589,15 +589,15 @@ u8 KeySpin_8006cb10_switch_arg0_2_to_8_playsfx_35(UnkStruct_9 *arg0, s32 arg1) {
       break;
     case 3:
       KeySpin_8006c09c_tenliner_loops_lcv_arg0_unk58(arg0);
-      Audio2_Play_SFX(&D_801235B0, &D_800D3A90, 8);
-      Audio2_Play_SFX(&D_801235B0, &D_800D3A90, 20);
+      Audio2_Play_SFX(&D_801235B0, &g_gameSfxBank, SFX_GAME_8);
+      Audio2_Play_SFX(&D_801235B0, &g_gameSfxBank, SFX_GAME_20);
       break;
     case 4:
       KeySpin_8006c160_twentyfiveliner_loops_lcv_arg0_unk58(arg0, arg1);
       break;
     case 5:
-      Audio2_Play_SFX(&D_801235B0, &D_800D3A90, 8);
-      Audio2_Play_SFX(&D_801235B0, &D_800D3A90, 21);
+      Audio2_Play_SFX(&D_801235B0, &g_gameSfxBank, SFX_GAME_8);
+      Audio2_Play_SFX(&D_801235B0, &g_gameSfxBank, SFX_GAME_21);
       KeySpin_InitVPulse(arg0);
       break;
     case 6:

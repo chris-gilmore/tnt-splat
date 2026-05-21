@@ -1036,58 +1036,60 @@ func_80084630                          = 0x80084630; // type:func
 
 // - {start: 0x04A980, type:   c, vram: 0x80084700, name: newtetris/audio}
 Audio_InitAudio                            = 0x80084700; // type:func
-Audio_ChangeSong                           = 0x80084AB0; // type:func  note arg0 is songNum
-Audio_FreeAudio                            = 0x80084C98; // type:func
+Audio_ChangeSong                           = 0x80084AB0; // type:func unused
+func_80084C90                              = 0x80084C90; // type:func unused
+Audio_FreeAudio                            = 0x80084C98; // type:func unused
 Audio_80084e20_twentyliner                 = 0x80084E20; // type:func  note load bank LoadBank? into buffer? change channel or bank? ref error msg Sperm Head
 Audio_UnloadSFX                            = 0x80084F80; // type:func
 Audio_LoadSFX                              = 0x80085030; // type:func
-Audio_80085408_oneliner_calls_allocdcm     = 0x80085408; // type:func
-Audio_ALManager                            = 0x80085430; // type:func
-Audio_PreNmiAudio                          = 0x800857B8; // type:func  note dubious name taken straight from a debug
-Audio_80085924_fortyliner_sets_arg0_struct = 0x80085924; // type:func
-Audio_80085b9c_threeliner                  = 0x80085B9C; // type:func
-Audio_80085bec_tenliner                    = 0x80085BEC; // type:func
+Audio_80085408_oneliner_calls_allocdcm     = 0x80085408; // type:func static
+Audio_ALManager                            = 0x80085430; // type:func static
+Audio_PreNmiAudio                          = 0x800857B8; // type:func static note dubious name taken straight from a debug
+Audio_80085924_fortyliner_sets_arg0_struct = 0x80085924; // type:func static
+Audio_80085b9c_threeliner                  = 0x80085B9C; // type:func static
+Audio_80085bec_tenliner                    = 0x80085BEC; // type:func static
+func_80085CF4                              = 0x80085CF4; // type:func static
 Audio_Wrap                                 = 0x80085D04; // type:func static
 
-// - {start: 0x04BFD0, type:   c, vram: 0x80085D50, name: newtetris/04BFD0}
-Audio2_InitVoices                          = 0x80085D50; // type:func
+// - {start: 0x04BFD0, type:   c, vram: 0x80085D50, name: newtetris/dcm}
+Dcm_Init                                   = 0x80085D50; // type:func
 Audio2_AllocDcmHeader                      = 0x80085F8C; // type:func
 Audio2_80086138_largeliner_channels        = 0x80086138; // type:func
-// is there an AllocDcmScratch16 here?
 Audio2_AllocDcmScratch8                    = 0x800864B4; // type:func
-Audio2_80087478_oneliner_calls_fun         = 0x80087478; // type:func
-Audio2_800874ac_sevenliner                 = 0x800874AC; // type:func
-Audio2_8008756c_eightliner                 = 0x8008756C; // type:func
+Audio2_80087478_oneliner_calls_fun         = 0x80087478; // type:func static
+Audio2_800874ac_sevenliner                 = 0x800874AC; // type:func static
+Audio2_8008756c_eightliner                 = 0x8008756C; // type:func static
 func_800875E4                              = 0x800875E4; // type:func
 func_800875EC                              = 0x800875EC; // type:func
+func_80087600                              = 0x80087600; // type:func unused
 Audio2_80087618_fourteenliner_loops_256t   = 0x80087618; // type:func
 Audio2_80087770_oneliner_turn_on           = 0x80087770; // type:func
 Audio2_8008777c_oneliner_turn_off          = 0x8008777C; // type:func
 Audio2_GFXDone_SendPlayMessage             = 0x80087784; // type:func
 Audio2_8008780c_sixliner_v1                = 0x8008780C; // type:func
-Audio2_8008787c_sixliner_v2                = 0x8008787C; // type:func
-Audio2_Restart                             = 0x800878F0; // type:func  note huge function
+Audio2_8008787c_sixliner_v2                = 0x8008787C; // type:func unused
+Dcm_VoiceHandler                           = 0x800878F0; // type:func static
 Audio2_80088ba4_fiveliner                  = 0x80088BA4; // type:func
 Audio2_GFXDone_SendStopMessage             = 0x80088C14; // type:func
 Audio2_80088c84_largeliner                 = 0x80088C84; // type:func
 Audio2_80089030_hugeliner_SFX_Channel      = 0x80089030; // type:func
 Audio2_80089d5c_twentyfourliner_sendstop   = 0x80089D5C; // type:func
 // question should there be a segment named sfxplayer.c (ref strings)
-Audio2_80089edc_thirtyfourliner_loops      = 0x80089EDC; // type:func  note weird loop til neq 800d3b90
-Audio2_Play_SFX_Bank_Channel               = 0x8008A088; // type:func  note is there a load into bank function
-Audio2_Play_SFX                            = 0x8008A5C8; // type:func  note calls Play_SFX_Bank_Channel
-Audio2_8008a61c_twelveliner                = 0x8008A61C; // type:func
-Audio2_8008a6ec_nineliner                  = 0x8008A6EC; // type:func  note interesting eq 32000
-Audio2_8008a7c0_fiveliner                  = 0x8008A7C0; // type:func  note another eq 32000 decimal
-Audio2_SFX_Speed_Change                    = 0x8008A80C; // type:func  note huge function 350 lines calls set pitch
-Audio2_SetPitch                            = 0x8008BCD8; // type:func  note pitch out of range and negative pitch debugs, has concat44 
-Audio2_SetPitch_2                          = 0x8008BE18; // type:func  note similar to SetPitch above
-Audio2_8008bf58_eightliner                 = 0x8008BF58; // type:func
-Audio2_8008c014_tenliner                   = 0x8008C014; // type:func
-Audio2_8008c0e0_oneliner_arg0_math         = 0x8008C0E0; // type:func  note returns int
-Audio2_8008c104_oneliner_arg0_math_2       = 0x8008C104; // type:func  note returns int
-Audio2_8008c130_oneliner_arg0_math_3       = 0x8008C130; // type:func  note returns int
-Audio2_SFX_Debug_Print                     = 0x8008C15C; // type:func  note the debugs will allow us to name arg0 struct elements loopBegin, loopEnd, sampleLen, sampleID
+Audio2_80089edc_thirtyfourliner_loops      = 0x80089EDC; // type:func static  note weird loop til neq 800d3b90
+Audio2_Play_SFX_Bank_Channel               = 0x8008A088; // type:func static  note is there a load into bank function
+Audio2_Play_SFX                            = 0x8008A5C8; // type:func         note calls Play_SFX_Bank_Channel
+Audio2_8008a61c_twelveliner                = 0x8008A61C; // type:func static  note 32000
+Audio2_8008a6ec_nineliner                  = 0x8008A6EC; // type:func unused
+Audio2_8008a7c0_fiveliner                  = 0x8008A7C0; // type:func static
+Dcm_VoiceHandler_2                         = 0x8008A80C; // type:func static  note huge function 350 lines calls set pitch
+Dcm_SetPitch_2                             = 0x8008BCD8; // type:func static  note pitch out of range and negative pitch debugs
+Dcm_SetPitch                               = 0x8008BE18; // type:func static
+Audio2_8008bf58_eightliner                 = 0x8008BF58; // type:func static
+Audio2_8008c014_tenliner                   = 0x8008C014; // type:func static
+Audio2_8008c0e0_oneliner_arg0_math         = 0x8008C0E0; // type:func static
+Audio2_8008c104_oneliner_arg0_math_2       = 0x8008C104; // type:func static
+Audio2_8008c130_oneliner_arg0_math_3       = 0x8008C130; // type:func static
+Audio2_SFX_Debug_Print                     = 0x8008C15C; // type:func unused  note the debugs will allow us to name arg0 struct elements loopBegin, loopEnd, sampleLen, sampleID
 
 // ultralib/audio/env
 // - {start: 0x052570, type: asm, vram: 0x8008C2F0, name: newtetris/audio_env}
@@ -1121,8 +1123,9 @@ _timeToSamples            = 0x8008EE24; // type:func
 _samplesToTime            = 0x8008EE98; // type:func
 __nextSampleTime          = 0x8008EEFC; // type:func
 
-// - {start: 0x055220, type: asm, vram: 0x8008EFA0, name: newtetris/055220}
-
+// - {start: 0x055220, type:   c, vram: 0x8008EFA0, name: newtetris/055220}
+func_8008EFA0             = 0x8008EFA0; // type:func
+func_8008F0D0             = 0x8008F0D0; // type:func
 
 // - {start: 0x055500, type:   c, vram: 0x8008F280, name: newtetris/055500}
 func_8008F280                                = 0x8008F280; // type:func
@@ -1154,7 +1157,7 @@ func_800A2E2C                                = 0x800A2E2C; // type:func
 
 // - {start: 0x069170, type:   c, vram: 0x800A2EF0, name: newtetris/069170}
 func_800A2EF0                                = 0x800A2EF0; // type:func
-
+func_800A2F00                                = 0x800A2F00; // type:func
 
 // - {start: 0x0691B0, type:   c, vram: 0x800A2F30, name: newtetris/0691B0}
 func_800A2F30                                = 0x800A2F30; // type:func
@@ -1598,12 +1601,35 @@ D_800D3330                = 0x800D3330; // type:u32   size:0x4    static
 // - {start: 0x0995C0, type: .data, vram: 0x800D3340, name: newtetris/0497E0}
 
 
-// - {start: 0x099B90, type: data, vram: 0x800D3910, name: newtetris/audio}
+// - {start: 0x099B90, type: .data, vram: 0x800D3910, name: newtetris/dcm}
 D_800D3910                = 0x800D3910; // type:u32   size:0x4
+D_800D3914                = 0x800D3914; // type:s32   size:0x4    unused
+D_800D3918                = 0x800D3918; // type:s32   size:0x4
+D_800D391C                = 0x800D391C; //            size:0x4            UnkStruct_100*
+D_800D3920                = 0x800D3920; // type:s32   size:0x4
+D_800D3924                = 0x800D3924; // type:s32   size:0x4    unused
+D_800D3928                = 0x800D3928; // type:s32   size:0x4    unused
+D_800D392C                = 0x800D392C; // type:s32   size:0x4    unused
+D_800D3930                = 0x800D3930; // type:u8    size:0x1    unused
+D_800D3934                = 0x800D3934; // type:u8    size:0x1    unused
+D_800D3938                = 0x800D3938; // type:s32   size:0x4    unused
+D_800D393C                = 0x800D393C; // type:s32   size:0x4    unused
+D_800D3940                = 0x800D3940; // type:s32   size:0x4
+D_800D3944                = 0x800D3944; //            size:0x42   static  UnkStruct_104 [6]
+g_menuSfxBank             = 0x800D3988; //            size:0x14           SfxBank
+D_800D399C                = 0x800D399C; //            size:0xF2   static  UnkStruct_104 [22]
+g_gameSfxBank             = 0x800D3A90; //            size:0x14           SfxBank
+D_800D3AA4                = 0x800D3AA4; //            size:0x84   static  UnkStruct_104 [12]
+g_introSfxBank            = 0x800D3B28; //            size:0x14           SfxBank
+D_800D3B3C                = 0x800D3B3C; // type:s32   size:0x4    static
+D_800D3B40                = 0x800D3B40; // type:s32   size:0x10   static  [4]
+D_800D3B50                = 0x800D3B50; // type:u16   size:0x2
+D_800D3B54                = 0x800D3B54; //            size:0x40   static  UnkStruct_99
+D_800D3B94                = 0x800D3B94; // type:s32   size:0x4    static
+D_800D3B98                = 0x800D3B98; // type:u8    size:0x8    static  [8]
+D_800D3BA0                = 0x800D3BA0; // type:u8    size:0x1    static
 
-
-// - {start: 0x099BC0, type: data, vram: 0x800D3940, name: newtetris/04BFD0}
-
+// - {start: 0x099E30, type: data, vram: 0x800D3BB0, name: newtetris/audio_env}
 
 // - {start: 0x099F70, type: data, vram: 0x800D3CF0, name: newtetris/055500}
 D_800D3CF0                = 0x800D3CF0; // type:u8    size:0x1
@@ -2017,13 +2043,60 @@ n64HeapEnd                = 0x801201D4; //            size:0x4    static  void*
 // - {start: 0xA8190, type: .bss, vram: 0x801203D0, name: newtetris/0497E0}
 
 
-// - {start: 0xA8190, type: bss, vram: 0x80120A40, name: newtetris/audio}
-D_80128A9C                = 0x80128A9C; //            size:0x4    static  void*
-D_80128AA0                = 0x80128AA0; //            size:0x4    static  void*
+// - {start: 0xA8190, type: .bss, vram: 0x80120A40, name: newtetris/audio}
+D_80120A40                = 0x80120A40; // type:s32   size:0x30   unused  [12]
+D_80120A70                = 0x80120A70; //            size:0x15A0         SongPlayer
 
-
-// - {start: 0xA8190, type: bss, vram: 0x80128AB0, name: newtetris/04BFD0}
-
+// - {start: 0xA8190, type: .bss, vram: 0x80122010, name: newtetris/dcm}
+D_80122010                = 0x80122010; //            size:0x15A0         SongPlayer
+D_801235B0                = 0x801235B0; //            size:0x464          SfxPlayer
+D_80123A18                = 0x80123A18; //            size:0xC60          UnkStruct_96
+D_80124678                = 0x80124678; //            size:0x2C0          Voice [16]
+D_80124938                = 0x80124938; //            size:0xC60          UnkStruct_96
+D_80125598                = 0x80125598; //            size:0x2C0          Voice [16]
+D_80125858                = 0x80125858; //            size:0xC60          UnkStruct_96
+D_801264B8                = 0x801264B8; //            size:0x2C0          Voice [16]
+D_80126778                = 0x80126778; //            size:0x10           ALHeap
+D_80126788                = 0x80126788; //            size:0x4            void*
+D_8012678C                = 0x8012678C; //            size:0x4            void*
+D_80126790                = 0x80126790; //            size:0x4            void*
+D_80126794                = 0x80126794; //            size:0x4            void*
+D_80126798                = 0x80126798; //            size:0x4            u8*
+D_8012679C                = 0x8012679C; // type:s32   size:0x4    unused
+D_801267A0                = 0x801267A0; //            size:0x4            OSMesgQueue*
+D_801267A8                = 0x801267A8; //            size:0x284          UnkStruct_101
+D_80126A30                = 0x80126A30; // type:u64   size:0x2000         [0x400]
+D_80128A30                = 0x80128A30; // type:s32   size:0x24   unused  [9]
+D_80128A54                = 0x80128A54; // type:u32   size:0x4
+D_80128A58                = 0x80128A58; // type:u32   size:0x4
+D_80128A5C                = 0x80128A5C; // type:u32   size:0x4
+D_80128A60                = 0x80128A60; // type:u32   size:0x4
+D_80128A68                = 0x80128A68; //            size:0x18   unused  OSMesgQueue
+D_80128A80                = 0x80128A80; //            size:0x18           OSMesgQueue
+D_80128A98                = 0x80128A98; //            size:0x4            OSMesg [1]
+D_80128A9C                = 0x80128A9C; //            size:0x4            uintptr_t
+D_80128AA0                = 0x80128AA0; //            size:0x4            uintptr_t
+D_80128AA4                = 0x80128AA4; //            size:0x4            void*
+D_80128AA8                = 0x80128AA8; // type:s32   size:0x4    unused
+D_80128AB0                = 0x80128AB0; //            size:0x24   static  UnkStruct_95
+gp_sfxBank                = 0x80128AD4; //            size:0x4            SfxBank*
+D_80128AD8                = 0x80128AD8; // type:u16   size:0x200  static  [256]
+D_80128CD8                = 0x80128CD8; // type:u16   size:0x2    static
+D_80128CE0                = 0x80128CE0; //            size:0x18           OSMesgQueue
+D_80128CF8                = 0x80128CF8; //            size:0x20           OSMesg [8]
+D_80128D18                = 0x80128D18; //            size:0x18           OSMesgQueue
+D_80128D30                = 0x80128D30; //            size:0x20           OSMesg [8]
+D_80128D50                = 0x80128D50; //            size:0x18           OSMesgQueue
+D_80128D68                = 0x80128D68; //            size:0x20   unused  OSMesg [8]
+D_80128D88                = 0x80128D88; //            size:0x18           OSMesgQueue
+D_80128DA0                = 0x80128DA0; //            size:0x20   unused  OSMesg [8]
+D_80128DC0                = 0x80128DC0; //            size:0x8            UnkStruct_102
+D_80128DC8                = 0x80128DC8; //            size:0x8            UnkStruct_102
+D_80128DD0                = 0x80128DD0; //            size:0x8    unused  UnkStruct_102
+D_80128DD8                = 0x80128DD8; // type:u16   size:0x2
+D_80128DDC                = 0x80128DDC; // type:s32   size:0x4
+D_80128DE0                = 0x80128DE0; // type:u8    size:0x8    static  [8]
+D_80128DE8                = 0x80128DE8; //            size:0xC0   static  UnkStruct_97 [16]
 
 // - {start: 0xA8190, type: .bss, vram: 0x80128EB0, name: newtetris/055500}
 D_80128EB0                = 0x80128EB0; //            size:0x78           Font
