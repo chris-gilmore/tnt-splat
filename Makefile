@@ -25,7 +25,7 @@ ELF            := $(BUILD_DIR)/$(TARGET).elf
 LD_SCRIPT      := newtetris.ld
 
 # Directories containing source files
-SRC_DIRS := assets assets/y assets/image assets/anim assets/dcm assets/x asm asm/data src src/newtetris src/ultralib/gu asm/newtetris asm/data/newtetris asm/data/rsp asm/ultralib/audio asm/ultralib/debug asm/ultralib/gu asm/ultralib/io asm/ultralib/libc asm/ultralib/os asm/ultralib/vimodes asm/data/ultralib/audio asm/data/ultralib/debug asm/data/ultralib/gu asm/data/ultralib/io asm/data/ultralib/libc asm/data/ultralib/os asm/data/ultralib/vimodes
+SRC_DIRS := assets assets/fx assets/image assets/anim assets/dcm assets/sample asm asm/data src src/newtetris src/ultralib/gu asm/newtetris asm/data/newtetris asm/data/rsp asm/ultralib/audio asm/ultralib/debug asm/ultralib/gu asm/ultralib/io asm/ultralib/libc asm/ultralib/os asm/ultralib/vimodes asm/data/ultralib/audio asm/data/ultralib/debug asm/data/ultralib/gu asm/data/ultralib/io asm/data/ultralib/libc asm/data/ultralib/os asm/data/ultralib/vimodes
 
 # Source code files
 C_FILES           := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c))
