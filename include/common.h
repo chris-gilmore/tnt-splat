@@ -45,7 +45,6 @@ typedef struct {
 #include <newtetris/073D50.h>
 #include <newtetris/073120.h>
 #include <newtetris/haluci.h>
-#include <newtetris/0449D0.h>
 #include <newtetris/frametime.h>
 #include <newtetris/049380.h>
 #include <newtetris/finalrom_datetime.h>
@@ -70,6 +69,7 @@ typedef struct {
 #include <newtetris/032F00.h>
 #include <newtetris/color.h>
 #include <newtetris/piecedefs.h>
+#include <newtetris/0449D0.h>
 #include <newtetris/026900.h>
 #include <newtetris/026C80.h>
 #include <newtetris/026F90.h>

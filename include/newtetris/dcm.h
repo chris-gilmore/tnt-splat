@@ -138,9 +138,9 @@ typedef struct {
 } SfxBank; // 0x14 bytes
 
 typedef struct {
-  /* 0x0 */ SfxPlayer  *unk0;
-  /* 0x4 */ SfxBank    *unk4;
-  /* 0x8 */ u8          unk8;  // sfx id
+  /* 0x0 */ SfxPlayer  *player;
+  /* 0x4 */ SfxBank    *bank;
+  /* 0x8 */ u8          sfx_id;
   /* 0xA */ s16         unkA;  // something about 32000
 } UnkStruct_97; // 0xC bytes
 
@@ -181,10 +181,6 @@ typedef struct {
   /* 0x0 */ s16    unk0;
   /* 0x4 */ void  *unk4;
 } UnkStruct_102; // 0x8 bytes
-
-typedef struct {
-  /* 0x0 */ u32   unk0[16];
-} UnkStruct_99; // 0x40 bytes
 
 extern SongPlayer D_80122010;
 extern SfxPlayer D_801235B0;

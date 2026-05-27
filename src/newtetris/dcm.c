@@ -118,10 +118,6 @@ SfxBank g_introSfxBank = { D_800D3AA4, 28, 0x400, NULL, 0x100, 0x2B000 };
 static s32 D_800D3B3C = 0;
 static s32 D_800D3B40[4] = { 0, 0x4000, 0xC000, 0x1C000 };
 u16 D_800D3B50 = 0;
-static UnkStruct_99 D_800D3B54 = { { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } };
-static s32 D_800D3B94 = 0;
-static u8 D_800D3B98[8] = { 0, 0, 0, 0, 0, 0, 0, 0 };
-static u8 D_800D3BA0 = 0;
 
 static void Audio2_80087478_oneliner_calls_fun(void *, u16);
 static void Audio2_800874ac_sevenliner(SongPlayer *);
@@ -1159,10 +1155,9 @@ static u8 Audio2_80089edc_thirtyfourliner_loops(SfxPlayer *arg0, u8 arg1) {
   u8 sp4F;
   u8 sp4E;
   u32 sp48;
-  UnkStruct_99 sp8;
+  u32 sp8[16] = {0};
   u8 sp7;
 
-  sp8 = D_800D3B54;
   sp7 = 0;
   sp48 = 0;
 
@@ -1172,10 +1167,10 @@ static u8 Audio2_80089edc_thirtyfourliner_loops(SfxPlayer *arg0, u8 arg1) {
     }
 
     if (arg1 >= arg0->unk20[sp4F]) {
-      sp8.unk0[sp4F] = arg0->unk60[sp4F];
+      sp8[sp4F] = arg0->unk60[sp4F];
       sp7++;
     } else {
-      sp8.unk0[sp4F] = 0;
+      sp8[sp4F] = 0;
     }
   }
 
@@ -1187,16 +1182,16 @@ static u8 Audio2_80089edc_thirtyfourliner_loops(SfxPlayer *arg0, u8 arg1) {
   sp4E = 0;
 
   for (sp4F = 0; sp4F < 8; sp4F++) {
-    if ((sp8.unk0[sp4F] != 0) && (sp8.unk0[sp4F] < sp48)) {
+    if ((sp8[sp4F] != 0) && (sp8[sp4F] < sp48)) {
       sp4E = sp4F;
-      sp48 = sp8.unk0[sp4F];
+      sp48 = sp8[sp4F];
     }
   }
 
   return sp4E;
 }
 
-static UnkStruct_95 *Audio2_Play_SFX_Bank_Channel(SfxPlayer *arg0, SfxBank *arg1, u8 arg2, u8 arg3) {
+static UnkStruct_95 *Audio2_Play_SFX_Bank_Channel(SfxPlayer *player, SfxBank *bank, u8 sfx_id, u8 arg3) {
   u8 sp37;
   u8 sp36;
   u8 sp35;
@@ -1207,15 +1202,15 @@ static UnkStruct_95 *Audio2_Play_SFX_Bank_Channel(SfxPlayer *arg0, SfxBank *arg1
   s32 j;
   s32 sp1C;
 
-  if (gp_sfxBank != arg1) {
+  if (gp_sfxBank != bank) {
     rmonPrintf("***** Dont Play Sound effects that belong to a bank thats not loaded  Sperm Head\n\0\0\0SFX# %x NS: %x \0S%x : %x \0\0\0\n");
     return &D_80128AB0;
   }
 
   sp1C = 0xFF;
   for (i = 0; i < 8; i++) {
-    if (D_80128DE0[i] == arg2) {
-      arg0->unk110[i].unk14 = TRUE;
+    if (D_80128DE0[i] == sfx_id) {
+      player->unk110[i].unk14 = TRUE;
       if (sp1C == 0xFF) {
         sp1C = i;
       }
@@ -1223,72 +1218,72 @@ static UnkStruct_95 *Audio2_Play_SFX_Bank_Channel(SfxPlayer *arg0, SfxBank *arg1
   }
 
   if (sp1C != 0xFF) {
-    return &arg0->unk110[sp1C];
+    return &player->unk110[sp1C];
   }
 
-  sp36 = arg1->unk0[arg2].unk2;
-  sp35 = arg1->unk0[arg2].unk1;
+  sp36 = bank->unk0[sfx_id].unk2;
+  sp35 = bank->unk0[sfx_id].unk1;
 
   if (FALSE) {}
 
   for (i = 0; i < sp35; i++) {
-    sp28[i] = arg1->unk0[arg2].unk3[i];
+    sp28[i] = bank->unk0[sfx_id].unk3[i];
   }
 
   sp33 = 0xFF;
 
   for (i = 0; i < sp35; i++) {
-    sp37 = Audio2_80089edc_thirtyfourliner_loops(arg0, sp36 - i);
+    sp37 = Audio2_80089edc_thirtyfourliner_loops(player, sp36 - i);
     if (sp37 == 0xFF) {
-      sp37 = Audio2_80089edc_thirtyfourliner_loops(arg0, 0xF0);  // 0xF0 == 240
+      sp37 = Audio2_80089edc_thirtyfourliner_loops(player, 0xF0);  // 0xF0 == 240
       if (sp37 == 0xFF) {
         rmonPrintf("No Free Channel\n");
         return &D_80128AB0;
       }
     }
 
-    arg0->unk110[sp37].unk0 = arg0->unk110[sp33].unk4;  // (bug?) sp33 = 0xFF (out of range for unk110 array)
-    arg0->unk354[sp37 * 2] = 2;
-    arg0->unk354[sp37 * 2 + 1] = 2;
+    player->unk110[sp37].unk0 = player->unk110[sp33].unk4;  // (bug?) sp33 = 0xFF (out of range for unk110 array)
+    player->unk354[sp37 * 2] = 2;
+    player->unk354[sp37 * 2 + 1] = 2;
     if (sp33 == 0xFF) {
       sp33 = sp37;
     }
 
     for (sp34 = 0; sp34 < 2; sp34++) {
       // (bug?) sp34 isn't used inside this loop
-      arg0->unk20[sp37] = 0;
-      arg0->unk60[sp37] = 0;
+      player->unk20[sp37] = 0;
+      player->unk60[sp37] = 0;
     }
 
     if (arg3 != 0) {
-      arg0->unk110[sp37].unk0[1] = arg3;
-      arg0->unk110[sp37].unk0[2] = TRUE;
+      player->unk110[sp37].unk0[1] = arg3;
+      player->unk110[sp37].unk0[2] = TRUE;
     } else {
-      arg0->unk110[sp37].unk0[1] = 0;
-      arg0->unk110[sp37].unk0[2] = FALSE;
+      player->unk110[sp37].unk0[1] = 0;
+      player->unk110[sp37].unk0[2] = FALSE;
     }
 
-    D_80128DE0[sp37] = arg2;
+    D_80128DE0[sp37] = sfx_id;
 
-    arg0->unk110[sp37].unk14 = FALSE;
-    arg0->unk110[sp37].unk8 = arg0->unk350[sp28[i]]->unk0;  // stream
-    arg0->unk110[sp37].unkC = arg0->unk110[sp37].unk8 + arg0->unk350[sp28[i]]->unk4;  // after stream
-    arg0->unk110[sp37].unk18 = arg0->unk350[sp28[i]]->unk4;  // stream size
+    player->unk110[sp37].unk14 = FALSE;
+    player->unk110[sp37].unk8 = player->unk350[sp28[i]]->unk0;  // stream
+    player->unk110[sp37].unkC = player->unk110[sp37].unk8 + player->unk350[sp28[i]]->unk4;  // after stream
+    player->unk110[sp37].unk18 = player->unk350[sp28[i]]->unk4;  // stream size
 
     for (j = 0; j < 8; j++) {
-      arg0->unk110[sp37].unk1C[j] = arg0->unk350[sp28[i]]->unk10[j];
+      player->unk110[sp37].unk1C[j] = player->unk350[sp28[i]]->unk10[j];
     }
 
-    arg0->unk20[sp37] = sp36 - i;
-    arg0->unk60[sp37] = D_800D3910 - i;
+    player->unk20[sp37] = sp36 - i;
+    player->unk60[sp37] = D_800D3910 - i;
   }
 
-  return &arg0->unk110[sp33];
+  return &player->unk110[sp33];
 }
 
-UnkStruct_95 *Audio2_Play_SFX(SfxPlayer *arg0, SfxBank *arg1, u8 arg2) {
+UnkStruct_95 *Audio2_Play_SFX(SfxPlayer *player, SfxBank *bank, u8 sfx_id) {
   if (gp_sfxBank != NULL) {
-    return Audio2_Play_SFX_Bank_Channel(arg0, arg1, arg2, 0);
+    return Audio2_Play_SFX_Bank_Channel(player, bank, sfx_id, 0);
   }
 
   return &D_80128AB0;
@@ -1301,7 +1296,7 @@ static void Audio2_8008a61c_twelveliner(void) {
     if (D_80128DE8[i].unkA != 32000) {
       D_80128DE8[i].unkA--;
       if (D_80128DE8[i].unkA <= 0) {
-        Audio2_Play_SFX(D_80128DE8[i].unk0, D_80128DE8[i].unk4, D_80128DE8[i].unk8);
+        Audio2_Play_SFX(D_80128DE8[i].player, D_80128DE8[i].bank, D_80128DE8[i].sfx_id);
         D_80128DE8[i].unkA = 32000;
       }
     }
@@ -1309,7 +1304,7 @@ static void Audio2_8008a61c_twelveliner(void) {
 }
 
 // unused
-void Audio2_8008a6ec_nineliner(SfxPlayer *arg0, SfxBank *arg1, u8 arg2, s16 arg3) {
+void Audio2_8008a6ec_nineliner(SfxPlayer *player, SfxBank *bank, u8 sfx_id, s16 arg3) {
   s16 i;
 
   for (i = 0; i < 16; i++) {
@@ -1317,9 +1312,9 @@ void Audio2_8008a6ec_nineliner(SfxPlayer *arg0, SfxBank *arg1, u8 arg2, s16 arg3
       break;
     }
   }
-  D_80128DE8[i].unk0 = arg0;
-  D_80128DE8[i].unk4 = arg1;
-  D_80128DE8[i].unk8 = arg2;
+  D_80128DE8[i].player = player;
+  D_80128DE8[i].bank = bank;
+  D_80128DE8[i].sfx_id = sfx_id;
   D_80128DE8[i].unkA = arg3;
 }
 
@@ -1379,6 +1374,10 @@ static ALMicroTime Dcm_VoiceHandler_2(void *arg0) {
   }
 
   if (sp48->unk88 == 1) {
+    static s32 D_800D3B94 = 0;  // unused
+    static u8 D_800D3B98[8] = {0};
+    static u8 D_800D3BA0 = 0;
+
     Audio2_8008a61c_twelveliner();
 
     for (sp56 = 0; sp56 < sp48->unk8C; sp56++) {

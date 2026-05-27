@@ -418,7 +418,7 @@ void FUN_027BF0_Init(s32 screen) {
       func_800764A0(&D_800D133C, &D_800D1030);
       func_800764A0(&D_800D13D8, &D_800D1030);
       func_800764A0(&D_800D1474, &D_800D1030);
-      func_80076EC0(&D_800D02B8, 1);
+      func_80076EC0(&D_800D02B8, TRUE);
       bzero(&sp20, sizeof(UnkStruct_31));
       sp20.unk0.width = 17, sp20.unk0.height = 64;
       sp20.unk2.x = 74, sp20.unk2.y = 208;
@@ -427,8 +427,8 @@ void FUN_027BF0_Init(s32 screen) {
       break;
     case 1:
       func_800764B8(&D_800D2890);
-      func_80076EC0(&D_800D03A8, 1);
-      func_80076EC0(&D_800D0468, 1);
+      func_80076EC0(&D_800D03A8, TRUE);
+      func_80076EC0(&D_800D0468, TRUE);
       break;
     case 2:
       func_800764B8(&D_800D292C);
@@ -437,12 +437,12 @@ void FUN_027BF0_Init(s32 screen) {
       break;
     case 3:
       func_800764B8(&D_800D2008);
-      func_80076EC0(&D_800D0318, 1);
-      func_80076EC0(&D_800D0408, 1);
+      func_80076EC0(&D_800D0318, TRUE);
+      func_80076EC0(&D_800D0408, TRUE);
       break;
     case 4:
       func_800764B8(&D_800D2C38);
-      func_80076EC0(&D_800D0378, 1);
+      func_80076EC0(&D_800D0378, TRUE);
       break;
     case 5:
       func_800764B8(&D_800D1510);
@@ -451,8 +451,8 @@ void FUN_027BF0_Init(s32 screen) {
       func_800764A0(&D_800D16E4, &D_800D1510);
       func_800764A0(&D_800D1780, &D_800D1510);
       func_800764B8(&D_800D181C);
-      func_80076EC0(&D_800D02E8, 1);
-      func_80076EC0(&D_800D03D8, 1);
+      func_80076EC0(&D_800D02E8, TRUE);
+      func_80076EC0(&D_800D03D8, TRUE);
       break;
     case 6:
       func_800764B8(&D_800D20A4);
@@ -468,8 +468,8 @@ void FUN_027BF0_Init(s32 screen) {
       func_800764A0(&D_800D26BC, &D_800D20A4);
       func_800764A0(&D_800D2758, &D_800D20A4);
       func_800764A0(&D_800D27F4, &D_800D20A4);
-      func_80076EC0(&D_800D0348, 1);
-      func_80076EC0(&D_800D0438, 1);
+      func_80076EC0(&D_800D0348, TRUE);
+      func_80076EC0(&D_800D0438, TRUE);
       break;
     case 7:
       func_800764B8(&D_800D18B8);

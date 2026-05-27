@@ -95,7 +95,7 @@ void FUN_032F00_MVC_control_menu_choice_process(void) {
   case 2:
     func_80083160();
     break;
-  case 3:
+  case 3:  // intro
     func_8007F344();
     break;
   case 4:

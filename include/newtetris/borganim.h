@@ -5,7 +5,7 @@ typedef struct {
   /* 0x0   */ u32            unk0;    // bit pattern
   /* 0x4   */ u8             unk4;    // 0 or 1 (toggle)
   /* 0x5   */ u8             unk5;
-  /* 0x6   */ u16            unk6;
+  /* 0x6   */ u16            unk6;    // frametime
   /* 0x8   */ UnkStruct_48  *unk8;
   /* 0xC   */ MtxF           unkC;
   /* 0x4C  */ MtxF           unk4C;
