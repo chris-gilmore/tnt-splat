@@ -6,11 +6,11 @@ extern u8 D_7C1960;  // sample_lut
 SongPlayer D_80122010;
 SfxPlayer D_801235B0;
 UnkStruct_96 D_80123A18;
-Voice D_80124678[16];
+Channel D_80124678[16];
 UnkStruct_96 D_80124938;
-Voice D_80125598[16];
+Channel D_80125598[16];
 UnkStruct_96 D_80125858;
-Voice D_801264B8[16];
+Channel D_801264B8[16];
 ALHeap D_80126778;
 u8 *D_80126788;
 u8 *D_8012678C;
@@ -136,7 +136,7 @@ static s16 Audio2_8008c0e0_oneliner_arg0_math(u8 *);
 static s32 Audio2_8008c104_oneliner_arg0_math_2(u8 *);
 static s32 Audio2_8008c130_oneliner_arg0_math_3(u8 *);
 
-void Dcm_Init(SongPlayer *arg0, UnkStruct_96 *arg1, Voice *voices, u8 arg3, s16 arg4, u8 arg5) {
+void Dcm_Init(SongPlayer *arg0, UnkStruct_96 *arg1, Channel *channels, u8 arg3, s16 arg4, u8 arg5) {
   s32 i;
   ALVoiceConfig vc;
 
@@ -160,7 +160,7 @@ void Dcm_Init(SongPlayer *arg0, UnkStruct_96 *arg1, Voice *voices, u8 arg3, s16 
   arg0->unk1598 = 0;
   arg0->unk1599 = FALSE;
   arg0->unk438 = arg1;
-  arg0->voices = voices;
+  arg0->channels = channels;
   arg0->unk158E = arg5;
 
   arg0->node.next = NULL;
@@ -180,7 +180,7 @@ void Dcm_Init(SongPlayer *arg0, UnkStruct_96 *arg1, Voice *voices, u8 arg3, s16 
 
   if (arg3 != 0) {
     for (i = 0; i < arg3; i++) {
-      alSynAllocVoice(&arg0->alGlobals->drvr, &arg0->voices[i].v, &vc);
+      alSynAllocVoice(&arg0->alGlobals->drvr, &arg0->channels[i].v, &vc);
     }
   }
 
@@ -215,9 +215,8 @@ void *Audio2_80086138_largeliner_channels(SongPlayer *arg0, u8 *arg1, void *arg2
   s32 i;
   s8 *sp38;
   u8 *sp34;
-  Voice *voice;
+  Channel *channel;
   ALVoiceConfig vc;  // unused
-  s32 temp_t7;
 
   D_800D3B3C = 0;
 
@@ -227,10 +226,10 @@ void *Audio2_80086138_largeliner_channels(SongPlayer *arg0, u8 *arg1, void *arg2
 
   if (arg3 == 2) {
     for (i = 0; i < 16; i++) {
-      voice = &arg0->voices[i];
-      if (voice->state != 0) {
-        voice->state = 0;
-        alSynStopVoice(&arg0->alGlobals->drvr, &voice->v);
+      channel = &arg0->channels[i];
+      if (channel->state != 0) {
+        channel->state = 0;
+        alSynStopVoice(&arg0->alGlobals->drvr, &channel->v);
       }
     }
   }
@@ -449,11 +448,11 @@ void Audio2_AllocDcmScratch8(SongPlayer *arg0) {
     if (arg0->unk1572 == arg0->unk418.num_samples) {
       arg0->unk1570 = FALSE;
       for (sp54 = 0; sp54 < 16; sp54++) {
-        arg0->voices[sp54].wt = arg0->unk438->wt;
-        arg0->voices[sp54].pitch = 1.0;
-        arg0->voices[sp54].vol = 0;
-        arg0->voices[sp54].pan = 64;
-        arg0->voices[sp54].state = 0;
+        arg0->channels[sp54].wt = arg0->unk438->wt;
+        arg0->channels[sp54].pitch = 1.0;
+        arg0->channels[sp54].vol = 0;
+        arg0->channels[sp54].pan = 64;
+        arg0->channels[sp54].state = 0;
       }
       arg0->unk1584 = TRUE;
       rmonPrintf("**Last sample load at : %x SIZE: %x %d\n", arg0->unk1574, D_800D3B3C, D_800D3B3C);
@@ -566,7 +565,7 @@ static ALMicroTime Dcm_VoiceHandler(void *arg0) {
   SongPlayer *sp58;
   u8 sp57;
   u8 sp56;
-  Voice *voice;
+  Channel *channel;
   s32 sp4C;
   u32 sp48;
   s32 sp44;
@@ -581,10 +580,10 @@ static ALMicroTime Dcm_VoiceHandler(void *arg0) {
     switch (sp34->unk0) {
     case 0:
       for (sp4C = 0; sp4C < sp58->unk440; sp4C++) {
-        voice = &sp58->voices[sp4C];
-        if (voice->state != 0) {
-          voice->state = 0;
-          alSynStopVoice(&sp58->alGlobals->drvr, &voice->v);
+        channel = &sp58->channels[sp4C];
+        if (channel->state != 0) {
+          channel->state = 0;
+          alSynStopVoice(&sp58->alGlobals->drvr, &channel->v);
         }
       }
       sp58->unk454 = 3;
@@ -618,12 +617,12 @@ static ALMicroTime Dcm_VoiceHandler(void *arg0) {
       if (sp5C->unk158E) {
         rmonPrintf("RESTART: BASE: %x CUR: %x\n", D_80128DDC, sp5C->unk1580);
         for (sp4C = 0; sp4C < sp5C->unk440; sp4C++) {
-          voice = &sp5C->voices[sp4C];
-          if (voice->state != 0) {
-            voice->state = 0;
-            alSynStopVoice(&sp5C->alGlobals->drvr, &voice->v);
+          channel = &sp5C->channels[sp4C];
+          if (channel->state != 0) {
+            channel->state = 0;
+            alSynStopVoice(&sp5C->alGlobals->drvr, &channel->v);
           }
-          voice->v.state = 0;
+          channel->v.state = 0;
         }
         sp5C->unk444 = sp5C->unk448;
         func_8008EFA0(sp5C->unk444, &sp5C->unk458);
@@ -637,13 +636,13 @@ static ALMicroTime Dcm_VoiceHandler(void *arg0) {
 
     if (sp5C->unk1587) {
       for (sp4C = 0; sp4C < sp5C->unk440; sp4C++) {
-        voice = &sp5C->voices[sp4C];
-        if (voice->state != 0) {
-          if (voice->unk28 == 0) {
-            voice->unk28 = 1;
+        channel = &sp5C->channels[sp4C];
+        if (channel->state != 0) {
+          if (channel->unk28 == 0) {
+            channel->unk28 = 1;
           }
-          voice->vol = (u16) ((sqrtf(voice->unk28) * sp5C->unk157C) / 16);
-          alSynSetVol(&sp5C->alGlobals->drvr, &voice->v, voice->vol, 1);
+          channel->vol = (u16) ((sqrtf(channel->unk28) * sp5C->unk157C) / 16);
+          alSynSetVol(&sp5C->alGlobals->drvr, &channel->v, channel->vol, 1);
         }
       }
       sp5C->unk1587 = FALSE;
@@ -651,17 +650,17 @@ static ALMicroTime Dcm_VoiceHandler(void *arg0) {
 
     if (sp5C->unk158C) {
       for (sp4C = 0; sp4C < sp5C->unk440; sp4C++) {
-        voice = &sp5C->voices[sp4C];
-        if (voice->state != 0) {
-          voice->pan = sp5C->unk158D;
-          alSynSetPan(&sp5C->alGlobals->drvr, &voice->v, voice->pan);
+        channel = &sp5C->channels[sp4C];
+        if (channel->state != 0) {
+          channel->pan = sp5C->unk158D;
+          alSynSetPan(&sp5C->alGlobals->drvr, &channel->v, channel->pan);
         }
       }
       sp5C->unk158C = FALSE;
     }
 
     for (sp4C = 0; sp4C < sp5C->unk440; sp4C++) {
-      voice = &sp5C->voices[sp4C];
+      channel = &sp5C->channels[sp4C];
       if (sp5C->unk1586 != 0) {
         sp5C->unk1586--;
       } else {
@@ -684,22 +683,22 @@ static ALMicroTime Dcm_VoiceHandler(void *arg0) {
             sp43 = sp48 >> 14;
             sp48 &= 0x3FFF;
             sp48 = D_800D3B40[sp43] + (sp48 << sp43);
-            voice->pitch = Dcm_SetPitch(sp48);
+            channel->pitch = Dcm_SetPitch(sp48);
           }
 
           if (sp57 & 0x20) {  // set vol
-            voice->unk28 = sp5C->unk1468[(u8) (sp5C->unk1568 & 0xFF)];
+            channel->unk28 = sp5C->unk1468[(u8) (sp5C->unk1568 & 0xFF)];
             sp5C->unk1568++;
             sp5C->unk156C++;
-            voice->unk28 &= 0xFF;
-            if (voice->unk28 == 0) {
-              voice->unk28 = 1;
+            channel->unk28 &= 0xFF;
+            if (channel->unk28 == 0) {
+              channel->unk28 = 1;
             }
-            voice->vol = (u16) ((sqrtf(voice->unk28) * sp5C->unk157C) / 16);
+            channel->vol = (u16) ((sqrtf(channel->unk28) * sp5C->unk157C) / 16);
           }
 
           if (sp57 & 0x10) {  // set pan
-            voice->pan = sp5C->unk1468[(u8) (sp5C->unk1568 & 0xFF)] >> 1;
+            channel->pan = sp5C->unk1468[(u8) (sp5C->unk1568 & 0xFF)] >> 1;
             sp5C->unk1568++;
             sp5C->unk156C++;
           }
@@ -708,27 +707,27 @@ static ALMicroTime Dcm_VoiceHandler(void *arg0) {
             sp56 = sp5C->unk1468[(u8) (sp5C->unk1568 & 0xFF)];
             sp5C->unk1568++;
             sp5C->unk156C++;
-            voice->wt = &sp5C->unk438->wt[sp56];
+            channel->wt = &sp5C->unk438->wt[sp56];
             sp5C->unk428[sp4C] = sp56;
 
-            if (voice->state == 1) {
-              if (voice->v.pvoice != NULL) {
+            if (channel->state == 1) {
+              if (channel->v.pvoice != NULL) {
                 // See /opt/ultralib/src/audio/synallocvoice.c
-                filter = voice->v.pvoice->channelKnob;
-                voice->v.pvoice->offset = 320;
+                filter = channel->v.pvoice->channelKnob;
+                channel->v.pvoice->offset = 320;
 
                 param = __allocParam();
                 if (param != NULL) {
                   param->delta = sp5C->alGlobals->drvr.paramSamples;
                   param->type = AL_FILTER_SET_VOLUME;
                   param->data.i = 0;
-                  param->moredata.i = voice->v.pvoice->offset - 64;
+                  param->moredata.i = channel->v.pvoice->offset - 64;
                   filter->setParam(filter, AL_FILTER_ADD_UPDATE, param);
                 }
 
                 param = __allocParam();
                 if (param != NULL) {
-                  param->delta = sp5C->alGlobals->drvr.paramSamples + voice->v.pvoice->offset;
+                  param->delta = sp5C->alGlobals->drvr.paramSamples + channel->v.pvoice->offset;
                   param->type = AL_FILTER_STOP_VOICE;
                   param->next = NULL;
                   filter->setParam(filter, AL_FILTER_ADD_UPDATE, param);
@@ -741,26 +740,26 @@ static ALMicroTime Dcm_VoiceHandler(void *arg0) {
             sp44 = sp5C->unk1468[(u8) (sp5C->unk1568 & 0xFF)] << 8;
             sp5C->unk1568++;
             sp5C->unk156C++;
-            voice->wt->base = sp5C->unk438->wt_base[sp5C->unk428[sp4C]] + sp44;
-            voice->wt->len = sp5C->unk438->wt_len[sp5C->unk428[sp4C]] - (voice->wt->base - sp5C->unk438->wt_base[sp5C->unk428[sp4C]]);
+            channel->wt->base = sp5C->unk438->wt_base[sp5C->unk428[sp4C]] + sp44;
+            channel->wt->len = sp5C->unk438->wt_len[sp5C->unk428[sp4C]] - (channel->wt->base - sp5C->unk438->wt_base[sp5C->unk428[sp4C]]);
 
-            if (voice->state == 1) {
-              if (voice->v.pvoice != NULL) {
-                filter = voice->v.pvoice->channelKnob;
-                voice->v.pvoice->offset = 320;
+            if (channel->state == 1) {
+              if (channel->v.pvoice != NULL) {
+                filter = channel->v.pvoice->channelKnob;
+                channel->v.pvoice->offset = 320;
 
                 param = __allocParam();
                 if (param != NULL) {
                   param->delta = sp5C->alGlobals->drvr.paramSamples;
                   param->type = AL_FILTER_SET_VOLUME;
                   param->data.i = 0;
-                  param->moredata.i = voice->v.pvoice->offset - 64;
+                  param->moredata.i = channel->v.pvoice->offset - 64;
                   filter->setParam(filter, AL_FILTER_ADD_UPDATE, param);
                 }
 
                 param = __allocParam();
                 if (param != NULL) {
-                  param->delta = sp5C->alGlobals->drvr.paramSamples + voice->v.pvoice->offset;
+                  param->delta = sp5C->alGlobals->drvr.paramSamples + channel->v.pvoice->offset;
                   param->type = AL_FILTER_STOP_VOICE;
                   param->next = NULL;
                   filter->setParam(filter, AL_FILTER_ADD_UPDATE, param);
@@ -770,23 +769,23 @@ static ALMicroTime Dcm_VoiceHandler(void *arg0) {
           }
 
           if (sp57 & 2) {
-            if (voice->state == 1) {
-              if (voice->v.pvoice != NULL) {
-                filter = voice->v.pvoice->channelKnob;
-                voice->v.pvoice->offset = 320;
+            if (channel->state == 1) {
+              if (channel->v.pvoice != NULL) {
+                filter = channel->v.pvoice->channelKnob;
+                channel->v.pvoice->offset = 320;
 
                 param = __allocParam();
                 if (param != NULL) {
                   param->delta = sp5C->alGlobals->drvr.paramSamples;
                   param->type = AL_FILTER_SET_VOLUME;
                   param->data.i = 0;
-                  param->moredata.i = voice->v.pvoice->offset - 64;
+                  param->moredata.i = channel->v.pvoice->offset - 64;
                   filter->setParam(filter, AL_FILTER_ADD_UPDATE, param);
                 }
 
                 param = __allocParam();
                 if (param != NULL) {
-                  param->delta = sp5C->alGlobals->drvr.paramSamples + voice->v.pvoice->offset;
+                  param->delta = sp5C->alGlobals->drvr.paramSamples + channel->v.pvoice->offset;
                   param->type = AL_FILTER_STOP_VOICE;
                   param->next = NULL;
                   filter->setParam(filter, AL_FILTER_ADD_UPDATE, param);
@@ -796,31 +795,31 @@ static ALMicroTime Dcm_VoiceHandler(void *arg0) {
 
             if (sp57 & 4) {
               if (sp5C->alGlobals != NULL) {
-                if (voice->wt != NULL) {
-                  alSynStartVoiceParams(&sp5C->alGlobals->drvr, &voice->v, voice->wt, voice->pitch, voice->vol, voice->pan, 0, 100);
+                if (channel->wt != NULL) {
+                  alSynStartVoiceParams(&sp5C->alGlobals->drvr, &channel->v, channel->wt, channel->pitch, channel->vol, channel->pan, 0, 100);
                 }
               }
             } else {
-              alSynStartVoiceParams(&sp5C->alGlobals->drvr, &voice->v, voice->wt, voice->pitch, voice->vol, voice->pan, 0, 1);
+              alSynStartVoiceParams(&sp5C->alGlobals->drvr, &channel->v, channel->wt, channel->pitch, channel->vol, channel->pan, 0, 1);
             }
-            voice->state = 1;
+            channel->state = 1;
           }
 
-          if ((voice->state != 0) && (sp57 & 0x40) && !(sp57 & 2)) {
-            alSynSetPitch(&sp5C->alGlobals->drvr, &voice->v, voice->pitch);
+          if ((channel->state != 0) && (sp57 & 0x40) && !(sp57 & 2)) {
+            alSynSetPitch(&sp5C->alGlobals->drvr, &channel->v, channel->pitch);
           }
 
-          if ((voice->state != 0) && (sp57 & 0x20) && !(sp57 & 2)) {
-            voice->vol = (u16) ((sqrtf(voice->unk28) * sp5C->unk157C) / 16);
+          if ((channel->state != 0) && (sp57 & 0x20) && !(sp57 & 2)) {
+            channel->vol = (u16) ((sqrtf(channel->unk28) * sp5C->unk157C) / 16);
             if (sp57 & 4) {
-              alSynSetVol(&sp5C->alGlobals->drvr, &voice->v, voice->vol, 100);
+              alSynSetVol(&sp5C->alGlobals->drvr, &channel->v, channel->vol, 100);
             } else {
-              alSynSetVol(&sp5C->alGlobals->drvr, &voice->v, voice->vol, 1);
+              alSynSetVol(&sp5C->alGlobals->drvr, &channel->v, channel->vol, 1);
             }
           }
 
-          if ((voice->state != 0) && (sp57 & 0x10) && !(sp57 & 2)) {
-            alSynSetPan(&sp5C->alGlobals->drvr, &voice->v, voice->pan);
+          if ((channel->state != 0) && (sp57 & 0x10) && !(sp57 & 2)) {
+            alSynSetPan(&sp5C->alGlobals->drvr, &channel->v, channel->pan);
           }
 
           if (sp57 & 1) {
@@ -873,11 +872,11 @@ void Audio2_GFXDone_SendStopMessage(SfxPlayer *arg0) {
 void Audio2_80088c84_largeliner(SfxPlayer *arg0, s32 arg1, u8 arg2) {
   s32 i;
   ALVoiceConfig vc;
-  Voice *voice;
+  Channel *channel;
 
   if (arg1 == 0) {
     arg0->unk18 = &D_80124938;
-    arg0->voices = D_80125598;
+    arg0->channels = D_80125598;
     arg0->alGlobals = alGlobals;
     arg0->unk8C = arg2;
     arg0->unk0.next = NULL;
@@ -890,27 +889,27 @@ void Audio2_80088c84_largeliner(SfxPlayer *arg0, s32 arg1, u8 arg2) {
     vc.unityPitch = 0;
 
     for(i = 0; i < arg2; i++) {
-      alSynAllocVoice(&arg0->alGlobals->drvr, &arg0->voices[i].v, &vc);
+      alSynAllocVoice(&arg0->alGlobals->drvr, &arg0->channels[i].v, &vc);
     }
 
     for(i = 0; i < arg2; i++) {
-      arg0->voices[i].wt = arg0->unk18->wt;
-      arg0->voices[i].pitch = 1.0;
-      arg0->voices[i].vol = 0;
-      arg0->voices[i].pan = 64;
-      arg0->voices[i].state = 0;
+      arg0->channels[i].wt = arg0->unk18->wt;
+      arg0->channels[i].pitch = 1.0;
+      arg0->channels[i].vol = 0;
+      arg0->channels[i].pan = 64;
+      arg0->channels[i].state = 0;
     }
   }
 
   for(i = 0; i < arg2; i++) {
-    voice = &arg0->voices[i];
+    channel = &arg0->channels[i];
     arg0->unk20[i] = 0;
     arg0->unk110[i].unk0 = arg0->unk110[i].unk4;
     arg0->unk110[i].unk0[0] = 0;
 
-    if (voice->state == 1) {
-      voice->state = 0;
-      alSynStopVoice(&arg0->alGlobals->drvr, &voice->v);
+    if (channel->state == 1) {
+      channel->state = 0;
+      alSynStopVoice(&arg0->alGlobals->drvr, &channel->v);
     }
 
     arg0->unk20[i] = 0;
@@ -1125,17 +1124,17 @@ u8 *Audio2_80089030_hugeliner_SFX_Channel(SfxPlayer *arg0, u8 *arg1, u8 *arg2, s
 
 void Audio2_80089d5c_twentyfourliner_sendstop(SfxPlayer *arg0) {
   u32 i = 0;
-  Voice *voice;
+  Channel *channel;
   s32 unused;
 
   Audio2_GFXDone_SendStopMessage(arg0);
   Audio2_8008a7c0_fiveliner();
 
   for (i = 0; i < arg0->unk8C; i++) {
-    voice = &arg0->voices[i];
-    if (voice->state == 1) {
-      alSynStopVoice(&arg0->alGlobals->drvr, &voice->v);
-      voice->state = 0;
+    channel = &arg0->channels[i];
+    if (channel->state == 1) {
+      alSynStopVoice(&arg0->alGlobals->drvr, &channel->v);
+      channel->state = 0;
     }
     arg0->unk20[i] = 0;
     arg0->unk110[i].unk0[0] = 0;
@@ -1156,9 +1155,8 @@ static u8 Audio2_80089edc_thirtyfourliner_loops(SfxPlayer *arg0, u8 arg1) {
   u8 sp4E;
   u32 sp48;
   u32 sp8[16] = {0};
-  u8 sp7;
+  u8 sp7 = 0;
 
-  sp7 = 0;
   sp48 = 0;
 
   for (sp4F = 0; sp4F < (arg0->unk8C >> 1); sp4F++) {
@@ -1328,7 +1326,7 @@ static void Audio2_8008a7c0_fiveliner(void) {
 }
 
 static ALMicroTime Dcm_VoiceHandler_2(void *arg0) {
-  Voice *voice;
+  Channel *channel;
   u32 sp58;
   u8 sp57;
   u8 sp56;
@@ -1348,10 +1346,10 @@ static ALMicroTime Dcm_VoiceHandler_2(void *arg0) {
     switch (sp40->unk0) {
     case 0:
       for (sp56 = 0; sp56 < sp44->unk8C; sp56++) {
-        voice = &sp44->voices[sp56];
-        if (voice->state != 0) {
-          voice->state = 0;
-          alSynStopVoice(&sp44->alGlobals->drvr, &voice->v);
+        channel = &sp44->channels[sp56];
+        if (channel->state != 0) {
+          channel->state = 0;
+          alSynStopVoice(&sp44->alGlobals->drvr, &channel->v);
         }
       }
       sp44->unk88 = 3;
@@ -1381,38 +1379,38 @@ static ALMicroTime Dcm_VoiceHandler_2(void *arg0) {
     Audio2_8008a61c_twelveliner();
 
     for (sp56 = 0; sp56 < sp48->unk8C; sp56++) {
-      voice = &sp48->voices[sp56];
+      channel = &sp48->channels[sp56];
       if (sp48->unk110[sp56 >> 1].unk14) {
         D_800D3B98[sp56 >> 1] = 0;
         sp48->unk110[sp56 >> 1].unk14 = FALSE;
         sp48->unk110[sp56 >> 1].unk8 = sp48->unk110[sp56 >> 1].unkC - sp48->unk110[sp56 >> 1].unk18;
-        voice = &sp48->voices[sp56 >> 1];
+        channel = &sp48->channels[sp56 >> 1];
 
-        if (voice->state != 0) {
-          if (voice->v.pvoice != NULL) {
+        if (channel->state != 0) {
+          if (channel->v.pvoice != NULL) {
             // See /opt/ultralib/src/audio/synallocvoice.c
-            filter = voice->v.pvoice->channelKnob;
-            voice->v.pvoice->offset = 576;
+            filter = channel->v.pvoice->channelKnob;
+            channel->v.pvoice->offset = 576;
 
             param = __allocParam();
             if (param != NULL) {
               param->delta = sp48->alGlobals->drvr.paramSamples;
               param->type = AL_FILTER_SET_VOLUME;
               param->data.i = 0;
-              param->moredata.i = voice->v.pvoice->offset - 64;
+              param->moredata.i = channel->v.pvoice->offset - 64;
               filter->setParam(filter, AL_FILTER_ADD_UPDATE, param);
             }
 
             param = __allocParam();
             if (param != NULL) {
-              param->delta = sp48->alGlobals->drvr.paramSamples + voice->v.pvoice->offset;
+              param->delta = sp48->alGlobals->drvr.paramSamples + channel->v.pvoice->offset;
               param->type = AL_FILTER_STOP_VOICE;
               param->next = NULL;
               filter->setParam(filter, AL_FILTER_ADD_UPDATE, param);
             }
           }
-          alSynStopVoice(&sp48->alGlobals->drvr, &voice->v);
-          voice->state = 0;
+          alSynStopVoice(&sp48->alGlobals->drvr, &channel->v);
+          channel->state = 0;
         }
       }
 
@@ -1423,60 +1421,60 @@ static ALMicroTime Dcm_VoiceHandler_2(void *arg0) {
         }
         sp48->unk354[sp56] = 0;
 
-        if (voice->state == 1) {
-          if (voice->v.pvoice != NULL) {
-            filter = voice->v.pvoice->channelKnob;
-            voice->v.pvoice->offset = 576;
+        if (channel->state == 1) {
+          if (channel->v.pvoice != NULL) {
+            filter = channel->v.pvoice->channelKnob;
+            channel->v.pvoice->offset = 576;
 
             param = __allocParam();
             if (param != NULL) {
               param->delta = sp48->alGlobals->drvr.paramSamples;
               param->type = AL_FILTER_SET_VOLUME;
               param->data.i = 0;
-              param->moredata.i = voice->v.pvoice->offset - 64;
+              param->moredata.i = channel->v.pvoice->offset - 64;
               filter->setParam(filter, AL_FILTER_ADD_UPDATE, param);
             }
 
             param = __allocParam();
             if (param != NULL) {
-              param->delta = sp48->alGlobals->drvr.paramSamples + voice->v.pvoice->offset;
+              param->delta = sp48->alGlobals->drvr.paramSamples + channel->v.pvoice->offset;
               param->type = AL_FILTER_STOP_VOICE;
               param->next = NULL;
               filter->setParam(filter, AL_FILTER_ADD_UPDATE, param);
             }
           }
-          alSynStopVoice(&sp48->alGlobals->drvr, &voice->v);
-          voice->state = 0;
+          alSynStopVoice(&sp48->alGlobals->drvr, &channel->v);
+          channel->state = 0;
         } else {
           if (sp48->alGlobals != NULL) {
-            if (voice->wt != NULL) {
-              alSynStartVoiceParams(&sp48->alGlobals->drvr, &voice->v, voice->wt, 0, 0, 0, 0, 100);
+            if (channel->wt != NULL) {
+              alSynStartVoiceParams(&sp48->alGlobals->drvr, &channel->v, channel->wt, 0, 0, 0, 0, 100);
             }
           }
 
-          if (voice->v.pvoice != NULL) {
-            filter = voice->v.pvoice->channelKnob;
-            voice->v.pvoice->offset = 576;
+          if (channel->v.pvoice != NULL) {
+            filter = channel->v.pvoice->channelKnob;
+            channel->v.pvoice->offset = 576;
 
             param = __allocParam();
             if (param != NULL) {
               param->delta = sp48->alGlobals->drvr.paramSamples;
               param->type = AL_FILTER_SET_VOLUME;
               param->data.i = 0;
-              param->moredata.i = voice->v.pvoice->offset - 64;
+              param->moredata.i = channel->v.pvoice->offset - 64;
               filter->setParam(filter, AL_FILTER_ADD_UPDATE, param);
             }
 
             param = __allocParam();
             if (param != NULL) {
-              param->delta = sp48->alGlobals->drvr.paramSamples + voice->v.pvoice->offset;
+              param->delta = sp48->alGlobals->drvr.paramSamples + channel->v.pvoice->offset;
               param->type = AL_FILTER_STOP_VOICE;
               param->next = NULL;
               filter->setParam(filter, AL_FILTER_ADD_UPDATE, param);
             }
           }
-          alSynStopVoice(&sp48->alGlobals->drvr, &voice->v);
-          voice->state = 0;
+          alSynStopVoice(&sp48->alGlobals->drvr, &channel->v);
+          channel->state = 0;
         }
       }
     }
@@ -1490,12 +1488,12 @@ static ALMicroTime Dcm_VoiceHandler_2(void *arg0) {
         }
 
         for (sp56 = 0; sp56 < 2; sp56++) {
-          voice = &sp48->voices[sp56 + (D_800D3BA0 * 2)];
+          channel = &sp48->channels[sp56 + (D_800D3BA0 * 2)];
           if (D_800D3B98[D_800D3BA0] != 0) {
             D_800D3B98[D_800D3BA0]--;
           } else if (sp48->unk110[D_800D3BA0].unk8 >= sp48->unk110[D_800D3BA0].unkC) {
             D_80128DE0[D_800D3BA0] = 0xFF;
-            voice->state = 0;
+            channel->state = 0;
             D_800D3B98[D_800D3BA0] = 0;
             sp48->unk20[D_800D3BA0] = 0;
             sp48->unk354[D_800D3BA0 * 2] = 1;
@@ -1514,47 +1512,47 @@ static ALMicroTime Dcm_VoiceHandler_2(void *arg0) {
                 sp57 = sp58 >> 14;
                 sp58 &= 0x3FFF;
                 sp58 = D_800D3B40[sp57] + (sp58 << sp57);
-                voice->pitch = Dcm_SetPitch_2(sp58);
+                channel->pitch = Dcm_SetPitch_2(sp58);
               }
 
               if (sp55 & 0x20) {  // set vol
                 sp3B = *sp48->unk110[D_800D3BA0].unk8;  // index into a volume table (D_80128AD8)
                 sp48->unk110[D_800D3BA0].unk8++;
                 if (sp48->unk110[D_800D3BA0].unk0[2]) {
-                  voice->vol = D_80128AD8[sp48->unk110[D_800D3BA0].unk0[1]];
+                  channel->vol = D_80128AD8[sp48->unk110[D_800D3BA0].unk0[1]];
                 } else {
-                  voice->vol = D_80128AD8[sp3B];
+                  channel->vol = D_80128AD8[sp3B];
                 }
               }
 
               if (sp55 & 0x10) {  // set pan
-                voice->pan = *sp48->unk110[D_800D3BA0].unk8 >> 1;
+                channel->pan = *sp48->unk110[D_800D3BA0].unk8 >> 1;
                 sp48->unk110[D_800D3BA0].unk8++;
               }
 
               if (sp55 & 8) {
                 sp54 = *sp48->unk110[D_800D3BA0].unk8;
                 sp48->unk110[D_800D3BA0].unk8++;
-                voice->wt = &sp48->unk18->wt[sp48->unk110[D_800D3BA0].unk1C[sp54]];
+                channel->wt = &sp48->unk18->wt[sp48->unk110[D_800D3BA0].unk1C[sp54]];
                 sp48->unkD0[sp56 + (D_800D3BA0 * 2)] = sp54;
 
-                if (voice->state == 1) {
-                  if (voice->v.pvoice != NULL) {
-                    filter = voice->v.pvoice->channelKnob;
-                    voice->v.pvoice->offset = 576;
+                if (channel->state == 1) {
+                  if (channel->v.pvoice != NULL) {
+                    filter = channel->v.pvoice->channelKnob;
+                    channel->v.pvoice->offset = 576;
 
                     param = __allocParam();
                     if (param != NULL) {
                       param->delta = sp48->alGlobals->drvr.paramSamples;
                       param->type = AL_FILTER_SET_VOLUME;
                       param->data.i = 0;
-                      param->moredata.i = voice->v.pvoice->offset - 64;
+                      param->moredata.i = channel->v.pvoice->offset - 64;
                       filter->setParam(filter, AL_FILTER_ADD_UPDATE, param);
                     }
 
                     param = __allocParam();
                     if (param != NULL) {
-                      param->delta = sp48->alGlobals->drvr.paramSamples + voice->v.pvoice->offset;
+                      param->delta = sp48->alGlobals->drvr.paramSamples + channel->v.pvoice->offset;
                       param->type = AL_FILTER_STOP_VOICE;
                       param->next = NULL;
                       filter->setParam(filter, AL_FILTER_ADD_UPDATE, param);
@@ -1564,32 +1562,32 @@ static ALMicroTime Dcm_VoiceHandler_2(void *arg0) {
               }
 
               if (sp55 & 4) {
-                voice->wt->base = sp48->unk18->wt_base[sp48->unk110[D_800D3BA0].unk1C[sp48->unkD0[sp56 + (D_800D3BA0 * 2)]]] + (*sp48->unk110[D_800D3BA0].unk8 << 8);
+                channel->wt->base = sp48->unk18->wt_base[sp48->unk110[D_800D3BA0].unk1C[sp48->unkD0[sp56 + (D_800D3BA0 * 2)]]] + (*sp48->unk110[D_800D3BA0].unk8 << 8);
                 sp48->unk110[D_800D3BA0].unk8++;
-                voice->wt->len = sp48->unk18->wt_len[sp48->unk110[D_800D3BA0].unk1C[sp48->unkD0[sp56 + (D_800D3BA0 * 2)]]] - (voice->wt->base - sp48->unk18->wt_base[sp48->unk110[D_800D3BA0].unk1C[sp48->unkD0[sp56 + (D_800D3BA0 * 2)]]]);
+                channel->wt->len = sp48->unk18->wt_len[sp48->unk110[D_800D3BA0].unk1C[sp48->unkD0[sp56 + (D_800D3BA0 * 2)]]] - (channel->wt->base - sp48->unk18->wt_base[sp48->unk110[D_800D3BA0].unk1C[sp48->unkD0[sp56 + (D_800D3BA0 * 2)]]]);
               } else if (sp55 & 2) {
-                voice->wt->base = sp48->unk18->wt_base[sp48->unk110[D_800D3BA0].unk1C[sp48->unkD0[sp56 + (D_800D3BA0 * 2)]]];
-                voice->wt->len = sp48->unk18->wt_len[sp48->unk110[D_800D3BA0].unk1C[sp48->unkD0[sp56 + (D_800D3BA0 * 2)]]];
+                channel->wt->base = sp48->unk18->wt_base[sp48->unk110[D_800D3BA0].unk1C[sp48->unkD0[sp56 + (D_800D3BA0 * 2)]]];
+                channel->wt->len = sp48->unk18->wt_len[sp48->unk110[D_800D3BA0].unk1C[sp48->unkD0[sp56 + (D_800D3BA0 * 2)]]];
               }
 
               if (sp55 & 2) {
-                if (voice->state == 1) {
-                  if (voice->v.pvoice != NULL) {
-                    filter = voice->v.pvoice->channelKnob;
-                    voice->v.pvoice->offset = 576;
+                if (channel->state == 1) {
+                  if (channel->v.pvoice != NULL) {
+                    filter = channel->v.pvoice->channelKnob;
+                    channel->v.pvoice->offset = 576;
 
                     param = __allocParam();
                     if (param != NULL) {
                       param->delta = sp48->alGlobals->drvr.paramSamples;
                       param->type = AL_FILTER_SET_VOLUME;
                       param->data.i = 0;
-                      param->moredata.i = voice->v.pvoice->offset - 64;
+                      param->moredata.i = channel->v.pvoice->offset - 64;
                       filter->setParam(filter, AL_FILTER_ADD_UPDATE, param);
                     }
 
                     param = __allocParam();
                     if (param != NULL) {
-                      param->delta = sp48->alGlobals->drvr.paramSamples + voice->v.pvoice->offset;
+                      param->delta = sp48->alGlobals->drvr.paramSamples + channel->v.pvoice->offset;
                       param->type = AL_FILTER_STOP_VOICE;
                       param->next = NULL;
                       filter->setParam(filter, AL_FILTER_ADD_UPDATE, param);
@@ -1598,29 +1596,29 @@ static ALMicroTime Dcm_VoiceHandler_2(void *arg0) {
                 }
 
                 if (sp48->alGlobals != NULL) {
-                  if (voice->wt != NULL) {
-                    alSynStartVoiceParams(&sp48->alGlobals->drvr, &voice->v, voice->wt, voice->pitch, voice->vol, voice->pan, 0, 500);
+                  if (channel->wt != NULL) {
+                    alSynStartVoiceParams(&sp48->alGlobals->drvr, &channel->v, channel->wt, channel->pitch, channel->vol, channel->pan, 0, 500);
                   }
                 }
-                voice->state = 1;
+                channel->state = 1;
               }
 
-              if ((voice->state != 0) && (sp55 & 0x40) && !(sp55 & 2)) {
-                alSynSetPitch(&sp48->alGlobals->drvr, &voice->v, voice->pitch);
+              if ((channel->state != 0) && (sp55 & 0x40) && !(sp55 & 2)) {
+                alSynSetPitch(&sp48->alGlobals->drvr, &channel->v, channel->pitch);
               }
 
-              if ((voice->state != 0) && (sp55 & 0x20) && !(sp55 & 2)) {
-                alSynSetVol(&sp48->alGlobals->drvr, &voice->v, voice->vol, 500);
+              if ((channel->state != 0) && (sp55 & 0x20) && !(sp55 & 2)) {
+                alSynSetVol(&sp48->alGlobals->drvr, &channel->v, channel->vol, 500);
               }
 
-              if ((voice->state != 0) && (sp55 & 0x10) && !(sp55 & 2)) {
-                alSynSetPan(&sp48->alGlobals->drvr, &voice->v, voice->pan);
+              if ((channel->state != 0) && (sp55 & 0x10) && !(sp55 & 2)) {
+                alSynSetPan(&sp48->alGlobals->drvr, &channel->v, channel->pan);
               }
 
-              if (voice->state != 0) {
+              if (channel->state != 0) {
                 if (sp48->unk110[D_800D3BA0].unk0[2]) {
-                  voice->vol = D_80128AD8[sp48->unk110[D_800D3BA0].unk0[1]];
-                  alSynSetVol(&sp48->alGlobals->drvr, &voice->v, voice->vol, 500);
+                  channel->vol = D_80128AD8[sp48->unk110[D_800D3BA0].unk0[1]];
+                  alSynSetVol(&sp48->alGlobals->drvr, &channel->v, channel->vol, 500);
                 }
               }
 
@@ -1735,7 +1733,7 @@ static s32 Audio2_8008c104_oneliner_arg0_math_2(u8 *arg0) {
 }
 
 static s32 Audio2_8008c130_oneliner_arg0_math_3(u8 *arg0) {
-  return  arg0[3] + (arg0[2] << 8) + (arg0[1] << 16) + (arg0[0] << 24);
+  return arg0[3] + (arg0[2] << 8) + (arg0[1] << 16) + (arg0[0] << 24);
 }
 
 void Audio2_SFX_Debug_Print(Sample *arg0) {

@@ -226,7 +226,7 @@ static void Audio_ALManager(ALSynConfig *arg0, s32 arg1, UnkStruct_93 *arg2) {
 
   D_801267A0 = osScGetCmdQ(&scheduler);
   arg0->dmaproc = &func_80085CF4;
-  arg0->outputRate = osAiSetFrequency(arg2->freq);
+  arg0->outputRate = osAiSetFrequency(arg2->freq);  // 36007
 
   sp28 = (f32) arg2->unk4 * arg0->outputRate / 60;
   D_80128A58 = (s32) sp28;

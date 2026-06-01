@@ -5,20 +5,20 @@
 #define H2O_RAW8_WAVE 2
 
 typedef struct {
+  /* 0x0 */ s32   dcm1;  // 'DCM1' as int
+  /* 0x4 */ u8    num_channels;
+  /* 0x5 */ u8    num_samples;
+  /* 0x8 */ s32   stream_sz;
+  /* 0xC */ s32   unkC;  // 0
+} DcmHeader; // 0x10 bytes
+
+typedef struct {
   /* 0x0 */ u32   smplen;
   /* 0x4 */ u32   loopBegin;
   /* 0x8 */ u32   loopEnd;
   /* 0xC */ u16   flags;
-  /* 0xE */ u16   id;  // x_id
+  /* 0xE */ u16   id;
 } Sample; // 0x10 bytes
-
-typedef struct {
-  /* 0x0 */ s32   dcm1;  // 'DCM1' as int
-  /* 0x4 */ u8    num_channels;
-  /* 0x5 */ u8    num_samples;
-  /* 0x8 */ s32   stream_sz;  // size of stream; TODO: is this pattern data?
-  /* 0xC */ s32   unkC;  // 0
-} DcmHeader; // 0x10 bytes
 
 typedef struct {
   /* 0x0   */ ALWaveTable   wt[66];
@@ -37,7 +37,7 @@ typedef struct {
   /* 0x26 */ s8            pan;
   /* 0x27 */ u8            state;
   /* 0x28 */ s16           unk28;  // vol index
-} Voice; // 0x2C bytes
+} Channel; // 0x2C bytes
 
 typedef struct {
   /* 0x0    */ ALPlayer       node;
@@ -46,7 +46,7 @@ typedef struct {
   /* 0x418  */ DcmHeader      unk418;
   /* 0x428  */ u8             unk428[16];
   /* 0x438  */ UnkStruct_96  *unk438;
-  /* 0x43C  */ Voice         *voices;  // list of 16 voices
+  /* 0x43C  */ Channel       *channels;
   /* 0x440  */ s32            unk440;  // number of channels
   /* 0x444  */ u8            *unk444;  // stream
   /* 0x448  */ u8            *unk448;
@@ -106,7 +106,7 @@ typedef struct {
   /* 0x0   */ ALPlayer       unk0;
   /* 0x14  */ ALGlobals     *alGlobals;
   /* 0x18  */ UnkStruct_96  *unk18;
-  /* 0x1C  */ Voice         *voices;
+  /* 0x1C  */ Channel       *channels;
   /* 0x20  */ u32            unk20[16];
   /* 0x60  */ s32            unk60[8];
   /* 0x80  */ s32            unk80;
@@ -185,11 +185,11 @@ typedef struct {
 extern SongPlayer D_80122010;
 extern SfxPlayer D_801235B0;
 extern UnkStruct_96 D_80123A18;
-extern Voice D_80124678[];
+extern Channel D_80124678[];
 extern UnkStruct_96 D_80124938;
-extern Voice D_80125598[];
+extern Channel D_80125598[];
 extern UnkStruct_96 D_80125858;
-extern Voice D_801264B8[];
+extern Channel D_801264B8[];
 extern ALHeap D_80126778;
 extern u8 *D_80126788;
 extern u8 *D_8012678C;
@@ -236,7 +236,7 @@ extern SfxBank g_gameSfxBank;
 extern SfxBank g_introSfxBank;
 extern u16 D_800D3B50;
 
-extern void           Dcm_Init(SongPlayer *, UnkStruct_96 *, Voice *, u8, s16, u8);
+extern void           Dcm_Init(SongPlayer *, UnkStruct_96 *, Channel *, u8, s16, u8);
 extern void           Audio2_AllocDcmHeader(SongPlayer *, u8 *);
 extern void          *Audio2_80086138_largeliner_channels(SongPlayer *, u8 *, void *, u8);
 extern void           Audio2_AllocDcmScratch8(SongPlayer *);
