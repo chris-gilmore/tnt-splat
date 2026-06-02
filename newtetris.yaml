@@ -187,8 +187,8 @@ segments:
       - {start: 0x04A980, type:   c, vram: 0x80084700, name: newtetris/audio}
       - {start: 0x04BFD0, type:   c, vram: 0x80085D50, name: newtetris/dcm}
       - {start: 0x052570, type: asm, vram: 0x8008C2F0, name: newtetris/audio_env}
-      - {start: 0x0539F0, type: asm, vram: 0x8008D770, name: newtetris/audio_load_}
-      - {start: 0x054820, type: asm, vram: 0x8008E5A0, name: newtetris/audio_synsetvol}
+      - {start: 0x0539F0, type:   c, vram: 0x8008D770, name: newtetris/audio_load}
+      - {start: 0x054820, type:   c, vram: 0x8008E5A0, name: newtetris/audio_synsetvol}
       - {start: 0x054910, type: asm, vram: 0x8008E690, name: newtetris/audio_synthesizer}
       - {start: 0x055220, type:   c, vram: 0x8008EFA0, name: newtetris/055220}
       - {start: 0x055500, type:   c, vram: 0x8008F280, name: newtetris/055500}

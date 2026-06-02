@@ -1108,14 +1108,14 @@ _ldexpf                   = 0x8008D290; // type:func
 _getRate                  = 0x8008D2C0; // type:func
 _getVol                   = 0x8008D690; // type:func
 
-// ultralib/audio/load_
-// - {start: 0x0539F0, type: asm, vram: 0x8008D770, name: newtetris/audio_load_}
-alAdpcmPull_              = 0x8008D770; // type:func
-alRaw16Pull_              = 0x8008DD18; // type:func
-alLoadParam_              = 0x8008E368; // type:func
+// ultralib/audio/load
+// - {start: 0x0539F0, type:   c, vram: 0x8008D770, name: newtetris/audio_load}
+h2oRaw16Pull              = 0x8008D770; // type:func
+h2oRaw8Pull               = 0x8008DD18; // type:func
+h2oLoadParam              = 0x8008E368; // type:func
 
 // ultralib/audio/synsetvol
-// - {start: 0x054820, type: asm, vram: 0x8008E5A0, name: newtetris/audio_synsetvol}
+// - {start: 0x054820, type:   c, vram: 0x8008E5A0, name: newtetris/audio_synsetvol}
 alSynSetVol               = 0x8008E5A0; // type:func
 
 // ultralib/audio/synthesizer

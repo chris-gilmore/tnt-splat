@@ -135,6 +135,7 @@ typedef struct {
 #include <newtetris/027BF0.h>
 #include <newtetris/rand.h>
 #include <newtetris/0691B0.h>
+#include <newtetris/audio_load.h>
 
 typedef union {
   struct {
