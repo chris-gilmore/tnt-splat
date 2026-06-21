@@ -190,7 +190,7 @@ segments:
       - {start: 0x0539F0, type:   c, vram: 0x8008D770, name: newtetris/audio_load}
       - {start: 0x054820, type:   c, vram: 0x8008E5A0, name: newtetris/audio_synsetvol}
       - {start: 0x054910, type: asm, vram: 0x8008E690, name: newtetris/audio_synthesizer}
-      - {start: 0x055220, type:   c, vram: 0x8008EFA0, name: newtetris/055220}
+      - {start: 0x055220, type:   c, vram: 0x8008EFA0, name: newtetris/055220}  # variant of LZ77? decompression for dcm pattern data
       - {start: 0x055500, type:   c, vram: 0x8008F280, name: newtetris/055500}
       - {start: 0x063BC0, type:   c, vram: 0x8009D940, name: newtetris/063BC0}
       - {start: 0x066700, type:   c, vram: 0x800A0480, name: newtetris/066700}

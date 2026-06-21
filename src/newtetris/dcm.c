@@ -155,7 +155,7 @@ void Dcm_Init(SongPlayer *arg0, UnkStruct_96 *arg1, Channel *channels, u8 arg3, 
   arg0->unk1582 = 0;
   arg0->unk1586 = 0;
   arg0->unk157C = arg4;  // music_level (volume)
-  arg0->unk158A = 0x7FFF;
+  arg0->unk158A = 0x7FFF;  // max volume
   arg0->unk1588 = 0;
   arg0->unk1598 = 0;
   arg0->unk1599 = FALSE;
@@ -740,6 +740,7 @@ static ALMicroTime Dcm_VoiceHandler(void *arg0) {
             sp44 = sp5C->unk1468[(u8) (sp5C->unk1568 & 0xFF)] << 8;
             sp5C->unk1568++;
             sp5C->unk156C++;
+            // (bug?) Does this ever get reset back?
             channel->wt->base = sp5C->unk438->wt_base[sp5C->unk428[sp4C]] + sp44;
             channel->wt->len = sp5C->unk438->wt_len[sp5C->unk428[sp4C]] - (channel->wt->base - sp5C->unk438->wt_base[sp5C->unk428[sp4C]]);
 
@@ -1659,6 +1660,32 @@ static ALMicroTime Dcm_VoiceHandler_2(void *arg0) {
 
   return D_800D3940;
 }
+
+/*
+  Significance of the number 14318184.
+
+  14.318184 MHz is a standard, widely used clock crystal frequency in computer hardware, chosen to be an exact multiple of the NTSC color television subcarrier frequency (3.579545 MHz).
+
+  Its prevalence stems from computing history and architecture:
+
+  - Television Roots: The exact frequency is 4 x 3.579545 MHz (the NTSC color burst frequency). When early IBM PCs and graphics cards were being designed, it was cheaper to use readily available, mass-produced crystals from the television industry to generate the clock signals for the system.
+
+  - PC Clock Generation: In many computer architectures -- particularly older motherboards and legacy ports -- this frequency is the base clock from which various system buses (like ISA) are derived.
+
+  - Audio and I/O Codecs: It is still frequently used as the primary clock generator for inexpensive audio codecs and sound cards.
+
+  Because these quartz crystals have been in mass production for personal computers for over two decades, they are highly cost-effective and easy to source.
+*/
+
+/*
+  Significance of the number 8363.
+
+  A reference to 8363 Hz refers to the vintage Amiga computer audio sample rate. In early tracker software, this specific frequency was tied to the Amiga's hardware clock and remains a point of reference for tracking old-school digital music.
+
+  - The Amiga Clock: Early trackers (like Protracker) used the NTSC Amiga's 8363 Hz Paula chip interrupt rate as the system's baseline sample rate for a Middle C (C-4) note.
+
+  - The "32 Samples" Math: The pitch for C-4 is roughly 261.63 Hz. If you divide 8363 Hz by 261.63 Hz, you get approximately 32. Because 32 is a power of 2, it made looping and pitching waveforms much cleaner and less prone to digital clicking on hardware with limited memory.
+*/
 
 static f32 Dcm_SetPitch_2(s16 arg0) {
   f32 sp1C;

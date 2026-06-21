@@ -53,7 +53,7 @@ static void func_800A08A0(GUI_Textbox *arg0) {
 }
 
 static void func_800A08EC(GUI_Slider *arg0) {
-  func_800875EC(arg0->cur * 2340, &D_80120A70);
+  func_800875EC(arg0->cur * 2340, &g_songPlayer);
   g_sram_ptr->music_level = arg0->cur * 2340;
   func_8007C5CC(g_sram_ptr);
 }

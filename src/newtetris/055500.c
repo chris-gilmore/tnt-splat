@@ -3215,14 +3215,14 @@ void func_8009D5E4(void) {
     func_8008FF78(&D_801290D0);
     func_8009098C(&D_801290D0);
     rmonPrintf("Loading: %d\n", g_sram_ptr->song);
-    Audio_80084e20_twentyliner(g_sram_ptr->song, &D_80120A70, 1);
+    Audio_80084e20_twentyliner(g_sram_ptr->song, &g_songPlayer, 1);
     main_8004A34C_threeliner();
     func_8008F360(&D_801290D0, D_800D4E1C, D_800D4DD4);
     Font_Init46Char(&D_80128EB0, IMG_FONT_A);
     Font_Init46Char(&D_80128F28, IMG_FONT_B);
     Font_Init46Char(&D_80128FA0, IMG_FONT_C);
     main_8004A34C_threeliner();
-    Audio2_GFXDone_SendPlayMessage(&D_80120A70);
+    Audio2_GFXDone_SendPlayMessage(&g_songPlayer);
     D_800D3D88 = FALSE;
   }
 

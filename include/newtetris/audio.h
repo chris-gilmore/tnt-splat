@@ -7,7 +7,7 @@ typedef struct {
   /* 0x8 */ u32   max_clist_size;  // max Acmd list size
 } UnkStruct_93; // 0xC bytes
 
-extern SongPlayer D_80120A70;
+extern SongPlayer g_songPlayer;
 
 extern void   Audio_InitAudio(void);
 extern void   Audio_ChangeSong(s32, SongPlayer *);  // unused

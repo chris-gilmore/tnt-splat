@@ -141,7 +141,7 @@ static void func_8007F2C0(void) {
   D_800CFD4C = TRUE;
   func_80076EC0(&D_800D31A0, TRUE);
   func_800A4654(D_800D31A0.unk0);
-  Audio2_GFXDone_SendPlayMessage(&D_80120A70);
+  Audio2_GFXDone_SendPlayMessage(&g_songPlayer);
   Audio_LoadSFX(&g_introSfxBank);
   D_800D31D8 = 0;
 }

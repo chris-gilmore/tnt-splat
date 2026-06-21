@@ -123,7 +123,7 @@ static void main_infinite_loop_at_end_3(void *arg) {
       func_80061198();
       Audio2_GFXDone_SendStopMessage(&D_801235B0);
       Audio2_8008780c_sixliner_v1(&D_80122010);
-      Audio2_8008780c_sixliner_v1(&D_80120A70);
+      Audio2_8008780c_sixliner_v1(&g_songPlayer);
       D_800CFE38 += 999999;
       break;
     }
@@ -144,7 +144,7 @@ static void main_maybe_audio_related(void) {
     func_80061198();
     Audio2_GFXDone_SendStopMessage(&D_801235B0);
     Audio2_8008780c_sixliner_v1(&D_80122010);
-    Audio2_8008780c_sixliner_v1(&D_80120A70);
+    Audio2_8008780c_sixliner_v1(&g_songPlayer);
     break;
   }
 }

@@ -2048,7 +2048,7 @@ n64HeapEnd                = 0x801201D4; //            size:0x4    static  void*
 
 // - {start: 0xA8190, type: .bss, vram: 0x80120A40, name: newtetris/audio}
 D_80120A40                = 0x80120A40; // type:s32   size:0x30   unused  [12]
-D_80120A70                = 0x80120A70; //            size:0x15A0         SongPlayer
+g_songPlayer              = 0x80120A70; //            size:0x15A0         SongPlayer
 
 // - {start: 0xA8190, type: .bss, vram: 0x80122010, name: newtetris/dcm}
 D_80122010                = 0x80122010; //            size:0x15A0         SongPlayer

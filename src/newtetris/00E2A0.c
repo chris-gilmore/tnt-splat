@@ -398,7 +398,7 @@ void four_arguments_get_debug_printed(void) {
   D_800CFE20 = TRUE;
   rmonPrintf("Arg3\n");
   //n64HeapInit(main_BSS_END, D_80120EB4 - main_BSS_END);
-  n64HeapInit(main_BSS_END, (u8 *)D_80120A70.unk444 - main_BSS_END);
+  n64HeapInit(main_BSS_END, (u8 *)g_songPlayer.unk444 - main_BSS_END);
   func_800A9E44(&D_A8190, &D_ADAE0);  // rom addresses for fx_lut and fx assets
   func_8007CF40(1);  // haluci_init(1)
   rmonPrintf("Arg4\n");

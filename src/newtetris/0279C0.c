@@ -17,7 +17,7 @@ void FUN_0279C0_80061740_switch_0to8_1to6_same(void) {
     D_8011FAD4 = n64HeapAlloc(FUN_03A750_80074888_twelveliner(&D_273A00, IMG_WARNING_NO_CONTROLLER_PAL));
     FUN_03A750_800746c0_twentyliner(&D_273A00, D_8011FAD4, IMG_WARNING_NO_CONTROLLER_PAL);
     func_8007CF40(0);
-    func_800875EC(0x6000, &D_80120A70);
+    func_800875EC(0x6000, &g_songPlayer);
     func_80061134(400, 300);
     D_800D02A0++;
     break;

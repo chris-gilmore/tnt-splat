@@ -3,7 +3,7 @@
 extern u8 D_5B9AB0;  // dcm_lut
 
 static s32 D_80120A40[12];  // unused
-SongPlayer D_80120A70;
+SongPlayer g_songPlayer;
 
 static void Audio_80085408_oneliner_calls_allocdcm(SongPlayer *);
 static void Audio_ALManager(ALSynConfig *, s32, UnkStruct_93 *);
@@ -42,22 +42,22 @@ void Audio_InitAudio(void) {
   rmonPrintf("Audio M Size: %x\n", audioheap_BASE - D_80126798);
   D_80126788 = alHeapAlloc(&D_80126778, 1, 0x10);
   D_8012678C = D_80126788;
-  D_80120A70.unk1590 = D_80126788;
-  Dcm_Init(&D_80120A70, &D_80123A18, D_80124678, 16, D_80128DD8, TRUE);
+  g_songPlayer.unk1590 = D_80126788;
+  Dcm_Init(&g_songPlayer, &D_80123A18, D_80124678, 16, D_80128DD8, TRUE);
   Dcm_Init(&D_80122010, &D_80125858, D_801264B8, 16, 0x7FFF, FALSE);
-  D_80120A70.unk1590 = n64HeapAlloc(0xBCF20);
+  g_songPlayer.unk1590 = n64HeapAlloc(0xBCF20);
   D_80126790 = n64HeapAlloc(FUN_03A750_80074888_twelveliner(&D_5B9AB0, SONG_TITLE));
   rmonPrintf("\x1b[1;41m%s Allocated:  %x %d bytes Handle: %x AVAIL: %d\x1b[0m\n", "initAudio", FUN_03A750_80074888_twelveliner(&D_5B9AB0, SONG_TITLE), FUN_03A750_80074888_twelveliner(&D_5B9AB0, SONG_TITLE), D_80126790, n64HeapGetTotalMemFree());
   FUN_03A750_800746c0_twentyliner(&D_5B9AB0, D_80126790, SONG_TITLE);
 
-  D_80126788 = Audio2_80086138_largeliner_channels(&D_80120A70, D_80126790, D_80126794, 1);
-  D_80120A70.unk1580 = SONG_TITLE;
-  D_80120A70.unk1582 = SONG_TITLE;
-  D_80120A70.unk1584 = FALSE;
+  D_80126788 = Audio2_80086138_largeliner_channels(&g_songPlayer, D_80126790, D_80126794, 1);
+  g_songPlayer.unk1580 = SONG_TITLE;
+  g_songPlayer.unk1582 = SONG_TITLE;
+  g_songPlayer.unk1584 = FALSE;
   D_80128DDC = 5;
   main_8004A34C_threeliner();
-  while (!D_80120A70.unk1584) {
-    Audio_80085408_oneliner_calls_allocdcm(&D_80120A70);
+  while (!g_songPlayer.unk1584) {
+    Audio_80085408_oneliner_calls_allocdcm(&g_songPlayer);
   }
   rmonPrintf("\x1b[1;45m%s Released Handle: %x AVAIL: %d\x1b[0m\n", "initAudio", D_80126790, n64HeapGetTotalMemFree());
   n64HeapUnalloc(D_80126790);
@@ -80,7 +80,7 @@ void Audio_ChangeSong(s32 song, SongPlayer *arg1) {
   sp3C = n64HeapAlloc(FUN_03A750_80074888_twelveliner(&D_5B9AB0, song));
   rmonPrintf("\x1b[1;41m%s Allocated:  %x %d bytes Handle: %x AVAIL: %d\x1b[0m\n", "ChangeSongLoad", FUN_03A750_80074888_twelveliner(&D_5B9AB0, song), FUN_03A750_80074888_twelveliner(&D_5B9AB0, song), sp3C, n64HeapGetTotalMemFree());
   FUN_03A750_800746c0_twentyliner(&D_5B9AB0, sp3C, song);
-  Audio2_AllocDcmHeader(&D_80120A70, sp3C);
+  Audio2_AllocDcmHeader(&g_songPlayer, sp3C);
   rmonPrintf("\x1b[1;45m%s Released Handle: %x AVAIL: %d\x1b[0m\n", "ChangeSongLoad", sp3C, n64HeapGetTotalMemFree());
   n64HeapUnalloc(sp3C);
   if (arg1->unk444 != NULL) {
@@ -180,7 +180,7 @@ void Audio_LoadSFX(SfxBank *bank) {
   D_800D3B50 = bank->unkC;
   dcm_id = bank->dcm_id;
   Audio2_80088c84_largeliner(&D_801235B0, 1, 16);
-  rmonPrintf("SFX Size: %x Bank: %x SongLoaded: %x\n", bank->size, bank, D_80120A70.unk1580);
+  rmonPrintf("SFX Size: %x Bank: %x SongLoaded: %x\n", bank->size, bank, g_songPlayer.unk1580);
   if (n64HeapGetMaxFreeBlockSize() < bank->size) {
     rmonPrintf("Not Enuff Mem.. SFX NOT LOADED\n");
     debug_print_reason_routine("NOT ENUFF MEM FOR SFX", "audio.c");
