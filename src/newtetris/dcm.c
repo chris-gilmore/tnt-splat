@@ -245,7 +245,7 @@ void *Audio2_80086138_largeliner_channels(SongPlayer *arg0, u8 *arg1, void *arg2
   arg1 += 14;
   arg0->unk440 = arg0->unk418.num_channels;
   rmonPrintf("Number of Channels: %x \n", arg0->unk418.num_channels);
-  arg0->unk1574 = arg0->unk1590;
+  arg0->unk1574 = arg0->heap;
   arg0->unk444 = arg0->unk1574;
   arg0->unk448 = arg0->unk444;
   arg0->unk1574 += (arg0->unk418.stream_sz + 0xF) & ~0xF;

@@ -42,10 +42,10 @@ void Audio_InitAudio(void) {
   rmonPrintf("Audio M Size: %x\n", audioheap_BASE - D_80126798);
   D_80126788 = alHeapAlloc(&D_80126778, 1, 0x10);
   D_8012678C = D_80126788;
-  g_songPlayer.unk1590 = D_80126788;
+  g_songPlayer.heap = D_80126788;
   Dcm_Init(&g_songPlayer, &D_80123A18, D_80124678, 16, D_80128DD8, TRUE);
   Dcm_Init(&D_80122010, &D_80125858, D_801264B8, 16, 0x7FFF, FALSE);
-  g_songPlayer.unk1590 = n64HeapAlloc(0xBCF20);
+  g_songPlayer.heap = n64HeapAlloc(0xBCF20);
   D_80126790 = n64HeapAlloc(FUN_03A750_80074888_twelveliner(&D_5B9AB0, SONG_TITLE));
   rmonPrintf("\x1b[1;41m%s Allocated:  %x %d bytes Handle: %x AVAIL: %d\x1b[0m\n", "initAudio", FUN_03A750_80074888_twelveliner(&D_5B9AB0, SONG_TITLE), FUN_03A750_80074888_twelveliner(&D_5B9AB0, SONG_TITLE), D_80126790, n64HeapGetTotalMemFree());
   FUN_03A750_800746c0_twentyliner(&D_5B9AB0, D_80126790, SONG_TITLE);

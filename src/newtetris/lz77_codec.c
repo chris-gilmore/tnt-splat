@@ -1,6 +1,9 @@
 #include "common.h"
 
-void func_8008EFA0(u8 *arg0, UnkStruct_85 *arg1) {
+/*
+  Preset dictionary.
+*/
+void func_8008EFA0(u8 *arg0, LZ77_Decompressor *arg1) {
   s16 i;
   s16 j;
 
@@ -24,7 +27,11 @@ void func_8008EFA0(u8 *arg0, UnkStruct_85 *arg1) {
   arg1->unk100E = 0;
 }
 
-u8 func_8008F0D0(UnkStruct_85 *arg0) {
+/*
+  Decompression function for dcm pattern data.
+  Is this a variant of LZ77 ?
+*/
+u8 func_8008F0D0(LZ77_Decompressor *arg0) {
   u8 ret;
 
   if (arg0->unk100C == 0) {

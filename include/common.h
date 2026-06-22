@@ -103,7 +103,7 @@ typedef struct {
 #include <newtetris/multisquare.h>
 #include <newtetris/0073F0.h>
 #include <newtetris/0074E0.h>
-#include <newtetris/055220.h>
+#include <newtetris/lz77_codec.h>
 #include <newtetris/dcm.h>
 #include <newtetris/board.h>
 #include <newtetris/lineeffect.h>

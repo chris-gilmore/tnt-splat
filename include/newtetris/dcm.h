@@ -53,7 +53,7 @@ typedef struct {
   /* 0x44C  */ u8            *unk44C;  // stream
   /* 0x450  */ u32            unk450;
   /* 0x454  */ u8             unk454;
-  /* 0x458  */ UnkStruct_85   unk458;
+  /* 0x458  */ LZ77_Decompressor   unk458;
   /* 0x1468 */ u8             unk1468[256];
   /* 0x1568 */ u16            unk1568;
   /* 0x156A */ u16            unk156A;
@@ -76,7 +76,7 @@ typedef struct {
   /* 0x158C */ u8             unk158C;  // boolean
   /* 0x158D */ s8             unk158D;  // pan_level
   /* 0x158E */ u8             unk158E;  // boolean
-  /* 0x1590 */ u8            *unk1590;
+  /* 0x1590 */ u8            *heap;
   /* 0x1594 */ u8             pad1594[0x4];
   /* 0x1598 */ u8             unk1598;
   /* 0x1599 */ u8             unk1599;  // boolean

@@ -1130,9 +1130,9 @@ _timeToSamples            = 0x8008EE24; // type:func
 _samplesToTime            = 0x8008EE98; // type:func
 __nextSampleTime          = 0x8008EEFC; // type:func
 
-// - {start: 0x055220, type:   c, vram: 0x8008EFA0, name: newtetris/055220}
-func_8008EFA0             = 0x8008EFA0; // type:func
-func_8008F0D0             = 0x8008F0D0; // type:func
+// - {start: 0x055220, type:   c, vram: 0x8008EFA0, name: newtetris/lz77_codec}
+func_8008EFA0             = 0x8008EFA0; // type:func  preset dictionary
+func_8008F0D0             = 0x8008F0D0; // type:func  decompress
 
 // - {start: 0x055500, type:   c, vram: 0x8008F280, name: newtetris/055500}
 func_8008F280                                = 0x8008F280; // type:func
