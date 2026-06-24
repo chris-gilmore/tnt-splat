@@ -1,6 +1,8 @@
 #include "common.h"
 #include "minilzo.h"
 
+static s32 D_80120220;  // unused
+
 void func_80080E50(void) {
   __lzo_init2(LZO_VERSION, 2, 4, 4, 4, 4, 4, 4, 4, 4);
 }

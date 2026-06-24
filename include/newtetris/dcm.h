@@ -1,5 +1,5 @@
-#ifndef _dcm_H_
-#define _dcm_H_
+#ifndef _DCM_H_
+#define _DCM_H_
 
 // raw, signed 8-bit PCM audio data
 #define H2O_RAW8_WAVE 2
@@ -258,4 +258,4 @@ extern UnkStruct_95  *Audio2_Play_SFX(SfxPlayer *, SfxBank *, u8);
 extern void           Audio2_8008a6ec_nineliner(SfxPlayer *, SfxBank *, u8, s16);  // unused
 extern void           Audio2_SFX_Debug_Print(Sample *);
 
-#endif /* !_dcm_H_ */
+#endif /* !_DCM_H_ */

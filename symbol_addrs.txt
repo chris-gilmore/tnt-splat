@@ -1629,7 +1629,7 @@ g_gameSfxBank             = 0x800D3A90; //            size:0x14           SfxBan
 D_800D3AA4                = 0x800D3AA4; //            size:0x84   static  UnkStruct_104 [12]
 g_introSfxBank            = 0x800D3B28; //            size:0x14           SfxBank
 D_800D3B3C                = 0x800D3B3C; // type:s32   size:0x4    static
-D_800D3B40                = 0x800D3B40; // type:s32   size:0x10   static  [4]
+freq_base                 = 0x800D3B40; // type:u32   size:0x10   static  [4]
 D_800D3B50                = 0x800D3B50; // type:u16   size:0x2
 
 // - {start: 0x099E30, type: data, vram: 0x800D3BB0, name: newtetris/audio_env}

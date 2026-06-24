@@ -116,7 +116,7 @@ static UnkStruct_104 D_800D3AA4[12] = {
 };
 SfxBank g_introSfxBank = { D_800D3AA4, 28, 0x400, NULL, 0x100, 0x2B000 };
 static s32 D_800D3B3C = 0;
-static s32 D_800D3B40[4] = { 0, 0x4000, 0xC000, 0x1C000 };
+static u32 freq_base[4] = { 0, 0x4000, 0xC000, 0x1C000 };
 u16 D_800D3B50 = 0;
 
 static void Audio2_80087478_oneliner_calls_fun(void *, u16);
@@ -682,7 +682,7 @@ static ALMicroTime Dcm_VoiceHandler(void *arg0) {
             sp48 &= 0xFFFF;
             sp43 = sp48 >> 14;
             sp48 &= 0x3FFF;
-            sp48 = D_800D3B40[sp43] + (sp48 << sp43);
+            sp48 = freq_base[sp43] + (sp48 << sp43);
             channel->pitch = Dcm_SetPitch(sp48);
           }
 
@@ -1512,7 +1512,7 @@ static ALMicroTime Dcm_VoiceHandler_2(void *arg0) {
                 sp58 &= 0xFFFF;
                 sp57 = sp58 >> 14;
                 sp58 &= 0x3FFF;
-                sp58 = D_800D3B40[sp57] + (sp58 << sp57);
+                sp58 = freq_base[sp57] + (sp58 << sp57);
                 channel->pitch = Dcm_SetPitch_2(sp58);
               }
 

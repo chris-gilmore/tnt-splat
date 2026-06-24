@@ -84,13 +84,13 @@ void FUN_032F00_MVC_control_menu_choice_process(void) {
 
   switch (D_800CFEE8) {
   case 0:
-    FUN_0279C0_80061740_switch_0to8_1to6_same();
+    FUN_0279C0_80061740_switch_0to8_1to6_same();  // WARNING_NO_CONTROLLER
     break;
   case 14:
     FUN_010870_OptionsDataMenu();
     break;
   case 1:
-    func_80080B50();
+    func_80080B50();  // BPS_AND_H2O_LOGO
     break;
   case 2:
     func_80083160();
