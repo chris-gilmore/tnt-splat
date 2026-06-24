@@ -314,8 +314,8 @@ static void func_8007D510(UnkStruct_86 *arg0, f32 arg1, f32 arg2, f32 arg3, f32 
 
 // unused
 static Gfx *func_8007D6A8(Gfx *gdl) {
-  MtxF spA0;
-  MtxF sp60;
+  Mtx4 spA0;
+  Mtx4 sp60;
   Vec3 sp54;
   Vec3 sp48;
   s32 sp44;

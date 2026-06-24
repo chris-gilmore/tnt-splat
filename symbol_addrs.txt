@@ -1324,15 +1324,24 @@ func_800AE6C8                          = 0x800AE6C8; // type:func unused
 func_800AE6E4                          = 0x800AE6E4; // type:func
 func_800AE700                          = 0x800AE700; // type:func
 
-// - {start: 0x074B00, type: asm, vram: 0x800AE880, name: newtetris/074B00}
+// - {start: 0x074B00, type:   c, vram: 0x800AE880, name: newtetris/linalg}
 func_800AE880                          = 0x800AE880; // type:func
+func_800AEA80                          = 0x800AEA80; // type:func
+func_800AEC54                          = 0x800AEC54; // type:func  determinant
+func_800AECFC                          = 0x800AECFC; // type:func
+func_800AEE4C                          = 0x800AEE4C; // type:func
 func_800AF0C4                          = 0x800AF0C4; // type:func
+func_800AF3A4                          = 0x800AF3A4; // type:func
 mtx4_mult                              = 0x800AF558; // type:func
+func_800AFBBC                          = 0x800AFBBC; // type:func
 vec3_dot                               = 0x800AFF04; // type:func
 vec3_cross                             = 0x800AFF34; // type:func
 vec3_squared                           = 0x800AFFA4; // type:func
 vec3_length                            = 0x800AFFCC; // type:func
 func_800B036C                          = 0x800B036C; // type:func
+func_800B04BC                          = 0x800B04BC; // type:func
+func_800B0F74                          = 0x800B0F74; // type:func
+vec4_dot                               = 0x800B1078; // type:func
 
 // - {start: 0x0A7560, type: .rodata, vram: 0x800E12E0, name: newtetris/077340}
 func_800B10C0                          = 0x800B10C0; // type:func static
@@ -2136,10 +2145,10 @@ g_frameTime               = 0x80129370; //            size:0x18           FrameT
 D_80129390                = 0x80129390; //            size:0x60   static  UnkStruct_69
 D_801293F0                = 0x801293F0; //            size:0x60   static  UnkStruct_69
 
-D_80129480                = 0x80129480; //            size:0x40   static  MtxF
-D_801294C0                = 0x801294C0; //            size:0x40   unused  MtxF
-D_80129500                = 0x80129500; //            size:0x40   static  MtxF
-D_80129540                = 0x80129540; //            size:0x40   static  MtxF
+D_80129480                = 0x80129480; //            size:0x40   static  Mtx4
+D_801294C0                = 0x801294C0; //            size:0x40   unused  Mtx4
+D_80129500                = 0x80129500; //            size:0x40   static  Mtx4
+D_80129540                = 0x80129540; //            size:0x40   static  Mtx4
 D_80129580                = 0x80129580; // type:s32   size:0x4    static
 
 D_80129588                = 0x80129588; // type:s32   size:0x4    static
@@ -2147,7 +2156,7 @@ D_80129588                = 0x80129588; // type:s32   size:0x4    static
 D_80129590                = 0x80129590; //            size:0x4    static  UnkStruct_45*
 D_80129594                = 0x80129594; //            size:0x4    static  UnkStruct_49*
 
-D_801295D8                = 0x801295D8; //            size:0x4    static  MtxF*
+D_801295D8                = 0x801295D8; //            size:0x4    static  Mtx4*
 D_801295DC                = 0x801295DC; //            size:0x4    static  s16*
 
 // - {start: 0xA8190, type: bss, vram: 0x801295E0, name: newtetris/06F290}

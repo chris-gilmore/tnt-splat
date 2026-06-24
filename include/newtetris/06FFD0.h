@@ -201,8 +201,8 @@ typedef struct {
 
 typedef struct {
   /* 0x0   */ Mtx    unk0[2];
-  /* 0x80  */ MtxF   unk80;
-  /* 0xC0  */ MtxF   unkC0;
+  /* 0x80  */ Mtx4   unk80;
+  /* 0xC0  */ Mtx4   unkC0;
   /* 0x100 */ u8     pad100[0x40];
   /* 0x140 */ f32    unk140[3];
   /* 0x14C */ f32    unk14C[3];

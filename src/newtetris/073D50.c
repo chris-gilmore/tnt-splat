@@ -202,7 +202,7 @@ void func_800AE700(UnkStruct_88 *arg0, f32 arg1) {
 }
 
 static void func_800AE70C(UnkStruct_88 *arg0) {
-  MtxF sp50;
+  Mtx4 sp50;
   Vec3 sp44;
   Vec3 sp38;
   f32 sp34;

@@ -7,11 +7,11 @@ typedef struct {
   /* 0x5   */ u8             unk5;
   /* 0x6   */ u16            unk6;    // frametime
   /* 0x8   */ UnkStruct_48  *unk8;
-  /* 0xC   */ MtxF           unkC;
-  /* 0x4C  */ MtxF           unk4C;
-  /* 0x8C  */ MtxF           unk8C;
-  /* 0xCC  */ MtxF           unkCC;
-  /* 0x10C */ MtxF           unk10C;
+  /* 0xC   */ Mtx4           unkC;
+  /* 0x4C  */ Mtx4           unk4C;
+  /* 0x8C  */ Mtx4           unk8C;
+  /* 0xCC  */ Mtx4           unkCC;
+  /* 0x10C */ Mtx4           unk10C;
   /* 0x14C */ u8             pad14C[0x84];
   /* 0x1D0 */ UnkStruct_50  *unk1D0;  // animation list (root node)
   /* 0x1D4 */ u8             unk1D4;

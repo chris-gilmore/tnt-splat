@@ -11,21 +11,10 @@ typedef signed size_t;
 typedef long           intptr_t;
 typedef unsigned long  uintptr_t;
 
-typedef struct {
-  f32 x, y, z;
-} Vec3;
-
-typedef struct {
-  f32 m00, m01, m02, m03; // Row 0
-  f32 m10, m11, m12, m13; // Row 1
-  f32 m20, m21, m22, m23; // Row 2
-  f32 m30, m31, m32, m33; // Row 3
-} MtxF;
-
 #include <newtetris/066700.h>
 #include <newtetris/sram.h>
 #include <newtetris/069170.h>
-#include <newtetris/074B00.h>
+#include <newtetris/linalg.h>
 #include <newtetris/06FFD0.h>
 #include <newtetris/borganim.h>
 #include <newtetris/072C40.h>

@@ -129,7 +129,7 @@ static Gfx *func_800AD2FC(Gfx *gdl, UnkStruct_86 *arg1, UnkStruct_32 *arg2) {
   f32 tmp;
   UnkStruct_84 spF8;
   UnkStruct_84 spE8;
-  MtxF spA8;
+  Mtx4 spA8;
   u8 r, g, b, a;
 
   if (arg1->unk118 & 0x4) {

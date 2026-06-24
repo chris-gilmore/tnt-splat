@@ -7,10 +7,10 @@
 static UnkStruct_69 D_80129390;
 static UnkStruct_69 D_801293F0;
 static u8 D_80129450[0x30];  // padding; what is this?
-static MtxF D_80129480;
-static MtxF D_801294C0;  // unused
-static MtxF D_80129500;
-static MtxF D_80129540;
+static Mtx4 D_80129480;
+static Mtx4 D_801294C0;  // unused
+static Mtx4 D_80129500;
+static Mtx4 D_80129540;
 
 static s32 D_800D6200 = 0;
 static UnkStruct_44 *D_800D6204 = NULL;
@@ -25,17 +25,17 @@ static Light D_800D6208 = {
   }
 };
 
-extern /* static */ void   func_800A4CF0(UnkStruct_49 *, MtxF *);
-extern /* static */ void   func_800A4EC0(UnkStruct_49 *, MtxF *);
-static void   func_800A5114(UnkStruct_49 *, MtxF *);
-static void   func_800A52E4(UnkStruct_49 *, MtxF *);
-static void   func_800A53E0(UnkStruct_49 *, MtxF *);
-static void   func_800A5660(UnkStruct_49 *, MtxF *);
-static void   func_800A56E4(MtxF *, MtxF *);
-static void   func_800A57A4(MtxF *, MtxF *);
-static void   func_800A57FC(UnkStruct_49 *, MtxF *);
+extern /* static */ void   func_800A4CF0(UnkStruct_49 *, Mtx4 *);
+extern /* static */ void   func_800A4EC0(UnkStruct_49 *, Mtx4 *);
+static void   func_800A5114(UnkStruct_49 *, Mtx4 *);
+static void   func_800A52E4(UnkStruct_49 *, Mtx4 *);
+static void   func_800A53E0(UnkStruct_49 *, Mtx4 *);
+static void   func_800A5660(UnkStruct_49 *, Mtx4 *);
+static void   func_800A56E4(Mtx4 *, Mtx4 *);
+static void   func_800A57A4(Mtx4 *, Mtx4 *);
+static void   func_800A57FC(UnkStruct_49 *, Mtx4 *);
 static void   func_800A58A4(UnkStruct_32 *);
-static void   func_800A59C0(UnkStruct_32 *, MtxF *);
+static void   func_800A59C0(UnkStruct_32 *, Mtx4 *);
 static void   func_800A652C(UnkStruct_32 *, UnkStruct_50 *);
 static void   func_800A6AC8(UnkStruct_52 *);
 static void   func_800A6B14(UnkStruct_51 *, f32);
@@ -72,7 +72,7 @@ Gfx *func_800A4B98(Gfx *gdl, UnkStruct_44 *arg1) {
 
   The function is creating a 4x4 transformation matrix (rotation + translation) from an array of floats.
 */
-static void func_800A5114(UnkStruct_49 *arg0, MtxF *arg1) {
+static void func_800A5114(UnkStruct_49 *arg0, Mtx4 *arg1) {
   f32 *ptr;
   f32 sp48;
   f32 sp44;
@@ -118,7 +118,7 @@ static void func_800A5114(UnkStruct_49 *arg0, MtxF *arg1) {
   arg1->m33 = 1;
 }
 
-static void func_800A52E4(UnkStruct_49 *arg0, MtxF *arg1) {
+static void func_800A52E4(UnkStruct_49 *arg0, Mtx4 *arg1) {
   f32 sp24;
   f32 sp20;
   f32 sp1C;
@@ -165,7 +165,7 @@ static void func_800A52E4(UnkStruct_49 *arg0, MtxF *arg1) {
 
   Roll (camera's tilt around its viewing direction)
 */
-static void func_800A53E0(UnkStruct_49 *arg0, MtxF *arg1) {
+static void func_800A53E0(UnkStruct_49 *arg0, Mtx4 *arg1) {
   f32 temp_fv0;
   f32 temp_fv1;
   f32 temp_fa0;
@@ -179,7 +179,7 @@ static void func_800A53E0(UnkStruct_49 *arg0, MtxF *arg1) {
   f32 sp74;
   f32 sp70;
   f32 sp6C;
-  MtxF sp2C;
+  Mtx4 sp2C;
   f32 sp28;
   f32 sp24;
 
@@ -235,7 +235,7 @@ static void func_800A53E0(UnkStruct_49 *arg0, MtxF *arg1) {
   *arg1 = sp2C;
 }
 
-static void func_800A5660(UnkStruct_49 *arg0, MtxF *arg1) {
+static void func_800A5660(UnkStruct_49 *arg0, Mtx4 *arg1) {
   switch (arg0->unk2) {
   case 0:
     func_800A4CF0(arg0, arg1);
@@ -258,7 +258,7 @@ static void func_800A5660(UnkStruct_49 *arg0, MtxF *arg1) {
 /*
   Multiplies each axis of the input matrix by the corresponding value in the fourth column, effectively applying non-uniform scaling or perspective division, and writes the result to an output matrix.
 */
-static void func_800A56E4(MtxF *arg0, MtxF *arg1) {
+static void func_800A56E4(Mtx4 *arg0, Mtx4 *arg1) {
   f32 w, x, y, z;
 
   w = arg0->m03;
@@ -305,7 +305,7 @@ static void func_800A56E4(MtxF *arg0, MtxF *arg1) {
   arg1->m33 = 1;
 }
 
-static void func_800A57A4(MtxF *arg0, MtxF *arg1) {
+static void func_800A57A4(Mtx4 *arg0, Mtx4 *arg1) {
   if (arg1 != arg0) {
     *arg1 = *arg0;
   }
@@ -315,11 +315,11 @@ static void func_800A57A4(MtxF *arg0, MtxF *arg1) {
   arg1->m23 = 1;
 }
 
-static void func_800A57FC(UnkStruct_49 *arg0, MtxF *arg1) {
+static void func_800A57FC(UnkStruct_49 *arg0, Mtx4 *arg1) {
   UnkStruct_49 **var_s1;
   s32 i;
   s32 unused[4];
-  MtxF sp28;
+  Mtx4 sp28;
 
   func_800A5660(arg0, &D_80129480);
   func_800AF0C4(&sp28, arg1, &D_80129480);
@@ -347,23 +347,23 @@ static void func_800A58A4(UnkStruct_32 *arg0) {
 // unused
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/borganim/func_800A5930.s")
 
-static void func_800A59C0(UnkStruct_32 *arg0, MtxF *arg1) {
-  MtxF *var_s0;
+static void func_800A59C0(UnkStruct_32 *arg0, Mtx4 *arg1) {
+  Mtx4 *var_s0;
   UnkStruct_49 *var_s1;
   s32 unused;
   s32 var_s3;
   UnkStruct_45 *temp_s0;
   UnkStruct_75 *sp220;
-  MtxF sp1E0;
-  MtxF sp1A0;
-  MtxF sp160;
-  MtxF sp120;
-  MtxF spE0;
-  MtxF spA0;
+  Mtx4 sp1E0;
+  Mtx4 sp1A0;
+  Mtx4 sp160;
+  Mtx4 sp120;
+  Mtx4 spE0;
+  Mtx4 spA0;
   f32 var_fv0;
   f32 var_fv1;
   s32 i;
-  MtxF sp54;
+  Mtx4 sp54;
 
   sp220 = &arg0->unk8->unk10;
   sp1E0 = *arg1;
@@ -1154,7 +1154,7 @@ static Gfx *func_800A7EFC(Gfx *gdl, UnkStruct_32 *arg1) {
   static UnkStruct_45 *D_80129590;
   static UnkStruct_49 *D_80129594;
   static u8 D_80129598[0x40];  // padding; what is this?
-  static MtxF *D_801295D8;
+  static Mtx4 *D_801295D8;
   static s16 *D_801295DC;
 
   s32 tmp;
@@ -1164,7 +1164,7 @@ static Gfx *func_800A7EFC(Gfx *gdl, UnkStruct_32 *arg1) {
   s32 var_a2;
   s32 var_s0;
   UnkStruct_39 **var_a0;
-  MtxF *temp_v1_2;
+  Mtx4 *temp_v1_2;
   s8 *dir;
   f32 temp_fv0_4;
 
@@ -1341,7 +1341,7 @@ static Gfx *func_800A7EFC(Gfx *gdl, UnkStruct_32 *arg1) {
         Vec3 sp110;
         Vec3 sp104;
         Vec3 spF8;
-        MtxF *temp_s0;
+        Mtx4 *temp_s0;
         UnkStruct_49 *temp_s1;
 
         temp_s0 = &D_801293F0.unk8->unkC->unkC0;
