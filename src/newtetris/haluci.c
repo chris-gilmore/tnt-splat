@@ -351,9 +351,9 @@ static Gfx *func_8007D6A8(Gfx *gdl) {
     sp54.z = -128;
     func_800AFBBC(&sp48, &spA0, &sp54);
 
-    sp60.m30 = sp48.x;
-    sp60.m31 = sp48.y;
-    sp60.m32 = sp48.z;
+    sp60.a14 = sp48.x;
+    sp60.a24 = sp48.y;
+    sp60.a34 = sp48.z;
 
     guMtxF2L((f32 (*)[4]) &sp60, &D_8011FEB0[sp44]);
 

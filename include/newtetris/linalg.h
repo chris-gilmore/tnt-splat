@@ -13,16 +13,16 @@ typedef struct {
 } Vec4;
 
 typedef struct {
-  f32 m00, m01, m02; // Row 0
-  f32 m10, m11, m12; // Row 1
-  f32 m20, m21, m22; // Row 2
+  f32 a11, a12, a13; // Row 1
+  f32 a21, a22, a23; // Row 2
+  f32 a31, a32, a33; // Row 3
 } Mtx3;
 
 typedef struct {
-  f32 m00, m01, m02, m03; // Row 0
-  f32 m10, m11, m12, m13; // Row 1
-  f32 m20, m21, m22, m23; // Row 2
-  f32 m30, m31, m32, m33; // Row 3
+  f32 a11, a21, a31, a41; // Col 1
+  f32 a12, a22, a32, a42; // Col 2
+  f32 a13, a23, a33, a43; // Col 3
+  f32 a14, a24, a34, a44; // Col 4
 } Mtx4;
 
 extern void   func_800AE880(Mtx4 *, Mtx4 *);
@@ -33,11 +33,16 @@ extern void   func_800AEE4C(Mtx4 *, Mtx4 *, Mtx4 *);
 extern void   func_800AF0C4(Mtx4 *, Mtx4 *, Mtx4 *);
 extern void   func_800AF3A4(Mtx4 *, Mtx4 *, Mtx4 *);
 extern void   mtx4_mult(Mtx4 *, Mtx4 *, Mtx4 *);
+extern void   func_800AF95C(Mtx3 *, Mtx4 *, Mtx3 *);
+extern void   func_800AFB10(Vec3 *, Mtx4 *, Vec3 *);
 extern void   func_800AFBBC(Vec3 *, Mtx4 *, Vec3 *);
+extern void   func_800AFC50(Mtx3 *, const char *);
+extern void   func_800AFD1C(Mtx4 *, const char *);
 extern f32    vec3_dot(Vec3 *, Vec3 *);
 extern void   vec3_cross(Vec3 *, Vec3 *, Vec3 *);
 extern f32    vec3_squared(Vec3 *);
 extern f32    vec3_length(Vec3 *);
+extern f32    func_800AFFF0(Vec3 *, Vec3 *, Vec3 *);
 extern void   func_800B036C(Mtx4 *, f32, f32, f32);
 extern void   func_800B04BC(Mtx4 *, f32, f32, f32);
 extern void   func_800B0F74(Vec4 *, Mtx4 *, Vec4 *);

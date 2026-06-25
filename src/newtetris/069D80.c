@@ -4,9 +4,9 @@
 Vec3 D_800D61F0 = { 1, 0, 0 };
 
 void func_800A3B00(UnkStruct_32 *arg0, f32 arg1, f32 arg2, f32 arg3) {
-  arg0->unkC.m30 = arg1;
-  arg0->unkC.m31 = arg2;
-  arg0->unkC.m32 = arg3;
+  arg0->unkC.a14 = arg1;
+  arg0->unkC.a24 = arg2;
+  arg0->unkC.a34 = arg3;
 }
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/069D80/func_800A3B20.s")
@@ -80,26 +80,26 @@ void func_800A40FC(UnkStruct_32 *arg0, f32 arg1, f32 arg2, f32 arg3, f32 arg4, f
 
   vec3_cross(&sp2C, &sp44, &sp38);
 
-  arg0->unk4C.m00 = sp38.x;
-  arg0->unk4C.m01 = sp38.y;
-  arg0->unk4C.m02 = sp38.z;
+  arg0->unk4C.a11 = sp38.x;
+  arg0->unk4C.a21 = sp38.y;
+  arg0->unk4C.a31 = sp38.z;
 
-  arg0->unk4C.m10 = sp2C.x;
-  arg0->unk4C.m11 = sp2C.y;
-  arg0->unk4C.m12 = sp2C.z;
+  arg0->unk4C.a12 = sp2C.x;
+  arg0->unk4C.a22 = sp2C.y;
+  arg0->unk4C.a32 = sp2C.z;
 
-  arg0->unk4C.m20 = sp44.x;
-  arg0->unk4C.m21 = sp44.y;
-  arg0->unk4C.m22 = sp44.z;
+  arg0->unk4C.a13 = sp44.x;
+  arg0->unk4C.a23 = sp44.y;
+  arg0->unk4C.a33 = sp44.z;
 
-  arg0->unk4C.m30 = arg1;
-  arg0->unk4C.m31 = arg2;
-  arg0->unk4C.m32 = arg3;
+  arg0->unk4C.a14 = arg1;
+  arg0->unk4C.a24 = arg2;
+  arg0->unk4C.a34 = arg3;
 
-  arg0->unk4C.m03 = 0;
-  arg0->unk4C.m13 = 0;
-  arg0->unk4C.m23 = 0;
-  arg0->unk4C.m33 = 1;
+  arg0->unk4C.a41 = 0;
+  arg0->unk4C.a42 = 0;
+  arg0->unk4C.a43 = 0;
+  arg0->unk4C.a44 = 1;
 }
 
 void func_800A4304(UnkStruct_32 *arg0, f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6) {

@@ -224,15 +224,15 @@ static void func_800AE70C(UnkStruct_88 *arg0) {
 
   func_800A8FC8((s16 *) &sp50, 0, 32);
 
-  sp50.m00 = sp44.x;
-  sp50.m01 = sp44.y;
-  sp50.m10 = sp38.x;
-  sp50.m11 = sp38.y;
-  sp50.m22 = 1;
-  sp50.m33 = 1;
+  sp50.a11 = sp44.x;
+  sp50.a21 = sp44.y;
+  sp50.a12 = sp38.x;
+  sp50.a22 = sp38.y;
+  sp50.a33 = 1;
+  sp50.a44 = 1;
 
-  sp50.m30 = (-sp44.x * sp2C) - (sp38.x * sp28) + arg0->unk128.x + sp2C - 0.5;
-  sp50.m31 = (-sp44.y * sp2C) - (sp38.y * sp28) + arg0->unk128.y + sp28 - 0.5;
+  sp50.a14 = (-sp44.x * sp2C) - (sp38.x * sp28) + arg0->unk128.x + sp2C - 0.5;
+  sp50.a24 = (-sp44.y * sp2C) - (sp38.y * sp28) + arg0->unk128.y + sp28 - 0.5;
 
   guMtxF2L((f32 (*)[4]) &sp50, &arg0->unk18[arg0->unk10]);
 }
