@@ -83,19 +83,19 @@ void FUN_032F00_MVC_control_menu_choice_process(void) {
   register s32 unused;
 
   switch (D_800CFEE8) {
-  case 0:
-    FUN_0279C0_80061740_switch_0to8_1to6_same();  // WARNING_NO_CONTROLLER
+  case 0:  // WARNING_NO_CONTROLLER
+    FUN_0279C0_80061740_switch_0to8_1to6_same();
     break;
   case 14:
     FUN_010870_OptionsDataMenu();
     break;
-  case 1:
-    func_80080B50();  // BPS_AND_H2O_LOGO
+  case 1:  // BPS_AND_H2O_LOGO
+    func_80080B50();
     break;
-  case 2:
+  case 2:  // spinning N64 3d logo
     func_80083160();
     break;
-  case 3:  // intro
+  case 3:  // intro animation
     func_8007F344();
     break;
   case 4:
