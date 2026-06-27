@@ -11,6 +11,7 @@ static f32 D_801201FC;
 static void *D_80120200;  // IMG_TETRIS_START
 static void *D_80120204;  // IMG_TETRIS_START_PAL
 
+// intro animation
 static UnkStruct_11 D_800D31A0 = {
   NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0x00, 0.0, 0, 986
 };
@@ -18,7 +19,7 @@ static s32 D_800D31D0 = 3950;
 static s32 D_800D31D4 = 0;
 static s32 D_800D31D8 = 0;
 static s32 D_800D31DC = 0;
-static s32 D_800D31E0 = 1;
+static s32 D_800D31E0 = TRUE;
 static s32 D_800D31E4 = 0;
 
 static void func_8007F2C0(void);
@@ -137,17 +138,19 @@ void func_8007F288(f32 arg0) {
   D_801201FC = 1;
 }
 
+// init
 static void func_8007F2C0(void) {
   D_800CFD4C = TRUE;
-  func_80076EC0(&D_800D31A0, TRUE);
+  func_80076EC0(&D_800D31A0, TRUE);  // init
   func_800A4654(D_800D31A0.unk0);
   Audio2_GFXDone_SendPlayMessage(&g_songPlayer);
   Audio_LoadSFX(&g_introSfxBank);
   D_800D31D8 = 0;
 }
 
+// deinit
 static void func_8007F320(void) {
-  func_80077028(&D_800D31A0);
+  func_80077028(&D_800D31A0);  // deinit
 }
 
 void func_8007F344(void) {
@@ -227,10 +230,10 @@ void func_8007F344(void) {
   }
 
   if (D_800D31D8 == 0) {
-    if (D_800D31E0 != 0) {
-      func_8007F2C0();
+    if (D_800D31E0) {
+      func_8007F2C0();  // init
       D_800D31DC = 1;
-      D_800D31E0 = 0;
+      D_800D31E0 = FALSE;
     }
 
     // A_BUTTON / CONT_A || START_BUTTON / CONT_START
@@ -238,39 +241,39 @@ void func_8007F344(void) {
       func_8007EFB0(20);
       D_800D31DC = 13;
       Audio2_GFXDone_SendStopMessage(&D_801235B0);
-      D_800D31E0 = 1;
+      D_800D31E0 = TRUE;
       D_800D31D8 = 1;
     }
 
-    func_80077098(&D_800D31A0);
+    func_80077098(&D_800D31A0);  // render
   }
 
   if (D_800D31D8 == 1) {
-    if (D_800D31E0 != 0) {
-      D_800D31E0 = 0;
+    if (D_800D31E0) {
+      D_800D31E0 = FALSE;
     } else {
-      func_80077098(&D_800D31A0);
+      func_80077098(&D_800D31A0);  // render
     }
 
-    if (func_8007ED00() == 1) {
+    if (func_8007ED00() == 1) {  // fade to white
       main_8004A34C_threeliner();
-      func_8007F320();
-      D_800D31E0 = 1;
+      func_8007F320();  // deinit
+      D_800D31E0 = TRUE;
       D_800D31D8 = 2;
       return;
     }
   }
 
-  if ((D_800D31D8 == 2) && (D_800D31E0 != 0)) {
+  if ((D_800D31D8 == 2) && D_800D31E0) {
     main_8004A34C_threeliner();
     D_80120200 = n64HeapAlloc(FUN_03A750_80074888_twelveliner(&D_273A00, IMG_TETRIS_START));
     FUN_03A750_800746c0_twentyliner(&D_273A00, D_80120200, IMG_TETRIS_START);
     D_80120204 = n64HeapAlloc(FUN_03A750_80074888_twelveliner(&D_273A00, IMG_TETRIS_START_PAL));
     FUN_03A750_800746c0_twentyliner(&D_273A00, D_80120204, IMG_TETRIS_START_PAL);
-    D_800D31E0 = 1;
+    D_800D31E0 = TRUE;
     D_800D31D8 = 3;
     func_8007F288(20);
-    func_8007EFE4();
+    func_8007EFE4();  // fade from white
     return;
   }
 
@@ -278,7 +281,7 @@ void func_8007F344(void) {
     func_8005BBFC(&g_gdl);
     weird_lots_of_magic_number_setting_66xrefs(&g_gdl, D_80120200, D_80120204, 0, 0, 0xFF, 0xFF, 0xFF, 0xFF);
     func_8005BE40(&g_gdl);
-    if (func_8007EFE4() == 1) {
+    if (func_8007EFE4() == 1) {  // fade from white
       D_800D31D8 = 4;
       D_800D31E4 = 0;
     }
