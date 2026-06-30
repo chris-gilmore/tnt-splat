@@ -38,13 +38,29 @@ extern void   func_800AFB10(Vec3 *, Mtx4 *, Vec3 *);
 extern void   func_800AFBBC(Vec3 *, Mtx4 *, Vec3 *);
 extern void   func_800AFC50(Mtx3 *, const char *);
 extern void   func_800AFD1C(Mtx4 *, const char *);
+extern void   func_800AFE4C(Mtx4 *, Mtx *);
 extern f32    vec3_dot(Vec3 *, Vec3 *);
 extern void   vec3_cross(Vec3 *, Vec3 *, Vec3 *);
 extern f32    vec3_squared(Vec3 *);
 extern f32    vec3_length(Vec3 *);
 extern f32    func_800AFFF0(Vec3 *, Vec3 *, Vec3 *);
+extern f32    vec3_normalize(Vec3 *);
+extern f32    func_800B00BC(Vec3 *);
+extern void   func_800B0140(Mtx4 *, Vec3 *, f32);
+extern void   func_800B02F0(Mtx4 *, Vec3 *);
 extern void   func_800B036C(Mtx4 *, f32, f32, f32);
 extern void   func_800B04BC(Mtx4 *, f32, f32, f32);
+extern void   func_800B051C(Mtx4 *, f32, f32, f32);
+extern void   func_800B05A4(Mtx4 *);
+extern void   func_800B0700(Mtx4 *, Vec3 *, Vec3 *, Vec3 *);
+extern void   func_800B0890(Mtx3 *, Mtx3 *, Mtx3 *);  // M1 = M2 * M3
+extern void   func_800B0914(Vec3 *, Mtx3 *, Vec3 *);  // a = M * b
+extern f32    func_800B09A8(Vec3 *, Vec3 *, Vec3 *, Vec3 *);
+extern void   func_800B0A2C(Vec3 *, Vec3 *);
+extern void   func_800B0A98(Mtx4 *, Vec3 *, Vec3 *, Vec3 *, Vec3 *);
+extern void   func_800B0D9C(Mtx4 *, Vec3 *);
+extern u8     func_800B0E50(f32);
+extern void   func_800B0F08(Mtx4 *, f32 );
 extern void   func_800B0F74(Vec4 *, Mtx4 *, Vec4 *);
 extern f32    vec4_dot(Vec4 *, Vec4 *);
 

@@ -181,19 +181,19 @@ void inits_bunch_of_stuff_q_allocs_heap(void) {
 
   D_800E1FA0[0].list.t.type = M_GFXTASK;
   D_800E1FA0[0].list.t.flags = 0;
-  D_800E1FA0[0].list.t.ucode_boot = (u64 *) rspbootTextStart;
-  D_800E1FA0[0].list.t.ucode_boot_size = (intptr_t) gspF3DEX2_NoN_fifoTextStart - (intptr_t) rspbootTextStart;
-  D_800E1FA0[0].list.t.ucode = (u64 *) gspF3DEX2_NoN_fifoTextStart;
-  D_800E1FA0[0].list.t.ucode_size = 0x1000;
-  D_800E1FA0[0].list.t.ucode_data = (u64 *) gspF3DEX2_NoN_fifoDataStart;
-  D_800E1FA0[0].list.t.ucode_data_size = 0x800;
+  D_800E1FA0[0].list.t.ucode_boot = (u64 *)rspbootTextStart;
+  D_800E1FA0[0].list.t.ucode_boot_size = (u32)rspbootTextEnd - (u32)rspbootTextStart;
+  D_800E1FA0[0].list.t.ucode = (u64 *)gspF3DEX2_NoN_fifoTextStart;
+  D_800E1FA0[0].list.t.ucode_size = SP_UCODE_SIZE;
+  D_800E1FA0[0].list.t.ucode_data = (u64 *)gspF3DEX2_NoN_fifoDataStart;
+  D_800E1FA0[0].list.t.ucode_data_size = SP_UCODE_DATA_SIZE;
   D_800E1FA0[0].list.t.dram_stack = D_800E21C0;
-  D_800E1FA0[0].list.t.dram_stack_size = 0x400;
+  D_800E1FA0[0].list.t.dram_stack_size = SP_DRAM_STACK_SIZE8;
   D_800E1FA0[0].list.t.output_buff = D_800E31C0;
   D_800E1FA0[0].list.t.output_buff_size = D_800E31C0 + 0x4000;
   D_800E1FA0[0].list.t.yield_data_ptr = D_800E25C0;
-  D_800E1FA0[0].list.t.yield_data_size = 0xC00;
-  D_800E1FA0[0].list.t.data_ptr = (u64 *) D_800E20B8[0];
+  D_800E1FA0[0].list.t.yield_data_size = OS_YIELD_DATA_SIZE;
+  D_800E1FA0[0].list.t.data_ptr = (u64 *)D_800E20B8[0];
   D_800E1FA0[0].list.t.data_size = 0;
 
   D_800E1FA0[1].next = NULL;
@@ -205,19 +205,19 @@ void inits_bunch_of_stuff_q_allocs_heap(void) {
 
   D_800E1FA0[1].list.t.type = M_GFXTASK;
   D_800E1FA0[1].list.t.flags = 0;
-  D_800E1FA0[1].list.t.ucode_boot = (u64 *) rspbootTextStart;
-  D_800E1FA0[1].list.t.ucode_boot_size = (intptr_t) gspF3DEX2_NoN_fifoTextStart - (intptr_t) rspbootTextStart;
-  D_800E1FA0[1].list.t.ucode = (u64 *) gspF3DEX2_NoN_fifoTextStart;
-  D_800E1FA0[1].list.t.ucode_size = 0x1000;
-  D_800E1FA0[1].list.t.ucode_data = (u64 *) gspF3DEX2_NoN_fifoDataStart;
-  D_800E1FA0[1].list.t.ucode_data_size = 0x800;
+  D_800E1FA0[1].list.t.ucode_boot = (u64 *)rspbootTextStart;
+  D_800E1FA0[1].list.t.ucode_boot_size = (u32)rspbootTextEnd - (u32)rspbootTextStart;
+  D_800E1FA0[1].list.t.ucode = (u64 *)gspF3DEX2_NoN_fifoTextStart;
+  D_800E1FA0[1].list.t.ucode_size = SP_UCODE_SIZE;
+  D_800E1FA0[1].list.t.ucode_data = (u64 *)gspF3DEX2_NoN_fifoDataStart;
+  D_800E1FA0[1].list.t.ucode_data_size = SP_UCODE_DATA_SIZE;
   D_800E1FA0[1].list.t.dram_stack = D_800E21C0;
-  D_800E1FA0[1].list.t.dram_stack_size = 0x400;
+  D_800E1FA0[1].list.t.dram_stack_size = SP_DRAM_STACK_SIZE8;
   D_800E1FA0[1].list.t.output_buff = D_800E31C0;
   D_800E1FA0[1].list.t.output_buff_size = D_800E31C0 + 0x4000;
   D_800E1FA0[1].list.t.yield_data_ptr = D_800E25C0;
-  D_800E1FA0[1].list.t.yield_data_size = 0xC00;
-  D_800E1FA0[1].list.t.data_ptr = (u64 *) D_800E20B8[1];
+  D_800E1FA0[1].list.t.yield_data_size = OS_YIELD_DATA_SIZE;
+  D_800E1FA0[1].list.t.data_ptr = (u64 *)D_800E20B8[1];
   D_800E1FA0[1].list.t.data_size = 0;
   func_80076EA0(0);
 }
