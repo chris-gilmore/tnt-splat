@@ -2,7 +2,9 @@
 #define _GARBAGE_H_
 
 typedef struct {
-  /* 0x0 */ u8   pad0[0x24];
+  /* 0x0  */ u8   pad0[0x15];
+  /* 0x15 */ s8   unk15;
+  /* 0x16 */ u8   pad16[0xE];
 } Garbage; // 0x24 bytes
 
 extern Garbage *g_garbage_ptr;

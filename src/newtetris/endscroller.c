@@ -247,7 +247,7 @@ static void EndScroller_8007ffb0_doesnothing(ScrollLine *p_scrollLine) {
 }
 
 static void EndScroller_8007ffb8_oneliner_if(UnkStruct_82 *arg0) {
-  register u32 var_a1 = g_PV_arr->unk24;
+  register u32 var_a1 = g_PV_arr[0].unk24;
 
   if (var_a1 & 0x8000) {  // A_BUTTON / CONT_A
     arg0->unk1 = TRUE;

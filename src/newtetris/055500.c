@@ -340,9 +340,9 @@ void func_8009035C(UnkStruct_77 *arg0, u32 *arg1) {
 
   for (i = 0; i < 4; i++) {
     sp30 = &g_PV_arr[i].unk28;
-    FUN_026900_80060ad4_oneliner_calls_fun(sp30);
-    FUN_026900_80060b04_twelveliner_loops_32t(sp30, 0xF00, 32, 10);   // JPAD (U, D, R, L) only
-    FUN_026900_80060b04_twelveliner_loops_32t(sp30, 0xC000, 16, 16);  // Buttons A and B only
+    FUN_026C80_80060ad4_oneliner_calls_fun(sp30);
+    FUN_026C80_80060b04_twelveliner_loops_32t(sp30, 0xF00, 32, 10);   // JPAD (U, D, R, L) only
+    FUN_026C80_80060b04_twelveliner_loops_32t(sp30, 0xC000, 16, 16);  // Buttons A and B only
     g_PV_arr[0].unk20 = g_PV_arr[i].unk24 = 0;  // (bug?) why [0]?
   }
   D_800CFED4 = 4;
@@ -373,9 +373,9 @@ void func_800905E8(u8 arg0) {
 
   for (i = 0; i < 4; i++) {
     sp30 = &g_PV_arr[i].unk28;
-    FUN_026900_80060ad4_oneliner_calls_fun(sp30);
-    FUN_026900_80060b04_twelveliner_loops_32t(sp30, 0xF00, 32, 10);   // JPAD (U, D, R, L) only
-    FUN_026900_80060b04_twelveliner_loops_32t(sp30, 0xC000, 16, 16);  // Buttons A and B only
+    FUN_026C80_80060ad4_oneliner_calls_fun(sp30);
+    FUN_026C80_80060b04_twelveliner_loops_32t(sp30, 0xF00, 32, 10);   // JPAD (U, D, R, L) only
+    FUN_026C80_80060b04_twelveliner_loops_32t(sp30, 0xC000, 16, 16);  // Buttons A and B only
     g_PV_arr[0].unk20 = g_PV_arr[i].unk24 = 0;  // (bug?) why [0]?
   }
 
@@ -638,7 +638,7 @@ void func_80090E08(void) {
       sp24->unk88 = g_PV_arr[i].unk1C->unk0;
       sp24->unk8C = g_PV_arr[i].unk24;
       debug_print2("ControllerRepeat_Update", "MainMenu");
-      FUN_026900_GU_or_ControllerRepeat_Update(sp24, sp24->unk88, frametime_delta());
+      FUN_026C80_GU_or_ControllerRepeat_Update(sp24, sp24->unk88, frametime_delta());
     }
 
     func_8009D5E4();

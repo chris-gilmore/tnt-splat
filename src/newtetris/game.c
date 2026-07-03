@@ -323,7 +323,7 @@ void Game_80051618_twentyliner(Game *game_ptr) {
     temp_s2 = &temp_s1->unk28;
     temp_s2->unk88 = 0;  // buttons
     temp_s2->unk8C = 0;  // buttons
-    FUN_026900_nineliner_loops_32t(temp_s2);
+    FUN_026C80_nineliner_loops_32t(temp_s2);
     func_800A3460(&temp_s1->contQ);
   }
   game_ptr->unkE4FC.unk8 = 255.0f;
@@ -364,7 +364,7 @@ static void Game_ControllerRepeat_Update(Game *game_ptr) {
     temp_s2->unk88 = temp_s1->unk1C->unk0;
     temp_s2->unk8C = temp_s1->unk24;
     debug_print2("ControllerRepeat_Update", "GU");
-    FUN_026900_GU_or_ControllerRepeat_Update(temp_s2, temp_s2->unk88, D_801109F4);
+    FUN_026C80_GU_or_ControllerRepeat_Update(temp_s2, temp_s2->unk88, D_801109F4);
   }
 }
 
@@ -576,9 +576,9 @@ void Game_Init(u8 numPlayers, u8 *handicap_arr) {
     Game_SetGlobalPointers(k);
     PlayerVars_SetGlobalPointers(k);
     temp_s5 = &g_PV_ptr->unk28;  // UnkStruct_1
-    FUN_026900_80060ad4_oneliner_calls_fun(temp_s5);
-    FUN_026900_80060b04_twelveliner_loops_32t(temp_s5, 0xF00, 8, 4);     // JPAD (U, D, R, L) only
-    FUN_026900_80060b04_twelveliner_loops_32t(temp_s5, 0xC000, 16, 16);  // Buttons A and B only
+    FUN_026C80_80060ad4_oneliner_calls_fun(temp_s5);
+    FUN_026C80_80060b04_twelveliner_loops_32t(temp_s5, 0xF00, 8, 4);     // JPAD (U, D, R, L) only
+    FUN_026C80_80060b04_twelveliner_loops_32t(temp_s5, 0xC000, 16, 16);  // Buttons A and B only
     g_PV_ptr->unk20 = g_PV_ptr->unk24 = 0;
     gameVars.handicap = handicap_arr[k];
     Tetris_Init(game_ptr->tetris_ptr_arr[k], &gameVars);

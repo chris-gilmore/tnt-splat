@@ -11,6 +11,8 @@ typedef signed size_t;
 typedef long           intptr_t;
 typedef unsigned long  uintptr_t;
 
+#include <newtetris/0497E0.h>
+#include <newtetris/n64heap.h>
 #include <newtetris/066700.h>
 #include <newtetris/sram.h>
 #include <newtetris/069170.h>
@@ -91,7 +93,13 @@ typedef unsigned long  uintptr_t;
 #include <newtetris/multisquareglow.h>
 #include <newtetris/multisquare.h>
 #include <newtetris/0073F0.h>
+#include <newtetris/008050.h>
+#include <newtetris/005580.h>
 #include <newtetris/0074E0.h>
+#include <newtetris/aisquarelist.h>
+#include <newtetris/006780.h>
+#include <newtetris/006BB0.h>
+#include <newtetris/aiplayer.h>
 #include <newtetris/lz77_codec.h>
 #include <newtetris/dcm.h>
 #include <newtetris/board.h>
@@ -99,18 +107,15 @@ typedef unsigned long  uintptr_t;
 #include <newtetris/linescan.h>
 #include <newtetris/keyspin.h>
 #include <newtetris/pfgfx.h>
-#include <newtetris/n64heap.h>
 #include <newtetris/001050.h>
 #include <newtetris/03A750.h>
 #include <newtetris/06F290.h>
 #include <newtetris/010870.h>
 #include <newtetris/00E2A0.h>
 #include <newtetris/bootmain.h>
-#include <newtetris/aiplayer.h>
 #include <newtetris/tetris.h>
 #include <newtetris/game.h>
 #include <newtetris/setplayer.h>
-#include <newtetris/0497E0.h>
 #include <newtetris/dbgprntrrl.h>
 #include <newtetris/072080.h>
 #include <newtetris/0470D0.h>

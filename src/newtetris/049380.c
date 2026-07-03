@@ -38,7 +38,7 @@ void func_80083160(void) {
       return;
     }
 
-    if (((g_PV_arr->unk24 & 0x8000) || ((s32) D_800D32E0.unk0->unk6 >= D_800D3310)) && (D_800D3320 > 60)) {  // A_BUTTON / CONT_A
+    if (((g_PV_arr[0].unk24 & 0x8000) || ((s32) D_800D32E0.unk0->unk6 >= D_800D3310)) && (D_800D3320 > 60)) {  // A_BUTTON / CONT_A
       func_8007E9F8(20);
       D_800D331C = TRUE;
       D_800D3318 = 1;

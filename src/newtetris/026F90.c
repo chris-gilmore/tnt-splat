@@ -15,7 +15,7 @@ void func_80060D10(OSViMode arg0) {
   bcopy(&arg0, &D_8011FA80, sizeof(OSViMode));
 }
 
-void FUN_026900_80060d58_elevenliner(u8 arg0) {
+void func_80060D58(u8 arg0) {
   OSIntMask mask;
 
   mask = osSetIntMask(OS_IM_VI);
@@ -102,7 +102,7 @@ void func_80061134(s32 width, s32 height) {
 void func_80061198(void) {
   if (D_800CFE34) {
     func_800614A8();
-    FUN_026900_80060d58_elevenliner(1);
+    func_80060D58(1);
     return;
   }
 

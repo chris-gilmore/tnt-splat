@@ -237,7 +237,7 @@ void func_8007F344(void) {
     }
 
     // A_BUTTON / CONT_A || START_BUTTON / CONT_START
-    if ((g_PV_arr->unk24 & 0x8000) || (g_PV_arr->unk24 & 0x1000) || (D_800D31A0.unk0->unk6 >= D_800D31D0)) {
+    if ((g_PV_arr[0].unk24 & 0x8000) || (g_PV_arr[0].unk24 & 0x1000) || (D_800D31A0.unk0->unk6 >= D_800D31D0)) {
       func_8007EFB0(20);
       D_800D31DC = 13;
       Audio2_GFXDone_SendStopMessage(&D_801235B0);
@@ -289,8 +289,8 @@ void func_8007F344(void) {
 
   if (D_800D31D8 == 4) {
     // A_BUTTON / CONT_A || START_BUTTON / CONT_START
-    if (((g_PV_arr->unk24 & 0x8000) && (D_800D31E4 >= 60)) || ((g_PV_arr->unk24 & 0x1000) && (D_800D31E4 >= 60)) || (D_800D31E4 >= 300)) {
-      FUN_026900_80060d58_elevenliner(1);
+    if (((g_PV_arr[0].unk24 & 0x8000) && (D_800D31E4 >= 60)) || ((g_PV_arr[0].unk24 & 0x1000) && (D_800D31E4 >= 60)) || (D_800D31E4 >= 300)) {
+      func_80060D58(1);
       main_8004A34C_threeliner();
       n64HeapUnalloc(D_80120200);
       n64HeapUnalloc(D_80120204);
@@ -318,7 +318,7 @@ void func_8007F344(void) {
     break;
   case 10:
     D_800D31E4 = 0;
-    FUN_026900_80060d58_elevenliner(0);
+    func_80060D58(0);
     D_800CFEE8 = 4;
     D_800D31D8 = 0;
     D_800D31D4 = 1;

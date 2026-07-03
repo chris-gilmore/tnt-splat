@@ -37,7 +37,7 @@ void func_80080B50(void) {
     break;
   case 2:
     D_80120218--;
-    if ((D_80120218 == 0) || ((g_PV_arr->unk24 & 0x8000) && (D_80120218 < 240))) {  // A_BUTTON / CONT_A
+    if ((D_80120218 == 0) || ((g_PV_arr[0].unk24 & 0x8000) && (D_80120218 < 240))) {  // A_BUTTON / CONT_A
       func_8007E9F8(10);
       D_800D32C8 = 3;
     }

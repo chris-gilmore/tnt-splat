@@ -215,7 +215,7 @@ u8 check_square_completion(u8 arg0, u8 arg1, u8 *arg2, u8 *arg3, u8 *arg4) {
   return TRUE;
 }
 
-void FUN_80041da0_threeliner(UnkStruct_27 *arg0, UnkStruct_29 *arg1) {
+void FUN_80041da0_threeliner(UnkStruct_27 *arg0, UnkStruct_27 *arg1) {
   arg0->unk0 = arg1->unk0;
   arg0->unk1 = arg1->unk1;
   arg0->unk2 = arg1->unk2;

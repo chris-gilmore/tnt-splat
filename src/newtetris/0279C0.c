@@ -11,7 +11,7 @@ void FUN_0279C0_80061740_switch_0to8_1to6_same(void) {
   switch (D_800D02A0) {
   case 0:
     main_8004A34C_threeliner();
-    FUN_026900_80060d58_elevenliner(1);
+    func_80060D58(1);
     D_8011FAD0 = n64HeapAlloc(FUN_03A750_80074888_twelveliner(&D_273A00, IMG_WARNING_NO_CONTROLLER));
     FUN_03A750_800746c0_twentyliner(&D_273A00, D_8011FAD0, IMG_WARNING_NO_CONTROLLER);
     D_8011FAD4 = n64HeapAlloc(FUN_03A750_80074888_twelveliner(&D_273A00, IMG_WARNING_NO_CONTROLLER_PAL));
@@ -30,7 +30,7 @@ void FUN_0279C0_80061740_switch_0to8_1to6_same(void) {
     D_800D02A0++;
     break;
   case 7:
-    FUN_026900_80060d58_elevenliner(0);
+    func_80060D58(0);
     D_800D02A0++;
     break;
   case 8:

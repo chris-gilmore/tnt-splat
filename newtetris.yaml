@@ -96,16 +96,16 @@ segments:
 
       - {start: 0x001050, type:   c, vram: 0x8003ADD0, name: newtetris/001050}  # (-mips1 -O1) until H2O library
       - {start: 0x003E40, type:   c, vram: 0x8003DBC0, name: newtetris/003E40}
-      - {start: 0x004460, type: asm, vram: 0x8003E1E0, name: newtetris/aisquarelist}
-      - {start: 0x005580, type: asm, vram: 0x8003F300, name: newtetris/005580}
-      - {start: 0x006780, type: asm, vram: 0x80040500, name: newtetris/006780}
+      - {start: 0x004460, type:   c, vram: 0x8003E1E0, name: newtetris/aisquarelist}
+      - {start: 0x005580, type:   c, vram: 0x8003F300, name: newtetris/005580}
+      - {start: 0x006780, type:   c, vram: 0x80040500, name: newtetris/006780} # makes calls to aisquarelist
       - {start: 0x006930, type: asm, vram: 0x800406B0, name: newtetris/006930}
       - {start: 0x006B30, type:   c, vram: 0x800408B0, name: newtetris/006B30}
-      - {start: 0x006BB0, type: asm, vram: 0x80040930, name: newtetris/006BB0}
+      - {start: 0x006BB0, type:   c, vram: 0x80040930, name: newtetris/006BB0} # makes calls to aisquarelist
       - {start: 0x0073F0, type:   c, vram: 0x80041170, name: newtetris/0073F0}
       - {start: 0x0074E0, type:   c, vram: 0x80041260, name: newtetris/0074E0}
-      - {start: 0x008050, type: asm, vram: 0x80041DD0, name: newtetris/008050}
-      - {start: 0x008A80, type: asm, vram: 0x80042800, name: newtetris/aiplayer}
+      - {start: 0x008050, type:   c, vram: 0x80041DD0, name: newtetris/008050}
+      - {start: 0x008A80, type:   c, vram: 0x80042800, name: newtetris/aiplayer}
       - {start: 0x009A90, type:   c, vram: 0x80043810, name: newtetris/009A90}
       - {start: 0x00C0D0, type:   c, vram: 0x80045E50, name: newtetris/00C0D0}
       - {start: 0x00C680, type:   c, vram: 0x80046400, name: newtetris/00C680}
@@ -386,7 +386,7 @@ segments:
       - {start: 0x08B820, type: data, vram: 0x800C55A0, name: newtetris/aisquarelist}
       - {start: 0x08BF70, type: .data, vram: 0x800C5CF0, name: newtetris/006B30}
       - {start: 0x08C050, type: data, vram: 0x800C5DD0, name: newtetris/006BB0}
-      - {start: 0x08C070, type: data, vram: 0x800C5DF0, name: newtetris/aiplayer}
+      - {start: 0x08C070, type: .data, vram: 0x800C5DF0, name: newtetris/aiplayer}
       - {start: 0x08C090, type: .data, vram: 0x800C5E10, name: newtetris/009A90}
       - {start: 0x095AB0, type: .data, vram: 0x800CF830, name: newtetris/00C0D0}
       - {start: 0x095BD0, type: .data, vram: 0x800CF950, name: newtetris/00C680}
@@ -482,9 +482,9 @@ segments:
       ########################################################################
 
       - {start: 0x0A1620, type: .rodata, vram: 0x800DB3A0, name: newtetris/001050}
-      - {start: 0x0A1690, type: rodata, vram: 0x800DB410, name: newtetris/aisquarelist}
-      - {start: 0x0A16C0, type: rodata, vram: 0x800DB440, name: newtetris/005580}
-      - {start: 0x0A16E0, type: rodata, vram: 0x800DB460, name: newtetris/aiplayer}
+      - {start: 0x0A1690, type: .rodata, vram: 0x800DB410, name: newtetris/aisquarelist}
+      - {start: 0x0A16C0, type: .rodata, vram: 0x800DB440, name: newtetris/005580}
+      - {start: 0x0A16E0, type: .rodata, vram: 0x800DB460, name: newtetris/aiplayer}
       - {start: 0x0A1720, type: .rodata, vram: 0x800DB4A0, name: newtetris/009A90}
       - {start: 0x0A1850, type: .rodata, vram: 0x800DB5D0, name: newtetris/00C0D0}
       - {start: 0x0A18A0, type: .rodata, vram: 0x800DB620, name: newtetris/00C680}
@@ -582,7 +582,7 @@ segments:
       - {start: 0xA8190, type: bss, vram: 0x800E1F20, name: newtetris/800E1F20}
       - {start: 0xA8190, type: .bss, vram: 0x800E1F30, name: newtetris/0074E0}
       - {start: 0xA8190, type: bss, vram: 0x800E1F40, name: newtetris/008050}
-      - {start: 0xA8190, type: bss, vram: 0x800E1F50, name: newtetris/aiplayer}
+      - {start: 0xA8190, type: .bss, vram: 0x800E1F50, name: newtetris/aiplayer}
       - {start: 0xA8190, type: .bss, vram: 0x800E1F60, name: newtetris/009A90}
       - {start: 0xA8190, type: .bss, vram: 0x800E1F80, name: newtetris/00C680}
       - {start: 0xA8190, type: .bss, vram: 0x800E1F90, name: newtetris/00DB40}

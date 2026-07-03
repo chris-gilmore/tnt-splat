@@ -16,12 +16,9 @@ typedef struct {
   /* 0x8C */ u32            unk8C;       // button
 } UnkStruct_1; // 0x90 bytes
 
-extern void   FUN_026900_80060a00_fourliner_sets_arg0_e0123(UnkStruct_25 *, u8, u8);
-extern void   FUN_026900_80060a1c_twoliner_sets_arg0_e01(UnkStruct_25 *);
-extern s32    FUN_026900_80060a28_twelveliner_retbool(UnkStruct_25 *, s32);
-extern void   FUN_026900_80060ad4_oneliner_calls_fun(UnkStruct_1 *);
-extern void   FUN_026900_80060b04_twelveliner_loops_32t(UnkStruct_1 *, u32, u8, u8);
-extern void   FUN_026900_GU_or_ControllerRepeat_Update(UnkStruct_1 *, u32, u32);
-extern void   FUN_026900_nineliner_loops_32t(UnkStruct_1 *);
+extern void   FUN_026C80_80060ad4_oneliner_calls_fun(UnkStruct_1 *);
+extern void   FUN_026C80_80060b04_twelveliner_loops_32t(UnkStruct_1 *, u32, u8, u8);
+extern void   FUN_026C80_GU_or_ControllerRepeat_Update(UnkStruct_1 *, u32, u32);
+extern void   FUN_026C80_nineliner_loops_32t(UnkStruct_1 *);
 
 #endif /* !_026C80_H_ */

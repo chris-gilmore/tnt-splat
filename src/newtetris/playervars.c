@@ -25,7 +25,7 @@ void PV_set_controller_no(s16 cont_no) {
 }
 
 void FUN_800535B8_fiveliner(PlayerVars *PV_ptr) {
-  FUN_026900_nineliner_loops_32t(&PV_ptr->unk28);
+  FUN_026C80_nineliner_loops_32t(&PV_ptr->unk28);
   PV_ptr->unk24 = 0;
   PV_ptr->unk1C->unk0 = 0;
   func_800A3460(&PV_ptr->contQ);
