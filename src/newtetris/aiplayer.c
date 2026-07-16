@@ -89,7 +89,7 @@ void aiplayer_gameinit_related(u8 arg0, u8 arg1, u8 ai_rank) {
 
   FUN_008050_80041dd0_alloc_heap_4_and_x640();
 
-  FUN_003E40_8003dfa0_sixliner_allocs_heap_x962();
+  FUN_004220_8003dfa0_sixliner_allocs_heap_x962();
 
   D_800E1F52 = 0;
   D_800E1F51 = 0;
@@ -98,7 +98,7 @@ void aiplayer_gameinit_related(u8 arg0, u8 arg1, u8 ai_rank) {
 
 void aiplayer_80042b3c_calls_heap_unalloc(void) {
   if (D_800C5E04 != NULL) {
-    FUN_003E40_8003e004_threeliner_unallocs_heap();
+    FUN_004220_8003e004_threeliner_unallocs_heap();
     FUN_008050_80041e24_maybe_calls_unalloc_heap();
     n64HeapUnalloc(D_800C5E04);
     D_800C5E04 = NULL;
@@ -113,12 +113,11 @@ static void aiplayer_80042b88_largefunction(void) {
   register s8 var_s4;
   register s16 var_s5;
   register UnkStruct_105 *temp_s6;
-  register UnkStruct_27 *temp_s7;
+  register UnkStruct_108 *temp_s7;
   u8 sp4F;
   u8 sp4E;
-  UnkStruct_27 sp48;
-  UnkStruct_27 sp44;
-  s32 sp40;
+  UnkStruct_108 sp48;
+  UnkStruct_108 sp44;
 
   sp4E = FUN_800412e0_fifteenliner_logic_cell(&sp4F);
   var_s0 = sp4E > D_800C5E04->unk2;
@@ -129,11 +128,7 @@ static void aiplayer_80042b88_largefunction(void) {
   }
 
   D_800E1F53 = sp4F < 4;
-  sp40 = sp4E > 90;
-  if (!sp40) {
-    sp40 = D_800E1F53 != FALSE;
-  }
-  D_800E1F54 = sp40;
+  D_800E1F54 = sp4E > 90 || D_800E1F53;
 
   if (D_800C5E04->unk1 & 0x01) {
     var_s3 = 0;
@@ -153,9 +148,9 @@ static void aiplayer_80042b88_largefunction(void) {
   sp4E = g_currentPiece_ptr->pieceType;
   temp_s2 = g_tetris_ptr->pieceHold.buf[g_tetris_ptr->pieceHold.buf_idx].piece_type;
   var_s1 = FALSE;
-  FUN_003E40_8003e038_twentytwoliner_nested_loops(0, D_800E1F53);
+  FUN_004220_8003e038_twentytwoliner_nested_loops(0, D_800E1F53);
   CurrentPiece_80067dd8_big_fiftyliner(temp_s2);
-  FUN_003E40_8003e038_twentytwoliner_nested_loops(1, D_800E1F53);
+  FUN_004220_8003e038_twentytwoliner_nested_loops(1, D_800E1F53);
   CurrentPiece_80067dd8_big_fiftyliner(sp4E);
 
   if ((D_800C5E04->unk1 & 0x08) && !var_s0) {
@@ -168,7 +163,7 @@ static void aiplayer_80042b88_largefunction(void) {
 
     if ((var_s5 != 0x7FFF) && (sp4E != temp_s2)) {
       CurrentPiece_80067dd8_big_fiftyliner(temp_s2);
-      if (FUN_006780_80040500_twentyfiveliner_loops(1, D_800E1F53) != 0) {
+      if (FUN_006780_80040500_twentyfiveliner_loops(1, D_800E1F53)) {
         if (var_s5 < (*D_800E1F40)[var_s4].unk0) {
           FUN_008050_800427b8_passes_dat_800e1f40_ptr(var_s4, &sp44);
           sp4F = 1;
@@ -214,7 +209,7 @@ static void aiplayer_80042b88_largefunction(void) {
     FUN_800413c0_twentyfive_liner(temp_s7->unk0, temp_s7->unk1, temp_s7->unk2, 8);
     for (var_s4 = 0; var_s4 < 20; var_s4++) {
       for (var_s3 = 0; var_s3 < 10; var_s3++) {
-        if (D_800E1F30->unk0[var_s3 + (var_s4 * 10)].unk0 == 7) {
+        if (D_800E1F30->unk0[var_s3 + (var_s4 * 10)].unk0 == EMPTY_CELL) {
           break;
         }
       }

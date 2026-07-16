@@ -326,8 +326,8 @@ void Game_80051618_twentyliner(Game *game_ptr) {
     FUN_026C80_nineliner_loops_32t(temp_s2);
     func_800A3460(&temp_s1->contQ);
   }
-  game_ptr->unkE4FC.unk8 = 255.0f;
-  game_ptr->unkE4FC.unk4 = (255.0f - game_ptr->unkE4FC.alpha) / 16.0f;
+  game_ptr->unkE4FC.unk8 = 255;
+  game_ptr->unkE4FC.unk4 = (255 - game_ptr->unkE4FC.alpha) / 16;
   game_ptr->unkE508 = TRUE;
 }
 
@@ -340,8 +340,8 @@ static void Game_80051790_twelveliner(Game *game_ptr, u8 arg1) {
   game_ptr->unk3 = 1;
   game_ptr->unk4 = arg1;
   game_ptr->unk0 = 2;
-  game_ptr->unkE4FC.unk8 = 0.0f;
-  game_ptr->unkE4FC.unk4 = (0.0f - game_ptr->unkE4FC.alpha) / 16.0f;
+  game_ptr->unkE4FC.unk8 = 0;
+  game_ptr->unkE4FC.unk4 = (0 - game_ptr->unkE4FC.alpha) / 16;
   game_ptr->unkE508 = TRUE;
 }
 
@@ -438,7 +438,7 @@ void Game_line_782_game_c(Game *game_ptr) {
     if (game_ptr->unkE508) {
       FUN_026900_80060770_sevenliner(&game_ptr->unkE4FC, D_801109F4);
       Game_SetAlpha(game_ptr, game_ptr->unkE4FC.alpha);
-      if (game_ptr->unkE4FC.unk4 == 0.0f) {
+      if (game_ptr->unkE4FC.unk4 == 0) {
         game_ptr->unkE508 = FALSE;
       }
     }
@@ -561,9 +561,9 @@ void Game_Init(u8 numPlayers, u8 *handicap_arr) {
   MultisquareGlow_InitStaticMembers(numPlayers);
   gamefinish_8005344C_fiveliner(numPlayers);
   Font_Init46Char(&game_ptr->font, IMG_FONT_C);
-  game_ptr->unkE4FC.alpha = 0.0f;
-  game_ptr->unkE4FC.unk8 = 255.0f;
-  game_ptr->unkE4FC.unk4 = (255.0f - game_ptr->unkE4FC.alpha) / 16.0f;
+  game_ptr->unkE4FC.alpha = 0;
+  game_ptr->unkE4FC.unk8 = 255;
+  game_ptr->unkE4FC.unk4 = (255 - game_ptr->unkE4FC.alpha) / 16;
   game_ptr->unkE508 = TRUE;
   gameVars.seed = OS_CYCLES_TO_NSEC(g_sram_ptr->unk18F4);
   g_sram_ptr->unk18F4 = OS_CYCLES_TO_NSEC(osGetTime());  // superfluous; this line of code should have been deleted, because ...
