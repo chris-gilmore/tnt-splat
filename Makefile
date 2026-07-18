@@ -120,11 +120,18 @@ $(BUILD_DIR)/%.o: %.c
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 # Alternate compiler flags needed for matching
+
+# TODO: delete these two lines
+$(BUILD_DIR)/src/newtetris/010870.o: OPT_FLAGS := -mips2 -O1
+$(BUILD_DIR)/src/newtetris/audio_env.o: OPT_FLAGS := -mips2 -O1
+
+# h2olib
 $(BUILD_DIR)/src/newtetris/contq.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/rand.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/frametime.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/069D80.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/borganim.o: OPT_FLAGS := -mips2 -O2
+$(BUILD_DIR)/src/newtetris/06F290.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/06FFD0.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/072080.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/072C40.o: OPT_FLAGS := -mips2 -O2
@@ -133,9 +140,10 @@ $(BUILD_DIR)/src/newtetris/073D50.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/linalg.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/077340.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/cont.o: OPT_FLAGS := -mips2 -O2
-#$(BUILD_DIR)/src/newtetris/sprite.o: OPT_FLAGS := -mips2 -O2
+$(BUILD_DIR)/src/newtetris/sprite.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/078FE0.o: OPT_FLAGS := -mips2 -O2
 
+# ultralib
 $(BUILD_DIR)/src/ultralib/%.o: OPT_FLAGS := -mips2 -O2
 
 # Assemble assembly code

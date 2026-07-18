@@ -236,7 +236,7 @@ void Tetris_Init(Tetris *tetris_ptr, GameVars *gameVars_ptr) {
     break;
   case LANDFILLTYPE_HOTPOTATO:
     Garbage_80072e2c_set_arg0p_to_arg1(g_garbage_ptr, 1);
-    temp_s1 = g_landfill_ptr->unk30;
+    temp_s1 = g_landfill_ptr->unk30.unk0;
     Landfill_8007240c_fiveliner(g_currentplayer, temp_s1);
     break;
   default:

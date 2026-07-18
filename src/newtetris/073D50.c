@@ -1,6 +1,6 @@
 #include "common.h"
 
-static void   func_800AE70C(UnkStruct_88 *);
+static void func_800AE70C(UnkStruct_88 *);
 
 // unused
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/073D50/func_800ADAD0.s")

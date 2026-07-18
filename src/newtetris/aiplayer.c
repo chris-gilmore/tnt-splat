@@ -349,6 +349,6 @@ void aiplayer_8004376c_fiveliner(void) {
       return;
     }
 
-    D_800E1F55 = g_game.tetris_ptr_arr[D_800C5E04->player_idx]->garbage_ptr->pad0[0x15];
+    D_800E1F55 = g_game.tetris_ptr_arr[D_800C5E04->player_idx]->garbage_ptr->unk15;
   }
 }

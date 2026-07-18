@@ -3,6 +3,8 @@
 // static
 Vec3 D_800D61F0 = { 1, 0, 0 };
 
+static void func_800A40FC(UnkStruct_32 *, f32, f32, f32, f32, f32, f32, f32, f32, f32);
+
 void func_800A3B00(UnkStruct_32 *arg0, f32 arg1, f32 arg2, f32 arg3) {
   arg0->unkC.a14 = arg1;
   arg0->unkC.a24 = arg2;
@@ -51,7 +53,7 @@ void func_800A3BF8(UnkStruct_32 *arg0, f32 arg1, f32 arg2, f32 arg3) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/069D80/func_800A40D8.s")
 
-void func_800A40FC(UnkStruct_32 *arg0, f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, f32 arg8, f32 arg9) {
+static void func_800A40FC(UnkStruct_32 *arg0, f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, f32 arg8, f32 arg9) {
   Vec3 sp44;
   Vec3 sp38;
   Vec3 sp2C;

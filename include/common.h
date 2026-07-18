@@ -85,6 +85,7 @@ typedef unsigned long  uintptr_t;
 #include <newtetris/gamestats.h>
 #include <newtetris/boardinfo.h>
 #include <newtetris/garbage.h>
+#include <newtetris/hotpotato.h>
 #include <newtetris/landfill.h>
 #include <newtetris/gamefinish.h>
 #include <newtetris/frameact.h>
