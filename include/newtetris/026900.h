@@ -24,6 +24,7 @@ extern Trig g_trig_tbl[];
 extern void   FUN_026900_sets_arg0_struct_to_arg1_arg2(BoundingBox *, s32, s32);
 extern u8     FUN_026900_80060770_sevenliner(UnkStruct_2 *, f32);
 extern u32    FUN_026900_PRNG_1(void);
+extern void   FUN_026900_sets_g8011FA70_to_arg0(u32);
 extern u32    FUN_026900_PRNG_2(u32);
 extern s16    FUN_026900_800608f4_oneliner_shift6_1(u16);
 extern s16    FUN_026900_80060914_oneliner_shift6_2(u16);

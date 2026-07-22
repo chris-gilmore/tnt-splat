@@ -50,7 +50,9 @@ u32 FUN_026900_PRNG_1(void) {
   return retVal;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/026900/FUN_026900_sets_g8011FA70_to_arg0.s")
+void FUN_026900_sets_g8011FA70_to_arg0(u32 arg0) {
+  D_8011FA70 = arg0;
+}
 
 // next_rand(seed)
 u32 FUN_026900_PRNG_2(u32 seed) {

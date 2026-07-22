@@ -422,7 +422,7 @@ segments:
       #- {start: 0x0967E8, type: gfx, vram: 0x800D0568, name: newtetris/minos_dl}
       - {start: 0x096840, type: .data, vram: 0x800D05C0, name: newtetris/pausemenu}
       - {start: 0x096850, type: .data, vram: 0x800D05D0, name: newtetris/finalrom_datetime}
-      - {start: 0x096860, type: data, vram: 0x800D05E0, name: newtetris/aimedat}
+      - {start: 0x096860, type: .data, vram: 0x800D05E0, name: newtetris/aimedat}
       - {start: 0x096880, type: .data, vram: 0x800D0600, name: newtetris/03A750}
       - {start: 0x096890, type: .data, vram: 0x800D0610, name: newtetris/03AC20}
       #- {start: 0x096890, type: gfx, vram: 0x800D0610, name: newtetris/03AC20_dl}
@@ -623,7 +623,7 @@ segments:
       - {start: 0xA8190, type: bss, vram: 0x8011FC60, name: newtetris/8011FC60}
       - {start: 0xA8190, type: .bss, vram: 0x8011FC70, name: newtetris/landfill}
       - {start: 0xA8190, type: .bss, vram: 0x8011FC80, name: newtetris/garbage}
-      - {start: 0xA8190, type: bss, vram: 0x8011FC90, name: newtetris/aimedat}
+      - {start: 0xA8190, type: .bss, vram: 0x8011FC90, name: newtetris/aimedat}
       - {start: 0xA8190, type: .bss, vram: 0x8011FCA0, name: newtetris/03A750}
       - {start: 0xA8190, type: .bss, vram: 0x8011FCB0, name: newtetris/cubetiles}
       - {start: 0xA8190, type: .bss, vram: 0x8011FCD0, name: newtetris/03C220}

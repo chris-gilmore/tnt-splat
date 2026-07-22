@@ -219,12 +219,12 @@ void Tetris_Init(Tetris *tetris_ptr, GameVars *gameVars_ptr) {
   Garbage_Init(tetris_ptr->garbage_ptr, &seed);
   switch (g_landfill_ptr->type) {
   case LANDFILLTYPE_NONE:
-    Garbage_80072e2c_set_arg0p_to_arg1(g_garbage_ptr, 0);
+    Garbage_80072e2c_set_arg0p_to_arg1(g_garbage_ptr, FALSE);
     break;
   case LANDFILLTYPE_DIRECTED:
-    Garbage_80072e2c_set_arg0p_to_arg1(g_garbage_ptr, 1);
+    Garbage_80072e2c_set_arg0p_to_arg1(g_garbage_ptr, TRUE);
     currentplayer = g_currentplayer;
-    Landfill_800723a0_calls_garbage_fun(currentplayer, currentplayer, 0);
+    Landfill_800723a0_calls_garbage_fun(currentplayer, currentplayer, FALSE);
     Landfill_8007240c_fiveliner(currentplayer, (currentplayer + 1) % g_playercount);
     if (g_playercount == 2) {
       if (g_currentplayer == 0) {
@@ -235,7 +235,7 @@ void Tetris_Init(Tetris *tetris_ptr, GameVars *gameVars_ptr) {
     }
     break;
   case LANDFILLTYPE_HOTPOTATO:
-    Garbage_80072e2c_set_arg0p_to_arg1(g_garbage_ptr, 1);
+    Garbage_80072e2c_set_arg0p_to_arg1(g_garbage_ptr, TRUE);
     temp_s1 = g_landfill_ptr->unk30.unk0;
     Landfill_8007240c_fiveliner(g_currentplayer, temp_s1);
     break;

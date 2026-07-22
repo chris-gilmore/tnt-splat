@@ -475,7 +475,7 @@ void Game_render_stuff_line_850(Game *game_ptr) {
   if (game_ptr->unk0 != 1) {
     FUN_027BF0_800636C0_display_game_stats_screen_q();
     g_landfill_ptr = &game_ptr->landfill;
-    func_80072A84();
+    Landfill_Render();
     debug_print2("BEFORE", "TETBREND");
     for (i = 0; i < game_ptr->numPlayers; i++) {
       debug_print2("BEFORE", "GSETGP");

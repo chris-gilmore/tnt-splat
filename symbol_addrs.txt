@@ -787,31 +787,60 @@ func_80072300                           = 0x80072300; // type:func
 func_8007232C                           = 0x8007232C; // type:func
 Landfill_800723a0_calls_garbage_fun     = 0x800723A0; // type:func  note 2 liner, calls 2 functions
 Landfill_8007240c_fiveliner             = 0x8007240C; // type:func  note called in several places, including Tetris_Init
+func_80072494                           = 0x80072494; // type:func static
+func_800724C0                           = 0x800724C0; // type:func static
 func_80072508                           = 0x80072508; // type:func
 func_8007257C                           = 0x8007257C; // type:func
+func_80072610                           = 0x80072610; // type:func static
 func_800726A4                           = 0x800726A4; // type:func
 Landfill_Garbage                        = 0x8007283C; // type:func  note called by Tetris_Init, returns int, not called elsewhere
 Landfill_Init                           = 0x8007287C; // type:func
 Landfill_Deinit                         = 0x80072988; // type:func
-func_80072A84                           = 0x80072A84; // type:func
+Landfill_Render                         = 0x80072A84; // type:func
 
 // - {start: 0x038DB0, type:   c, vram: 0x80072B30, name: newtetris/garbage}
+func_80072B30                           = 0x80072B30; // type:func static
+func_80072B58                           = 0x80072B58; // type:func static
+func_80072BAC                           = 0x80072BAC; // type:func static
+func_80072CC8                           = 0x80072CC8; // type:func
+func_80072D24                           = 0x80072D24; // type:func
 Garbage_Init                            = 0x80072D38; // type:func  note called by Tetris_Init, not called elsewhere
 Garbage_Deinit                          = 0x80072E24; // type:func
-// todo next donext nextdo garbage
-Garbage_80072e2c_set_arg0p_to_arg1      = 0x80072E2C; // type:func  note weird func, why is this even a function, called from places seemingly unrelated to garbage?
+Garbage_80072e2c_set_arg0p_to_arg1      = 0x80072E2C; // type:func
+func_80072E34                           = 0x80072E34; // type:func
+func_80072E3C                           = 0x80072E3C; // type:func static
 func_80072F1C                           = 0x80072F1C; // type:func
+func_80072FB0                           = 0x80072FB0; // type:func unused
 func_80072FC4                           = 0x80072FC4; // type:func
+func_80073014                           = 0x80073014; // type:func static
 func_80073030                           = 0x80073030; // type:func
 
-
 // - {start: 0x0393B0, type:   c, vram: 0x80073130, name: newtetris/aimedat}
-
+func_80073130                     = 0x80073130; // type:func static
+func_80073170                     = 0x80073170; // type:func static
+func_80073178                     = 0x80073178; // type:func static
+func_8007318C                     = 0x8007318C; // type:func static
+func_800731EC                     = 0x800731EC; // type:func static
+func_800733F0                     = 0x800733F0; // type:func static
+AimedAt_Render                    = 0x800735D8; // type:func
+func_80073688                     = 0x80073688; // type:func unused note empty func
+func_80073690                     = 0x80073690; // type:func
+func_800736E0                     = 0x800736E0; // type:func
+func_80073784                     = 0x80073784; // type:func
+func_800737FC                     = 0x800737FC; // type:func static
+func_80073940                     = 0x80073940; // type:func
+func_80073AC4                     = 0x80073AC4; // type:func
+AimedAt_Init                      = 0x80073B48; // type:func
+AimedAt_Deinit                    = 0x80073BA4; // type:func
 
 // - {start: 0x039E50, type:   c, vram: 0x80073BD0, name: newtetris/hotpotato}
 func_80073BD0                     = 0x80073BD0; // type:func static
 func_80073C60                     = 0x80073C60; // type:func static
-func_8007434C                     = 0x8007434C; // type:func
+func_80073D70                     = 0x80073D70; // type:func static
+func_80074024                     = 0x80074024; // type:func static
+HotPotato_Render                  = 0x8007434C; // type:func
+HotPotato_Init                    = 0x800743F8; // type:func
+HotPotato_Deinit                  = 0x800744C0; // type:func
 
 // - {start: 0x03A750, type:   c, vram: 0x800744D0, name: newtetris/03A750}
 func_800744D0                     = 0x800744D0; // type:func unused  note never called
