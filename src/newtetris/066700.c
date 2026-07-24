@@ -20,9 +20,9 @@ extern /* static */ void   func_800A2148(GUI_Textbox *);
 static void   func_800A27BC(GUI_Toggle *, f32);
 static void   func_800A286C(GUI_Toggle *);
 static void   func_800A287C(GUI_Toggle *);
-extern /* static */ void   func_800A2884(GUI_Textbox *);
+static void   start_single_player_game(GUI_Textbox *);
 static void   func_800A2A94(GUI_Toggle *);
-extern /* static */ void   func_800A2AA4(void);
+extern /* static */ void   start_multi_player_game(void);
 
 static void func_800A0480(void *arg0) {
   D_800D3CF0 = 2;
@@ -487,13 +487,58 @@ static void func_800A286C(GUI_Toggle *arg0) {
 static void func_800A287C(GUI_Toggle *arg0) {
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/066700/func_800A2884.s")
+static void start_single_player_game(GUI_Textbox *arg0) {
+  s32 i;
+
+  if (arg0->textList == &D_800D2D98) {  // "NEW NAME"
+    return;
+  }
+
+  if ((arg0->textList->pack & 0x10) != 0x10) {
+    return;
+  }
+
+  for (i = 0; i < 4; i++) {
+    g_game.players[i].node.salt[0] = 0xFF;
+    g_game.players[i].node.salt[1] = 0;
+  }
+
+  D_800D2E1C = 0;
+
+  if (arg0->textList == &D_800D2D80) {  // "GUEST"
+    arg0->textList->pack = 0xE;
+  }
+
+  func_8007A078(arg0->textList, 0);  // Player 0
+
+  if (D_800D5794.cur != 0) {
+    func_8007A078(&D_800D2D80, 1);  // "GUEST", Player 1
+    aiplayer_gameinit_related(2, D_800D567C.cur, D_800D5794.cur - 1);
+    D_800CFED4 = 2;  // num players is 2
+    g_game.landfill.type = LANDFILLTYPE_DIRECTED;
+    g_game.players[1].unkD0 = 1;
+  } else {
+    D_800CFED4 = 1;  // num players is 1
+    g_game.landfill.type = LANDFILLTYPE_NONE;
+  }
+
+  FUN_SRAM_800785e0_sixliner_loop_arg0_t(&D_800D2D80);  // "GUEST"
+  D_800D3CF0 = 1;  // game mode
+  g_gdl = FUN_80048934_inits_struct_q(g_gdl, 0);
+  g_gdl = FUN_80048934_inits_struct_q(g_gdl, 1);
+  arg0->unk5D = 0xFE;
+  arg0->textList = &D_800D2D80;  // "GUEST"
+  D_800D2D98.pack = 0xF;  // "NEW NAME"
+  D_800D2D80.pack = 0xE;  // "GUEST"
+  g_game.gameType = D_800D567C.cur;
+  arg0->unk61 = FALSE;
+}
 
 static void func_800A2A94(GUI_Toggle *arg0) {
   g_game.landfill.type = arg0->cur;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/066700/func_800A2AA4.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/066700/start_multi_player_game.s")
 
 void func_800A2E2C(void) {
   D_800D5AC4.unk5D = 0xFE;
@@ -807,7 +852,7 @@ UnkStruct_77 D_800D5850[9] = {
   {
     { { "START" }, NULL, 0x78, 0xCA, 0xFF, 0xFF, 0xFF, 0xA0, 0 },
     0x45,
-    (void (*)(void *, ...)) func_800A2884,
+    (void (*)(void *, ...)) start_single_player_game,
     NULL,
     &D_800D57A4,
     0x7F000000,
@@ -1012,7 +1057,7 @@ UnkStruct_77 D_800D5D48[12] = {
   {
     { { "START" }, NULL, 0x64, 0xDB, 0xFF, 0xFF, 0xFF, 0xFF, 0 },
     0x45,
-    (void (*)(void *, ...)) func_800A2AA4,
+    (void (*)(void *, ...)) start_multi_player_game,
     NULL,
     NULL,
     0x7F000000,

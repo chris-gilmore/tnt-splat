@@ -279,6 +279,7 @@ void aiplayer_8004311c_largefunction(void) {
         CurrentPiece_800676ac_fourliner_looper(g_currentPiece_ptr);
       } else if ((temp_s2 < 0x3C) && (g_currentPiece_ptr->logicalPos.y < temp_s1->unk0.unk1)) {
         if (D_800C5E04->unk1 & 0x20) {
+          // pressing Down
           g_currentPiece_ptr->fallVelocity = 0x100;
         } else if (D_800C5E04->unk1 & 0x40) {
           g_currentPiece_ptr->fallVelocityCopy = 0x40;

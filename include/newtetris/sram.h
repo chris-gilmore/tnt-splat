@@ -76,11 +76,13 @@ extern TextList D_800D2D98;
 extern TextList D_800D2DB0;
 extern TextList D_800D2DC8;
 extern TextList D_800D2DE0;
+extern s16 D_800D2E1C;
 
 extern Sram *g_sram_ptr;
 
 extern u8              FUN_SRAM_80078300_twelveliner_div60_loop_30t_a(Player *);  // calculating rank
 extern u8              FUN_SRAM_80078424_twelveliner_div60_loop_30t_b(u16, u16);  // calculating rank, too
+extern void            FUN_SRAM_800785e0_sixliner_loop_arg0_t(TextList *);
 extern TextList       *FUN_SRAM_8007868c_tenliner_loop_arg0_t(TextList *);
 extern void            FUN_SRAM_8007875c_check_gameover_conditions(Player *, GameResults *, u8);
 extern void            func_800798F0(Player *, Sram *, u32);

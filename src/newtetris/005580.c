@@ -493,16 +493,17 @@ u8 FUN_005580_800400fc_largefun_more_currpiece_stuff(UnkStruct_105 *arg0, u8 arg
   temp_s5->unk0.unk1 = g_currentPiece_ptr->logicalPos.y;
   temp_s5->unk0.unk2 = temp_s3;
 
+  // (bug?) if logicalPos.x == 5, then unk3 is left undefined
   if (g_currentPiece_ptr->logicalPos.x < 5) {
     temp_s5->unk3 = 2;
     do {} while ((temp_s0 = FUN_8004172c_twentyliner(1, 0, 0)) && (g_currentPiece_ptr->logicalPos.x < 5));
     if (g_currentPiece_ptr->logicalPos.x != 5) {
       return FALSE;
     }
-  } else if (g_currentPiece_ptr->logicalPos.x > 5) {
+  } else if (g_currentPiece_ptr->logicalPos.x > 5) {  // (bug?) this should be "> 4"
     temp_s5->unk3 = 1;
-    do {} while ((temp_s0 = FUN_8004172c_twentyliner(-1, 0, 0)) && (g_currentPiece_ptr->logicalPos.x > 5));
-    if (g_currentPiece_ptr->logicalPos.x != 5) {
+    do {} while ((temp_s0 = FUN_8004172c_twentyliner(-1, 0, 0)) && (g_currentPiece_ptr->logicalPos.x > 5));  // (bug?) this should be "> 4"
+    if (g_currentPiece_ptr->logicalPos.x != 5) {  // (bug?) this should be "!= 4"
       return FALSE;
     }
   }

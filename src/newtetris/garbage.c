@@ -66,9 +66,10 @@ void Garbage_Init(Garbage *arg0, u32 *seed) {
   arg0->unk1D = g_currentplayer;
   arg0->unk3 = FALSE;
   arg0->unk4 = FALSE;
-  func_80072B30(&arg0->unk14, *seed);
 
+  func_80072B30(&arg0->unk14, *seed);
   *seed = FUN_026900_PRNG_2(*seed);
+
   for (i = 0; i < 4; i++) {
     func_80072CC8(arg0, i, TRUE);
   }

@@ -1236,9 +1236,9 @@ func_800A2148                                = 0x800A2148; // type:func static
 func_800A27BC                                = 0x800A27BC; // type:func static
 func_800A286C                                = 0x800A286C; // type:func static
 func_800A287C                                = 0x800A287C; // type:func static
-func_800A2884                                = 0x800A2884; // type:func static
+start_single_player_game                     = 0x800A2884; // type:func static
 func_800A2A94                                = 0x800A2A94; // type:func static
-func_800A2AA4                                = 0x800A2AA4; // type:func static
+start_multi_player_game                      = 0x800A2AA4; // type:func static
 func_800A2E2C                                = 0x800A2E2C; // type:func
 
 // - {start: 0x069170, type:   c, vram: 0x800A2EF0, name: newtetris/069170}
@@ -1735,6 +1735,8 @@ D_800D2D80                = 0x800D2D80; //            size:0x18           TextLi
 D_800D2D98                = 0x800D2D98; //            size:0x18           TextList
 D_800D2DB0                = 0x800D2DB0; //            size:0x18           TextList
 D_800D2DC8                = 0x800D2DC8; //            size:0x18           TextList
+D_800D2DE0                = 0x800D2DE0; //            size:0x18           TextList
+D_800D2E1C                = 0x800D2E1C; // type:s16   size:0x2
 
 // - {start: 0x099410, type: .data, vram: 0x800D3190, name: newtetris/n64heap}
 n64Heap                   = 0x800D3190; //            size:0x4    static  N64Heap*

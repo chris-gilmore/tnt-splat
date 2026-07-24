@@ -56,6 +56,10 @@ static u8 D_800D2DFC[30] = {
 };
 */
 
+/*
+s16 D_800D2E1C = 0;
+*/
+
 static void   set_total_wonder_lines(Sram *, u32);
 
 // calculating rank
