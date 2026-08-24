@@ -20,7 +20,7 @@ typedef struct {
 
 typedef struct {
   /* 0x0  */ u8            state;
-  /* 0x1  */ u8            unk1;     // boolean
+  /* 0x1  */ u8            unk1;
   /* 0x4  */ s32           unk4;
   /* 0x8  */ s32           unk8;
   /* 0xC  */ UnkStruct_2   unkC;
