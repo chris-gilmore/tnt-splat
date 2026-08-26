@@ -21,6 +21,8 @@ typedef struct {
 
 extern Trig g_trig_tbl[];
 
+extern void   func_80060680(s32, Point *, s16, s16);
+extern s32    func_80060704(BoundingBox *);
 extern void   FUN_026900_sets_arg0_struct_to_arg1_arg2(BoundingBox *, s32, s32);
 extern u8     FUN_026900_80060770_sevenliner(UnkStruct_2 *, f32);
 extern u32    FUN_026900_PRNG_1(void);

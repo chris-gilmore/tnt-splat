@@ -401,12 +401,12 @@ PFGFX_Playfield_Init                             = 0x80060598; // type:func
 PFGFX_80060654_doesnothing                       = 0x80060654; // type:func unused  note calls 8005fc70 which does nothing
 
 // - {start: 0x026900, type:   c, vram: 0x80060680, name: newtetris/026900}
-func_80060680                                    = 0x80060680; // type:func unused  note never called
-func_80060704                                    = 0x80060704; // type:func unused  note never called
+func_80060680                                    = 0x80060680; // type:func unused
+func_80060704                                    = 0x80060704; // type:func unused
 FUN_026900_sets_arg0_struct_to_arg1_arg2         = 0x8006073C; // type:func
 FUN_026900_80060770_sevenliner                   = 0x80060770; // type:func
 FUN_026900_PRNG_1                                = 0x80060814; // type:func  note similar to PRNG_2 but uses global addr DAT_8011fa70
-FUN_026900_sets_g8011FA70_to_arg0                = 0x80060890; // type:func unused  note never called
+FUN_026900_sets_g8011FA70_to_arg0                = 0x80060890; // type:func unused
 FUN_026900_PRNG_2                                = 0x8006089C; // type:func  note similar to PRNG_1 but uses arg0
 FUN_026900_800608f4_oneliner_shift6_1            = 0x800608F4; // type:func  note sin
 FUN_026900_80060914_oneliner_shift6_2            = 0x80060914; // type:func  note cos

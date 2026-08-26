@@ -10,9 +10,37 @@ Trig g_trig_tbl[] = {
   { -1,  0 },
 };
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/026900/func_80060680.s")
+// unused
+void func_80060680(s32 arg0, Point *arg1, s16 arg2, s16 arg3) {
+  switch (arg0) {
+  case 0:
+    arg1->x = arg2;
+    arg1->y = arg3;
+    break;
+  case 1:
+    arg1->x = -arg3;
+    arg1->y = arg2;
+    break;
+  case 2:
+    arg1->x = -arg2;
+    arg1->y = -arg3;
+    break;
+  case 3:
+    arg1->x = arg3;
+    arg1->y = -arg2;
+    break;
+  }
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/026900/func_80060704.s")
+// unused
+s32 func_80060704(BoundingBox *arg0) {
+  register s32 var_a1;
+  register s32 var_a2;
+
+  var_a1 = arg0->x_max - arg0->x_min + 1;
+  var_a2 = arg0->y_max - arg0->y_min + 1;
+  return var_a1 * var_a2;
+}
 
 void FUN_026900_sets_arg0_struct_to_arg1_arg2(BoundingBox *arg0, s32 arg1, s32 arg2) {
   register s16 var_a3;
@@ -27,13 +55,13 @@ void FUN_026900_sets_arg0_struct_to_arg1_arg2(BoundingBox *arg0, s32 arg1, s32 a
 }
 
 u8 FUN_026900_80060770_sevenliner(UnkStruct_2 *arg0, f32 arg1) {
-    arg0->alpha += arg0->unk4 * arg1;
-    if (((arg0->unk4 < 0.0f) && (arg0->alpha < arg0->unk8)) || ((arg0->unk4 > 0.0f) && (arg0->alpha > arg0->unk8))) {
-        arg0->alpha = arg0->unk8;
-        arg0->unk4 = 0.0f;
-        return FALSE;
-    }
-    return TRUE;
+  arg0->alpha += arg0->unk4 * arg1;
+  if (((arg0->unk4 < 0.0f) && (arg0->alpha < arg0->unk8)) || ((arg0->unk4 > 0.0f) && (arg0->alpha > arg0->unk8))) {
+    arg0->alpha = arg0->unk8;
+    arg0->unk4 = 0.0f;
+    return FALSE;
+  }
+  return TRUE;
 }
 
 u32 FUN_026900_PRNG_1(void) {
