@@ -389,7 +389,7 @@ __scSchedule              = 0x8005F6F8; // type:func
 // - {start: 0x025D00, type:   c, vram: 0x8005FA80, name: newtetris/pfgfx}
 PFGFX_8005fa80_twoliner_calls_fun                = 0x8005FA80; // type:func unused
 PFGFX_8005fab8_oneliner_calls_fun                = 0x8005FAB8; // type:func unused
-PFGFX_Sets_x58_x59_Checks_NumPlayers_CurrPlayer  = 0x8005FAE0; // type:func         note sets x58 and x59 pos? might be offsets on where to start drawing each player's playfield
+PFGFX_Sets_x58_x59_Checks_NumPlayers_CurrPlayer  = 0x8005FAE0; // type:func static  note sets x58 and x59 pos? might be offsets on where to start drawing each player's playfield
 PFGFX_8005fc70_doesnothing                       = 0x8005FC70; // type:func static
 GameCamera_Render                                = 0x8005FC78; // type:func
 PFGFX_Init                                       = 0x8005FE68; // type:func         note called by Tetris_Init

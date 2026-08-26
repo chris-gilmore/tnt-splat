@@ -48,17 +48,27 @@ static UnkStruct_26 D_800D01E0[8][2] = {
   }
 };
 
-static void   PFGFX_8005fc70_doesnothing(void);
-static void   PFGFX_SetTextDisplayPos_1p(u8);
-static void   PFGFX_SetTextDisplayPos_2p(u8);
-static void   PFGFX_SetTextDisplayPos_3p(u8);
-static void   PFGFX_SetTextDisplayPos_4p(u8);
+static void PFGFX_8005fa80_twoliner_calls_fun(void);  // unused
+static void PFGFX_8005fab8_oneliner_calls_fun(void);  // unused
+static void PFGFX_Sets_x58_x59_Checks_NumPlayers_CurrPlayer(void);
+static void PFGFX_8005fc70_doesnothing(void);
+static void PFGFX_SetTextDisplayPos_1p(u8);
+static void PFGFX_SetTextDisplayPos_2p(u8);
+static void PFGFX_SetTextDisplayPos_3p(u8);
+static void PFGFX_SetTextDisplayPos_4p(u8);
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/pfgfx/PFGFX_8005fa80_twoliner_calls_fun.s")
+// unused
+static void PFGFX_8005fa80_twoliner_calls_fun(void) {
+  guMtxIdent(&g_pfGfx_ptr->unk50);
+  g_pfGfx_ptr->unk90 = 0xFFFF;
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/pfgfx/PFGFX_8005fab8_oneliner_calls_fun.s")
+// unused
+static void PFGFX_8005fab8_oneliner_calls_fun(void) {
+  guMtxIdent(&g_pfGfx_ptr->unk10);
+}
 
-void PFGFX_Sets_x58_x59_Checks_NumPlayers_CurrPlayer(void) {
+static void PFGFX_Sets_x58_x59_Checks_NumPlayers_CurrPlayer(void) {
   register PfGfx *pfGfx_ptr = g_pfGfx_ptr;
 
   switch (g_playercount) {
@@ -110,7 +120,24 @@ void PFGFX_Sets_x58_x59_Checks_NumPlayers_CurrPlayer(void) {
 static void PFGFX_8005fc70_doesnothing(void) {
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/pfgfx/GameCamera_Render.s")
+void GameCamera_Render(void) {
+  register PfGfx *pfGfx_ptr = g_pfGfx_ptr;
+  register Gfx *gdl = g_gdl;
+
+  guMtxIdent(&pfGfx_ptr->unk50);
+  guMtxIdent(&pfGfx_ptr->unk10);
+  pfGfx_ptr->unk90 = 0xFFFF;
+
+  gSPMatrix(gdl++, &pfGfx_ptr->unk50, G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_PROJECTION);
+
+  gSPPerspNormalize(gdl++, pfGfx_ptr->unk90);
+
+  gSPMatrix(gdl++, &pfGfx_ptr->unk10, G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+
+  gDPSetScissor(gdl++, G_SC_NON_INTERLACE, screen_3_width, screen_3_height, screen_4_width - 1, screen_4_height - 1);
+
+  g_gdl = gdl;
+}
 
 Point *PFGFX_Init(Point *arg0, PfGfx *arg1) {
   Point p;
@@ -278,6 +305,7 @@ void PFGFX_Playfield_Init(u8 screen) {
   }
 }
 
+// unused
 void PFGFX_80060654_doesnothing(void) {
   PFGFX_8005fc70_doesnothing();
 }

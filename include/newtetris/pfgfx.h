@@ -2,9 +2,12 @@
 #define _PFGFX_H_
 
 typedef struct {
-  /* 0x0  */ s16     pad0[0x58];
+  /* 0x0  */ u8      pad0[0x10];
+  /* 0x10 */ Mtx     unk10;  // modelview matrix
+  /* 0x50 */ Mtx     unk50;  // projection matrix
+  /* 0x90 */ u16     unk90;  // persp_norm
+  /* 0x92 */ u8      pad92[0x1E];
   /* 0xB0 */ Point   unkB0;  // player-specific playfield location
-  /* 0xB4 */ u8      padB4[0x4];
 } PfGfx; // 0xB8 bytes
 
 typedef struct {
@@ -14,10 +17,9 @@ typedef struct {
 
 extern PfGfx *g_pfGfx_ptr;
 
-extern void    PFGFX_Sets_x58_x59_Checks_NumPlayers_CurrPlayer(void);
 extern void    GameCamera_Render(void);
 extern Point  *PFGFX_Init(Point *, PfGfx *);
 extern void    PFGFX_Playfield_Init(u8);
-extern void    PFGFX_80060654_doesnothing(void);
+extern void    PFGFX_80060654_doesnothing(void);  // unused
 
 #endif /* !_PFGFX_H_ */
