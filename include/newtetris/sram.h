@@ -1,30 +1,35 @@
 #ifndef _SRAM_H_
 #define _SRAM_H_
 
-typedef struct Player Player;
-typedef struct PlayerNode PlayerNode;
+typedef struct {
+  /* 0x0  */ char   name[9];
+  /* 0xC  */ u32    unkC;   // lines
+  /* 0x10 */ u32    unk10;  // time_in_seconds
+  /* 0x14 */ u16    unk14;  // total time_in_seconds
+  /* 0x16 */ u16    unk16;  // total lines
+} GlobalScore; // 0x18 bytes
 
-struct PlayerNode {
-  /* 0x0  */ char         name[9];
-  /* 0x9  */ u8           salt[2];
-  /* 0xB  */ u8           pack;
-  /* 0xC  */ Player      *ptr;
-  /* 0x10 */ PlayerNode  *next;
-  /* 0x14 */ PlayerNode  *last;
-}; // 0x18 bytes
+typedef struct {
+  /* 0x0  */ u32   unk0[5];   // lines
+  /* 0x14 */ u32   unk14[5];  // lines
+  /* 0x28 */ u32   unk28[5];  // time_in_seconds
+} PlayerScores; // 0x3C bytes
 
-struct Player {
-  /* 0x0  */ PlayerNode   node;
-  /* 0x18 */ u8           pad18[0xA8];
-  /* 0xC0 */ u16          time_in_seconds;
-  /* 0xC2 */ u16          lines;
-  /* 0xC4 */ s32          unkC4;  // lines to dump to game pak
-  /* 0xC8 */ s32          unkC8;
-  /* 0xCC */ s32          unkCC;
-  /* 0xD0 */ u8           unkD0;
-  /* 0xD2 */ s16          unkD2;
-  /* 0xD4 */ u8           unkD4;
-}; // 0xD8 bytes
+typedef struct {
+  /* 0x0  */ char           name[9];
+  /* 0x9  */ u8             salt[2];
+  /* 0xC  */ PlayerScores   marathon_scores;
+  /* 0x48 */ PlayerScores   ultra_scores;
+  /* 0x84 */ PlayerScores   sprint_scores;
+  /* 0xC0 */ u16            time_in_seconds;
+  /* 0xC2 */ u16            lines;
+  /* 0xC4 */ s32            unkC4;  // lines to dump to game pak
+  /* 0xC8 */ s32            unkC8;
+  /* 0xCC */ s32            unkCC;
+  /* 0xD0 */ u8             unkD0;
+  /* 0xD2 */ s16            unkD2;
+  /* 0xD4 */ u8             unkD4;
+} Player; // 0xD8 bytes
 
 typedef struct {
   /* 0x0  */ u8       unk0;      // num winners
@@ -61,7 +66,9 @@ typedef struct {
   /* 0x4    */ UnkStruct_34    unk4[32];
   /* 0xF04  */ u32             total_wonder_lines_odd_bits;
   /* 0xF08  */ u32             total_wonder_lines_even_bits;
-  /* 0xF0C  */ u8              padF0C[0x168];
+  /* 0xF0C  */ GlobalScore     global_marathon[5];
+  /* 0xF84  */ GlobalScore     global_ultra[5];
+  /* 0xFFC  */ GlobalScore     global_sprint[5];
   /* 0x1074 */ Contributions   contributions[9];
   /* 0x18E4 */ u32             music_level;
   /* 0x18E8 */ u32             sfx_level;
@@ -95,11 +102,11 @@ extern void            func_8007A648(Sram *, s32);
 extern u32             func_8007A660(Sram *);
 extern void            func_8007A6C4(Player *, TextList *, s32);
 extern TextList       *func_8007A738(TextList *, u8);
-extern TextList       *func_8007AA5C(TextList *, PlayerNode *);
+extern TextList       *func_8007AA5C(TextList *, Player *);
 extern u8              func_8007AADC(u8 *, u8, u8);
 extern TextList       *func_8007AEB0(TextList *);
 extern void            func_8007AF88(Player *, u8 *, s32);
-extern void            func_8007B38C(PlayerNode *);
+extern void            func_8007B38C(TextList *);
 extern void            func_8007B420(Player *);
 extern void            func_8007B430(Player *, UnkStruct_34 *, s32);
 extern u32             get_total_wonder_lines(Sram *);

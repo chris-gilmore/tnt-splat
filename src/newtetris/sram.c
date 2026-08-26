@@ -106,7 +106,20 @@ u8 FUN_SRAM_80078424_twelveliner_div60_loop_30t_b(u16 time_in_seconds, u16 lines
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sram/FUN_SRAM_80078534_tenliner_loops.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sram/FUN_SRAM_800785e0_sixliner_loop_arg0_t.s")
+void FUN_SRAM_800785e0_sixliner_loop_arg0_t(TextList *arg0) {
+  TextList *sp1C;
+
+  sp1C = arg0;
+  do {
+    if (((sp1C->pack & 0xF) == 0xF) || ((sp1C->pack & 0xF) == 0xE) || ((sp1C->pack & 0xF) == 0xA) || ((sp1C->pack & 0xF) == 9) || ((sp1C->pack & 0xF) == 8)) {
+      // do nothing
+    } else if (((Player *) sp1C->ptr)->unkD0 == 0) {
+      func_8007AEB0(sp1C);
+    }
+
+    sp1C = sp1C->next;
+  } while (sp1C != arg0);
+}
 
 TextList *FUN_SRAM_8007868c_tenliner_loop_arg0_t(TextList *arg0) {
   TextList *sp1C;
@@ -314,7 +327,7 @@ Contributions *func_80079F74(Sram *sram_ptr, u8 arg1) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sram/func_8007AA50.s")
 
-TextList *func_8007AA5C(TextList *arg0, PlayerNode *arg1) {
+TextList *func_8007AA5C(TextList *arg0, Player *arg1) {
   TextList *sp4;
 
   sp4 = arg0;
@@ -364,8 +377,8 @@ TextList *func_8007AEB0(TextList *arg0) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/sram/func_8007AF88.s")
 
-void func_8007B38C(PlayerNode *arg0) {
-  rmonPrintf("Name: %s\n", arg0->name);
+void func_8007B38C(TextList *arg0) {
+  rmonPrintf("Name: %s\n", arg0->text);
   rmonPrintf("Salt: %x %x\n", arg0->salt[0], arg0->salt[1]);
   rmonPrintf("Pack: %x\n", arg0->pack);
   rmonPrintf("Ptr: %x\n", arg0->ptr);

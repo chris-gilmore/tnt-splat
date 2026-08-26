@@ -1160,7 +1160,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                 if (!((pfs_err_2 >> 4) & 0xF)) {
                   file_no_2 = pfs_err_2;
                   pfs_err_2 = FUN_001050_cpakRead(&superThread, file_no_2, 32, 0, sp16C, arg0->unk5C);
-                  if (func_8007AADC(sp16C, ((Player *) arg0->textList->ptr)->node.salt[0], ((Player *) arg0->textList->ptr)->node.salt[1])) {
+                  if (func_8007AADC(sp16C, ((Player *) arg0->textList->ptr)->salt[0], ((Player *) arg0->textList->ptr)->salt[1])) {
                     pfs_err_2 = FUN_001050_cpakDeleteFile(&superThread, &cpaknote_2, arg0->unk5C);
                     if ((pfs_err_2 >> 4) & 0xF) {
                       arg0->unk5D = 0xFA;
@@ -1920,7 +1920,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                       n64HeapUnalloc(spC4);
                       return;
                     }
-                    if (func_8007AADC(spC4, ((Player *) arg0->textList->ptr)->node.salt[0], ((Player *) arg0->textList->ptr)->node.salt[1])) {
+                    if (func_8007AADC(spC4, ((Player *) arg0->textList->ptr)->salt[0], ((Player *) arg0->textList->ptr)->salt[1])) {
                       pfs_err_3 = FUN_001050_cpakDeleteFile(&superThread, &cpaknote_3, arg0->unk5C);
                       if ((pfs_err_3 >> 4) & 0xF) {
                         arg0->unk5D = 0xFA;
@@ -2072,7 +2072,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                       return;
                     }
 
-                    if (func_8007AADC(sp5C, ((Player *) arg0->textList->ptr)->node.salt[0], ((Player *) arg0->textList->ptr)->node.salt[1])) {
+                    if (func_8007AADC(sp5C, ((Player *) arg0->textList->ptr)->salt[0], ((Player *) arg0->textList->ptr)->salt[1])) {
                       pfs_err_5 = FUN_001050_cpakDeleteFile(&superThread, &cpaknote_5, arg0->unk5C);
                       if (((pfs_err_5 >> 4) & 0xF) != 0) {
                         arg0->unk5D = 0xFA;
@@ -2355,7 +2355,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
               Audio2_Play_SFX(&D_801235B0, &g_menuSfxBank, SFX_MENU_2);
 
               for (sp58 = 0; sp58 < 8; sp58++) {
-                ((Player *) sp48->ptr)->node.name[sp58] = sp48->text[sp58];
+                ((Player *) sp48->ptr)->name[sp58] = sp48->text[sp58];
               }
 
               arg0->unk5D = 0;

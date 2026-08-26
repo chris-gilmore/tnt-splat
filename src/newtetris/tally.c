@@ -63,7 +63,7 @@ void gets_lineCounts_loops_numPlayers_checks_gametype(void) {
     }
 
     for (i = 0; i < sp28->unk5; i++) {
-      sp2C = func_8007AA5C(&D_800D2D80, &g_game.players[i].node);
+      sp2C = func_8007AA5C(&D_800D2D80, &g_game.players[i]);
       if (sp2C != NULL) {
         if (sp2C->ptr != NULL) {
           sp28->unk3C[i] = sp2C->ptr;
@@ -74,7 +74,7 @@ void gets_lineCounts_loops_numPlayers_checks_gametype(void) {
             if (pack == 0xD) {
               for (j = 0; j < 32; j++) {
                 if ((1 << j) & g_sram_ptr->unk0) {
-                  if (func_8007AADC((u8 *) (g_sram_ptr->unk4 + j), ((Player *) sp2C->ptr)->node.salt[0], ((Player *) sp2C->ptr)->node.salt[1])) {
+                  if (func_8007AADC((u8 *) (g_sram_ptr->unk4 + j), ((Player *) sp2C->ptr)->salt[0], ((Player *) sp2C->ptr)->salt[1])) {
                     func_8007AF88(sp2C->ptr, (u8 *) g_sram_ptr->unk4, j * sizeof(UnkStruct_34));
                   }
                 }
@@ -271,7 +271,7 @@ void game_over_display_stuff_huge_function_q(void) {
           if (((sp9C >> 4) & 0xF) == 0) {
             sp6C = sp9C;
             sp9C = FUN_001050_cpakRead(&superThread, sp9C, 0x20, 0, sp64, D_800D0154);
-            if (func_8007AADC(sp64, spFC->unk3C[D_800D0154]->node.salt[0], spFC->unk3C[D_800D0154]->node.salt[1])) {
+            if (func_8007AADC(sp64, spFC->unk3C[D_800D0154]->salt[0], spFC->unk3C[D_800D0154]->salt[1])) {
               bzero(sp64, 0x80);
               func_8007B420(spFC->unk3C[D_800D0154]);
               func_8007AF88(spFC->unk3C[D_800D0154], sp64, 0);
@@ -302,7 +302,7 @@ void game_over_display_stuff_huge_function_q(void) {
         spA8 = 60;
         spA4 = 50;
         weird_lots_of_magic_number_setting_66xrefs(&g_gdl, D_8011F258, NULL, 50, 40, 0xFF, 0xFF, 0xFF, 0xFF);
-        sprintf(spB8, "%s", spF8[D_800D0154].node.name);
+        sprintf(spB8, "%s", spF8[D_800D0154].name);
         displayText_XY_RGBA_2(&g_gdl, &D_80128FA0, spA8, spA4, spB8, 0xFF, 0xFF, 0xFF, 0xFF);
         spA4 += 15;
         displayText_XY_RGBA_2(&g_gdl, &D_80128FA0, spA8, spA4, "PLEASE INSERT YOUR CONTROLLER PAK", 0xFF, 0xFF, 0xFF, 0xFF);
@@ -336,7 +336,7 @@ void game_over_display_stuff_huge_function_q(void) {
         spA8 = 60;
         spA4 = 50;
         weird_lots_of_magic_number_setting_66xrefs(&g_gdl, D_8011F258, NULL, 52, 41, 0xFF, 0xFF, 0xFF, 0xFF);
-        sprintf(spB8, "%s", spF8[D_800D0154].node.name);
+        sprintf(spB8, "%s", spF8[D_800D0154].name);
         displayText_XY_RGBA_2(&g_gdl, &D_80128FA0, spA8, spA4, spB8, 0xFF, 0xFF, 0xFF, 0xFF);
         spA4 += 15;
         displayText_XY_RGBA_2(&g_gdl, &D_80128FA0, spA8, spA4, "YOU WERE NOT FOUND ON THIS CONTROLLER", 0xFF, 0xFF, 0xFF, 0xFF);
@@ -390,10 +390,10 @@ void game_over_display_stuff_huge_function_q(void) {
     for (spB4 = 90, spAC = 0; spAC < spFC->unk5; spAC++, spB4 += 25) {
       sp5C = &spF8[spAC];
       gDPPipeSync(g_gdl++);
-      displayText_XY_RGBA_2(&g_gdl, &D_80128F28, 46, spB4 + 4, sp5C->node.name, 0xFF, 0xFF, 0xFF, 0xFF);
+      displayText_XY_RGBA_2(&g_gdl, &D_80128F28, 46, spB4 + 4, sp5C->name, 0xFF, 0xFF, 0xFF, 0xFF);
       gDPPipeSync(g_gdl++);
       if (D_800D0150 > 90) {
-        spF4 = func_8007AA5C(&D_800D2D98, &sp5C->node);
+        spF4 = func_8007AA5C(&D_800D2D98, sp5C);
         if (spF4 != NULL) {
           rank = FUN_SRAM_80078300_twelveliner_div60_loop_30t_a(spF4->ptr) + 1;
         } else {
@@ -429,7 +429,7 @@ void game_over_display_stuff_huge_function_q(void) {
     if (D_800D0150 > 90) {
       for (spB4 = 90, spAC = 0; spAC < spFC->unk5; spAC++, spB4 += 25) {
         sp5C = &spF8[spAC];
-        spF4 = func_8007AA5C(&D_800D2D98, &sp5C->node);
+        spF4 = func_8007AA5C(&D_800D2D98, sp5C);
         if (spF4 != NULL) {
           if (FUN_SRAM_80078300_twelveliner_div60_loop_30t_a(spF4->ptr) != FUN_SRAM_80078300_twelveliner_div60_loop_30t_a(sp5C)) {
             // empty -- maybe debug print excised?
@@ -454,9 +454,9 @@ void game_over_display_stuff_huge_function_q(void) {
           if (spFC->unk1[spAC] == 1) {
             if (spFC->unk38 != 0) {
               if (spFC->unk38 == 1) {
-                sprintf(spB8, "%s WINS %d LINE", sp5C->node.name, spFC->unk38);
+                sprintf(spB8, "%s WINS %d LINE", sp5C->name, spFC->unk38);
               } else {
-                sprintf(spB8, "%s WINS %d LINES", sp5C->node.name, spFC->unk38);
+                sprintf(spB8, "%s WINS %d LINES", sp5C->name, spFC->unk38);
               }
               displayText_XY_RGBA_2(&g_gdl, &D_80128F28, 62, 195, spB8, 0xFF, 0xFF, 0xFF, 0xFF);
             }
