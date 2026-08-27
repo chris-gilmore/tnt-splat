@@ -1,6 +1,6 @@
 #include "common.h"
 
-static void   func_80076F20(UnkStruct_11 *);
+static void func_80076F20(UnkStruct_11 *);
 
 // init
 void func_80076EC0(UnkStruct_11 *arg0, u8 arg1) {

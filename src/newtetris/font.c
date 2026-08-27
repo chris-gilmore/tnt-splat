@@ -286,7 +286,7 @@ void displayText_XY_RGBA_4(Gfx **p_gdl, Font *p_font, s32 x, s32 y, char *str, s
                                                  alpha,
                                                  arg9,
                                                  arg9);
-      x += (p_font->char_widths[D_800D2CF0[str[i] - 32]] << 0xC) / arg9;
+      x += (p_font->char_widths[D_800D2CF0[str[i] - 32]] << 12) / arg9;
       i++;
     }
   }
@@ -338,7 +338,7 @@ s32 Font_80077e18_fifteenliner(Font *p_font, char *str) {
   i = 0;
   width = 0;
   while (str[i] != 0) {
-    width += (p_font->char_widths[D_800D2CF0[str[i] - 32]] << 0xC) / D_800D2D70;
+    width += (p_font->char_widths[D_800D2CF0[str[i] - 32]] << 12) / D_800D2D70;
     i++;
   }
 

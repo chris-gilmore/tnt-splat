@@ -1611,7 +1611,7 @@ g_pieceDef_ptr_arr        = 0x800D0110; //            size:0x1C           PieceD
 // piece names; L, J, Z, S, T, I, O
 piece_names               = 0x800D012C; // type:char  size:0x14   static  [8]
 
-// - {start: 0x0963E0, type: data, vram: 0x800D0160, name: newtetris/01D6E0}
+// - {start: 0x0963E0, type: .data, vram: 0x800D0160, name: newtetris/01D6E0}
 
 // - {start: 0x096400, type: data, vram: 0x800D0180, name: ultralib/sched/sched}
 
