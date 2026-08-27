@@ -3,7 +3,37 @@
 static void func_800AE70C(UnkStruct_88 *);
 
 // unused
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/073D50/func_800ADAD0.s")
+Gfx *func_800ADAD0(Gfx *gdl, u16 *arg1, u8 r, u8 g, u8 b, u8 a) {
+  s32 var_a3;
+  s32 var_v0;
+
+  gDPSetCycleType(gdl++, G_CYC_1CYCLE);
+  gDPSetTexturePersp(gdl++, G_TP_NONE);
+  gDPSetTextureFilter(gdl++, G_TF_POINT);
+  gDPSetColorDither(gdl++, G_CD_NOISE);
+  gDPSetBlendColor(gdl++, 0x00, 0x00, 0x00, 0x00);
+  gDPSetAlphaCompare(gdl++, G_AC_NONE);
+  gDPSetFogColor(gdl++, 0xFF, 0xFF, 0xFF, 0xFF);
+  gDPSetCombineMode(gdl++, G_CC_MODULATEIA_PRIM, G_CC_MODULATEIA_PRIM);
+
+  if (a == 0xFF) {
+    gDPSetRenderMode(gdl++, G_RM_OPA_SURF, G_RM_OPA_SURF2);
+  } else {
+    gDPSetRenderMode(gdl++, IM_RD | CVG_DST_SAVE | ZMODE_OPA | FORCE_BL | GBL_c1(G_BL_CLR_IN, G_BL_A_FOG, G_BL_CLR_MEM, G_BL_1MA), IM_RD | CVG_DST_SAVE | ZMODE_OPA | FORCE_BL | G_RM_NOOP2);
+  }
+
+  gDPSetPrimColor(gdl++, 0, 0, r, g, b, a);
+
+  for (var_v0 = 0; var_v0 < 240; var_v0 += 30) {
+    for (var_a3 = 0; var_a3 < 320; var_a3 += 64) {
+      gDPLoadTextureTile(gdl++, arg1, G_IM_FMT_RGBA, G_IM_SIZ_16b, 320, 240, var_a3, var_v0, var_a3 + 63, var_v0 + 29, NULL, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD);
+      gDPSetTileSize(gdl++, G_TX_RENDERTILE, 0, 0, (64 << 2) - 1, (30 << 2) - 1);
+      gSPTextureRectangle(gdl++, var_a3 << 2, var_v0 << 2, ((var_a3 + 64) << 2) - 1, ((var_v0 + 30) << 2) - 1, G_TX_RENDERTILE, 0, 0, 0x400, 0x400);
+    }
+  }
+
+  return gdl;
+}
 
 UnkStruct_88 *func_800ADE5C(s32 w, s32 h) {
   UnkStruct_88 *temp_v0;

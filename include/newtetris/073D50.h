@@ -20,6 +20,7 @@ typedef struct {
   /* 0x140 */ f32            unk140;
 } UnkStruct_88; // 0x148 bytes
 
+extern Gfx           *func_800ADAD0(Gfx *, u16 *, u8, u8, u8, u8);  // unused
 extern UnkStruct_88  *func_800ADE5C(s32, s32);
 extern Gfx           *func_800AE220(UnkStruct_88 *, Gfx *, u16 *, u8, u8, u8, u8);
 extern void           func_800AE6C8(UnkStruct_88 *, Vec3 *);

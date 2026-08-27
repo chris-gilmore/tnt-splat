@@ -1410,6 +1410,7 @@ func_800AD2FC                          = 0x800AD2FC; // type:func static
 func_800AD970                          = 0x800AD970; // type:func
 
 // - {start: 0x073D50, type:   c, vram: 0x800ADAD0, name: newtetris/073D50}
+func_800ADAD0                          = 0x800ADAD0; // type:func unused
 func_800ADE5C                          = 0x800ADE5C; // type:func
 func_800AE220                          = 0x800AE220; // type:func
 func_800AE6C8                          = 0x800AE6C8; // type:func unused
