@@ -2,12 +2,14 @@
 #define _077340_H_
 
 typedef struct {
-  /* 0x0  */ f32   unk0;
-  /* 0x4  */ f32   unk4;
-  /* 0x8  */ f32   unk8;
-  /* 0xC  */ f32   unkC;
+  /* 0x0 */ f32   unk0;
+  /* 0x4 */ f32   unk4;
+  /* 0x8 */ f32   unk8;
+  /* 0xC */ f32   unkC;
 } UnkStruct_84; // 0x10 bytes
 
 extern void   func_800B11C4(UnkStruct_84 *, UnkStruct_84 *);
+extern void   func_800B13A8(UnkStruct_84 *, UnkStruct_84 *);  // unused
+extern void   func_800B16D8(UnkStruct_84 *, UnkStruct_84 *, UnkStruct_84 *, f32);  // unused
 
 #endif /* !_077340_H_ */

@@ -1462,6 +1462,8 @@ vec4_dot                               = 0x800B1078; // type:func
 func_800B10C0                          = 0x800B10C0; // type:func static
 func_800B110C                          = 0x800B110C; // type:func static
 func_800B11C4                          = 0x800B11C4; // type:func
+func_800B13A8                          = 0x800B13A8; // type:func unused
+func_800B16D8                          = 0x800B16D8; // type:func unused
 
 // - {start: 0x0779F0, type:   c, vram: 0x800B1770, name: newtetris/cont}
 func_800B1770                          = 0x800B1770; // type:func
