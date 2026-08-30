@@ -1916,7 +1916,7 @@ D_800D9248                = 0x800D9248; //            size:0x40           Gfx [8
 D_800D9288                = 0x800D9288; //            size:0x40   unused  Gfx [8]
 D_800D92C8                = 0x800D92C8; //            size:0x40   unused  Gfx [8]
 
-// - {start: 0x09F590, type: data, vram: 0x800D9310, name: newtetris/09F590}
+// - {start: 0x09F590, type: .data, vram: 0x800D9310, name: newtetris/09F590}
 D_800D9310                = 0x800D9310; //            size:0x80           Gfx [16]
 D_800D9390                = 0x800D9390; //            size:0x80           Gfx [16]
 D_800D9410                = 0x800D9410; //            size:0x80           Gfx [16]

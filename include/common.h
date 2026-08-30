@@ -34,6 +34,7 @@ typedef unsigned long  uintptr_t;
 #include <newtetris/078FE0.h>
 #include <newtetris/077340.h>
 #include <newtetris/073D50.h>
+#include <newtetris/09F3D0.h>
 #include <newtetris/073120.h>
 #include <newtetris/haluci.h>
 #include <newtetris/frametime.h>
@@ -113,6 +114,8 @@ typedef unsigned long  uintptr_t;
 #include <newtetris/pfgfx.h>
 #include <newtetris/001050.h>
 #include <newtetris/03A750.h>
+#include <newtetris/09F590.h>
+#include <newtetris/sprite.h>
 #include <newtetris/06F290.h>
 #include <newtetris/010870.h>
 #include <newtetris/00E2A0.h>

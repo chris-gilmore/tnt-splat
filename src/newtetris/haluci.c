@@ -218,12 +218,12 @@ void func_8007CF40(u8 arg0) {
   D_8011FEA8->unkD4 = 350;
   D_8011FEA8->unk114 = 1;
 
-  D_800D3044.unk8.unkC = (u16 *) D_8011FD10;  // perhaps this struct's field shouldn't be u16*; maybe it should be either u8* or void*
+  D_800D3044.unk8.unkC = D_8011FD10;
   D_800D3044.unk8.unk8 = D_800D3060;
 
   sp34 = D_800D3060;
 
-  gDPLoadTextureBlock(sp34++, ((u32)D_8011FD10 - (u32)&D_800D3044.unk8) + 0x0B000000, G_IM_FMT_I, G_IM_SIZ_8b, 16, 16, 0, G_TX_NOMIRROR | G_TX_WRAP, G_TX_NOMIRROR | G_TX_WRAP, 4, 4, G_TX_NOLOD, G_TX_NOLOD);
+  gDPLoadTextureBlock(sp34++, SEGMENT_ADDR(G_MWO_SEGMENT_B, (u32)D_8011FD10 - (u32)&D_800D3044.unk8), G_IM_FMT_I, G_IM_SIZ_8b, 16, 16, 0, G_TX_NOMIRROR | G_TX_WRAP, G_TX_NOMIRROR | G_TX_WRAP, 4, 4, G_TX_NOLOD, G_TX_NOLOD);
 
   func_8007C8B0();
   func_8007D458(D_8011FEA8);

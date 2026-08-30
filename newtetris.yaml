@@ -456,7 +456,7 @@ segments:
       - {start: 0x09F3D0, type: .data, vram: 0x800D9150, name: newtetris/09F3D0}
       - {start: 0x09F410, type: data, vram: 0x800D9190, name: newtetris/sprite}
       - {start: 0x09F420, type: .data, vram: 0x800D91A0, name: newtetris/078FE0}
-      - {start: 0x09F590, type: data, vram: 0x800D9310, name: newtetris/09F590}
+      - {start: 0x09F590, type: .data, vram: 0x800D9310, name: newtetris/09F590}
 
       - {start: 0x09F790, type: data, vram: 0x800D9510, name: ultralib/io/controller}
       - {start: 0x09F7A0, type: data, vram: 0x800D9520, name: ultralib/io/gbpakreadid}
