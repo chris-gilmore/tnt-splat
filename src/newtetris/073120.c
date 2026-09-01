@@ -57,9 +57,9 @@ UnkStruct_86 *func_800ACEA0(u32 arg0, UnkStruct_44 *arg1) {
   sp2C->unk110 = 16;
   sp2C->unk114 = 0.995;
   sp2C->unk118 = 0;
-  sp2C->unkF8 = 0;
-  sp2C->unkFC = 0;
-  sp2C->unk100 = 0;
+  sp2C->unkF8.x = 0;
+  sp2C->unkF8.y = 0;
+  sp2C->unkF8.z = 0;
 
   sc = sp2C->unkD0->unk8.unk2;
   tc = sp2C->unkD0->unk8.unk4;
@@ -114,9 +114,63 @@ void func_800AD120(UnkStruct_86 *arg0) {
   n64HeapUnalloc(arg0);
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/073120/func_800AD140.s")
+void func_800AD140(UnkStruct_86 *arg0, Vec3 *arg1, Vec3 *arg2) {
+  UnkStruct_87 *temp_v0 = arg0->unkCC;
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/073120/func_800AD1E4.s")
+  if (arg2 != NULL) {
+    temp_v0->unk10 = *arg2;
+  } else {
+    temp_v0->unk10.x = 0;
+    temp_v0->unk10.y = 0;
+    temp_v0->unk10.z = 0;
+  }
+
+  if (arg1 != NULL) {
+    temp_v0->unk4 = *arg1;
+  } else {
+    temp_v0->unk4.x = 0;
+    temp_v0->unk4.y = 0;
+    temp_v0->unk4.z = 0;
+  }
+
+  temp_v0->unk1C = 0;
+  arg0->unkC8++;
+  arg0->unkCC++;
+  if (arg0->unkC8 == arg0->unkC0) {
+    arg0->unkC8 = 0;
+    arg0->unkCC = arg0->unkC4;
+  }
+}
+
+void func_800AD1E4(UnkStruct_86 *arg0) {
+  s32 var_s2;
+  UnkStruct_87 *var_s0;
+
+  for (var_s2 = arg0->unkC0, var_s0 = arg0->unkC4; var_s2 != 0; var_s2--, var_s0++) {
+    if (var_s0->unk1C != -1) {
+      var_s0->unk1C++;
+      if (var_s0->unk1C == arg0->unkD4) {
+        var_s0->unk1C = -1;
+      } else {
+        var_s0->unk4.x += var_s0->unk10.x;
+        var_s0->unk4.y += var_s0->unk10.y;
+        var_s0->unk4.z += var_s0->unk10.z;
+
+        if (arg0->unk11C != NULL) {
+          arg0->unk11C(var_s0);
+        } else {
+          var_s0->unk10.x += arg0->unkF8.x;
+          var_s0->unk10.y += arg0->unkF8.y;
+          var_s0->unk10.z += arg0->unkF8.z;
+        }
+
+        var_s0->unk10.x *= arg0->unk114;
+        var_s0->unk10.y *= arg0->unk114;
+        var_s0->unk10.z *= arg0->unk114;
+      }
+    }
+  }
+}
 
 static Gfx *func_800AD2FC(Gfx *gdl, UnkStruct_86 *arg1, UnkStruct_32 *arg2) {
   UnkStruct_87 *var_s2;
@@ -211,20 +265,50 @@ Gfx *func_800AD970(Gfx *gdl, UnkStruct_86 *arg1, UnkStruct_32 *arg2) {
   return func_800AD2FC(gdl, arg1, arg2);
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/073120/func_800AD9AC.s")
+Gfx *func_800AD9AC(Gfx *gdl, UnkStruct_86 *arg1, UnkStruct_32 *arg2, Mtx4 *arg3) {
+  s32 i = (arg1->unk118 & 0x4) ? 1 : 0;
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/073120/func_800ADA34.s")
+  guMtxF2L((f32 (*)[4]) arg3, &arg1->unk0[i]);
+  gSPMatrix(gdl++, &arg1->unk0[i], G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/073120/func_800ADA48.s")
+  return func_800AD2FC(gdl, arg1, arg2);
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/073120/func_800ADA5C.s")
+void func_800ADA34(UnkStruct_86 *arg0, f32 arg1, f32 arg2) {
+  arg0->unk10C = arg1;
+  arg0->unk110 = arg2;
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/073120/func_800ADA70.s")
+void func_800ADA48(UnkStruct_86 *arg0, f32 arg1, f32 arg2) {
+  arg0->unk104 = arg1;
+  arg0->unk108 = arg2;
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/073120/func_800ADA84.s")
+void func_800ADA5C(UnkStruct_86 *arg0, f32 arg1, f32 arg2) {
+  arg0->unkD8 = arg1;
+  arg0->unkE8 = arg2;
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/073120/func_800ADA98.s")
+void func_800ADA70(UnkStruct_86 *arg0, f32 arg1, f32 arg2) {
+  arg0->unkDC = arg1;
+  arg0->unkEC = arg2;
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/073120/func_800ADAA0.s")
+void func_800ADA84(UnkStruct_86 *arg0, f32 arg1, f32 arg2) {
+  arg0->unkE0 = arg1;
+  arg0->unkF0 = arg2;
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/073120/func_800ADAC0.s")
+void func_800ADA98(UnkStruct_86 *arg0, s32 arg1) {
+  arg0->unkD4 = arg1;
+}
+
+void func_800ADAA0(UnkStruct_86 *arg0, f32 arg1, f32 arg2, f32 arg3) {
+  arg0->unkF8.x = arg1;
+  arg0->unkF8.y = arg2;
+  arg0->unkF8.z = arg3;
+}
+
+void func_800ADAC0(UnkStruct_86 *arg0, f32 arg1) {
+  arg0->unk114 = arg1;
+}

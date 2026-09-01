@@ -1407,8 +1407,19 @@ func_800ACDE4                          = 0x800ACDE4; // type:func unused
 // - {start: 0x073120, type:   c, vram: 0x800ACEA0, name: newtetris/073120}
 func_800ACEA0                          = 0x800ACEA0; // type:func
 func_800AD120                          = 0x800AD120; // type:func
+func_800AD140                          = 0x800AD140; // type:func
+func_800AD1E4                          = 0x800AD1E4; // type:func
 func_800AD2FC                          = 0x800AD2FC; // type:func static
 func_800AD970                          = 0x800AD970; // type:func
+func_800AD9AC                          = 0x800AD9AC; // type:func
+func_800ADA34                          = 0x800ADA34; // type:func
+func_800ADA48                          = 0x800ADA48; // type:func
+func_800ADA5C                          = 0x800ADA5C; // type:func
+func_800ADA70                          = 0x800ADA70; // type:func
+func_800ADA84                          = 0x800ADA84; // type:func
+func_800ADA98                          = 0x800ADA98; // type:func
+func_800ADAA0                          = 0x800ADAA0; // type:func
+func_800ADAC0                          = 0x800ADAC0; // type:func
 
 // - {start: 0x073D50, type:   c, vram: 0x800ADAD0, name: newtetris/073D50}
 func_800ADAD0                          = 0x800ADAD0; // type:func unused
