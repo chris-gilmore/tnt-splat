@@ -27,7 +27,7 @@ typedef struct {
   /* 0x2 */ s16    unk2;  // sc
   /* 0x4 */ s16    unk4;  // tc
   /* 0x6 */ u8     unk6;
-  /* 0x7 */ u8     unk7;  // level
+  /* 0x7 */ u8     unk7;  // level (also maybe mask?)
   /* 0x8 */ Gfx   *unk8;  // displaylist
   /* 0xC */ void  *unkC;  // image data
 } UnkStruct_71; // 0x10 bytes

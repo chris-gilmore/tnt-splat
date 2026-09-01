@@ -22,7 +22,7 @@ static f32 func_800B110C(f32 arg0) {
   return 1.0 - (2.0 * arg0);
 }
 
-// HSV to RGB
+// HSL to RGB
 void func_800B11C4(UnkStruct_84 *arg0, UnkStruct_84 *arg1) {
   UnkStruct_84 unused;
   f32 sp2C;
@@ -62,7 +62,7 @@ void func_800B11C4(UnkStruct_84 *arg0, UnkStruct_84 *arg1) {
 }
 
 // unused
-// RGB to HSV
+// RGB to HSL
 void func_800B13A8(UnkStruct_84 *arg0, UnkStruct_84 *arg1) {
   f32 max = 0.0;
   f32 min = 1.0;

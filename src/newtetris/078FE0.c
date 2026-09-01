@@ -102,5 +102,6 @@ UnkStruct_44 *func_800B303C(void) {
     func_800B2D60();
     D_800D9200 = 0;
   }
+
   return &D_800D91A0;
 }

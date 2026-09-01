@@ -1342,6 +1342,7 @@ func_800A8FC8                          = 0x800A8FC8; // type:func
 
 // - {start: 0x06F290, type:   c, vram: 0x800A9010, name: newtetris/06F290}
 func_800A9010                          = 0x800A9010; // type:func
+func_800A98E4                          = 0x800A98E4; // type:func
 
 // - {start: 0x06FFD0, type:   c, vram: 0x800A9D50, name: newtetris/06FFD0}
 func_800A9D50                          = 0x800A9D50; // type:func
@@ -1470,7 +1471,10 @@ func_800B1770                          = 0x800B1770; // type:func
 func_800B1A7C                          = 0x800B1A7C; // type:func
 
 // - {start: 0x077D30, type:   c, vram: 0x800B1AB0, name: newtetris/sprite}
+SetSpriteMode                          = 0x800B1AB0; // type:func
+GetSpriteMode                          = 0x800B1B64; // type:func
 func_800B1BFC                          = 0x800B1BFC; // type:func
+func_800B2810                          = 0x800B2810; // type:func
 
 // - {start: 0x078FE0, type:   c, vram: 0x800B2D60, name: newtetris/078FE0}
 func_800B2D60                          = 0x800B2D60; // type:func static
@@ -1903,9 +1907,9 @@ D_800D9110                = 0x800D9110; //            size:0x40   static  Mtx
 // - {start: 0x09F3D0, type: .data, vram: 0x800D9150, name: newtetris/09F3D0}
 D_800D9150                = 0x800D9150; // type:f32   size:0x40   unused
 
-// - {start: 0x09F410, type: data, vram: 0x800D9190, name: newtetris/sprite}
-D_800D9190                = 0x800D9190; // type:s16   size:0x2    static
-D_800D9194                = 0x800D9194; // type:s32   size:0x4    static
+// - {start: 0x09F410, type: .data, vram: 0x800D9190, name: newtetris/sprite}
+D_800D9190                = 0x800D9190; // type:u16   size:0x2
+D_800D9194                = 0x800D9194; // type:s32   size:0x4
 
 // - {start: 0x09F420, type: .data, vram: 0x800D91A0, name: newtetris/078FE0}
 D_800D91A0                = 0x800D91A0; //            size:0x18   static  UnkStruct_44
