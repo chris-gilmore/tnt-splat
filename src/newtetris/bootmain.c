@@ -92,7 +92,7 @@ static void main_infinite_loop_at_end_3(void *arg) {
 
   func_800AC06C(20, 5);
   main_another_but_diff_400x300();
-  func_800AC0F8();
+  osSramInit();
   load_from_sram(FALSE);
   for (i = 0; i < main_TEXT_END - main_TEXT_START; i++) {
     D_800CFE3C += main_TEXT_START[i];

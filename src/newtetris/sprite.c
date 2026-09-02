@@ -3,9 +3,6 @@
 u16 D_800D9190 = 1;
 s32 D_800D9194 = G_IM_FMT_IA;
 
-extern void SetSpriteMode(u16);
-extern Gfx *GetSpriteMode(u16);
-
 void SetSpriteMode(u16 mode) {
   if ((mode <= 0) || (mode >= 5)) {
     rmonPrintf("h2olib/sprite/sprite.c : SetSpriteMode: ERROR!  Unknown Mode Number: %d\n", mode);

@@ -1,21 +1,22 @@
 #include "common.h"
 
-/*
-static Gfx D_800D7B90[] = {
-  gsSPEndDisplayList(),
-};
-*/
+#define SRAM_START_ADDR     0x08000000
+#define SRAM_SIZE           0x8000
+#define SRAM_LATENCY        0x5
+#define SRAM_PULSE          0xC
+#define SRAM_PAGE_SIZE      0xD
+#define SRAM_REL_DURATION   0x2
 
-// static
-extern OSThread D_8012A860;
-// (bug) should have been declared as:
+static OSThread D_8012A860;
+// (bug?) should have been declared as:
 // static u64 D_8012AA10[STACKSIZE/sizeof(u64)]
-extern u8 D_8012AA10[STACKSIZE];
-extern OSMesgQueue D_8012CA10;  // ioMsgQ
-extern OSMesg D_8012CA28[8];    // ioMsgBuf
-extern OSMesgQueue D_8012CA48;  // dmaMsgQ
-extern OSMesg D_8012CA60[1];    // dmaMsgBuf
-extern OSPiHandle *D_8012CADC;  // carthandle
+static u8 D_8012AA10[STACKSIZE];
+static OSMesgQueue D_8012CA10;  // ioMsgQ
+static OSMesg D_8012CA28[8];    // ioMsgBuf
+static OSMesgQueue D_8012CA48;  // dmaMsgQ
+static OSMesg D_8012CA60[1];    // dmaMsgBuf
+static OSPiHandle _SramHandle;
+static OSPiHandle *_SramHandle_ptr;
 
 static void func_800ABE00();
 
@@ -27,6 +28,7 @@ static void func_800ABE00() {
 
   for (;;) {
     osRecvMesg(&D_8012CA10, (OSMesg *) &ioMsg_ptr, OS_MESG_BLOCK);
+
     switch (ioMsg_ptr->type) {
     case 0:
       osInvalDCache(ioMsg_ptr->addr[1], (s32) ioMsg_ptr->len);
@@ -40,7 +42,7 @@ static void func_800ABE00() {
       dmaIoMesgBuf.dramAddr = ioMsg_ptr->addr[0];
       dmaIoMesgBuf.devAddr = (u32) ioMsg_ptr->addr[1];
       dmaIoMesgBuf.size = ioMsg_ptr->len;
-      ioMsg_ptr->len = (u32) osEPiStartDma(D_8012CADC, &dmaIoMesgBuf, OS_READ);
+      ioMsg_ptr->len = (u32) osEPiStartDma(_SramHandle_ptr, &dmaIoMesgBuf, OS_READ);
       osRecvMesg(&D_8012CA48, NULL, OS_MESG_BLOCK);
       break;
     case 2:
@@ -50,10 +52,11 @@ static void func_800ABE00() {
       dmaIoMesgBuf.dramAddr = ioMsg_ptr->addr[0];
       dmaIoMesgBuf.devAddr = (u32) ioMsg_ptr->addr[1];
       dmaIoMesgBuf.size = ioMsg_ptr->len;
-      ioMsg_ptr->len = (u32) osEPiStartDma(D_8012CADC, &dmaIoMesgBuf, OS_WRITE);
+      ioMsg_ptr->len = (u32) osEPiStartDma(_SramHandle_ptr, &dmaIoMesgBuf, OS_WRITE);
       osRecvMesg(&D_8012CA48, NULL, OS_MESG_BLOCK);
       break;
     }
+
     osSendMesg(ioMsg_ptr->retQueue, (OSMesg) ioMsg_ptr, OS_MESG_BLOCK);
   }
 }
@@ -81,7 +84,34 @@ void func_800AC06C(OSId id, OSPri pri) {
   osStartThread(&D_8012A860);
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/072080/func_800AC0F8.s")
+void osSramInit(void) {
+  if (_SramHandle.baseAddress == PHYS_TO_K1(SRAM_START_ADDR)) {
+    _SramHandle_ptr = &_SramHandle;
+    return;
+  }
+
+  /* Fill basic information */
+  _SramHandle.type = DEVICE_TYPE_SRAM;
+  _SramHandle.baseAddress = PHYS_TO_K1(SRAM_START_ADDR);
+
+  /* Get Domain parameters */
+  _SramHandle.latency = SRAM_LATENCY;
+  _SramHandle.pulse = SRAM_PULSE;
+  _SramHandle.pageSize = SRAM_PAGE_SIZE;
+  _SramHandle.relDuration = SRAM_REL_DURATION;
+  _SramHandle.domain = PI_DOMAIN2;
+
+  /* Fill speed and transferInfo to zero */
+  _SramHandle.speed = 0;
+  bzero(&_SramHandle.transferInfo, sizeof(_SramHandle.transferInfo));
+
+  /* Put the SramHandle onto PiTable*/
+  osEPiLinkHandle(&_SramHandle);
+
+  _SramHandle_ptr = &_SramHandle;
+
+  rmonPrintf("SRAM HANDLE: %x\n", _SramHandle_ptr);
+}
 
 u32 func_800AC1A8(void *dramAddr, void *devAddr, u32 len) {
   OSMesgQueue retQ;
@@ -96,6 +126,7 @@ u32 func_800AC1A8(void *dramAddr, void *devAddr, u32 len) {
   ioMsg.retQueue = &retQ;
   osSendMesg(&D_8012CA10, (OSMesg) &ioMsg, OS_MESG_BLOCK);
   osRecvMesg(&retQ, (OSMesg *) &ioMsg, OS_MESG_BLOCK);
+
   return ioMsg.len;
 }
 
@@ -112,19 +143,6 @@ u32 func_800AC22C(void *dramAddr, void *devAddr, u32 len) {
   ioMsg.retQueue = &retQ;
   osSendMesg(&D_8012CA10, (OSMesg) &ioMsg, OS_MESG_BLOCK);
   osRecvMesg(&retQ, (OSMesg *) &ioMsg, OS_MESG_BLOCK);
+
   return ioMsg.len;
 }
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/072080/func_800AC2B0.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/072080/func_800AC308.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/072080/func_800AC334.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/072080/func_800AC350.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/072080/func_800AC4E0.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/072080/func_800AC708.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/072080/func_800AC950.s")
