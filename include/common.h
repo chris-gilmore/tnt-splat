@@ -133,6 +133,7 @@ typedef unsigned long  uintptr_t;
 #include <newtetris/imageparams.h>
 #include <newtetris/animparams.h>
 #include <newtetris/formattime.h>
+#include <newtetris/072530.h>
 #include <newtetris/027BF0.h>
 #include <newtetris/rand.h>
 #include <newtetris/0691B0.h>

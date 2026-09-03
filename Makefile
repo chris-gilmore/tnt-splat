@@ -134,6 +134,7 @@ $(BUILD_DIR)/src/newtetris/borganim.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/06F290.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/06FFD0.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/072080.o: OPT_FLAGS := -mips2 -O2
+$(BUILD_DIR)/src/newtetris/072530.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/072C40.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/073120.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/073D50.o: OPT_FLAGS := -mips2 -O2
