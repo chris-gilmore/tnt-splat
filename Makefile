@@ -121,8 +121,7 @@ $(BUILD_DIR)/%.o: %.c
 
 # Alternate compiler flags needed for matching
 
-# TODO: delete these two lines
-$(BUILD_DIR)/src/newtetris/010870.o: OPT_FLAGS := -mips2 -O1
+# TODO: delete this line
 $(BUILD_DIR)/src/newtetris/audio_env.o: OPT_FLAGS := -mips2 -O1
 
 # h2olib

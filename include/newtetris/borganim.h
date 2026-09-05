@@ -47,6 +47,7 @@ typedef struct {
 
 extern Gfx           *func_800A4B98(Gfx *, UnkStruct_44 *);
 extern void           func_800A678C(UnkStruct_32 *, UnkStruct_50 *);
+extern void           func_800A6734(UnkStruct_32 *);  // unused
 extern UnkStruct_32  *func_800A6990(s32);
 extern void           func_800A6A2C(UnkStruct_32 *);
 extern UnkStruct_50  *func_800A6A74(s32);

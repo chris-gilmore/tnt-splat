@@ -108,10 +108,10 @@ static s8 saved_screen;
 static s16 D_8011FB60[2];
 static s16 D_8011FB64[2];
 
-static void   FUN_027BF0_80061a3c_tenliner_allocs_heap(ImageParams *, ImageParams *);
-static void   FUN_027BF0_8006307c_sixliner(ImageParams *);
+static void FUN_027BF0_80061a3c_tenliner_allocs_heap(ImageParams *, ImageParams *);
+static void FUN_027BF0_8006307c_sixliner(ImageParams *);
 
-// right-justify a number?
+// right-justify a number
 void FUN_027BF0_convert_decimal_q(u32 arg0, s32 arg1) {
   if (arg0 < 10) {
     func_800AC308(262, arg1);

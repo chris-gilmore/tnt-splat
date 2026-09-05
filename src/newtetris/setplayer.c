@@ -1,5 +1,8 @@
 #include "common.h"
 
+u8 D_801109F0;
+u32 D_801109F4;
+
 void Game_SetGlobalPointers(u8 playerNum) {
   register Game *game_ptr = &g_game;
 

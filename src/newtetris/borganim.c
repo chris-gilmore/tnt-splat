@@ -532,6 +532,7 @@ static void func_800A652C(UnkStruct_32 *arg0, UnkStruct_50 *arg1) {
   arg1->unk14 |= 1;
 }
 
+// unused
 void func_800A6734(UnkStruct_32 *arg0) {
   UnkStruct_50 *var_s0;
 
