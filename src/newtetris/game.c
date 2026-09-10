@@ -565,9 +565,9 @@ void Game_Init(u8 numPlayers, u8 *handicap_arr) {
   game_ptr->unkE4FC.unk8 = 255;
   game_ptr->unkE4FC.unk4 = (255 - game_ptr->unkE4FC.alpha) / 16;
   game_ptr->unkE508 = TRUE;
-  gameVars.seed = OS_CYCLES_TO_NSEC(g_sram_ptr->unk18F4);
-  g_sram_ptr->unk18F4 = OS_CYCLES_TO_NSEC(osGetTime());  // superfluous; this line of code should have been deleted, because ...
-  func_8007C5CC(g_sram_ptr);  // inside this function, g_sram_ptr->unk18F4 is immediately set to osGetTime()
+  gameVars.seed = OS_CYCLES_TO_NSEC(g_sram_ptr->game_id);
+  g_sram_ptr->game_id = OS_CYCLES_TO_NSEC(osGetTime());  // superfluous; this line of code should have been deleted, because ...
+  save_to_sram(g_sram_ptr);  // inside this function, g_sram_ptr->game_id is immediately set to osGetTime()
   gameVars.unk4 = &game_ptr->unkE080.unk0;
   gameVars.screen = game_ptr->unkE4F8;
   gameVars.gameType = game_ptr->gameType;

@@ -73,13 +73,13 @@ void gets_lineCounts_loops_numPlayers_checks_gametype(void) {
           if (pack != 0xC) {
             if (pack == 0xD) {
               for (j = 0; j < 32; j++) {
-                if ((1 << j) & g_sram_ptr->unk0) {
-                  if (func_8007AADC((u8 *) (g_sram_ptr->unk4 + j), ((Player *) sp2C->ptr)->salt[0], ((Player *) sp2C->ptr)->salt[1])) {
-                    func_8007AF88(sp2C->ptr, (u8 *) g_sram_ptr->unk4, j * sizeof(UnkStruct_34));
+                if ((1 << j) & g_sram_ptr->bitpattern) {
+                  if (func_8007AADC(g_sram_ptr->players + (j * SRAM_PLAYER_SZ), ((Player *) sp2C->ptr)->salt[0], ((Player *) sp2C->ptr)->salt[1])) {
+                    func_8007AF88(sp2C->ptr, g_sram_ptr->players, j * SRAM_PLAYER_SZ);
                   }
                 }
               }
-              func_8007C5CC(g_sram_ptr);
+              save_to_sram(g_sram_ptr);
             }
           } else {
             D_8011F254 |= 1 << i;

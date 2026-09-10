@@ -75,7 +75,7 @@ void FUN_001050_eepromWrite(SuperThread *superThd, u8 *data) {
   if (superThd->unk25AE & 0x10) {
     superThd->eepRWBuf = data;
     superThd->eepromMsg.cmd = 1;
-    superThd->eepWrite = 1;
+    superThd->eepWrite = TRUE;
     osSendMesg(&superThd->eepromMsgQ, (OSMesg *)&superThd->eepromMsg, OS_MESG_NOBLOCK);
   }
 }
@@ -84,7 +84,7 @@ void FUN_001050_eepromRead(SuperThread *superThd, u8 *data) {
   if (superThd->unk25AE & 0x10) {
     superThd->eepRWBuf = data;
     superThd->eepromMsg.cmd = 2;
-    superThd->eepRead = 1;
+    superThd->eepRead = TRUE;
     osSendMesg(&superThd->eepromMsgQ, (OSMesg *)&superThd->eepromMsg, OS_MESG_NOBLOCK);
   }
 }
@@ -459,7 +459,7 @@ static void FUN_001050_ControllerThread(void *arg) {
                 osRecvMesg(&superThread_ptr->siMsgQ, (OSMesg *)&eepromMsg_ptr, OS_MESG_BLOCK);
               }
             }
-            superThread_ptr->eepWrite = 0;
+            superThread_ptr->eepWrite = FALSE;
             break;
           case 2:
             for (sp68 = 0; sp68 < g_eepromSize / EEPROM_BLOCK_SIZE; sp68++) {
@@ -471,7 +471,7 @@ static void FUN_001050_ControllerThread(void *arg) {
             for (sp68 = 0; sp68 < g_eepromSize; sp68++) {
               superThread_ptr->eepCache[sp68] = superThread_ptr->eepRWBuf[sp68];
             }
-            superThread_ptr->eepRead = 0;
+            superThread_ptr->eepRead = FALSE;
             break;
           }
         }

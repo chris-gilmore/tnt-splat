@@ -904,10 +904,10 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
         arg0->textList = FUN_SRAM_8007868c_tenliner_loop_arg0_t(arg0->textList);
         if (arg0->unk60 != 0xFB) {
           for (sp20C = 0; sp20C < 32; sp20C++) {
-            if (g_sram_ptr->unk0 & (1 << sp20C)) {
+            if (g_sram_ptr->bitpattern & (1 << sp20C)) {
               sp210 = n64HeapAlloc(sizeof(TextList));
               sp214 = n64HeapAlloc(sizeof(Player));
-              func_8007B430(sp214, g_sram_ptr->unk4, sp20C * sizeof(UnkStruct_34));
+              func_8007B430(sp214, g_sram_ptr->players, sp20C * SRAM_PLAYER_SZ);
               func_8007A6C4(sp214, sp210, 0xD);
               if (func_80079F90(arg0->textList, sp210)) {
                 n64HeapUnalloc(sp210);
@@ -994,7 +994,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
             if (D_800D3DF0 == 0) {
               sp1E4 = n64HeapAlloc(sizeof(TextList));
               sp1E0 = n64HeapAlloc(sizeof(Player));
-              func_8007B430(sp1E0, (UnkStruct_34 *) sp1DC, 0);
+              func_8007B430(sp1E0, sp1DC, 0);
               func_8007A6C4(sp1E0, sp1E4, (arg0->unk5C << 4) | 0xC);
               sp1E0->unkD4 = (arg0->unk5C << 4) | 0xC;
               if (func_80079F90(arg0->textList, sp1E4)) {
@@ -1126,14 +1126,14 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
             switch (sp1A0->pack & 0xF) {
             case 0xD:
               for (sp1A4 = 0; sp1A4 < 32; sp1A4++) {
-                if (func_8007AADC((u8 *) &g_sram_ptr->unk4[sp1A4], arg0->textList->salt[0], arg0->textList->salt[1])) {
+                if (func_8007AADC(g_sram_ptr->players + (sp1A4 * SRAM_PLAYER_SZ), arg0->textList->salt[0], arg0->textList->salt[1])) {
                   func_8007A62C(g_sram_ptr, sp1A4);
-                  bzero(&g_sram_ptr->unk4[sp1A4], sizeof(UnkStruct_34));
+                  bzero(g_sram_ptr->players + (sp1A4 * SRAM_PLAYER_SZ), SRAM_PLAYER_SZ);
                   arg0->textList = func_8007AEB0(arg0->textList);
                   break;
                 }
               }
-              func_8007C5CC(g_sram_ptr);
+              save_to_sram(g_sram_ptr);
               arg0->unk5D = 0xF1;
               return;
             case 0xC:
@@ -1871,10 +1871,10 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
               if (sp10C->salt[0] != 0xFF) {
                 if (g_sram_ptr->music_mode == 1) {  // CHOOSE
                   g_sram_ptr->song = sp10C->salt[0];  // TODO: is this wrong?
-                  func_8007C5CC(g_sram_ptr);
+                  save_to_sram(g_sram_ptr);
                 } else {  // TODO: this does the same thing as above -- why?
                   g_sram_ptr->song = sp10C->salt[0];
-                  func_8007C5CC(g_sram_ptr);
+                  save_to_sram(g_sram_ptr);
                 }
                 D_800D3D88 = TRUE;
                 return;
@@ -1944,7 +1944,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                         return;
                       }
                       wonders2_80045fdc_sets_num_won_compl_q();
-                      func_8007C5CC(g_sram_ptr);
+                      save_to_sram(g_sram_ptr);
                       break;
                     }
                   }
@@ -1999,8 +1999,8 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
 
                     if (((sp9C >> 4) & 0xF) == 0) {
                       for (sp100 = 0; sp100 < 32; sp100++) {
-                        if (func_8007AADC((u8 *) &g_sram_ptr->unk4[sp100], arg0->textList->salt[0], arg0->textList->salt[1])) {
-                          sp9C = FUN_001050_cpakWrite(&superThread, sp9C, 128, 0, (u8 *) &g_sram_ptr->unk4[sp100], arg0->unk5C);
+                        if (func_8007AADC(g_sram_ptr->players + (sp100 * SRAM_PLAYER_SZ), arg0->textList->salt[0], arg0->textList->salt[1])) {
+                          sp9C = FUN_001050_cpakWrite(&superThread, sp9C, 128, 0, g_sram_ptr->players + (sp100 * SRAM_PLAYER_SZ), arg0->unk5C);
                           if (((sp9C >> 4) & 0xF) != 0) {
                             FUN_001050_cpakDeleteFile(&superThread, &cpaknote_4, arg0->unk5C);
                             arg0->unk5D = 0xFA;
@@ -2011,8 +2011,8 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                           if (((sp9C >> 4) & 0xF) == 0) {
                             sp94 = 1;
                             func_8007A62C(g_sram_ptr, sp100);
-                            bzero(&g_sram_ptr->unk4[sp100], sizeof(UnkStruct_34));
-                            func_8007C5CC(g_sram_ptr);
+                            bzero(g_sram_ptr->players + (sp100 * SRAM_PLAYER_SZ), SRAM_PLAYER_SZ);
+                            save_to_sram(g_sram_ptr);
                             ((Player *) arg0->textList->ptr)->unkD4 = 0xC;
                             arg0->textList->pack = (arg0->unk5C << 4) | 0xC;
                             break;
@@ -2081,9 +2081,9 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                       }
 
                       arg0->textList->pack = (arg0->textList->pack & 0xF0) | 0xD;
-                      func_8007AF88(arg0->textList->ptr, (u8 *) &g_sram_ptr->unk4[0], func_8007A5D4(g_sram_ptr) * sizeof(UnkStruct_34));
+                      func_8007AF88(arg0->textList->ptr, g_sram_ptr->players, func_8007A5D4(g_sram_ptr) * SRAM_PLAYER_SZ);
                       func_8007A648(g_sram_ptr, func_8007A5D4(g_sram_ptr));
-                      func_8007C5CC(g_sram_ptr);
+                      save_to_sram(g_sram_ptr);
                       sp64 = 1;
                     } else if (((pfs_err_5 >> 4) & 0xF) == 5) {
                       arg0->unk5D = 0xFA;
@@ -2406,7 +2406,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
                   D_800CF83C = 0;
                   g_sram_ptr->total_wonder_lines_odd_bits = 0;
                   g_sram_ptr->total_wonder_lines_even_bits = 0;
-                  func_8007C5CC(g_sram_ptr);
+                  save_to_sram(g_sram_ptr);
                   wonders2_80045e50_sets_num_won_compl_q();
                   g_game.unkE4F8 = D_800CF838;
                   sp47 = TRUE;

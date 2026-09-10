@@ -12,12 +12,12 @@ static u8 D_800E1F98;
 
 static void wonders4_display_contributors(Font *, u8, u16, u16, u16);
 
-void wonders4_800476f0_thirtyliner(u8 font, u8 arg1) {
+void wonders4_800476f0_thirtyliner(u8 arg0, u8 arg1) {
   register UnkStruct_3 *contributor;
   register u8 i;
   register Contributions *contributions;
 
-  D_800E1F96 = font;
+  D_800E1F96 = arg0;
   D_800E1F90 = arg1;
   if (D_800E1F90 == 0) {
     D_800E1F94 = 115;

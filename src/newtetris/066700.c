@@ -124,18 +124,18 @@ static void func_800A08A0(GUI_Textbox *arg0) {
 static void func_800A08EC(GUI_Slider *arg0) {
   func_800875EC(arg0->cur * 2340, &g_songPlayer);
   g_sram_ptr->music_level = arg0->cur * 2340;
-  func_8007C5CC(g_sram_ptr);
+  save_to_sram(g_sram_ptr);
 }
 
 static void func_800A097C(GUI_Slider *arg0) {
   Audio2_80087618_fourteenliner_loops_256t(arg0->cur * 2340);
   g_sram_ptr->sfx_level = arg0->cur * 2340;
-  func_8007C5CC(g_sram_ptr);
+  save_to_sram(g_sram_ptr);
 }
 
 static void func_800A0A08(void) {
   g_sram_ptr->music_mode = D_800D4DC4.cur;
-  func_8007C5CC(g_sram_ptr);
+  save_to_sram(g_sram_ptr);
 }
 
 u32 D_800D3FB0[18] = { 3, 4, 0x48, 0, 0x56, 0x57, 0, 0, 0, 0, 0, 0, 0, 0, 0x23, 0, 0, 0 };

@@ -11,9 +11,19 @@ typedef signed size_t;
 typedef long           intptr_t;
 typedef unsigned long  uintptr_t;
 
-#include <newtetris/0497E0.h>
+#include <newtetris/img_defs.h>
+#include <newtetris/anim_defs.h>
+#include <newtetris/dcm_defs.h>
+#include <newtetris/lzobuf.h>
+#include <newtetris/cfb.h>
+
 #include <newtetris/n64heap.h>
+#include <newtetris/0497E0.h>
 #include <newtetris/066700.h>
+#include <newtetris/072080.h>
+#include <newtetris/cont.h>
+#include <newtetris/contq.h>
+#include <newtetris/001050.h>
 #include <newtetris/sram.h>
 #include <newtetris/069170.h>
 #include <newtetris/linalg.h>
@@ -23,11 +33,6 @@ typedef unsigned long  uintptr_t;
 #include <newtetris/06F220.h>
 #include <newtetris/069D80.h>
 
-#include <newtetris/img_defs.h>
-#include <newtetris/anim_defs.h>
-#include <newtetris/dcm_defs.h>
-#include <newtetris/lzobuf.h>
-#include <newtetris/cfb.h>
 #include <newtetris/03D120.h>
 #include <newtetris/003E40.h>
 #include <newtetris/006B30.h>
@@ -68,8 +73,6 @@ typedef unsigned long  uintptr_t;
 #include <newtetris/03AC20.h>
 #include <newtetris/03C130.h>
 #include <newtetris/gamevars.h>
-#include <newtetris/cont.h>
-#include <newtetris/contq.h>
 #include <newtetris/playervars.h>
 #include <newtetris/03C220.h>
 #include <newtetris/minos.h>
@@ -112,7 +115,6 @@ typedef unsigned long  uintptr_t;
 #include <newtetris/linescan.h>
 #include <newtetris/keyspin.h>
 #include <newtetris/pfgfx.h>
-#include <newtetris/001050.h>
 #include <newtetris/03A750.h>
 #include <newtetris/09F590.h>
 #include <newtetris/sprite.h>
@@ -124,7 +126,6 @@ typedef unsigned long  uintptr_t;
 #include <newtetris/game.h>
 #include <newtetris/setplayer.h>
 #include <newtetris/dbgprntrrl.h>
-#include <newtetris/072080.h>
 #include <newtetris/0470D0.h>
 #include <newtetris/01D6E0.h>
 #include <newtetris/creditstext.h>

@@ -1,12 +1,5 @@
 #include "common.h"
 
-#define SRAM_START_ADDR     0x08000000
-#define SRAM_SIZE           0x8000
-#define SRAM_LATENCY        0x5
-#define SRAM_PULSE          0xC
-#define SRAM_PAGE_SIZE      0xD
-#define SRAM_REL_DURATION   0x2
-
 static OSThread D_8012A860;
 // (bug?) should have been declared as:
 // static u64 D_8012AA10[STACKSIZE/sizeof(u64)]
