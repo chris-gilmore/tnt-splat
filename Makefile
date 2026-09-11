@@ -120,10 +120,6 @@ $(BUILD_DIR)/%.o: %.c
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 # Alternate compiler flags needed for matching
-
-# TODO: delete this line
-$(BUILD_DIR)/src/newtetris/audio_env.o: OPT_FLAGS := -mips2 -O1
-
 # h2olib
 $(BUILD_DIR)/src/newtetris/contq.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/rand.o: OPT_FLAGS := -mips2 -O2
@@ -142,7 +138,6 @@ $(BUILD_DIR)/src/newtetris/077340.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/cont.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/sprite.o: OPT_FLAGS := -mips2 -O2
 $(BUILD_DIR)/src/newtetris/078FE0.o: OPT_FLAGS := -mips2 -O2
-
 # ultralib
 $(BUILD_DIR)/src/ultralib/%.o: OPT_FLAGS := -mips2 -O2
 

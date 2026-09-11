@@ -1167,10 +1167,10 @@ Audio2_SFX_Debug_Print                     = 0x8008C15C; // type:func unused  no
 alEnvmixerPull            = 0x8008C2F0; // type:func
 alEnvmixerParam           = 0x8008CB88; // type:func
 _pullSubFrame             = 0x8008CD1C; // type:func
-_frexpf                   = 0x8008D128; // type:func
-_ldexpf                   = 0x8008D290; // type:func
-_getRate                  = 0x8008D2C0; // type:func
-_getVol                   = 0x8008D690; // type:func
+_frexpf                   = 0x8008D128; // type:func static
+_ldexpf                   = 0x8008D290; // type:func static
+_getRate                  = 0x8008D2C0; // type:func static
+_getVol                   = 0x8008D690; // type:func static
 
 // ultralib/audio/load
 // - {start: 0x0539F0, type:   c, vram: 0x8008D770, name: newtetris/audio_load}
@@ -1845,7 +1845,9 @@ D_800D3B3C                = 0x800D3B3C; // type:s32   size:0x4    static
 freq_base                 = 0x800D3B40; // type:u32   size:0x10   static  [4]
 D_800D3B50                = 0x800D3B50; // type:u16   size:0x2
 
-// - {start: 0x099E30, type: data, vram: 0x800D3BB0, name: newtetris/audio_env}
+// - {start: 0x099E30, type: .data, vram: 0x800D3BB0, name: newtetris/audio_env}
+eqpower                   = 0x800D3BB0; // type:s16   size:0x100  static  [128]
+logtab                    = 0x800D3CB0; // type:f64   size:0x40   static  [8]
 
 // - {start: 0x099F70, type: data, vram: 0x800D3CF0, name: newtetris/055500}
 D_800D3CF0                = 0x800D3CF0; // type:u8    size:0x1
