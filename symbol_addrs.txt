@@ -1166,7 +1166,7 @@ Audio2_SFX_Debug_Print                     = 0x8008C15C; // type:func unused  no
 // - {start: 0x052570, type:   c, vram: 0x8008C2F0, name: newtetris/audio_env}
 alEnvmixerPull            = 0x8008C2F0; // type:func
 alEnvmixerParam           = 0x8008CB88; // type:func
-_pullSubFrame             = 0x8008CD1C; // type:func
+_pullSubFrame             = 0x8008CD1C; // type:func static
 _frexpf                   = 0x8008D128; // type:func static
 _ldexpf                   = 0x8008D290; // type:func static
 _getRate                  = 0x8008D2C0; // type:func static
