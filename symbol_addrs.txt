@@ -1256,17 +1256,19 @@ func_800A2A94                                = 0x800A2A94; // type:func static
 start_multi_player_game                      = 0x800A2AA4; // type:func static
 func_800A2E2C                                = 0x800A2E2C; // type:func
 
-// - {start: 0x069170, type:   c, vram: 0x800A2EF0, name: newtetris/069170}
+// - {start: 0x069170, type: hasm, vram: 0x800A2EF0, name: newtetris/069170}
 func_800A2EF0                                = 0x800A2EF0; // type:func
 func_800A2F00                                = 0x800A2F00; // type:func
 
-// - {start: 0x0691B0, type:   c, vram: 0x800A2F30, name: newtetris/0691B0}
+// - {start: 0x0691B0, type: hasm, vram: 0x800A2F30, name: newtetris/0691B0}
 func_800A2F30                                = 0x800A2F30; // type:func
 func_800A2F50                                = 0x800A2F50; // type:func
 func_800A2FB0                                = 0x800A2FB0; // type:func
 func_800A30F0                                = 0x800A30F0; // type:func
 
-// - {start: 0x069530, type: hasm, vram: 0x800A32B0, name: newtetris/069530}  # handwritten assembly
+// - {start: 0x069530, type: hasm, vram: 0x800A32B0, name: newtetris/069530}
+func_800A32B0                                = 0x800A32B0; // type:func unused
+func_800A32E0                                = 0x800A32E0; // type:func unused
 
 // h2olib
 
@@ -1352,8 +1354,10 @@ func_800A7374                          = 0x800A7374; // type:func static
 func_800A74DC                          = 0x800A74DC; // type:func static
 func_800A7EFC                          = 0x800A7EFC; // type:func static
 
-// - {start: 0x06F220, type:   c, vram: 0x800A8FA0, name: newtetris/06F220}
+// - {start: 0x06F220, type: hasm, vram: 0x800A8FA0, name: newtetris/06F220}
+func_800A8FA0                          = 0x800A8FA0; // type:func unused
 func_800A8FC8                          = 0x800A8FC8; // type:func
+func_800A8FE8                          = 0x800A8FE8; // type:func unused
 
 // - {start: 0x06F290, type:   c, vram: 0x800A9010, name: newtetris/06F290}
 func_800A9010                          = 0x800A9010; // type:func

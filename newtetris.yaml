@@ -196,9 +196,9 @@ segments:
       - {start: 0x055500, type:   c, vram: 0x8008F280, name: newtetris/055500}
       - {start: 0x063BC0, type:   c, vram: 0x8009D940, name: newtetris/063BC0}
       - {start: 0x066700, type:   c, vram: 0x800A0480, name: newtetris/066700}
-      - {start: 0x069170, type:   c, vram: 0x800A2EF0, name: newtetris/069170}  # handwritten assembly
-      - {start: 0x0691B0, type:   c, vram: 0x800A2F30, name: newtetris/0691B0}  # handwritten assembly, CubeTile related
-      - {start: 0x069530, type: hasm, vram: 0x800A32B0, name: newtetris/069530}  # handwritten assembly
+      - {start: 0x069170, type: hasm, vram: 0x800A2EF0, name: newtetris/069170}
+      - {start: 0x0691B0, type: hasm, vram: 0x800A2F30, name: newtetris/0691B0}  # CubeTile related
+      - {start: 0x069530, type: hasm, vram: 0x800A32B0, name: newtetris/069530}
 
       # h2olib (-mips2 -O2)
       - {start: 0x069580, type:   c, vram: 0x800A3300, name: newtetris/contq}
@@ -206,7 +206,7 @@ segments:
       - {start: 0x069C30, type:   c, vram: 0x800A39B0, name: newtetris/frametime}
       - {start: 0x069D80, type:   c, vram: 0x800A3B00, name: newtetris/069D80}    # used by 03D140.c
       - {start: 0x06AE00, type:   c, vram: 0x800A4B80, name: newtetris/borganim}  # used by 03D140.c
-      - {start: 0x06F220, type:   c, vram: 0x800A8FA0, name: newtetris/06F220}  # handwritten assembly
+      - {start: 0x06F220, type: hasm, vram: 0x800A8FA0, name: newtetris/06F220}
       - {start: 0x06F290, type:   c, vram: 0x800A9010, name: newtetris/06F290}  # fps measurement display
       - {start: 0x06FFD0, type:   c, vram: 0x800A9D50, name: newtetris/06FFD0}  # fx loading
       - {start: 0x072080, type:   c, vram: 0x800ABE00, name: newtetris/072080}  # rom xfer
