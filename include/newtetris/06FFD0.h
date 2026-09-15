@@ -29,7 +29,7 @@ typedef struct {
   /* 0x6 */ u8     unk6;
   /* 0x7 */ u8     unk7;  // level (also maybe mask?)
   /* 0x8 */ Gfx   *unk8;  // displaylist
-  /* 0xC */ void  *unkC;  // image data
+  /* 0xC */ void  *unkC;  // image data (rgba5551) (but maybe other image types are allowed; for example, I8)
 } UnkStruct_71; // 0x10 bytes
 
 typedef struct {

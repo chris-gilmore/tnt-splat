@@ -54,6 +54,7 @@ static void func_800ABE00() {
   }
 }
 
+// load asset from rom
 void func_800ABFF0(void *devAddr, void *dramAddr, u32 len) {
   OSMesgQueue retQ;
   OSMesg msgBuf[1];
@@ -106,6 +107,7 @@ void osSramInit(void) {
   rmonPrintf("SRAM HANDLE: %x\n", _SramHandle_ptr);
 }
 
+// load from sram
 u32 func_800AC1A8(void *dramAddr, void *devAddr, u32 len) {
   OSMesgQueue retQ;
   OSMesg msgBuf[1];
@@ -123,6 +125,7 @@ u32 func_800AC1A8(void *dramAddr, void *devAddr, u32 len) {
   return ioMsg.len;
 }
 
+// save to sram
 u32 func_800AC22C(void *dramAddr, void *devAddr, u32 len) {
   OSMesgQueue retQ;
   OSMesg msgBuf[1];

@@ -209,7 +209,7 @@ segments:
       - {start: 0x06F220, type: hasm, vram: 0x800A8FA0, name: newtetris/06F220}
       - {start: 0x06F290, type:   c, vram: 0x800A9010, name: newtetris/06F290}  # fps measurement display
       - {start: 0x06FFD0, type:   c, vram: 0x800A9D50, name: newtetris/06FFD0}  # fx loading
-      - {start: 0x072080, type:   c, vram: 0x800ABE00, name: newtetris/072080}  # rom xfer
+      - {start: 0x072080, type:   c, vram: 0x800ABE00, name: newtetris/072080}  # rom and sram xfer
       - {start: 0x072530, type:   c, vram: 0x800AC2B0, name: newtetris/072530}
       - {start: 0x072C40, type:   c, vram: 0x800AC9C0, name: newtetris/072C40}
       - {start: 0x073120, type:   c, vram: 0x800ACEA0, name: newtetris/073120}
