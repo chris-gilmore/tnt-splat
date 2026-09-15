@@ -5,6 +5,7 @@ static s32 D_8012CAE4;
 static s32 D_8012CAE8;
 static s32 D_8012CAEC;
 
+// unused
 static Gfx D_800D7B90[] = {
   gsSPEndDisplayList(),
 };

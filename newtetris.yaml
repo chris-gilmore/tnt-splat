@@ -450,7 +450,7 @@ segments:
       - {start: 0x09A230, type: .data, vram: 0x800D3FB0, name: newtetris/066700}
       - {start: 0x09C470, type: .data, vram: 0x800D61F0, name: newtetris/069D80}
       - {start: 0x09C480, type: .data, vram: 0x800D6200, name: newtetris/borganim}
-      - {start: 0x09C4A0, type: data, vram: 0x800D6220, name: newtetris/06F290}
+      - {start: 0x09C4A0, type: .data, vram: 0x800D6220, name: newtetris/06F290}
       - {start: 0x09DD80, type: .data, vram: 0x800D7B00, name: newtetris/06FFD0}
       - {start: 0x09DE10, type: .data, vram: 0x800D7B90, name: newtetris/072530}
       - {start: 0x09F390, type: .data, vram: 0x800D9110, name: newtetris/073120}
@@ -648,7 +648,7 @@ segments:
       - {start: 0xA8190, type: .bss, vram: 0x80129340, name: newtetris/rand}
       - {start: 0xA8190, type: .bss, vram: 0x80129370, name: newtetris/frametime}
       - {start: 0xA8190, type: .bss, vram: 0x80129390, name: newtetris/borganim}
-      - {start: 0xA8190, type: bss, vram: 0x801295E0, name: newtetris/06F290}
+      - {start: 0xA8190, type: .bss, vram: 0x801295E0, name: newtetris/06F290}
       - {start: 0xA8190, type: .bss, vram: 0x80129600, name: newtetris/06FFD0}
       - {start: 0xA8190, type: .bss, vram: 0x8012A860, name: newtetris/072080}
       - {start: 0xA8190, type: .bss, vram: 0x8012CAE0, name: newtetris/072530}

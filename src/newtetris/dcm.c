@@ -1177,7 +1177,7 @@ static u8 Audio2_80089edc_thirtyfourliner_loops(SfxPlayer *arg0, u8 arg1) {
     return 0xFF;
   }
 
-  sp48 = -1U;  // UINT_MAX or U32_MAX
+  sp48 = -1;  // 0xFFFFFFFF
   sp4E = 0;
 
   for (sp4F = 0; sp4F < 8; sp4F++) {

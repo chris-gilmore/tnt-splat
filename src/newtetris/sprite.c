@@ -51,7 +51,7 @@ Gfx *GetSpriteMode(u16 mode) {
   return gdl;
 }
 
-void func_800B1BFC(Gfx **gdl_ptr, s32 arg1, u16 *arg2, u16 arg3, u16 arg4, f32 arg5, f32 arg6, u16 arg7, u16 arg8, u8 red, u8 green, u8 blue, u8 alpha) {
+void func_800B1BFC(Gfx **gdl_ptr, void *arg1, u16 *arg2, u16 arg3, u16 arg4, f32 arg5, f32 arg6, u16 arg7, u16 arg8, u8 red, u8 green, u8 blue, u8 alpha) {
   Gfx *gdl = *gdl_ptr;
   u16 var_t2;
   u16 var_s5;
@@ -109,7 +109,7 @@ void func_800B1BFC(Gfx **gdl_ptr, s32 arg1, u16 *arg2, u16 arg3, u16 arg4, f32 a
   *gdl_ptr = gdl;
 }
 
-void func_800B2810(Gfx **gdl_ptr, s32 arg1, UnkStruct_44 *arg2, u16 arg3, u16 arg4, f32 arg5, f32 arg6, u16 arg7, u16 arg8, u8 red, u8 green, u8 blue, u8 alpha) {
+void func_800B2810(Gfx **gdl_ptr, void *arg1, UnkStruct_44 *arg2, u16 arg3, u16 arg4, f32 arg5, f32 arg6, u16 arg7, u16 arg8, u8 red, u8 green, u8 blue, u8 alpha) {
   Gfx *gdl = *gdl_ptr;
   u16 width = arg3 * arg4 * 2;
   UnkStruct_71 *tmp;

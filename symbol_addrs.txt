@@ -1361,7 +1361,19 @@ func_800A8FE8                          = 0x800A8FE8; // type:func unused
 
 // - {start: 0x06F290, type:   c, vram: 0x800A9010, name: newtetris/06F290}
 func_800A9010                          = 0x800A9010; // type:func
-func_800A98E4                          = 0x800A98E4; // type:func
+func_800A939C                          = 0x800A939C; // type:func unused
+func_800A94A8                          = 0x800A94A8; // type:func unused
+func_800A9518                          = 0x800A9518; // type:func unused
+func_800A958C                          = 0x800A958C; // type:func unused
+func_800A95F8                          = 0x800A95F8; // type:func unused
+func_800A9668                          = 0x800A9668; // type:func unused
+func_800A96F4                          = 0x800A96F4; // type:func unused
+func_800A9758                          = 0x800A9758; // type:func unused
+func_800A9854                          = 0x800A9854; // type:func static
+func_800A9878                          = 0x800A9878; // type:func static
+func_800A989C                          = 0x800A989C; // type:func static
+func_800A98C0                          = 0x800A98C0; // type:func static
+func_800A98E4                          = 0x800A98E4; // type:func unused
 
 // - {start: 0x06FFD0, type:   c, vram: 0x800A9D50, name: newtetris/06FFD0}
 func_800A9D50                          = 0x800A9D50; // type:func
@@ -1969,8 +1981,16 @@ D_800D6200                = 0x800D6200; // type:s32   size:0x4    static
 D_800D6204                = 0x800D6204; //            size:0x4    static  UnkStruct_44*
 D_800D6208                = 0x800D6208; //            size:0x10   static  Light
 
+// - {start: 0x09C4A0, type: .data, vram: 0x800D6220, name: newtetris/06F290}
+D_800D6220                = 0x800D6220; //            size:0x8    unused  Gfx [1]
+D_800D6228                = 0x800D6228; // type:u16   size:0x1200 static  [288 * 8]
+D_800D7428                = 0x800D7428; //            size:0x8    unused  Gfx [1]
+D_800D7430                = 0x800D7430; // type:u16   size:0x6C0  static  [288 * 3]
+D_800D7AF0                = 0x800D7AF0; //            size:0x4    static  UnkStruct_117*
+D_800D7AF4                = 0x800D7AF4; //            size:0x4    static  UnkStruct_117*
+
 // - {start: 0x09DE10, type: .data, vram: 0x800D7B90, name: newtetris/072530}
-D_800D7B90                = 0x800D7B90; //            size:0x8    static  Gfx [1]
+D_800D7B90                = 0x800D7B90; //            size:0x8    unused  Gfx [1]
 D_800D7B98                = 0x800D7B98; // type:u8    size:0x1000 static  [64 * 128 / 2]
 D_800D8B98                = 0x800D8B98; // type:char  size:0x54   static  [81]
 D_800D8BEC                = 0x800D8BEC; //            size:0x50C  static  UnkStruct_114
@@ -2402,7 +2422,7 @@ D_80129594                = 0x80129594; //            size:0x4    static  UnkStr
 D_801295D8                = 0x801295D8; //            size:0x4    static  Mtx4*
 D_801295DC                = 0x801295DC; //            size:0x4    static  s16*
 
-// - {start: 0xA8190, type: bss, vram: 0x801295E0, name: newtetris/06F290}
+// - {start: 0xA8190, type: .bss, vram: 0x801295E0, name: newtetris/06F290}
 D_801295E0                = 0x801295E0; // type:u32   size:0x4
 D_801295E4                = 0x801295E4; // type:u32   size:0x4
 D_801295E8                = 0x801295E8; // type:u32   size:0x4
