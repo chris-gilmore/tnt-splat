@@ -408,7 +408,7 @@ segments:
       - {start: 0x0962B0, type: .data, vram: 0x800D0030, name: newtetris/piecedefs}
       - {start: 0x0963C0, type: .data, vram: 0x800D0140, name: newtetris/tally}
       - {start: 0x0963E0, type: .data, vram: 0x800D0160, name: newtetris/01D6E0}
-      - {start: 0x096400, type: data, vram: 0x800D0180, name: newtetris/sched_sched}
+      - {start: 0x096400, type: .data, vram: 0x800D0180, name: newtetris/sched_sched}
       - {start: 0x096420, type: .data, vram: 0x800D01A0, name: newtetris/pfgfx}
       - {start: 0x0964E0, type: .data, vram: 0x800D0260, name: newtetris/026900}
       - {start: 0x096500, type: .data, vram: 0x800D0280, name: newtetris/026F90}

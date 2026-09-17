@@ -1,9 +1,9 @@
 #ifndef _PAUSEMENU_H_
 #define _PAUSEMENU_H_
 
-#define PAUSEMENU_CONTINUE 1
-#define PAUSEMENU_PROGRESS 2
-#define PAUSEMENU_EXIT     4
+#define PAUSEMENU_CONTINUE   1
+#define PAUSEMENU_PROGRESS   2
+#define PAUSEMENU_EXIT       4
 
 typedef struct UnkStruct_35 UnkStruct_35;
 typedef struct UnkStruct_10 UnkStruct_10;

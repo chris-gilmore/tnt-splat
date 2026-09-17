@@ -375,16 +375,16 @@ osCreateScheduler         = 0x8005EC10; // type:func
 osScAddClient             = 0x8005ED58; // type:func
 osScRemoveClient          = 0x8005EDC4; // type:func
 osScGetCmdQ               = 0x8005EE84; // type:func
-__scMain                  = 0x8005EE8C; // type:func
-__scHandleRetrace         = 0x8005EFC0; // type:func
-__scHandleRSP             = 0x8005F118; // type:func
-__scHandleRDP             = 0x8005F2D0; // type:func
-__scTaskReady             = 0x8005F388; // type:func
-__scTaskComplete          = 0x8005F3F0; // type:func
-__scAppendList            = 0x8005F510; // type:func
-__scExec                  = 0x8005F598; // type:func
-__scYield                 = 0x8005F6AC; // type:func
-__scSchedule              = 0x8005F6F8; // type:func
+__scMain                  = 0x8005EE8C; // type:func static
+__scHandleRetrace         = 0x8005EFC0; // type:func static
+__scHandleRSP             = 0x8005F118; // type:func static
+__scHandleRDP             = 0x8005F2D0; // type:func static
+__scTaskReady             = 0x8005F388; // type:func static
+__scTaskComplete          = 0x8005F3F0; // type:func static
+__scAppendList            = 0x8005F510; // type:func static
+__scExec                  = 0x8005F598; // type:func static
+__scYield                 = 0x8005F6AC; // type:func static
+__scSchedule              = 0x8005F6F8; // type:func static
 
 // - {start: 0x025D00, type:   c, vram: 0x8005FA80, name: newtetris/pfgfx}
 PFGFX_8005fa80_twoliner_calls_fun                = 0x8005FA80; // type:func unused
@@ -1688,7 +1688,13 @@ piece_names               = 0x800D012C; // type:char  size:0x14   static  [8]
 
 // - {start: 0x0963E0, type: .data, vram: 0x800D0160, name: newtetris/01D6E0}
 
-// - {start: 0x096400, type: data, vram: 0x800D0180, name: ultralib/sched/sched}
+// - {start: 0x096400, type: .data, vram: 0x800D0180, name: newtetris/sched_sched}
+D_800D0180                = 0x800D0180; // type:u8    size:0x1    static
+count                     = 0x800D0184; // type:s32   size:0x4    static
+dp_busy                   = 0x800D0188; // type:s32   size:0x4    static
+dpCount                   = 0x800D018C; // type:s32   size:0x4    static
+D_800D0190                = 0x800D0190; // type:u8    size:0x1    static
+firsttime                 = 0x800D0194; // type:s32   size:0x4    static
 
 // - {start: 0x096420, type: .data, vram: 0x800D01A0, name: newtetris/pfgfx}
 // nextpieces 1p and 2p location tables
