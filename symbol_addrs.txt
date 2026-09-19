@@ -379,7 +379,7 @@ __scMain                  = 0x8005EE8C; // type:func static
 __scHandleRetrace         = 0x8005EFC0; // type:func static
 __scHandleRSP             = 0x8005F118; // type:func static
 __scHandleRDP             = 0x8005F2D0; // type:func static
-__scTaskReady             = 0x8005F388; // type:func static
+__scTaskReady             = 0x8005F388; // type:func
 __scTaskComplete          = 0x8005F3F0; // type:func static
 __scAppendList            = 0x8005F510; // type:func static
 __scExec                  = 0x8005F598; // type:func static
@@ -1167,8 +1167,8 @@ Audio2_SFX_Debug_Print                     = 0x8008C15C; // type:func unused  no
 alEnvmixerPull            = 0x8008C2F0; // type:func
 alEnvmixerParam           = 0x8008CB88; // type:func
 _pullSubFrame             = 0x8008CD1C; // type:func static
-_frexpf                   = 0x8008D128; // type:func static
-_ldexpf                   = 0x8008D290; // type:func static
+_frexpf                   = 0x8008D128; // type:func
+_ldexpf                   = 0x8008D290; // type:func
 _getRate                  = 0x8008D2C0; // type:func static
 _getVol                   = 0x8008D690; // type:func static
 
@@ -1192,7 +1192,7 @@ _collectPVoices           = 0x8008ED84; // type:func
 _freePVoice               = 0x8008EDE8; // type:func
 _timeToSamples            = 0x8008EE24; // type:func
 _samplesToTime            = 0x8008EE98; // type:func
-__nextSampleTime          = 0x8008EEFC; // type:func
+__nextSampleTime          = 0x8008EEFC; // type:func static
 
 // - {start: 0x055220, type:   c, vram: 0x8008EFA0, name: newtetris/lz77_codec}
 func_8008EFA0             = 0x8008EFA0; // type:func  preset dictionary

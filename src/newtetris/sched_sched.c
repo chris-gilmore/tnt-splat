@@ -21,8 +21,9 @@ static void __scMain(void *);
 static void __scHandleRetrace(OSSched *);
 static void __scHandleRSP(OSSched *);
 static void __scHandleRDP(OSSched *);
+
 static void __scAppendList(OSSched *, OSScTask *);
-static OSScTask *__scTaskReady(OSScTask *);
+OSScTask *__scTaskReady(OSScTask *);
 static s32 __scTaskComplete(OSSched *, OSScTask *);
 static void __scExec(OSSched *, OSScTask *, OSScTask *);
 static void __scYield(OSSched *);
@@ -215,7 +216,7 @@ static void __scHandleRDP(OSSched *sc) {
   }
 }
 
-static OSScTask *__scTaskReady(OSScTask *t) {
+OSScTask *__scTaskReady(OSScTask *t) {
   void *a;
   void *b;
 

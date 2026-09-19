@@ -136,8 +136,6 @@ static s16 eqpower[] = {
 };
 
 static Acmd *_pullSubFrame(void *, s16 *, s16 *, s32, s32, Acmd *);
-static f64 _frexpf(f64, s32 *);
-static f64 _ldexpf(f64, s32);
 static s16 _getRate(f64, f64, s32, u16 *);
 static f32 _getVol(f32, s32, s16, u16);
 
@@ -397,7 +395,7 @@ static Acmd *_pullSubFrame(void *filter, s16 *inp, s16 *outp, s32 outCount, s32 
   return ptr;
 }
 
-static f64 _frexpf(f64 value, s32 *eptr) {
+f64 _frexpf(f64 value, s32 *eptr) {
   f64 absvalue;
 
   *eptr = 0;
@@ -417,7 +415,7 @@ static f64 _frexpf(f64 value, s32 *eptr) {
   return (value > 0.0) ? absvalue : -absvalue;
 }
 
-static f64 _ldexpf(f64 in, s32 ex) {
+f64 _ldexpf(f64 in, s32 ex) {
   s32 exp;
 
   if (ex != 0) {
