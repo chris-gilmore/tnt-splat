@@ -1837,6 +1837,9 @@ n64HeapAllocCumulative    = 0x800D3198; // type:s32   size:0x4    static
 // - {start: 0x099470, type: .data, vram: 0x800D31F0, name: newtetris/creditstext}
 g_credits_str             = 0x800D31F0; // type:char* size:0x4
 
+// - {start: 0x099550, type: .data, vram: 0x800D32D0, name: newtetris/minilzo}
+__lzo_init_done           = 0x800D32D4; // type:s32   size:0x4
+
 // - {start: 0x0995B0, type: .data, vram: 0x800D3330, name: newtetris/credits}
 D_800D3330                = 0x800D3330; // type:u32   size:0x4    static
 

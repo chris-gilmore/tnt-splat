@@ -439,7 +439,7 @@ segments:
       - {start: 0x099470, type: .data, vram: 0x800D31F0, name: newtetris/creditstext}
       - {start: 0x099480, type: .data, vram: 0x800D3200, name: newtetris/endscroller}
       - {start: 0x099540, type: .data, vram: 0x800D32C0, name: newtetris/046DD0}
-      - {start: 0x099550, type: data, vram: 0x800D32D0, name: newtetris/minilzo}
+      - {start: 0x099550, type: .data, vram: 0x800D32D0, name: newtetris/minilzo}
       - {start: 0x099560, type: .data, vram: 0x800D32E0, name: newtetris/049380}
       - {start: 0x0995B0, type: .data, vram: 0x800D3330, name: newtetris/credits}
       - {start: 0x0995C0, type: .data, vram: 0x800D3340, name: newtetris/0497E0}
@@ -637,7 +637,7 @@ segments:
       - {start: 0xA8190, type: .bss, vram: 0x801201E0, name: newtetris/0449D0}
       - {start: 0xA8190, type: .bss, vram: 0x80120210, name: newtetris/046DD0}
       - {start: 0xA8190, type: .bss, vram: 0x80120220, name: newtetris/0470D0}
-      - {start: 0xA8190, type: bss, vram: 0x80120230, name: newtetris/minilzo}
+      - {start: 0xA8190, type: .bss, vram: 0x80120230, name: newtetris/minilzo}
       - {start: 0xA8190, type: .bss, vram: 0x80120240, name: newtetris/credits}
       - {start: 0xA8190, type: .bss, vram: 0x801203D0, name: newtetris/0497E0}
       - {start: 0xA8190, type: .bss, vram: 0x80120A40, name: newtetris/audio}

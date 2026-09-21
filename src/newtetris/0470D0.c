@@ -20,7 +20,7 @@ void func_80080EB4(void *arg0, u32 *arg1, void *arg2, u32 arg3) {
   arg3: length of compressed data
 */
 void func_80080EC8(void *arg0, u32 *arg1, void *arg2, u32 arg3) {
-  lzo1x_decompress(arg2, arg3, arg0, arg1, NULL);
+  lzo1x_decompress(arg2, (unsigned int)arg3, arg0, (unsigned int *)arg1, NULL);
 }
 
 void func_80080F08(s32 arg0) {

@@ -1,7 +1,7 @@
 #include "common.h"
 
-static void   Bag63_FillBag(Bag63 *);
-extern void   Bag63_RefillQueue(Bag63 *);
+static void Bag63_FillBag(Bag63 *);
+static void Bag63_RefillQueue(Bag63 *);
 
 static void Bag63_FillBag(Bag63 *bag63_ptr) {
   register s32 i;
@@ -16,7 +16,7 @@ static void Bag63_FillBag(Bag63 *bag63_ptr) {
   bag63_ptr->bag_len = 63;
 }
 
-void Bag63_RefillQueue(Bag63 *bag63_ptr) {
+static void Bag63_RefillQueue(Bag63 *bag63_ptr) {
   register s32 unused;
   register u8 *bag_ptr;
   register u32 i;
