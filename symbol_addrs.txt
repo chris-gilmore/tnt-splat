@@ -1346,6 +1346,7 @@ func_800A6B14                          = 0x800A6B14; // type:func static
 func_800A6B60                          = 0x800A6B60; // type:func static
 func_800A6BB0                          = 0x800A6BB0; // type:func static
 func_800A6D08                          = 0x800A6D08; // type:func static
+func_800A6D90                          = 0x800A6D90; // type:func static
 func_800A6DD8                          = 0x800A6DD8; // type:func
 func_800A6E48                          = 0x800A6E48; // type:func static
 func_800A70A8                          = 0x800A70A8; // type:func static
@@ -1749,8 +1750,8 @@ D_800D05D0                = 0x800D05D0; // type:char* size:0x4
 D_800D05D4                = 0x800D05D4; // type:char* size:0x4
 D_800D05D8                = 0x800D05D8; // type:char* size:0x4
 
-// - {start: 0x096860, type: data, vram: 0x800D05E0, name: newtetris/aimedat}
-
+// - {start: 0x096860, type: .data, vram: 0x800D05E0, name: newtetris/aimedat}
+D_800D05F0                = 0x800D05F0; //            size:0xC    static  RGB[4]
 
 // - {start: 0x096BB0, type: .data, vram: 0x800D0930, name: newtetris/imageparams}
 D_800D0930                = 0x800D0930; //            size:0x300          ImageParams[24]

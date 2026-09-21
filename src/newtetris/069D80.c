@@ -181,14 +181,11 @@ void func_800A4654(UnkStruct_32 *arg0) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/newtetris/069D80/func_800A468C.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/069D80/func_800A4698.s")
-/*
 void func_800A4698(UnkStruct_32 *arg0) {
   arg0->unk6 = 1;
   arg0->unk5 = 0;
   func_800A6DD8(arg0);
 }
-*/
 
 void func_800A46C0(UnkStruct_32 *arg0, s32 arg1) {
   arg0->unk5 = arg1;
