@@ -1322,7 +1322,10 @@ func_800A4698                          = 0x800A4698; // type:func
 func_800A46C0                          = 0x800A46C0; // type:func
 
 // - {start: 0x06AE00, type:   c, vram: 0x800A4B80, name: newtetris/borganim}
+func_800A4B80                          = 0x800A4B80; // type:func unused
+func_800A4B8C                          = 0x800A4B8C; // type:func unused
 func_800A4B98                          = 0x800A4B98; // type:func
+func_800A4C20                          = 0x800A4C20; // type:func unused
 func_800A4CF0                          = 0x800A4CF0; // type:func static
 func_800A4EC0                          = 0x800A4EC0; // type:func static
 func_800A5114                          = 0x800A5114; // type:func static
@@ -1331,12 +1334,20 @@ func_800A53E0                          = 0x800A53E0; // type:func static
 func_800A5660                          = 0x800A5660; // type:func static
 func_800A56E4                          = 0x800A56E4; // type:func static
 func_800A57A4                          = 0x800A57A4; // type:func static
-func_800A57FC                          = 0x800A57FC; // type:func static
-func_800A58A4                          = 0x800A58A4; // type:func static
-func_800A59C0                          = 0x800A59C0; // type:func static
-func_800A652C                          = 0x800A652C; // type:func static
+func_800A57FC                          = 0x800A57FC; // type:func
+func_800A58A4                          = 0x800A58A4; // type:func
+func_800A5930                          = 0x800A5930; // type:func unused
+func_800A59C0                          = 0x800A59C0; // type:func
+func_800A5E80                          = 0x800A5E80; // type:func unused
+func_800A5F00                          = 0x800A5F00; // type:func unused
+func_800A60FC                          = 0x800A60FC; // type:func unused
+func_800A6360                          = 0x800A6360; // type:func unused
+func_800A652C                          = 0x800A652C; // type:func
 func_800A6734                          = 0x800A6734; // type:func unused
 func_800A678C                          = 0x800A678C; // type:func
+func_800A67EC                          = 0x800A67EC; // type:func unused
+func_800A689C                          = 0x800A689C; // type:func unused
+func_800A6974                          = 0x800A6974; // type:func unused
 func_800A6990                          = 0x800A6990; // type:func
 func_800A6A2C                          = 0x800A6A2C; // type:func
 func_800A6A74                          = 0x800A6A74; // type:func
@@ -1349,11 +1360,14 @@ func_800A6D08                          = 0x800A6D08; // type:func static
 func_800A6D90                          = 0x800A6D90; // type:func static
 func_800A6DD8                          = 0x800A6DD8; // type:func
 func_800A6E48                          = 0x800A6E48; // type:func static
-func_800A70A8                          = 0x800A70A8; // type:func static
+func_800A70A8                          = 0x800A70A8; // type:func
+func_800A71DC                          = 0x800A71DC; // type:func unused
 func_800A724C                          = 0x800A724C; // type:func
-func_800A7374                          = 0x800A7374; // type:func static
-func_800A74DC                          = 0x800A74DC; // type:func static
-func_800A7EFC                          = 0x800A7EFC; // type:func static
+func_800A7288                          = 0x800A7288; // type:func unused
+func_800A72B8                          = 0x800A72B8; // type:func unused
+func_800A7374                          = 0x800A7374; // type:func
+func_800A74DC                          = 0x800A74DC; // type:func
+func_800A7EFC                          = 0x800A7EFC; // type:func
 
 // - {start: 0x06F220, type: hasm, vram: 0x800A8FA0, name: newtetris/06F220}
 func_800A8FA0                          = 0x800A8FA0; // type:func unused
@@ -2417,18 +2431,14 @@ g_frameTime               = 0x80129370; //            size:0x18           FrameT
 // - {start: 0xA8190, type: .bss, vram: 0x80129390, name: newtetris/borganim}
 D_80129390                = 0x80129390; //            size:0x60   static  UnkStruct_69
 D_801293F0                = 0x801293F0; //            size:0x60   static  UnkStruct_69
-
 D_80129480                = 0x80129480; //            size:0x40   static  Mtx4
 D_801294C0                = 0x801294C0; //            size:0x40   unused  Mtx4
 D_80129500                = 0x80129500; //            size:0x40   static  Mtx4
 D_80129540                = 0x80129540; //            size:0x40   static  Mtx4
 D_80129580                = 0x80129580; // type:s32   size:0x4    static
-
 D_80129588                = 0x80129588; // type:s32   size:0x4    static
-
 D_80129590                = 0x80129590; //            size:0x4    static  UnkStruct_45*
 D_80129594                = 0x80129594; //            size:0x4    static  UnkStruct_49*
-
 D_801295D8                = 0x801295D8; //            size:0x4    static  Mtx4*
 D_801295DC                = 0x801295DC; //            size:0x4    static  s16*
 

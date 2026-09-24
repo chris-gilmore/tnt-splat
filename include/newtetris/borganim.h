@@ -45,14 +45,36 @@ typedef struct {
   /* 0x58 */ u8             pad58[0x8];
 } UnkStruct_69; // 0x60 bytes
 
+extern void           func_800A4B80(void);  // unused
+extern void           func_800A4B8C(s32);  // unused
 extern Gfx           *func_800A4B98(Gfx *, UnkStruct_44 *);
-extern void           func_800A678C(UnkStruct_32 *, UnkStruct_50 *);
+extern Gfx           *func_800A4C20(Gfx *, UnkStruct_46 *, s32);  // unused
+extern void           func_800A57FC(UnkStruct_49 *, Mtx4 *);
+extern void           func_800A58A4(UnkStruct_32 *);
+extern void           func_800A5930(UnkStruct_32 *, Mtx4 *);  // unused
+extern void           func_800A59C0(UnkStruct_32 *, Mtx4 *);
+extern void           func_800A5E80(UnkStruct_32 *);  // unused
+extern void           func_800A5F00(UnkStruct_32 *, Vec3 *);  // unused
+extern void           func_800A60FC(UnkStruct_32 *);  // unused
+extern void           func_800A6360(UnkStruct_32 *);  // unused
+extern void           func_800A652C(UnkStruct_32 *, UnkStruct_50 *);
 extern void           func_800A6734(UnkStruct_32 *);  // unused
+extern void           func_800A678C(UnkStruct_32 *, UnkStruct_50 *);
+extern void           func_800A67EC(UnkStruct_50 *);  // unused
+extern void           func_800A689C(UnkStruct_48 *, s32, s32, s32, s32);  // unused
+extern void           func_800A6974(UnkStruct_32 *, Vp *);  // unused
 extern UnkStruct_32  *func_800A6990(s32);
 extern void           func_800A6A2C(UnkStruct_32 *);
 extern UnkStruct_50  *func_800A6A74(s32);
 extern void           func_800A6AA8(UnkStruct_50 *);
 extern void           func_800A6DD8(UnkStruct_32 *);
+extern void           func_800A70A8(UnkStruct_32 *);
+extern void           func_800A71DC(UnkStruct_50 *, s32);  // unused
 extern Gfx           *func_800A724C(Gfx *, UnkStruct_32 *);
+extern void           func_800A7288(UnkStruct_32 *);  // unused
+extern void           func_800A72B8(s32 *, const char *);  // unused
+extern Gfx           *func_800A7374(Gfx *);
+extern Gfx           *func_800A74DC(Gfx *);
+extern Gfx           *func_800A7EFC(Gfx *, UnkStruct_32 *);
 
 #endif /* !_BORGANIM_H_ */

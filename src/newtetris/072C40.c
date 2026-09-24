@@ -109,7 +109,7 @@ UnkStruct_32 *func_800AC9C0(void) {
   sp38->unk10.unk4 = 45;     // fovy
   sp38->unk10.unkC = 4096;   // far
   sp38->unk10.unk14 = 1.18;  // aspect
-  sp38->unk10.unk18 = sp2C;  // veiewport
+  sp38->unk10.unk18 = sp2C;  // viewport
   sp38->unk10.unk1C = sp28;
 
   for (i = 0; i < 2; i++) {

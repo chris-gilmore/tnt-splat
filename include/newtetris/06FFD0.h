@@ -208,7 +208,8 @@ typedef struct {
   /* 0x14C */ f32    unk14C[3];
   /* 0x158 */ f32    unk158[3];
   /* 0x164 */ f32    unk164[3];
-  /* 0x170 */ u8     pad170[0x18];
+  /* 0x170 */ Vec3   unk170;
+  /* 0x17C */ Vec3   unk17C;
 } UnkStruct_63; // 0x188 bytes
 
 struct UnkStruct_49 {
@@ -296,7 +297,7 @@ struct UnkStruct_50 {
   /* 0x0  */ BaseHeader     basehdr;  // .id = 6
   /* 0x8  */ UnkStruct_50  *unk8;     // parent node
   /* 0xC  */ UnkStruct_50  *unkC;     // child node
-  /* 0x10 */ void          *unk10;    // maybe UnkStruct_32*
+  /* 0x10 */ void          *unk10;    // handle; UnkStruct_32*
   /* 0x14 */ s32            unk14;
   /* 0x18 */ f32            unk18;
   /* 0x1C */ s32            unk1C;

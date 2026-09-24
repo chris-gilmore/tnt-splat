@@ -7,10 +7,6 @@
 static UnkStruct_69 D_80129390;
 static UnkStruct_69 D_801293F0;
 static u8 D_80129450[0x30];  // padding; what is this?
-static Mtx4 D_80129480;
-static Mtx4 D_801294C0;  // unused
-static Mtx4 D_80129500;
-static Mtx4 D_80129540;
 
 static s32 D_800D6200 = 0;
 static UnkStruct_44 *D_800D6204 = NULL;
@@ -25,33 +21,31 @@ static Light D_800D6208 = {
   }
 };
 
-extern /* static */ void   func_800A4CF0(UnkStruct_49 *, Mtx4 *);
-extern /* static */ void   func_800A4EC0(UnkStruct_49 *, Mtx4 *);
-static void   func_800A5114(UnkStruct_49 *, Mtx4 *);
-static void   func_800A52E4(UnkStruct_49 *, Mtx4 *);
-static void   func_800A53E0(UnkStruct_49 *, Mtx4 *);
-static void   func_800A5660(UnkStruct_49 *, Mtx4 *);
-static void   func_800A56E4(Mtx4 *, Mtx4 *);
-static void   func_800A57A4(Mtx4 *, Mtx4 *);
-static void   func_800A57FC(UnkStruct_49 *, Mtx4 *);
-static void   func_800A58A4(UnkStruct_32 *);
-static void   func_800A59C0(UnkStruct_32 *, Mtx4 *);
-static void   func_800A652C(UnkStruct_32 *, UnkStruct_50 *);
-static void   func_800A6AC8(UnkStruct_52 *);
-static void   func_800A6B14(UnkStruct_51 *, f32);
-static void   func_800A6B60(UnkStruct_51 *, f32);
-static void   func_800A6BB0(UnkStruct_51 *, f32);
-static void   func_800A6D08(UnkStruct_51 *);
-static void   func_800A6D90(UnkStruct_51 *);
-static void   func_800A6E48(UnkStruct_51 *);
-static void   func_800A70A8(UnkStruct_32 *);
-static Gfx   *func_800A7374(Gfx *);
-static Gfx   *func_800A74DC(Gfx *);
-static Gfx   *func_800A7EFC(Gfx *, UnkStruct_32 *);
+static void func_800A4CF0(UnkStruct_49 *, Mtx4 *);
+static void func_800A4EC0(UnkStruct_49 *, Mtx4 *);
+static void func_800A5114(UnkStruct_49 *, Mtx4 *);
+static void func_800A52E4(UnkStruct_49 *, Mtx4 *);
+static void func_800A53E0(UnkStruct_49 *, Mtx4 *);
+static void func_800A5660(UnkStruct_49 *, Mtx4 *);
+static void func_800A56E4(Mtx4 *, Mtx4 *);
+static void func_800A57A4(Mtx4 *, Mtx4 *);
+static void func_800A6AC8(UnkStruct_52 *);
+static void func_800A6B14(UnkStruct_51 *, f32);
+static void func_800A6B60(UnkStruct_51 *, f32);
+static void func_800A6BB0(UnkStruct_51 *, f32);
+static void func_800A6D08(UnkStruct_51 *);
+static void func_800A6D90(UnkStruct_51 *);
+static void func_800A6E48(UnkStruct_51 *);
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/borganim/func_800A4B80.s")
+//unused
+void func_800A4B80(void) {
+  D_800D6204 = NULL;
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/borganim/func_800A4B8C.s")
+// unused
+void func_800A4B8C(s32 arg0) {
+  D_800D6200 = arg0;
+}
 
 Gfx *func_800A4B98(Gfx *gdl, UnkStruct_44 *arg1) {
   gSPSegment(gdl++, 0x0B, osVirtualToPhysical(&arg1->unk8));
@@ -62,11 +56,130 @@ Gfx *func_800A4B98(Gfx *gdl, UnkStruct_44 *arg1) {
   return gdl;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/borganim/func_800A4C20.s")
+// unused
+Gfx *func_800A4C20(Gfx *gdl, UnkStruct_46 *arg1, s32 arg2) {
+  s32 var_s0;
+  Gfx **var_s1;
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/borganim/func_800A4CF0.s")
+  if (arg1->unk10.unk18 != NULL) {
+    gSPSegment(gdl++, 0x0A, osVirtualToPhysical(*(&arg1->unk10.unk10 + arg2)));  // (bug?) this doesn't look right
+  } else {
+    gSPSegment(gdl++, 0x0A, osVirtualToPhysical(arg1->unk10.unk10));
+  }
+  for (var_s0 = arg1->unk10.unk4, var_s1 = arg1->unk10.unkC; var_s0 != 0; var_s0--, var_s1++) {
+    gSPDisplayList(gdl++, osVirtualToPhysical(*var_s1));
+  }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/borganim/func_800A4EC0.s")
+  return gdl;
+}
+
+static void func_800A4CF0(UnkStruct_49 *arg0, Mtx4 *arg1) {
+  f32 a, b, c;
+  f32 cos_b, cos_a, cos_c;
+  f32 sin_b, sin_a, sin_c;
+  f32 x, y, z;
+
+  a = arg0->unk10[0];
+  b = arg0->unk10[1];
+  c = arg0->unk10[2];
+
+  a *= DEG2RAD;
+  b *= DEG2RAD;
+  c *= DEG2RAD;
+
+  sin_b = sinf(b);
+  cos_b = cosf(b);
+
+  sin_a = sinf(a);
+  cos_a = cosf(a);
+
+  sin_c = sinf(c);
+  cos_c = cosf(c);
+
+  x = arg0->unk10[6];
+  y = arg0->unk10[7];
+  z = arg0->unk10[8];
+
+  arg1->a11 = ((cos_a * cos_c) + (sin_a * sin_b * sin_c)) * x;
+  arg1->a12 = ((-cos_a * sin_c) + (sin_a * sin_b * cos_c)) * y;
+  arg1->a13 = sin_a * cos_b * z;
+
+  arg1->a21 = cos_b * sin_c * x;
+  arg1->a22 = cos_b * cos_c * y;
+  arg1->a23 = -sin_b * z;
+
+  arg1->a31 = ((-sin_a * cos_c) + (cos_a * sin_b * sin_c)) * x;
+  arg1->a32 = ((sin_a * sin_c) + (cos_a * sin_b * cos_c)) * y;
+  arg1->a33 = cos_a * cos_b * z;
+
+  arg1->a14 = arg0->unk10[3];
+  arg1->a24 = arg0->unk10[4];
+  arg1->a34 = arg0->unk10[5];
+
+  arg1->a41 = 1;
+  arg1->a42 = 1;
+  arg1->a43 = 1;
+  arg1->a44 = 1;
+}
+
+static void func_800A4EC0(UnkStruct_49 *arg0, Mtx4 *arg1) {
+  f32 b, a, c;
+  f32 cos_b, cos_a, cos_c;
+  f32 sin_b, sin_a, sin_c;
+  f32 x, y, z;
+  f32 u, v, w;
+  f32 d, e, f;
+
+  a = arg0->unk10[0];
+  b = arg0->unk10[1];
+  c = arg0->unk10[2];
+
+  a *= DEG2RAD;
+  b *= DEG2RAD;
+  c *= DEG2RAD;
+
+  sin_b = sinf(b);
+  cos_b = cosf(b);
+
+  sin_a = sinf(a);
+  cos_a = cosf(a);
+
+  sin_c = sinf(c);
+  cos_c = cosf(c);
+
+  x = arg0->unk10[6];
+  y = arg0->unk10[7];
+  z = arg0->unk10[8];
+
+  arg1->a11 = cos_c * cos_a * x;
+  arg1->a12 = ((-sin_c * cos_b) + (cos_c * sin_a * sin_b)) * y;
+  arg1->a13 = ((sin_c * sin_b) + (cos_c * sin_a * cos_b)) * z;
+
+  arg1->a21 = sin_c * cos_a * x;
+  arg1->a22 = ((cos_c * cos_b) + (sin_c * sin_a * sin_b)) * y;
+  arg1->a23 = ((-cos_c * sin_b) + (sin_c * sin_a * cos_b)) * z;
+
+  arg1->a31 = -sin_a * x;
+  arg1->a32 = cos_a * sin_b * y;
+  arg1->a33 = cos_a * cos_b * z;
+
+  u = arg0->unk10[9];
+  v = arg0->unk10[10];
+  w = arg0->unk10[11];
+
+  d = (arg1->a11 * u) + (arg1->a12 * v) + (arg1->a13 * w);
+  e = (arg1->a21 * u) + (arg1->a22 * v) + (arg1->a23 * w);
+  f = (arg1->a31 * u) + (arg1->a32 * v) + (arg1->a33 * w);
+
+  arg1->a14 = arg0->unk10[3] - d;
+  arg1->a24 = arg0->unk10[4] - e;
+  arg1->a34 = arg0->unk10[5] - f;
+
+  arg1->a41 = 1;
+  arg1->a42 = 1;
+  arg1->a43 = 1;
+  arg1->a44 = 1;
+}
 
 /*
   The formulas used to fill the matrix match a rotation matrix constructed from three Euler angles (likely in ZYX or XYZ order), followed by translation.
@@ -316,7 +429,10 @@ static void func_800A57A4(Mtx4 *arg0, Mtx4 *arg1) {
   arg1->a43 = 1;
 }
 
-static void func_800A57FC(UnkStruct_49 *arg0, Mtx4 *arg1) {
+void func_800A57FC(UnkStruct_49 *arg0, Mtx4 *arg1) {
+  static Mtx4 D_80129480;
+  static Mtx4 D_801294C0;  // unused
+
   UnkStruct_49 **var_s1;
   s32 i;
   s32 unused[4];
@@ -336,7 +452,9 @@ static void func_800A57FC(UnkStruct_49 *arg0, Mtx4 *arg1) {
   }
 }
 
-static void func_800A58A4(UnkStruct_32 *arg0) {
+void func_800A58A4(UnkStruct_32 *arg0) {
+  static Mtx4 D_80129500;
+
   if (arg0->unk0 & 4) {
     D_80129500 = arg0->unkC;
   } else {
@@ -346,9 +464,18 @@ static void func_800A58A4(UnkStruct_32 *arg0) {
 }
 
 // unused
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/borganim/func_800A5930.s")
+void func_800A5930(UnkStruct_32 *arg0, Mtx4 *arg1) {
+  static Mtx4 D_80129540;
 
-static void func_800A59C0(UnkStruct_32 *arg0, Mtx4 *arg1) {
+  if (arg0->unk0 & 4) {
+    func_800AEE4C(&D_80129540, arg1, &arg0->unkC);
+  } else {
+    D_80129540 = *arg1;
+  }
+  func_800A59C0(arg0, &D_80129540);
+}
+
+void func_800A59C0(UnkStruct_32 *arg0, Mtx4 *arg1) {
   Mtx4 *var_s0;
   UnkStruct_49 *var_s1;
   s32 unused;
@@ -451,15 +578,85 @@ static void func_800A59C0(UnkStruct_32 *arg0, Mtx4 *arg1) {
   }
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/borganim/func_800A5E80.s")
+// unused
+void func_800A5E80(UnkStruct_32 *arg0) {
+  s32 cnt;
+  UnkStruct_63 *temp_v0_2;
+  s32 i;
+  u8 temp_s3;
+  UnkStruct_48 *temp_v0;
+  UnkStruct_49 *var_s0;
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/borganim/func_800A5F00.s")
+  temp_v0 = arg0->unk8;
+  temp_s3 = arg0->unk4;
+  cnt = temp_v0->unk10.unk0;
+  for (var_s0 = temp_v0->unk10.unk18, i = 0; i < cnt; i++, var_s0++) {
+    if (var_s0->unk0 & 2) {
+      temp_v0_2 = var_s0->unkC;
+      guMtxF2L((f32 (*)[4]) &temp_v0_2->unk80, &temp_v0_2->unk0[temp_s3]);
+    }
+  }
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/borganim/func_800A60FC.s")
+// unused
+void func_800A5F00(UnkStruct_32 *arg0, Vec3 *arg1) {
+  Mtx4 *var_v1;
+  UnkStruct_49 *var_v0;
+  s32 cnt;
+  s32 i;
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/borganim/func_800A6360.s")
+  var_v0 = arg0->unk8->unk10.unk18;
+  cnt = arg0->unk8->unk10.unk0;
+  for (i = 0; i < cnt; i++, var_v0++) {
+    if (var_v0->unk0 & 0x2) {
+      var_v1 = &var_v0->unkC->unkC0;
+      var_v1->a14 += arg1->x;
+      var_v1->a24 += arg1->y;
+      var_v1->a34 += arg1->z;
 
-static void func_800A652C(UnkStruct_32 *arg0, UnkStruct_50 *arg1) {
+      var_v1 = &var_v0->unkC->unk80;
+      var_v1->a14 += arg1->x * 16;
+      var_v1->a24 += arg1->y * 16;
+      var_v1->a34 += arg1->z * 16;
+    }
+  }
+}
+
+// unused
+void func_800A60FC(UnkStruct_32 *arg0) {
+  UnkStruct_63 *var_v1;
+  UnkStruct_49 *var_v0;
+  s32 i;
+
+  var_v0 = arg0->unk8->unk10.unk18;
+  for (i = arg0->unk8->unk10.unk0; i != 0; i--, var_v0++) {
+    var_v1 = var_v0->unkC;
+    var_v1->unk17C.x = var_v1->unkC0.a14 - var_v1->unk170.x;
+    var_v1->unk17C.y = var_v1->unkC0.a24 - var_v1->unk170.y;
+    var_v1->unk17C.z = var_v1->unkC0.a34 - var_v1->unk170.z;
+  }
+}
+
+// unused
+void func_800A6360(UnkStruct_32 *arg0) {
+  UnkStruct_63 *var_v1;
+  UnkStruct_49 *var_v0;
+  s32 i;
+
+  var_v0 = arg0->unk8->unk10.unk18;
+  for (i = arg0->unk8->unk10.unk0; i != 0; i--, var_v0++) {
+    var_v1 = var_v0->unkC;
+    var_v1->unk17C.x = 0;
+    var_v1->unk17C.y = 0;
+    var_v1->unk17C.z = 0;
+
+    var_v1->unk170.x = var_v1->unkC0.a14;
+    var_v1->unk170.y = var_v1->unkC0.a24;
+    var_v1->unk170.z = var_v1->unkC0.a34;
+  }
+}
+
+void func_800A652C(UnkStruct_32 *arg0, UnkStruct_50 *arg1) {
   s32 temp_s4;
   UnkStruct_51 *var_s0;
   int i;
@@ -535,38 +732,99 @@ static void func_800A652C(UnkStruct_32 *arg0, UnkStruct_50 *arg1) {
 
 // unused
 void func_800A6734(UnkStruct_32 *arg0) {
-  UnkStruct_50 *var_s0;
+  UnkStruct_50 *anim;
 
-  var_s0 = arg0->unk1D0;
+  anim = arg0->unk1D0;
   rmonPrintf("Animation list\n");
-  while (var_s0 != NULL) {
-    rmonPrintf("anim : 0x%08X\n", var_s0);
-    var_s0 = var_s0->unkC;
+  while (anim != NULL) {
+    rmonPrintf("anim : 0x%08X\n", anim);
+    anim = anim->unkC;
   }
 }
 
 // push
-void func_800A678C(UnkStruct_32 *arg0, UnkStruct_50 *arg1) {
+void func_800A678C(UnkStruct_32 *arg0, UnkStruct_50 *anim) {
   register UnkStruct_50 *temp_v0;
 
-  if (!(arg1->unk14 & 1)) {
-    func_800A652C(arg0, arg1);
+  if (!(anim->unk14 & 1)) {
+    func_800A652C(arg0, anim);
   }
   temp_v0 = arg0->unk1D0;
   if (temp_v0 == NULL) {
-    arg0->unk1D0 = arg1;
+    arg0->unk1D0 = anim;
   } else {
-    arg1->unkC = temp_v0;
-    arg0->unk1D0->unk8 = arg1;
-    arg0->unk1D0 = arg1;
+    anim->unkC = temp_v0;
+    arg0->unk1D0->unk8 = anim;
+    arg0->unk1D0 = anim;
   }
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/borganim/func_800A67EC.s")
+// pop
+// unused
+void func_800A67EC(UnkStruct_50 *anim) {
+  UnkStruct_50 *temp_v0;
+  UnkStruct_32 *temp_v1;
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/borganim/func_800A689C.s")
+  if (anim == NULL) {
+    rmonPrintf(" NULL anim!!!\n");
+    return;
+  }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/borganim/func_800A6974.s")
+  temp_v1 = anim->unk10;
+  if (temp_v1 == NULL) {
+    rmonPrintf("anim without handle!!!\n");
+    rmonPrintf("  anim->hdr.handle 0x%08X\n", anim->unk10);
+    return;
+  }
+
+  temp_v0 = anim->unk8;  // anim's parent node
+  if (temp_v0 != NULL) {
+    temp_v0->unkC = anim->unkC;  // parent->child = anim->child
+  }
+
+  temp_v0 = anim->unkC;  // anim's child node
+  if (temp_v0 != NULL) {
+    temp_v0->unk8 = anim->unk8;  // child->parent = anim->parent
+  }
+
+  if (anim == temp_v1->unk1D0) {
+    temp_v1->unk1D0 = anim->unkC;
+  }
+
+  anim->unkC = NULL;
+  anim->unk8 = NULL;
+}
+
+// unused
+void func_800A689C(UnkStruct_48 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+  UnkStruct_45 *temp_v0;
+
+  temp_v0 = arg0->unk10.unk24;
+  if (temp_v0 != NULL) {
+    temp_v0->unk10.unk18->vp.vtrans[0] = (arg1 + arg3) / 2;
+    temp_v0->unk10.unk18->vp.vtrans[1] = (arg2 + arg4) / 2;
+    if (arg1 < arg3) {
+      temp_v0->unk10.unk18->vp.vscale[0] = (arg3 - arg1) / 2;
+    } else {
+      temp_v0->unk10.unk18->vp.vscale[0] = (arg1 - arg3) / 2;
+    }
+    if (arg2 < arg4) {
+      temp_v0->unk10.unk18->vp.vscale[1] = (arg4 - arg2) / 2;
+    } else {
+      temp_v0->unk10.unk18->vp.vscale[1] = (arg2 - arg4) / 2;
+    }
+  }
+}
+
+// unused
+void func_800A6974(UnkStruct_32 *arg0, Vp *vp) {
+  UnkStruct_45 *temp_v0;
+
+  temp_v0 = arg0->unk8->unk10.unk24;
+  if (temp_v0 != NULL) {
+    temp_v0->unk10.unk18 = vp;
+  }
+}
 
 // arg0 is fx_id
 UnkStruct_32 *func_800A6990(s32 arg0) {
@@ -861,7 +1119,7 @@ static void func_800A6E48(UnkStruct_51 *arg0) {
   }
 }
 
-static void func_800A70A8(UnkStruct_32 *arg0) {
+void func_800A70A8(UnkStruct_32 *arg0) {
   s32 var_s0;
   UnkStruct_51 *var_s1;
   s32 var_s2;
@@ -897,7 +1155,20 @@ static void func_800A70A8(UnkStruct_32 *arg0) {
   }
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/borganim/func_800A71DC.s")
+// unused
+void func_800A71DC(UnkStruct_50 *arg0, s32 arg1) {
+  UnkStruct_51 *var_s1;
+  s32 var_s0;
+  s32 var_s2;
+
+  var_s1 = arg0->unk20.unk8;
+  for (var_s2 = arg0->unk20.unk4; var_s2 != 0; var_s2--) {
+    for (var_s0 = arg1; var_s0 != 0; var_s0--) {
+      func_800A6E48(var_s1);
+    }
+    // (bug?) missing "var_s1++;"
+  }
+}
 
 Gfx *func_800A724C(Gfx *gdl, UnkStruct_32 *arg1) {
   func_800A70A8(arg1);
@@ -905,11 +1176,30 @@ Gfx *func_800A724C(Gfx *gdl, UnkStruct_32 *arg1) {
   return func_800A7EFC(gdl, arg1);
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/borganim/func_800A7288.s")
+// unused
+void func_800A7288(UnkStruct_32 *arg0) {
+  D_801293F0.unk0 = arg0;
+  func_800A70A8(arg0);
+  func_800A58A4(arg0);
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/newtetris/borganim/func_800A72B8.s")
+// unused
+void func_800A72B8(s32 *arg0, const char *arg1) {
+  s32 *var_s1;
+  s32 *var_s5;
+  s32 var_s0;
+  s32 var_s4;
 
-static Gfx *func_800A7374(Gfx *gdl) {
+  rmonPrintf("%s\n");
+  for (var_s4 = 0, var_s5 = arg0; var_s4 < 4; var_s5 += 4, var_s4++) {
+    for (var_s0 = 0, var_s1 = var_s5; var_s0 < 16; var_s1++, var_s0 += 4) {
+      rmonPrintf(" 0x%08X", *var_s1);
+    }
+    rmonPrintf("\n");
+  }
+}
+
+Gfx *func_800A7374(Gfx *gdl) {
   D_801293F0.gm_set = G_ZBUFFER | G_SHADE | G_CULL_BACK | G_LIGHTING | G_SHADING_SMOOTH;
   D_801293F0.gm_clr = G_FOG | G_TEXTURE_GEN | G_TEXTURE_GEN_LINEAR;
   D_801293F0.unk4C = G_CYC_1CYCLE;
@@ -933,7 +1223,7 @@ static Gfx *func_800A7374(Gfx *gdl) {
   return gdl;
 }
 
-static Gfx *func_800A74DC(Gfx *gdl) {
+Gfx *func_800A74DC(Gfx *gdl) {
   s32 temp_a2;
   s32 red;
   s32 green;
@@ -1173,7 +1463,7 @@ static Gfx *func_800A74DC(Gfx *gdl) {
   return gdl;
 }
 
-static Gfx *func_800A7EFC(Gfx *gdl, UnkStruct_32 *arg1) {
+Gfx *func_800A7EFC(Gfx *gdl, UnkStruct_32 *arg1) {
   static s32 D_80129580;
   static s32 D_80129584;  // padding; what is this?
   static s32 D_80129588;
