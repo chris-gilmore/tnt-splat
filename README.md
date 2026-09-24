@@ -7,6 +7,7 @@
 ### Tools used for development
 - [m2c](https://github.com/matt-kempster/m2c)
 - [asm-differ](https://github.com/simonlindholm/asm-differ)
+- [gfxdis.f3dex2](https://github.com/glankk/n64)
 
 ### Install `splat`
 ```
