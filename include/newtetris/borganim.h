@@ -20,7 +20,8 @@ typedef struct {
   /* 0x1D7 */ u8             unk1D7;
   /* 0x1D8 */ s32            unk1D8;
   /* 0x1DC */ s32            unk1DC;
-  /* 0x1E0 */ u8             pad1E0[0x8];
+  /* 0x1E0 */ s32            unk1E0;
+  /* 0x1E4 */ s32            unk1E4;
 } UnkStruct_32; // 0x1E8 bytes
 
 typedef struct {

@@ -212,16 +212,6 @@ typedef struct {
   /* 0x17C */ Vec3   unk17C;
 } UnkStruct_63; // 0x188 bytes
 
-struct UnkStruct_49 {
-  /* 0x0  */ u16            unk0;
-  /* 0x2  */ u8             unk2;
-  /* 0x3  */ u8             unk3;  // cnt of unk4
-  /* 0x4  */ UnkStruct_49 **unk4;
-  /* 0x8  */ s32            unk8;
-  /* 0xC  */ UnkStruct_63  *unkC;
-  /* 0x10 */ f32            unk10[12];
-}; // 0x40 bytes
-
 typedef struct {
   /* 0x0  */ f32   min;
   /* 0x4  */ f32   max;
@@ -258,6 +248,7 @@ typedef struct {
 } UnkStruct_48; // 0x4C bytes
 
 
+typedef struct UnkStruct_51 UnkStruct_51;
 typedef struct UnkStruct_50 UnkStruct_50;
 
 typedef struct {
@@ -275,9 +266,9 @@ typedef struct {
   /* 0x10 */ f32           *unk10;
 } UnkStruct_52; // 0x14 bytes
 
-typedef struct {
+struct UnkStruct_51 {
   /* 0x0  */ void          *unk0;   // id turned into an asset
-  /* 0x4  */ s32            unk4;
+  /* 0x4  */ UnkStruct_51  *unk4;
   /* 0x8  */ s32            unk8;
   /* 0xC  */ s32            unkC;   // 0, 1, 2, or 3
   /* 0x10 */ void          *unk10;  // see func_800A6BB0, func_800A6B60, and func_800A652C
@@ -285,7 +276,17 @@ typedef struct {
   /* 0x18 */ s32            unk18;  // cnt of unk1C
   /* 0x1C */ UnkStruct_52  *unk1C;
   /* 0x20 */ UnkStruct_50  *unk20;
-} UnkStruct_51; // 0x24 bytes
+}; // 0x24 bytes
+
+struct UnkStruct_49 {
+  /* 0x0  */ u16            unk0;
+  /* 0x2  */ u8             unk2;
+  /* 0x3  */ u8             unk3;  // cnt of unk4
+  /* 0x4  */ UnkStruct_49 **unk4;
+  /* 0x8  */ UnkStruct_51  *unk8;  // list; UnkStruct_51* is a guess (see func_800A484C)
+  /* 0xC  */ UnkStruct_63  *unkC;
+  /* 0x10 */ f32            unk10[12];
+}; // 0x40 bytes
 
 typedef struct {
   /* 0x0 */ UnkStruct_48  *unk0;
