@@ -622,17 +622,17 @@ segments:
       - {start: 0xA8190, type: .bss, vram: 0x8011FBF0, name: newtetris/mobilecubes}
       - {start: 0xA8190, type: .bss, vram: 0x8011FC00, name: newtetris/fallingcubes}
       - {start: 0xA8190, type: .bss, vram: 0x8011FC10, name: newtetris/minos}
-      - {start: 0xA8190, type: bss, vram: 0x8011FC60, name: newtetris/8011FC60}
+      - {start: 0xA8190, type: .bss, vram: 0x8011FC60, name: newtetris/8011FC60}
       - {start: 0xA8190, type: .bss, vram: 0x8011FC70, name: newtetris/landfill}
       - {start: 0xA8190, type: .bss, vram: 0x8011FC80, name: newtetris/garbage}
       - {start: 0xA8190, type: .bss, vram: 0x8011FC90, name: newtetris/aimedat}
       - {start: 0xA8190, type: .bss, vram: 0x8011FCA0, name: newtetris/03A750}
       - {start: 0xA8190, type: .bss, vram: 0x8011FCB0, name: newtetris/cubetiles}
       - {start: 0xA8190, type: .bss, vram: 0x8011FCD0, name: newtetris/03C220}
-      - {start: 0xA8190, type: bss, vram: 0x8011FCE0, name: newtetris/8011FCE0}
+      - {start: 0xA8190, type: .bss, vram: 0x8011FCE0, name: newtetris/8011FCE0}
       - {start: 0xA8190, type: .bss, vram: 0x8011FCF0, name: newtetris/sram}
       - {start: 0xA8190, type: .bss, vram: 0x8011FD10, name: newtetris/haluci}
-      - {start: 0xA8190, type: bss, vram: 0x801200C0, name: newtetris/801200C0}
+      - {start: 0xA8190, type: .bss, vram: 0x801200C0, name: newtetris/801200C0}
       - {start: 0xA8190, type: .bss, vram: 0x801201D0, name: newtetris/n64heap}
       - {start: 0xA8190, type: .bss, vram: 0x801201E0, name: newtetris/0449D0}
       - {start: 0xA8190, type: .bss, vram: 0x80120210, name: newtetris/046DD0}
@@ -652,7 +652,7 @@ segments:
       - {start: 0xA8190, type: .bss, vram: 0x80129600, name: newtetris/06FFD0}
       - {start: 0xA8190, type: .bss, vram: 0x8012A860, name: newtetris/072080}
       - {start: 0xA8190, type: .bss, vram: 0x8012CAE0, name: newtetris/072530}
-      - {start: 0xA8190, type: bss, vram: 0x8012CAF0, name: newtetris/8012CAF0}
+      - {start: 0xA8190, type: .bss, vram: 0x8012CAF0, name: newtetris/8012CAF0}
       - {start: 0xA8190, type: .bss, vram: 0x8012CB80, name: newtetris/078FE0}
 
       - {start: 0xA8190, type: bss, vram: 0x8012CC80, name: ultralib/os/seteventmesg}
