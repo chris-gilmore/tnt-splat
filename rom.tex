@@ -1,0 +1,33 @@
+\documentclass{article}
+
+\usepackage[endianness=big]{bytefield}
+
+\newcommand{\memsection}[4]{%
+  % define the height of the memsection
+  \bytefieldsetup{bitheight=#3\baselineskip}%
+  \bitbox[]{10}{%
+    \texttt{#1}%      print end address
+    \\
+    %   do some spacing
+    \vspace{#3\baselineskip}
+    \vspace{-2\baselineskip}
+    \vspace{-#3pt}
+    \texttt{#2}%      print start address
+  }%
+  \bitbox{16}{#4}%    print box with caption
+}
+
+\begin{document}
+
+\begin{bytefield}{24}
+  \memsection{00bf ffff}{00b9 bd50}{2}{Fill with 0xFF}\\
+  \memsection{}{\\ 00b8 fd20}{1}{Rants and Ascii Art}\\
+  \memsection{}{007c 1960}{15}{3D Assets}\\
+  \memsection{}{005b 9ab0}{8}{Audio Assets}\\
+  \memsection{}{0052 06b0}{2}{Anim Assets}\\
+  \memsection{}{0027 3a00}{11}{Image Assets}\\
+  \memsection{}{000a 8190}{7}{FX Assets}\\
+  \memsection{}{0000 1000}{3}{Code}\\
+\end{bytefield}
+
+\end{document}

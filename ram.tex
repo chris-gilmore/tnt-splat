@@ -1,0 +1,39 @@
+\documentclass{article}
+
+\usepackage[endianness=big]{bytefield}
+
+\newcommand{\memsection}[4]{%
+  % define the height of the memsection
+  \bytefieldsetup{bitheight=#3\baselineskip}%
+  \bitbox[]{10}{%
+    \texttt{#1}%      print end address
+    \\
+    %   do some spacing
+    \vspace{#3\baselineskip}
+    \vspace{-2\baselineskip}
+    \vspace{-#3pt}
+    \texttt{#2}%      print start address
+  }%
+  \bitbox{16}{#4}%    print box with caption
+}
+
+\begin{document}
+
+\begin{bytefield}{24}
+  \begin{rightwordgroup}{color frame buffers}
+    \memsection{803f ffff}{803c 5680}{3}{CFB[1] (240000 B)}\\
+    \memsection{}{8038 ad00}{3}{CFB[0] (240000 B)}
+  \end{rightwordgroup}\\
+  \memsection{}{8034 ad00}{3}{SFX Audio Heap (256 KiB)}\\
+  \memsection{}{8012 f7d0}{25}{Heap}\\
+  \begin{rightwordgroup}{code}
+    \memsection{}{800e 1f10}{3}{.bss}\\
+    \memsection{}{\\ 800d b3a0}{1}{.rodata}\\
+    \memsection{}{\\ 800c 5590}{1}{.data}\\
+    \memsection{}{8003 add0}{6}{.text}
+  \end{rightwordgroup}\\
+  \memsection{}{\\ 8003 ad80}{1}{Entry}\\
+  \memsection{}{8000 0400}{3}{LZO Buffer (240000 B)}\\
+\end{bytefield}
+
+\end{document}
