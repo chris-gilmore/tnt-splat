@@ -268,8 +268,8 @@ typedef struct {
 
 struct UnkStruct_51 {
   /* 0x0  */ void          *unk0;   // id turned into an asset
-  /* 0x4  */ UnkStruct_51  *unk4;
-  /* 0x8  */ s32            unk8;
+  /* 0x4  */ UnkStruct_51  *unk4;   // parent node?
+  /* 0x8  */ UnkStruct_51  *unk8;   // child node?
   /* 0xC  */ s32            unkC;   // 0, 1, 2, or 3
   /* 0x10 */ void          *unk10;  // see func_800A6BB0, func_800A6B60, and func_800A652C
   /* 0x14 */ s32            unk14;  // bitfield

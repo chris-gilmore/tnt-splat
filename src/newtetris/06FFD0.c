@@ -744,8 +744,8 @@ static s32 func_800AB794(void *addr) {
       var_a1 += 4 * sizeof(f32);
     }
 
-    var_t2->unk4 = 0;
-    var_t2->unk8 = 0;
+    var_t2->unk4 = NULL;
+    var_t2->unk8 = NULL;
   }
 
   var_a1_2 = n64HeapAlloc(var_a1);
