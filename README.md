@@ -8,6 +8,7 @@
 - [m2c](https://github.com/matt-kempster/m2c)
 - [asm-differ](https://github.com/simonlindholm/asm-differ)
 - [gfxdis.f3dex2](https://github.com/glankk/n64)
+- [n64sym](https://github.com/shygoo/n64sym)
 
 ### Install `splat`
 ```
