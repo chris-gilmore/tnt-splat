@@ -58,8 +58,9 @@ else
   LDFLAGS     :=
 endif
 
-IDO_ROOT      := /opt/ido-static-recomp/5.3/bin
-CC            := $(IDO_ROOT)/cc
+TOOLS_DIR = tools
+
+CC := $(TOOLS_DIR)/ido-static-recomp/build/5.3/out/cc
 
 VERSION_D := 1
 VERSION_E := 2
@@ -78,7 +79,7 @@ TARGET_CFLAGS = -nostdinc -D_LANGUAGE_C -DNDEBUG -DF3DEX_GBI_2 -D_MIPS_SZLONG=32
 #TARGET_CFLAGS += -D_HALUCI
 #TARGET_CFLAGS += -D_WOBBLE
 
-INCLUDE_DIRS := /opt/ultralib/include /opt/ultralib/include/ido /opt/ultralib/src/audio /opt/ultralib/include/PR include include/minilzo
+INCLUDE_DIRS := $(TOOLS_DIR)/ultralib/include $(TOOLS_DIR)/ultralib/include/PR $(TOOLS_DIR)/ultralib/src/audio include include/minilzo
 
 DEF_INC_CFLAGS := $(foreach i,$(INCLUDE_DIRS),-I$(i))
 
@@ -94,6 +95,12 @@ ASFLAGS = $(foreach i,$(INCLUDE_DIRS),-I$(i)) -march=vr4300 -mabi=32
 
 all: $(ROM)
 
+setup-tools:
+	@echo "Initializing and updating git submodules..."
+	git submodule update --init --recursive
+	@echo "Building tools..."
+	$(MAKE) -C $(TOOLS_DIR)
+
 clean:
 	$(RM) -r $(BUILD_DIR)
 
@@ -108,7 +115,7 @@ $(shell mkdir -p $(ALL_DIRS))
 #==============================================================================#
 
 # Run asm-processor
-$(GLOBAL_ASM_O_FILES): CC := python3 /opt/asm-processor/build.py $(CC) -- $(AS) $(ASFLAGS) --
+$(GLOBAL_ASM_O_FILES): CC := python3 $(TOOLS_DIR)/asm-processor/build.py $(CC) -- $(AS) $(ASFLAGS) --
 
 
 #==============================================================================#
@@ -159,7 +166,7 @@ $(ROM): $(ELF)
 
 
 
-.PHONY: all clean default
+.PHONY: all clean default setup-tools
 # with no prerequisites, .SECONDARY causes no intermediate target to be removed
 .SECONDARY:
 

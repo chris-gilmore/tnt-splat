@@ -15,48 +15,13 @@
 $ python3 -m pip install -U splat64[mips]
 ```
 
-### Install `/opt/ido-static-recomp/`
-```
-$ mkdir -p ~/src
-$ cd ~/src
-
-$ wget https://github.com/decompals/ido-static-recomp/archive/refs/tags/v1.1.tar.gz
-$ tar zxf v1.1.tar.gz
-
-$ cd ido-static-recomp-1.1
-$ make setup
-$ make VERSION=5.3
-$ make VERSION=7.1
-
-$ sudo mkdir -p /opt/ido-static-recomp/5.3
-$ sudo mkdir -p /opt/ido-static-recomp/7.1
-$ sudo cp -r build/5.3/out /opt/ido-static-recomp/5.3/bin
-$ sudo cp -r build/7.1/out /opt/ido-static-recomp/7.1/bin
-```
-
-### Install `/opt/asm-processor/`
-```
-$ cd ~/src
-
-$ git clone https://github.com/simonlindholm/asm-processor.git
-$ cd asm-processor
-
-$ sudo mkdir -p /opt/asm-processor
-$ sudo cp prelude.inc asm_processor.py build.py /opt/asm-processor/
-```
-
-### Install `/opt/ultralib`
-```
-$ cd /opt
-$ sudo git clone https://github.com/decompals/ultralib.git
-```
-
 ### Download `tnt-splat`
 ```
 $ cd ~/src
 
 $ git clone https://github.com/chris-gilmore/tnt-splat.git
 $ cd tnt-splat
+$ make setup-tools
 ```
 
 Place `baserom.z64` under `~/src/tnt-splat/`.
@@ -77,5 +42,8 @@ $ rm -rf asm assets
 $ splat split newtetris.yaml
 $ make clean
 $ make
+  The above `make` assumes a cross toolchain of `mips64-linux-gnu-`.
+  Specify your own cross toolchain if you need to, for example:
+  $ make CROSS=mips-linux-gnu-
 $ diff baserom.z64 build/tnt.z64
 ```
