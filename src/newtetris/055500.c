@@ -897,7 +897,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
   TextList *sp48;
   u8 sp47;
 
-  sp218 = &g_PV_arr[arg0->unk5C].unk28;
+  sp218 = &g_PV_arr[arg0->unk5C].unk28;  // (bug?) when arg0->unk5C is 0xFF, then we have an out-of-bounds array access.  maybe it should have been [arg2]?
   if (arg0->unk62 == 2) {
     if (arg0->unk5D == 0xFE) {
       if (arg2 == 0) {
@@ -921,7 +921,7 @@ static void func_80091D60(GUI_Textbox *arg0, UnkStruct_78 *arg1, s32 arg2, f32 a
       }
 
       FUN_001050_8003b5d0_controller_sendrecvmsg(&superThread);
-      arg0->unk5E = FUN_001050_getControllerStatus(&superThread, arg0->unk5C);
+      arg0->unk5E = FUN_001050_getControllerStatus(&superThread, arg0->unk5C);  // (bug?) arg0->unk5C can be 0xFF, which would lead to an out-of-bounds array access.  maybe it should have been arg2?
       D_800D2D98.pack = 0xF;  // "NEW NAME"
       D_800D2D80.pack = 0xE;  // "GUEST"
       arg0->unk5C = 0;

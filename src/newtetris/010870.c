@@ -972,10 +972,6 @@ void FUN_010870_OptionsDataMenu(void) {
     }
     break;
   case 12:
-    /*
-    D_801109D8 = 30;
-    D_801109DC = 80;
-    */
     D_801109DC = 80;
     D_801109D8 = 30;
     displayText_XY_RGBA_2(&g_gdl, &D_80110680, D_801109D8, D_801109DC, "WARNING", 0xFF, 0, 0, 0xFF);
