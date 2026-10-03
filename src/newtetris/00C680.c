@@ -108,7 +108,7 @@ static void wonders3_800467f8_threeliner(WonderViewer *wndrVwr) {
 }
 
 static void wonders3_init_tuples(WonderViewer *wndrVwr) {
-  register u8 screen;
+  register u8 i;
 
   Font_Init46Char(&wndrVwr->font[0], IMG_FONT_B);
   Font_Init46Char(&wndrVwr->font[1], IMG_FONT_C);
@@ -134,8 +134,8 @@ static void wonders3_init_tuples(WonderViewer *wndrVwr) {
     wndrVwr->imgPalParams[1].x = 300, wndrVwr->imgPalParams[1].y = 65;
   }
 
-  for (screen = 0; screen < 8; screen++) {
-    wndrVwr->imgPalParams[2 + screen].x = 35, wndrVwr->imgPalParams[2 + screen].y = 150;
+  for (i = 0; i < 8; i++) {
+    wndrVwr->imgPalParams[2 + i].x = 35, wndrVwr->imgPalParams[2 + i].y = 150;
   }
 
   wndrVwr->unk0 = 4;
@@ -339,7 +339,7 @@ void wonders3_wonder_viewer(s8 screen, u8 arg1, u8 playernum) {
 
 static void wonders3_8004745c_medium_liner_has_audio(void) {
   register WonderViewer *wndrVwr = wonderViewer;
-  register u8 screen;
+  register u8 i;
   register u8 temp_s2;
 
   wonders3_80046798_threeliner(wndrVwr);
@@ -354,14 +354,14 @@ static void wonders3_8004745c_medium_liner_has_audio(void) {
     FUN_01D300_800572f8_twoliner(&wndrVwr->imgPalParams[1]);
   }
 
-  for (screen = 0; screen < 8; screen++) {
-    FUN_01D300_800572f8_twoliner(&wndrVwr->imgPalParams[2 + screen]);
+  for (i = 0; i < 8; i++) {
+    FUN_01D300_800572f8_twoliner(&wndrVwr->imgPalParams[2 + i]);
   }
 
   n64HeapUnalloc(D_800E1F80);
   n64HeapUnalloc(D_800E1F84);
 
-  screen = wndrVwr->cur_screen;
+  i = wndrVwr->cur_screen;
   temp_s2 = wndrVwr->unk0;
 
   n64HeapUnalloc(wonderViewer);
@@ -370,10 +370,10 @@ static void wonders3_8004745c_medium_liner_has_audio(void) {
   main_8004A34C_threeliner();
   D_800D3CF0 = 0;
   if (temp_s2 == 6) {
-    if (screen < D_800CF838) {
-      wonders1_anim_related(wonders2_8004624c_mult_7_add_6_etc(screen));
-    } else if (screen == D_800CF838) {
-      if (screen == 7) {
+    if (i < D_800CF838) {
+      wonders1_anim_related(wonders2_8004624c_mult_7_add_6_etc(i));
+    } else if (i == D_800CF838) {
+      if (i == 7) {
         wonders1_anim_related(49);
       } else {
         wonders1_anim_related(D_800CF830);
