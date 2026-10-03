@@ -193,7 +193,6 @@ static void func_8007B8A8(UnkStruct_115 *, s32, s32);
 static s32 func_8007B964(UnkStruct_115 *, s32);
 static void func_8007BA38(UnkStruct_115 *);
 static void func_8007BB54(u8 *, SuperThread *);
-static void set_total_wonder_lines(Sram *, u32);
 static u32 sram_chksum(u8 *, u32);
 static u16 func_8007BD48(u8 *, u32);
 static void func_8007BDD8(Sram *);
@@ -1235,7 +1234,7 @@ static void func_8007BB54(u8 *arg0, SuperThread *arg1) {
   while (arg1->eepWrite) {}
 }
 
-static void set_total_wonder_lines(Sram *sram_ptr, u32 total_wonder_lines) {
+void set_total_wonder_lines(Sram *sram_ptr, u32 total_wonder_lines) {
   sram_ptr->total_wonder_lines_odd_bits = total_wonder_lines & 0xAAAAAAAA;
   sram_ptr->total_wonder_lines_even_bits = total_wonder_lines & 0x55555555;
 }

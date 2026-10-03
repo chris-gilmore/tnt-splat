@@ -131,6 +131,7 @@ extern void            func_8007B38C(TextList *);
 extern void            func_8007B420(Player *);
 extern void            func_8007B430(Player *, u8 *, s32);
 extern void            func_8007BA84(u8 *, SuperThread *);  // unused
+extern void            set_total_wonder_lines(Sram *, u32);
 extern u32             get_total_wonder_lines(Sram *);
 extern void            load_from_sram(u8);
 extern void            save_to_sram(Sram *);
